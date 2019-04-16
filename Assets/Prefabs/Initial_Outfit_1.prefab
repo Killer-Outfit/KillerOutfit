@@ -1094,9 +1094,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1422686379061392097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53e97a4c299afb14983e31916e356d18, type: 3}
+  m_Script: {fileID: 11500000, guid: d67f094a6920539429f5418e6bc4c950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0
+  turningSpeed: 0
+  mainCam: {fileID: 0}
 --- !u!114 &1422686379061294128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,11 +1109,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1422686379061392097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc361dcbc678acb418bf2b1a22e8b9f7, type: 3}
+  m_Script: {fileID: 11500000, guid: b8d953fbcbdbfc143a3c3c94495d08a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 20
-  turningSpeed: 10
+  state: 
+  isAttacking: 0
+  energy: 0
+  top: {fileID: 0}
+  misc: {fileID: 0}
+  bot: {fileID: 0}
 --- !u!114 &51508736113399150
 MonoBehaviour:
   m_ObjectHideFlags: 0
