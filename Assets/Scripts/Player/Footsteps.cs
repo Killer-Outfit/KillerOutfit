@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private AudioClip[] footsteps;
+
+    private AudioSource audioSource;
+
+    void Awake()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Step()
     {
-        
+        AudioClip clip = GetRandomClip();
+        audioSource.PlayOneShot(clip);
+    }
+
+    private AudioClip GetRandomClip()
+    {
+        return footsteps[UnityEngine.Random.Range(0, footsteps.Length)];
     }
 }
