@@ -6,6 +6,7 @@ public class HandProjMove : MonoBehaviour
 {
     private bool hit;
     private float timer;
+    private Color fader;
     [HideInInspector]
     public int direction;
 
@@ -27,7 +28,7 @@ public class HandProjMove : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player" && hit == false)
         {
