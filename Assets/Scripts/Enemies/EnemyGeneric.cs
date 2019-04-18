@@ -6,9 +6,13 @@ using UnityEngine;
 public class EnemyGeneric : MonoBehaviour
 {
     // Stats
-    public float health;
     public float maxHP;
     public float damage;
+
+    [HideInInspector]
+    public float health;
+
+    [HideInInspector]
     public GameObject overmind;
 
     // Called when the player hits the enemy.
@@ -36,22 +40,22 @@ public class EnemyGeneric : MonoBehaviour
     }
 
     // Default death behavior. Overridden.
-    public void Die()
+    public virtual void Die()
     {
         Destroy(this.gameObject);
     }
 
-    // Enemy starts their attack. Called by EnemyMovement when in position to attack.
+    // Enemy starts their attack. Called by EnemyMovement when in position to attack. Overridden in enemy classes.
     public void DoAttack()
     {
-        GetComponent<EnemyMovement>().DoAttack();
+        GetComponent<EnemyMovement>().StopForAttack();
         StartCoroutine("Attack");
     }
 
     // Default attack to be overridden.
-    public IEnumerable Attack()
+    protected virtual IEnumerator Attack()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
         GetComponent<EnemyMovement>().ResumeMovement();
     }
 }

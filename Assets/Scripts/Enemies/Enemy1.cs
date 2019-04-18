@@ -16,7 +16,7 @@ public class Enemy1 : EnemyGeneric
     }
 
     // Attack timing
-    private IEnumerable Attack()
+    protected override IEnumerator Attack()
     {
         hitPlayer = false;
         yield return new WaitForSeconds(0.5f);
@@ -45,10 +45,10 @@ public class Enemy1 : EnemyGeneric
         }
     }
 
-    private void Die()
+    public override void Die()
     {
         overmind.GetComponent<Overmind>().RemoveMelee(this.gameObject);
-        Destroy(this.gameObject);
+        GetComponent<EnemyMovement>().Die();
     }
 
 }

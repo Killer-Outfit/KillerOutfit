@@ -17,8 +17,10 @@ public class Overmind : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        aggroTimerMelee = Random.Range(1f, 2f);
-        aggroTimerRanged = Random.Range(2f, 3f);
+        enemMelee = new List<GameObject>();
+        enemRanged = new List<GameObject>();
+        aggroTimerMelee = Random.Range(1f, 4f);
+        aggroTimerRanged = Random.Range(2f, 5f);
     }
 
     // Update is called once per frame
@@ -27,12 +29,20 @@ public class Overmind : MonoBehaviour
         aggroTimerMelee -= Time.deltaTime;
         if(aggroTimerMelee <= 0)
         {
-            CallMeleeAttack();
+            aggroTimerMelee = Random.Range(1f, 4f);
+            if(enemMelee.Count > 0)
+            {
+                CallMeleeAttack();
+            }
         }
         aggroTimerRanged -= Time.deltaTime;
         if(aggroTimerRanged <= 0)
         {
-            CallRangedAttack();
+            aggroTimerRanged = Random.Range(2f, 5f);
+            if(enemRanged.Count > 0)
+            {
+                CallRangedAttack();
+            }
         }
         UpdateAttackers();
     }
@@ -212,7 +222,10 @@ public class Overmind : MonoBehaviour
     // Tells the enemy that they want to attack when available.
     private void SetToAttack(GameObject enem)
     {
-        enem.GetComponent<EnemyMovement>().wantsToAttack = true;
+        if(enem.GetComponent<EnemyMovement>().state != "attacking" && enem.GetComponent<EnemyMovement>().state != "doingattack")
+        {
+            enem.GetComponent<EnemyMovement>().wantsToAttack = true;
+        }
     }
 
     private void UpdateAttackers()
