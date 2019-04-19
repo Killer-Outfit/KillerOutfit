@@ -9,6 +9,7 @@ public class HandProjMove : MonoBehaviour
     private Color fader;
     [HideInInspector]
     public int direction;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,8 @@ public class HandProjMove : MonoBehaviour
         if (collision.gameObject.tag == "Player" && hit == false)
         {
             hit = true;
-            Debug.Log("Hit player");
+            //Debug.Log("Hit player");
+            collision.GetComponent<playerNew>().decreaseHealth(damage);
         }
     }
 }

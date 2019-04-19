@@ -21,11 +21,11 @@ public class EnemyGeneric : MonoBehaviour
         Damage(atk);
         if (isKnockdown == true)
         {
-            GetComponent<EnemyMovement>().Knockdown();
+            GetComponent<EnemyMovement>().Knockdown(5f);
         }
         else
         {
-            GetComponent<EnemyMovement>().Stagger();
+            GetComponent<EnemyMovement>().Stagger(0.4f);
         }
     }
 

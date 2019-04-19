@@ -312,14 +312,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trails: []
   attacks: []
-  attackDamage: []
+  attackDamage:
+  - 3
+  - 5
+  - 10
   outfitMesh: {fileID: 4300004, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
   outfitMaterial: {fileID: 2100004, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
   outfitSkinRenderer: {fileID: 946694424}
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Bot
   attackType: Kick
-  attackColliders: []
+  attackColliders:
+  - {fileID: 386605778}
+  - {fileID: 386605778}
+  - {fileID: 386605778}
   attack1Time:
   - 0.2
   - 0.1
@@ -399,7 +405,6 @@ Transform:
   m_Children:
   - {fileID: 494104221}
   - {fileID: 2089587245}
-  - {fileID: 386605777}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -670,7 +675,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trails: []
   attacks: []
-  attackDamage: []
+  attackDamage:
+  - 3
+  - 5
+  - 10
   outfitMesh: {fileID: 4300000, guid: d6e6fe290ff528c4a96582b16845e4af, type: 3}
   outfitMaterial: {fileID: 2100000, guid: d6e6fe290ff528c4a96582b16845e4af, type: 3}
   outfitSkinRenderer: {fileID: 1123195838}
@@ -678,6 +686,7 @@ MonoBehaviour:
   outfitType: Top
   attackType: punch
   attackColliders:
+  - {fileID: 386605778}
   - {fileID: 386605778}
   - {fileID: 386605778}
   attack1Time:
@@ -901,7 +910,10 @@ MonoBehaviour:
   - {fileID: 363814716}
   - {fileID: 1790387436}
   attacks: []
-  attackDamage: []
+  attackDamage:
+  - 3
+  - 5
+  - 10
   outfitMesh: {fileID: 4300000, guid: 6a8546ac1a1809b45a2f320db674e934, type: 3}
   outfitMaterial: {fileID: 2100000, guid: 6a8546ac1a1809b45a2f320db674e934, type: 3}
   outfitSkinRenderer: {fileID: 1725868493}
@@ -1223,12 +1235,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386605776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.69, y: 177.14, z: -306.45}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.10842323, y: 12.249985, z: -5.271454}
+  m_LocalScale: {x: 10, y: 5, z: 10}
   m_Children: []
-  m_Father: {fileID: 148635080}
-  m_RootOrder: 2
+  m_Father: {fileID: 494104221}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &386605778
 BoxCollider:
@@ -1238,7 +1250,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386605776}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1350,7 +1362,10 @@ MonoBehaviour:
   - {fileID: 1300952381}
   - {fileID: 428546395}
   attacks: []
-  attackDamage: []
+  attackDamage:
+  - 3
+  - 5
+  - 10
   outfitMesh: {fileID: 4300000, guid: 0b52a4440cd6344459180e9b6b62d049, type: 3}
   outfitMaterial: {fileID: 2100000, guid: 0b52a4440cd6344459180e9b6b62d049, type: 3}
   outfitSkinRenderer: {fileID: 1123195838}
@@ -1859,9 +1874,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 567350451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a854a4dad562e4db3409595661d2aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ca471c89ec10564babae7286193b72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatPositions: []
+  Encounter1:
+  - {fileID: 0}
+  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
+  - {fileID: 0}
+  Encounter2:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Encounter3:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &591878208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2908,14 +2945,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trails: []
   attacks: []
-  attackDamage: []
+  attackDamage:
+  - 3
+  - 5
+  - 10
   outfitMesh: {fileID: 4300000, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
   outfitMaterial: {fileID: 2100000, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
   outfitSkinRenderer: {fileID: 1725868493}
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Misc
   attackType: Misc
-  attackColliders: []
+  attackColliders:
+  - {fileID: 386605778}
+  - {fileID: 386605778}
+  - {fileID: 386605778}
   attack1Time:
   - 0.4
   - 0.4
@@ -3125,6 +3168,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1502144173}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1458723541
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7445361391061125684, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_Name
+      value: Overmind
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106693205699966986, guid: 535fd3e828c406d4b9a790fa03995503,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 535fd3e828c406d4b9a790fa03995503, type: 3}
 --- !u!1001 &1479450200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3685,7 +3797,10 @@ MonoBehaviour:
   - {fileID: 1389554400}
   - {fileID: 1554737497}
   attacks: []
-  attackDamage: []
+  attackDamage:
+  - 3
+  - 5
+  - 10
   outfitMesh: {fileID: 4300000, guid: e124bf99da2741e4d80a157fe73e351c, type: 3}
   outfitMaterial: {fileID: 2100000, guid: e124bf99da2741e4d80a157fe73e351c, type: 3}
   outfitSkinRenderer: {fileID: 1123195838}
