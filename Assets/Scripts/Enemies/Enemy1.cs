@@ -34,7 +34,7 @@ public class Enemy1 : EnemyGeneric
     // Check if the attack hitbox hit the player
     private void AtkDetect()
     {
-        Collider[] cols = Physics.OverlapSphere(atkBox.bounds.center, atkBox.radius, LayerMask.GetMask("Default"));
+        Collider[] cols = Physics.OverlapSphere(atkBox.bounds.center, atkBox.radius, LayerMask.GetMask("Hitboxes"));
         foreach(Collider c in cols)
         {
             if(c.transform.root.tag == "Player")

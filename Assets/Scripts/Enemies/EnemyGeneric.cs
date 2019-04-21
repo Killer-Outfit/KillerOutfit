@@ -17,17 +17,19 @@ public class EnemyGeneric : MonoBehaviour
     [HideInInspector]
     public GameObject overmind;
 
+    protected bool dead = false;
+
     // Called when the player hits the enemy.
     public void TakeDamage(float atk, bool isKnockdown)
     {
         Damage(atk);
         if (isKnockdown == true)
         {
-            GetComponent<EnemyMovement>().Knockdown(5f);
+            GetComponent<EnemyMovement>().Knockdown(0.4f);
         }
         else
         {
-            GetComponent<EnemyMovement>().Stagger(0.4f);
+            GetComponent<EnemyMovement>().Stagger(5f);
         }
     }
 
@@ -35,8 +37,9 @@ public class EnemyGeneric : MonoBehaviour
     public void Damage(float atk)
     {
         health -= atk;
-        if(health <= 0)
+        if (health <= 0 && dead == false)
         {
+            dead = true;
             Die();
         }
     }

@@ -210,16 +210,21 @@ public class EnemyMovement : MonoBehaviour
 
     public void Stagger(float stuntime = 0.4f)
     {
-        anim.SetTrigger("Stagger");
-
-        state = "stagger";
-        stagTimer = stuntime;
-        StartCoroutine("Stagger");
+        if(state != "dying")
+        {
+            anim.SetTrigger("Stagger");
+            stagTimer = stuntime;
+            if (state != "stagger")
+            {
+                state = "stagger";
+                StartCoroutine("StaggerCR");
+            }
+        }
     }
 
-    private IEnumerator Stagger()
+    private IEnumerator StaggerCR()
     {
-        for (float i=0; i < stagTimer; i+=Time.deltaTime)
+        for (float i=0; i < stagTimer; stagTimer-=Time.deltaTime)
         {
             yield return null;
         }
@@ -229,13 +234,15 @@ public class EnemyMovement : MonoBehaviour
     public void Knockdown(float speed = 5f)
     {
         anim.SetTrigger("Knockdown");
-
-        state = "knockdown";
-        knockSpeed = speed;
-        StartCoroutine("Knockdown");
+        if (state != "knockdown" && state != "dying")
+        {
+            state = "knockdown";
+            knockSpeed = speed;
+            StartCoroutine("KnockdownCR");
+        }
     }
 
-    private IEnumerator Knockdown()
+    private IEnumerator KnockdownCR()
     {
         while (knockSpeed > 0)
         {
@@ -256,12 +263,15 @@ public class EnemyMovement : MonoBehaviour
     public void Die(float time = 1f)
     {
         anim.SetTrigger("Die");
-
-        dieTime = time;
-        StartCoroutine("Die");
+        if(state != "dying")
+        {
+            state = "dying";
+            dieTime = time;
+            StartCoroutine("DieCR");
+        }
     }
 
-    private IEnumerator Die()
+    private IEnumerator DieCR()
     {
         yield return new WaitForSeconds(dieTime);
         Destroy(this.gameObject);
