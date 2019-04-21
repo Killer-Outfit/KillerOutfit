@@ -21,6 +21,7 @@ public class Enemy2 : EnemyGeneric
         yield return new WaitForSeconds(0.5f);
         GameObject hand = Instantiate(proj, handTransform.position, Quaternion.identity);
         hand.GetComponent<HandProjMove>().direction = GetComponent<EnemyMovement>().direction;
+        hand.GetComponent<HandProjMove>().damage = damage;
         yield return new WaitForSeconds(0.5f);
         GetComponent<EnemyMovement>().ResumeMovement();
     }
@@ -28,7 +29,7 @@ public class Enemy2 : EnemyGeneric
     public override void Die()
     {
         overmind.GetComponent<Overmind>().RemoveRanged(this.gameObject);
-        GetComponent<EnemyMovement>().Die();
+        GetComponent<EnemyMovement>().Die(0.5f);
         int droppedScraps = Random.Range(1, 11);
         for (int i = 0; i < droppedScraps; i++)
         {
