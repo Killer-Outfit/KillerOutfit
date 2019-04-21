@@ -29,5 +29,10 @@ public class Enemy2 : EnemyGeneric
     {
         overmind.GetComponent<Overmind>().RemoveRanged(this.gameObject);
         GetComponent<EnemyMovement>().Die();
+        int droppedScraps = Random.Range(1, 11);
+        for (int i = 0; i < droppedScraps; i++)
+        {
+            Instantiate(Scrap, transform.position, Quaternion.identity);
+        }
     }
 }

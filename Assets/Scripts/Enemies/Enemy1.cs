@@ -49,6 +49,11 @@ public class Enemy1 : EnemyGeneric
     {
         overmind.GetComponent<Overmind>().RemoveMelee(this.gameObject);
         GetComponent<EnemyMovement>().Die();
+        int droppedScraps = Random.Range(1, 11);
+        for(int i=0; i < droppedScraps; i++)
+        {
+            Instantiate(Scrap, transform.position, Quaternion.identity);
+        }
     }
 
 }

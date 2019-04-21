@@ -9,6 +9,8 @@ public class EnemyGeneric : MonoBehaviour
     public float maxHP;
     public float damage;
 
+    public GameObject Scrap;
+
     [HideInInspector]
     public float health;
 
