@@ -28,11 +28,14 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (combatPositions.Length > 0 && mainCam.transform.position.x >= combatPositions[currentCombatNum])
+        if (combatPositions.Length > 0)
         {
-            //mainCam.GetComponent<CameraScript>().locked = true;
-            combatEvent(currentCombatNum);
-            currentCombatNum += 1;
+            if (mainCam.transform.position.x >= combatPositions[currentCombatNum])
+            {
+                mainCam.GetComponent<CameraScript>().locked = true;
+                combatEvent(currentCombatNum);
+                currentCombatNum += 1;
+            }
         }
     }
 

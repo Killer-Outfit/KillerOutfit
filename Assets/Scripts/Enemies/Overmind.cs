@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Overmind : MonoBehaviour
 {
-    private List<GameObject> enemMelee;
+    [HideInInspector]
+    public List<GameObject> enemMelee;
     private GameObject MeleeL;
     private GameObject MeleeR;
-    private List<GameObject> enemRanged;
+    [HideInInspector]
+    public List<GameObject> enemRanged;
     private GameObject RangedL;
     private GameObject RangedR;
 
