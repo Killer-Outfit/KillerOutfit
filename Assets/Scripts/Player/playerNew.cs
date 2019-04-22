@@ -129,7 +129,6 @@ public class playerNew : MonoBehaviour
     // Make the attack activate
     IEnumerator launchAttack()
     {
-        int happened = 0;
         float startTime = 0f;
         bool hit;
         outfits currentOutfitItem = null;
@@ -149,7 +148,7 @@ public class playerNew : MonoBehaviour
         }
 
         attack = currentOutfitItem.attackColliders[currentHitNum];
-
+        currentOutfitItem.trails[currentHitNum].enabled = true;
         // Go through each phase of the attack based on the outfit attack stats
         for (int i = 0; i < currentOutfitItem.GetPhases(currentHitNum); i++)
         {
@@ -169,13 +168,16 @@ public class playerNew : MonoBehaviour
                 // if this phase is an active hitbox and hasn't hit an enemy yet, try to hit an enemy
                 if (currentOutfitItem.GetPhaseActive(currentHitNum, i) && hit == false)
                 {
-                    Collider[] cols = Physics.OverlapBox(attack.bounds.center, attack.bounds.extents, attack.transform.rotation, LayerMask.GetMask("Hitbox"));
+                    Collider[] cols = Physics.OverlapBox(attack.bounds.center, attack.bounds.extents, attack.transform.rotation, LayerMask.GetMask("Default"));
+                    Debug.Log(cols.Length);
                     foreach (Collider c in cols)
                     {
+                        Debug.Log(c.name);
                         if (c.tag == "Enemy")
                         {
                             // Decrease the hit target's health based on the attack's damage
-                            c.SendMessageUpwards("DecreaseHealth", currentOutfitItem.attackDamage[currentHitNum]);
+                            Debug.Log("hit enemy");
+                            c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
                             hit = true;
                         }
                     }
@@ -186,6 +188,7 @@ public class playerNew : MonoBehaviour
 
         //GetComponent<PlayerMove>().DefaultTurn();
         //GetComponent<PlayerMove>().DefaultSpeed();
+        currentOutfitItem.trails[currentHitNum].enabled = false;
         currentHitNum++;
         if (currentHitNum == 3)
         {
@@ -211,4 +214,73 @@ public class playerNew : MonoBehaviour
             energy = 0;
         }
     }
+
+    public void decreaseHealth(float damage)
+    {
+        currentHealth -= damage;
+        Debug.Log(currentHealth);
+        //healthbar.value = currentHealth / maxHealth;
+        // If health drops to or bellow 0 then the player dies
+        if (currentHealth <= 0)
+        {
+            killPlayer();
+        }
+    }
+
+    private void killPlayer()
+    {
+        controller.enabled = false;
+        //controller.transform.position = checkpoint.getCheckpoint();
+        controller.enabled = true;
+        //Destroy(this.gameObject);
+        currentHealth = maxHealth;
+        //healthbar.value = currentHealth / maxHealth;
+        //transform.position = checkpoint.getCheckpoint();
+        //canvas.SendMessage("PlayerDead", true);
+    }
+
+    // Change outfit function takes in the new outfit 
+    public void changeOutfit(outfits newOutfit)
+    {
+        if (newOutfit.outfitType == "Top")
+        {
+            top = newOutfit;
+        }
+        else if (newOutfit.outfitType == "Misc")
+        {
+            misc = newOutfit;
+            /*if (outfit2)
+            {
+                outfit2 = false;
+            }
+            else
+            {
+                outfit2 = true;
+            }*/
+        }
+        else if (newOutfit.outfitType == "Bot")
+        {
+            bot = newOutfit;
+        }
+        // 
+        newOutfit.outfitSkinRenderer.sharedMesh = newOutfit.outfitMesh;
+        newOutfit.outfitSkinRenderer.material = newOutfit.outfitMaterial;
+        // Create new runtime animator override controller
+        AnimatorOverrideController aoc = new AnimatorOverrideController(anim.runtimeAnimatorController);
+        // Create a list of current animations and their replacements
+        var anims = new List<KeyValuePair<AnimationClip, AnimationClip>>();
+        int index = 0;
+        // For each animation in the current animation tree
+        foreach (var a in aoc.animationClips)
+            // If an animation name contains the outfitType(must be the word punch, kick, and misc)
+            if (a.name.Contains(newOutfit.attackType))
+            {
+                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, newOutfit.attacks[index]));
+                index += 1;
+            }
+        // Override all animations in the anims list
+        aoc.ApplyOverrides(anims);
+        anim.runtimeAnimatorController = aoc;
+    }
+
 }

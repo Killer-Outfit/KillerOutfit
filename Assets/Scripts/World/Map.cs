@@ -4,30 +4,68 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    public float mapLength;
-    public Camera mainCam;
-    public float[] combatPositions;
+    private Camera mainCam;
+    private Transform pT;
     private int currentCombatNum;
+    public float[] combatPositions;
+    public GameObject[] Encounter1 = new GameObject[6];
+    public GameObject[] Encounter2 = new GameObject[6];
+    public GameObject[] Encounter3 = new GameObject[6];
+
     // Start is called before the first frame update
     void Start()
     {
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        pT = GameObject.Find("Initial_Outfit_1").transform;
         currentCombatNum = 0;
-        transform.localScale = new Vector3(mapLength, 1f, 1f);
+
+        combatPositions = new float[3];
+        combatPositions[0] = 20;
+        combatPositions[1] = 40;
+        combatPositions[2] = 60;
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(mainCam.transform.position.x >= combatPositions[currentCombatNum])
+        if (combatPositions.Length > 0)
         {
-            //mainCam.GetComponent<CameraScript>().locked = true;
-            combatEvent();
-            currentCombatNum += 1;
+            if (mainCam.transform.position.x >= combatPositions[currentCombatNum])
+            {
+                mainCam.GetComponent<CameraScript>().locked = true;
+                combatEvent(currentCombatNum);
+                currentCombatNum += 1;
+            }
         }
     }
 
-    public void combatEvent()
+    public void combatEvent(int num)
     {
-        //definition for what happens in this event enemy spawn ect...
+        if (num == 0)
+        {
+            SpawnWave(Encounter1);
+        }
+        else if (num == 1)
+        {
+            SpawnWave(Encounter2);
+        }
+        else if (num == 2)
+        {
+            SpawnWave(Encounter3);
+        }
+        else
+        {
+
+        }
+    }
+
+    private void SpawnWave(GameObject[] arr)
+    {
+        if (arr[0] != null) { Instantiate(arr[0], new Vector3(pT.position.x - 12, 0, 0), arr[0].transform.rotation); }
+        if (arr[1] != null) { Instantiate(arr[1], new Vector3(pT.position.x - 12, -2, -4), arr[1].transform.rotation); }
+        if (arr[2] != null) { Instantiate(arr[2], new Vector3(pT.position.x - 12, -4, -6), arr[2].transform.rotation); }
+        if (arr[3] != null) { Instantiate(arr[3], new Vector3(pT.position.x + 12, 0, 0), arr[3].transform.rotation); }
+        if (arr[4] != null) { Instantiate(arr[4], new Vector3(pT.position.x + 12, -2, -4), arr[4].transform.rotation); }
+        if (arr[5] != null) { Instantiate(arr[5], new Vector3(pT.position.x + 12, -4, -6), arr[5].transform.rotation); }
     }
 }

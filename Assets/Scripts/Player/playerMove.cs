@@ -38,46 +38,69 @@ public class playerMove : MonoBehaviour
 
     private void normalMovement()
     {
-        // Get stick inputs
-        float horizontal = 0; // Input.GetAxis("LStick X") * movementSpeed * Time.deltaTime;
-        float vertical = 0;  // Input.GetAxis("LStick Y") * movementSpeed * Time.deltaTime;
+            // Get stick inputs
+            float horizontal = 0; // Input.GetAxis("LStick X") * movementSpeed * Time.deltaTime;
+            float vertical = 0;  // Input.GetAxis("LStick Y") * movementSpeed * Time.deltaTime;
 
-        if(Input.GetAxis("Vertical") > 0 && transform.position.z < 3f)
-        {
-            vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+            if (Input.GetAxis("Vertical") > 0 && transform.position.z < 3f)
+            {
+                vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
 
+            }
+            else if (Input.GetAxis("Vertical") < 0 && transform.position.z > -7f)
+            {
+                vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+            }
+
+            if (Input.GetAxis("Horizontal") > 0 && curPlayerPortPos.x < 1f)
+            {
+                rightFacing = true;
+                horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+            }
+            else if (Input.GetAxis("Horizontal") < 0 && curPlayerPortPos.x > 0f)
+            {
+                rightFacing = false;
+                horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+            }
+
+        if (!attacking) { 
+
+            Vector2 inputs = new Vector2(horizontal, vertical);
+            inputs = Vector2.ClampMagnitude(inputs, 1);
+            movementVector.x = inputs.x;
+            movementVector.z = inputs.y;
+            vVelocity = 0;
+            if (controller.isGrounded == false || transform.position.y > 0)
+            {
+                //Debug.Log("I am off the ground");
+                vVelocity = Physics.gravity.y / 10;
+            }
+            movementVector.y = vVelocity;
+            controller.Move(movementVector * Time.deltaTime * movementSpeed);
+
+            // play run animation when the player is moving
+            if (vertical != 0 || horizontal != 0)
+            {
+                //anim.Play("HumanoidRun");
+                anim.SetBool("isIdle", false);
+            }
+            else
+            {
+                //anim.SetTrigger("stopRun");
+                anim.SetBool("isIdle", true);
+            }
         }
-        else if(Input.GetAxis("Vertical") < 0 && transform.position.z > -7f)
+        else
         {
-            vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                rightFacing = true;
+            }
+            else if (Input.GetAxis("Horizontal") < 0)
+            {
+                rightFacing = false;
+            }
         }
-
-        if (Input.GetAxis("Horizontal") > 0 && curPlayerPortPos.x < 1f)
-        {
-            rightFacing = true;
-            horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-        }
-        else if (Input.GetAxis("Horizontal") < 0 && curPlayerPortPos.x > 0f)
-        {
-            rightFacing = false;
-            horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-        }
-
-
-        
-        Vector2 inputs = new Vector2(horizontal, vertical);
-        inputs = Vector2.ClampMagnitude(inputs, 1);
-        movementVector.x = inputs.x;
-        movementVector.z = inputs.y;
-        vVelocity = 0;
-        if (controller.isGrounded == false || transform.position.y > 0)
-        {
-            //Debug.Log("I am off the ground");
-            vVelocity = Physics.gravity.y / 10;
-        }
-        movementVector.y = vVelocity;
-        controller.Move(movementVector * Time.deltaTime * movementSpeed);
-
         if (rightFacing)
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);
@@ -85,19 +108,6 @@ public class playerMove : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
-
-        // play run animation when the player is moving
-        if (vertical != 0 || horizontal != 0)
-        {
-            //anim.Play("HumanoidRun");
-            anim.SetBool("isIdle", false);
-        }
-        else
-        {
-            //anim.SetTrigger("stopRun");
-            anim.SetBool("isIdle", true);
-        }
-
     }
     
     public void setAttacking(bool isAttack)

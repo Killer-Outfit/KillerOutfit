@@ -9,29 +9,39 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
 
     private Transform playerTransform;
-    public float pDist;
 
+    private Animator anim;
     private CharacterController controller;
     private EnemyGeneric enemClass;
-    public int direction;
-    public string state;
 
     private float vertical;
     private float horizontal;
+    private float gravity;
     private float wanderTimer;
     private Vector3 movementVector;
 
     private Vector3 attackMoveTarget;
-    public bool wantsToAttack;
 
     private float stagTimer;
     private float knockSpeed;
+    private float dieTime;
+
+    //Public variables accessed by other scripts. Do not need to be set manually.
+    [HideInInspector]
+    public float pDist;
+    [HideInInspector]
+    public bool wantsToAttack;
+    [HideInInspector]
+    public int direction;
+    [HideInInspector]
+    public string state;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.Find("Player").transform;
+        playerTransform = GameObject.Find("Initial_Outfit_1").transform;
+        anim = this.GetComponent<Animator>();
         controller = this.GetComponent<CharacterController>();
         enemClass = this.GetComponent<EnemyGeneric>();
         direction = -1;
@@ -68,8 +78,17 @@ public class EnemyMovement : MonoBehaviour
             vertical = 0;
         }
 
+        if(controller.isGrounded)
+        {
+            gravity = 0;
+        }
+        else
+        {
+            gravity = -5;
+        }
+
         CheckPlayer();
-        movementVector = new Vector3(direction * horizontal, 0, vertical);
+        movementVector = new Vector3(direction * horizontal, gravity, vertical);
         controller.Move(movementVector.normalized * speed * Time.deltaTime);
     }
 
@@ -77,17 +96,23 @@ public class EnemyMovement : MonoBehaviour
     void IdleMove()
     {
         wanderTimer = Random.Range(0.5f, 1f);
-        vertical = Random.Range(-1f, 1f);
-        if (movementType == "aggressive")
+        float randStop = Random.Range(0, 1f);
+
+        if ((movementType == "aggressive" || pDist > 10) && randStop > 0.1)
         {
+            anim.SetBool("Walking", true);
+            vertical = Random.Range(-1f, 1f);
             horizontal = Random.Range(1f, -0.25f);
         }
-        else if (movementType == "defensive")
+        else if (movementType == "defensive" && randStop > 0.3)
         {
+            anim.SetBool("Walking", true);
+            vertical = Random.Range(-1f, 1f);
             horizontal = Random.Range(0.25f, -0.75f);
         }
-        else if (movementType == "stationary")
+        else
         {
+            anim.SetBool("Walking", false);
             horizontal = 0;
             vertical = 0;
         }
@@ -96,6 +121,7 @@ public class EnemyMovement : MonoBehaviour
     // Moves in front of the player to attack.
     void AttackMove()
     {
+        anim.SetBool("Walking", true);
         // Set attackMoveTarget to a space just in front of the player, depending on which side the enemy is on
         Vector3 tmp = playerTransform.position;
         tmp.x += -direction * 2;
@@ -169,30 +195,36 @@ public class EnemyMovement : MonoBehaviour
         pDist = Mathf.Abs(Vector3.Distance(new Vector3(playerTransform.position.x, 0, playerTransform.position.z), new Vector3(this.transform.position.x, 0, this.transform.position.z)));
     }
 
-    public void DoAttack()
+    public void StopForAttack()
     {
         state = "doingattack";
         wantsToAttack = false;
-        //===play animation===//
+        anim.SetTrigger("Attack");
     }
 
     public void ResumeMovement()
     {
+        anim.SetTrigger("BackToIdle");
         state = "idle";
-        //===play animation===//
     }
 
     public void Stagger(float stuntime = 0.4f)
     {
-        state = "stagger";
-        //===play animation===//
-        stagTimer = stuntime;
-        StartCoroutine("Stagger");
+        if(state != "dying")
+        {
+            anim.SetTrigger("Stagger");
+            stagTimer = stuntime;
+            if (state != "stagger")
+            {
+                state = "stagger";
+                StartCoroutine("StaggerCR");
+            }
+        }
     }
 
-    private IEnumerable Stagger()
+    private IEnumerator StaggerCR()
     {
-        for (float i=0; i < stagTimer; i+=Time.deltaTime)
+        for (float i=0; i < stagTimer; stagTimer-=Time.deltaTime)
         {
             yield return null;
         }
@@ -201,13 +233,16 @@ public class EnemyMovement : MonoBehaviour
 
     public void Knockdown(float speed = 5f)
     {
-        state = "knockdown";
-        //===play animation===//
-        knockSpeed = speed;
-        StartCoroutine("Knockdown");
+        anim.SetTrigger("Knockdown");
+        if (state != "knockdown" && state != "dying")
+        {
+            state = "knockdown";
+            knockSpeed = speed;
+            StartCoroutine("KnockdownCR");
+        }
     }
 
-    private IEnumerable Knockdown()
+    private IEnumerator KnockdownCR()
     {
         while (knockSpeed > 0)
         {
@@ -215,14 +250,31 @@ public class EnemyMovement : MonoBehaviour
             knockSpeed -= Time.deltaTime;
             yield return null;
         }
+        StartCoroutine("GetUp");
+    }
+
+    private IEnumerator GetUp()
+    {
+        anim.SetTrigger("GetUp");
+        yield return new WaitForSeconds(0.5f);
         ResumeMovement();
     }
 
-    private IEnumerable GetUp()
+    public void Die(float time = 1f)
     {
-        //===play animation===//
-        yield return new WaitForSeconds(0.5f);
-        ResumeMovement();
+        anim.SetTrigger("Die");
+        if(state != "dying")
+        {
+            state = "dying";
+            dieTime = time;
+            StartCoroutine("DieCR");
+        }
+    }
+
+    private IEnumerator DieCR()
+    {
+        yield return new WaitForSeconds(dieTime);
+        Destroy(this.gameObject);
     }
 
     // Move away from walls.

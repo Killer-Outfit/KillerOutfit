@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy2 : EnemyGeneric
 {
     public GameObject proj; // Projectile prefab
-    public Transform handTransform; // Transform of the rig's hand, used for positioning.
+    public Transform handTransform; // Transform of the rig's hand, used for projectile positioning.
 
     private void Start()
     {
@@ -16,17 +16,24 @@ public class Enemy2 : EnemyGeneric
     }
 
     // Attack timing
-    private IEnumerable Attack()
+    protected override IEnumerator Attack()
     {
         yield return new WaitForSeconds(0.5f);
-        Instantiate(proj, handTransform.position, Quaternion.identity);
+        GameObject hand = Instantiate(proj, handTransform.position, Quaternion.identity);
+        hand.GetComponent<HandProjMove>().direction = GetComponent<EnemyMovement>().direction;
+        hand.GetComponent<HandProjMove>().damage = damage;
         yield return new WaitForSeconds(0.5f);
         GetComponent<EnemyMovement>().ResumeMovement();
     }
 
-    private void Die()
+    public override void Die()
     {
         overmind.GetComponent<Overmind>().RemoveRanged(this.gameObject);
-        Destroy(this.gameObject);
+        GetComponent<EnemyMovement>().Die(0.5f);
+        int droppedScraps = Random.Range(1, 11);
+        for (int i = 0; i < droppedScraps; i++)
+        {
+            Instantiate(Scrap, transform.position, Quaternion.identity);
+        }
     }
 }

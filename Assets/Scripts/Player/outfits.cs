@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class outfits : MonoBehaviour
 {
+    public TrailRenderer[] trails; 
     // Outfit anims
     public AnimationClip[] attacks;
     // Outfit damage values
