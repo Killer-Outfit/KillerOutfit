@@ -135,7 +135,7 @@ public class Overmind : MonoBehaviour
         }
     }
     
-    // Calls a raged attack from the closest ranged enemy to the player
+    // Calls a ranged attack from the closest ranged enemy to the player
     private void CallRangedAttack()
     {
         GameObject closestL = null;
