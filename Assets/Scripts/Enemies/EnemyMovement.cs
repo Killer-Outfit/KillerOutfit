@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
     private float gravity;
     private float wanderTimer;
     private Vector3 movementVector;
+    private Camera mainCam;
 
     private Vector3 attackMoveTarget;
 
@@ -40,6 +41,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         playerTransform = GameObject.Find("Initial_Outfit_1").transform;
         anim = this.GetComponent<Animator>();
         controller = this.GetComponent<CharacterController>();
@@ -66,6 +68,16 @@ public class EnemyMovement : MonoBehaviour
             if(wantsToAttack == true)
             {
                 state = "attacking";
+            }
+
+            // Check for wall collision
+            if (transform.position.z > 3f || transform.position.z < -4f)
+            {
+                vertical = -vertical;
+            }
+            if (mainCam.WorldToViewportPoint(transform.position).x > 1f || mainCam.WorldToViewportPoint(transform.position).x < 0f)
+            {
+                horizontal = -horizontal;
             }
         }
         else if (state == "attacking")
