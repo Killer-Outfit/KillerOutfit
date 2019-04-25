@@ -283,4 +283,13 @@ public class Overmind : MonoBehaviour
     {
         enemRanged.Remove(obj);
     }
+
+    public bool areThereEnemies()
+    {
+        if(enemMelee.Count == 0 && enemRanged.Count == 0)
+        {
+            return true;
+        }
+        return false;
+    }
 }
