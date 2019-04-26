@@ -33,8 +33,28 @@ public class playerNew : MonoBehaviour
     public outfits misc;
     public outfits bot;
 
+    public outfits top1;
+    public outfits misc1;
+    public outfits bot1;
+
+    public outfits top2;
+    public outfits misc2;
+    public outfits bot2;
+
+    public bool outfitT;
+    public bool outfitM;
+    public bool outfitB;
+
+    public int bodyPart;
+
     void Start()
     {
+        bodyPart = 1;
+        outfitT = true;
+        outfitM = true;
+        outfitB = true;
+
+
         audioSource = GetComponent<AudioSource>();
         maxEnergy = 300;
         energy = maxEnergy;
@@ -64,6 +84,10 @@ public class playerNew : MonoBehaviour
         {
             inputQueue = "misc";
         }
+        else if (Input.GetButtonDown("BButton"))
+        {
+            inputQueue = "change";
+        }
 
         if (state == "idle" || state == "run")
         {
@@ -87,6 +111,53 @@ public class playerNew : MonoBehaviour
             else if (inputQueue == "misc")
             {
                 pressA();
+            }
+            else if (inputQueue == "change")
+            {
+               if(bodyPart == 1)
+                {
+                    if (outfitT)
+                    {
+                        changeOutfit(top2);
+                        outfitT = false;
+                    }
+                    else
+                    {
+                        changeOutfit(top1);
+                        outfitT = true;
+                    }
+                }
+               else if(bodyPart == 2)
+                {
+                    if (outfitM)
+                    {
+                        changeOutfit(misc2);
+                        outfitM = false;
+                    }
+                    else
+                    {
+                        changeOutfit(misc1);
+                        outfitM = true;
+                    }
+                }
+               else
+                {
+                    if (outfitB)
+                    {
+                        changeOutfit(bot2);
+                        outfitB = false;
+                    }
+                    else
+                    {
+                        changeOutfit(bot1);
+                        outfitB = true;
+                    }
+                }
+                bodyPart += 1;
+                if( bodyPart == 4)
+                {
+                    bodyPart = 1;
+                }
             }
             inputQueue = "";
         }
@@ -274,14 +345,6 @@ public class playerNew : MonoBehaviour
         else if (newOutfit.outfitType == "Misc")
         {
             misc = newOutfit;
-            /*if (outfit2)
-            {
-                outfit2 = false;
-            }
-            else
-            {
-                outfit2 = true;
-            }*/
         }
         else if (newOutfit.outfitType == "Bot")
         {
