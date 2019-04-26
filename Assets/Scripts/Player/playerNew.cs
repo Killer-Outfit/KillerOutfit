@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerNew : MonoBehaviour
 {
     private CharacterController controller;
-    private Animator anim;
+    public Animator anim;
     private AnimatorOverrideController animatorOverrideController;
     private float maxHealth;
     private float currentHealth;
@@ -227,7 +227,7 @@ public class playerNew : MonoBehaviour
         {
             currentOutfitItem = misc;
         }
-
+        anim.SetFloat("animSpeed", currentOutfitItem.animSpeedMultiplier[currentHitNum]);
         attack = currentOutfitItem.attackColliders[currentHitNum];
         currentOutfitItem.trails[currentHitNum].enabled = true;
         // Go through each phase of the attack based on the outfit attack stats

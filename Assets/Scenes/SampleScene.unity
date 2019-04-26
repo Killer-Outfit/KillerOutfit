@@ -1886,18 +1886,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatPositions:
   - 20
+  - 60
   Encounter1:
   - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
   Encounter2:
+  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   Encounter3:
@@ -3107,6 +3108,109 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7c6a64071524404e8114cc6792335d7, type: 3}
+--- !u!1 &1170650323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170650325}
+  - component: {fileID: 1170650324}
+  m_Layer: 0
+  m_Name: MISC_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1170650324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170650323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1382f9091c520439b4aee8a7df0039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trails: []
+  attacks: []
+  attackDamage:
+  - 3
+  - 5
+  - 10
+  outfitMesh: {fileID: 4300000, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
+  outfitMaterial: {fileID: 2100000, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
+  outfitSkinRenderer: {fileID: 0}
+  outfitMenuSkinRenderer: {fileID: 0}
+  outfitType: Misc
+  attackType: Misc
+  attackColliders:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  attack1Time:
+  - 0.4
+  - 0.4
+  - 0.4
+  attack1Move:
+  - 0
+  - 0
+  - 0
+  attack1Acc:
+  - 0
+  - 0
+  - 0
+  attack1Active: 000100
+  attack2Time:
+  - 0.4
+  - 0.4
+  - 0.4
+  attack2Move:
+  - 0
+  - 0
+  - 0
+  attack2Acc:
+  - 0
+  - 0
+  - 0
+  attack2Active: 000100
+  attack3Time:
+  - 0.4
+  - 0.4
+  - 0.4
+  attack3Move:
+  - 0
+  - 0
+  - 0
+  attack3Acc:
+  - 0
+  - 0
+  - 0
+  attack3Active: 000100
+  animSpeedMultiplier:
+  - 1
+  - 1
+  - 1
+  - 1
+--- !u!4 &1170650325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170650323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1198381208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3551,109 +3655,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8314ba5e02a94d4dba428da25e22fed, type: 3}
---- !u!1 &1310466784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1310466785}
-  - component: {fileID: 1310466786}
-  m_Layer: 0
-  m_Name: MISC_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1310466785
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310466784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1310466786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310466784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba1382f9091c520439b4aee8a7df0039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trails: []
-  attacks: []
-  attackDamage:
-  - 3
-  - 5
-  - 10
-  outfitMesh: {fileID: 4300000, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
-  outfitMaterial: {fileID: 2100000, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
-  outfitSkinRenderer: {fileID: 0}
-  outfitMenuSkinRenderer: {fileID: 0}
-  outfitType: Misc
-  attackType: Misc
-  attackColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  attack1Time:
-  - 0.4
-  - 0.4
-  - 0.4
-  attack1Move:
-  - 0
-  - 0
-  - 0
-  attack1Acc:
-  - 0
-  - 0
-  - 0
-  attack1Active: 000100
-  attack2Time:
-  - 0.4
-  - 0.4
-  - 0.4
-  attack2Move:
-  - 0
-  - 0
-  - 0
-  attack2Acc:
-  - 0
-  - 0
-  - 0
-  attack2Active: 000100
-  attack3Time:
-  - 0.4
-  - 0.4
-  - 0.4
-  attack3Move:
-  - 0
-  - 0
-  - 0
-  attack3Acc:
-  - 0
-  - 0
-  - 0
-  attack3Active: 000100
-  animSpeedMultiplier:
-  - 1
-  - 1
-  - 1
-  - 1
 --- !u!1001 &1343039814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6064,5 +6065,40 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: animSpeedMultiplier.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: attacks.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400010, guid: 6a42268d5f6174f488e4f409ae36747a, type: 3}
+    - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: attacks.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400012, guid: 6a42268d5f6174f488e4f409ae36747a, type: 3}
+    - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: attacks.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400014, guid: 6a42268d5f6174f488e4f409ae36747a, type: 3}
+    - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: animSpeedMultiplier.Array.data[0]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: animSpeedMultiplier.Array.data[1]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: animSpeedMultiplier.Array.data[2]
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62d6695dcb9ac9249843f67f54e3aa28, type: 3}
