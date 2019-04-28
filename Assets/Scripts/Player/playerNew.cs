@@ -14,6 +14,15 @@ public class playerNew : MonoBehaviour
     private int currentHitNum;
     private int maxEnergy;
 
+    [SerializeField]
+    private AudioClip[] punchSounds;
+    [SerializeField]
+    private AudioClip[] kickSounds;
+    [SerializeField]
+    private AudioClip[] miscSounds;
+
+    private AudioSource audioSource;
+
     [HideInInspector]
     public string state;
     [HideInInspector]
@@ -26,6 +35,7 @@ public class playerNew : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         maxEnergy = 300;
         energy = maxEnergy;
         controller = GetComponent<CharacterController>();
@@ -179,6 +189,21 @@ public class playerNew : MonoBehaviour
                             Debug.Log("hit enemy");
                             c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
                             hit = true;
+                            if (currentOutfitItem == top)
+                            {
+                                AudioClip clip = GetRandomPunch();
+                                audioSource.PlayOneShot(clip);
+                            }
+                            if (currentOutfitItem == bot)
+                            {
+                                AudioClip clip = GetRandomKick();
+                                audioSource.PlayOneShot(clip);
+                            }
+                            if (currentOutfitItem == misc)
+                            {
+                                AudioClip clip = GetRandomMisc();
+                                audioSource.PlayOneShot(clip);
+                            }
                         }
                     }
                 }
@@ -281,6 +306,19 @@ public class playerNew : MonoBehaviour
         // Override all animations in the anims list
         aoc.ApplyOverrides(anims);
         anim.runtimeAnimatorController = aoc;
+    }
+
+    private AudioClip GetRandomPunch()
+    {
+        return punchSounds[UnityEngine.Random.Range(0, punchSounds.Length)];
+    }
+    private AudioClip GetRandomKick()
+    {
+        return kickSounds[UnityEngine.Random.Range(0, kickSounds.Length)];
+    }
+    private AudioClip GetRandomMisc()
+    {
+        return miscSounds[UnityEngine.Random.Range(0, miscSounds.Length)];
     }
 
 }

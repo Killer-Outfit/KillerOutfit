@@ -7,6 +7,7 @@ public class Map : MonoBehaviour
     private Camera mainCam;
     private Transform pT;
     private int currentCombatNum;
+    private GameObject enemyManager;
     public float[] combatPositions;
     public GameObject[] Encounter1 = new GameObject[6];
     public GameObject[] Encounter2 = new GameObject[6];
@@ -17,6 +18,7 @@ public class Map : MonoBehaviour
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         pT = GameObject.Find("Initial_Outfit_1").transform;
+        enemyManager = GameObject.Find("Overmind");
         currentCombatNum = 0;
 
         combatPositions = new float[3];
@@ -28,13 +30,24 @@ public class Map : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (combatPositions.Length > 0 && mainCam.transform.position.x >= combatPositions[currentCombatNum])
+        if (combatPositions.Length > 0 && !mainCam.GetComponent<CameraScript>().locked)
         {
-            //mainCam.GetComponent<CameraScript>().locked = true;
-            combatEvent(currentCombatNum);
-            currentCombatNum += 1;
+            if (mainCam.transform.position.x >= combatPositions[currentCombatNum]) 
+            {
+                mainCam.GetComponent<CameraScript>().locked = true;
+                combatEvent(currentCombatNum);
+                currentCombatNum += 1;
+            }
+        }else if(mainCam.GetComponent<CameraScript>().locked = true)
+        {
+            if(enemyManager.GetComponent<Overmind>().areThereEnemies())
+            {
+                mainCam.GetComponent<CameraScript>().locked = false;
+            }
         }
     }
+
+
 
     public void combatEvent(int num)
     {

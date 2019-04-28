@@ -47,7 +47,7 @@ public class playerMove : MonoBehaviour
                 vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
 
             }
-            else if (Input.GetAxis("Vertical") < 0 && transform.position.z > -7f)
+            else if (Input.GetAxis("Vertical") < 0 && transform.position.z > -4f)
             {
                 vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
             }
@@ -101,7 +101,6 @@ public class playerMove : MonoBehaviour
                 rightFacing = false;
             }
         }
-
         if (rightFacing)
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);
@@ -109,9 +108,6 @@ public class playerMove : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
-
-        
-
     }
     
     public void setAttacking(bool isAttack)

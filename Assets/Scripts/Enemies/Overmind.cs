@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Overmind : MonoBehaviour
 {
-    private List<GameObject> enemMelee;
+    [HideInInspector]
+    public List<GameObject> enemMelee;
     private GameObject MeleeL;
     private GameObject MeleeR;
-    private List<GameObject> enemRanged;
+    [HideInInspector]
+    public List<GameObject> enemRanged;
     private GameObject RangedL;
     private GameObject RangedR;
 
@@ -133,7 +135,7 @@ public class Overmind : MonoBehaviour
         }
     }
     
-    // Calls a raged attack from the closest ranged enemy to the player
+    // Calls a ranged attack from the closest ranged enemy to the player
     private void CallRangedAttack()
     {
         GameObject closestL = null;
@@ -280,5 +282,14 @@ public class Overmind : MonoBehaviour
     public void RemoveRanged(GameObject obj)
     {
         enemRanged.Remove(obj);
+    }
+
+    public bool areThereEnemies()
+    {
+        if(enemMelee.Count == 0 && enemRanged.Count == 0)
+        {
+            return true;
+        }
+        return false;
     }
 }
