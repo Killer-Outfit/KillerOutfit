@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("You Whore Im going to fuck your mom till she gives you a brother");
+            //Debug.Log("You Whore Im going to fuck your mom till she gives you a brother");
             hasHit = true;
             collision.gameObject.GetComponent<EnemyGeneric>().TakeDamage(damage, false);
         }

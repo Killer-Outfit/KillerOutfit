@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerNew : MonoBehaviour
 {
     private CharacterController controller;
+    public Collider laserSpawn;
     public Animator anim;
     private AnimatorOverrideController animatorOverrideController;
     private float maxHealth;
@@ -182,6 +183,7 @@ public class playerNew : MonoBehaviour
     public void pressX()
     {
         Instantiate(laser, transform.position, transform.rotation);
+        Instantiate(laserSpawn, transform.position, transform.rotation);
         //Debug.Log("pressed x");
         anim.SetTrigger("punch");
         attackType = "punch";
