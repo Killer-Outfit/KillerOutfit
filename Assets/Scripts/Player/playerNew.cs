@@ -47,6 +47,8 @@ public class playerNew : MonoBehaviour
 
     public int bodyPart;
 
+    public Collider laser;
+
     void Start()
     {
         bodyPart = 1;
@@ -179,7 +181,8 @@ public class playerNew : MonoBehaviour
     // Activate punch
     public void pressX()
     {
-        Debug.Log("pressed x");
+        Instantiate(laser, transform.position, transform.rotation);
+        //Debug.Log("pressed x");
         anim.SetTrigger("punch");
         attackType = "punch";
         state = "attacking";
@@ -250,14 +253,14 @@ public class playerNew : MonoBehaviour
                 if (currentOutfitItem.GetPhaseActive(currentHitNum, i) && hit == false)
                 {
                     Collider[] cols = Physics.OverlapBox(attack.bounds.center, attack.bounds.extents, attack.transform.rotation, LayerMask.GetMask("Default"));
-                    Debug.Log(cols.Length);
+                    //Debug.Log(cols.Length);
                     foreach (Collider c in cols)
                     {
-                        Debug.Log(c.name);
+                        //Debug.Log(c.name);
                         if (c.tag == "Enemy")
                         {
                             // Decrease the hit target's health based on the attack's damage
-                            Debug.Log("hit enemy");
+                            //Debug.Log("hit enemy");
                             c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
                             hit = true;
                             if (currentOutfitItem == top)
@@ -314,7 +317,7 @@ public class playerNew : MonoBehaviour
     public void decreaseHealth(float damage)
     {
         currentHealth -= damage;
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
         //healthbar.value = currentHealth / maxHealth;
         // If health drops to or bellow 0 then the player dies
         if (currentHealth <= 0)
