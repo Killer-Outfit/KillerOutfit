@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerNew : MonoBehaviour
 {
+
+    public Material face;
     [HideInInspector]
     public int score;
     private CharacterController controller;
@@ -374,7 +376,17 @@ public class playerNew : MonoBehaviour
         }
         // 
         newOutfit.outfitSkinRenderer.sharedMesh = newOutfit.outfitMesh;
-        newOutfit.outfitSkinRenderer.material = newOutfit.outfitMaterial;
+        if(newOutfit.outfitType == "Misc")
+        {
+            Material[] mats = new Material[2];
+            mats[1] = newOutfit.outfitMaterial;
+            mats[0] = face;
+            newOutfit.outfitSkinRenderer.materials = mats;
+        }else
+        {
+            newOutfit.outfitSkinRenderer.material = newOutfit.outfitMaterial;
+        }
+        
         // Create new runtime animator override controller
         AnimatorOverrideController aoc = new AnimatorOverrideController(anim.runtimeAnimatorController);
         // Create a list of current animations and their replacements
