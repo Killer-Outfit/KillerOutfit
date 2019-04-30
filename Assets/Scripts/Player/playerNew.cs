@@ -179,10 +179,10 @@ public class playerNew : MonoBehaviour
                 if (currentOutfitItem.GetPhaseActive(currentHitNum, i) && hit == false)
                 {
                     Collider[] cols = Physics.OverlapBox(attack.bounds.center, attack.bounds.extents, attack.transform.rotation, LayerMask.GetMask("Default"));
-                    Debug.Log(cols.Length);
+                    //Debug.Log(cols.Length);
                     foreach (Collider c in cols)
                     {
-                        Debug.Log(c.name);
+                        //Debug.Log(c.name);
                         if (c.tag == "Enemy")
                         {
                             // Decrease the hit target's health based on the attack's damage

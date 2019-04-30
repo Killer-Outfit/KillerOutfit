@@ -30,11 +30,12 @@ public class HandProjMove : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider c)
     {
-        if (collision.gameObject.tag == "Player" && hit == false)
+        if (c.gameObject.tag == "Player" && hit == false)
         {
             hit = true;
+            c.gameObject.GetComponent<playerNew>().decreaseHealth(damage);
             Debug.Log("Hit player");
         }
     }

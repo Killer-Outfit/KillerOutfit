@@ -19,27 +19,27 @@ public class Enemy1 : EnemyGeneric
     protected override IEnumerator Attack()
     {
         hitPlayer = false;
-        yield return new WaitForSeconds(0.5f);
-        for(float i=0; i < 0.5f; i+= Time.deltaTime)
+        yield return new WaitForSeconds(0.4f);
+        for(float i=0; i < 0.3f; i+= Time.deltaTime)
         {
             if(!hitPlayer)
             {
                 AtkDetect();
             }
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         GetComponent<EnemyMovement>().ResumeMovement();
     }
 
     // Check if the attack hitbox hit the player
     private void AtkDetect()
     {
-        Collider[] cols = Physics.OverlapSphere(atkBox.bounds.center, atkBox.radius, LayerMask.GetMask("Hitboxes"));
+        Collider[] cols = Physics.OverlapSphere(atkBox.bounds.center, 1.8f, LayerMask.GetMask("Default"));
         foreach(Collider c in cols)
         {
-            if(c.transform.root.tag == "Player")
+            if (c.gameObject.tag == "Player")
             {
-                //Damage function on c using damage variable from EnemyGeneric
+                c.gameObject.GetComponent<playerNew>().decreaseHealth(damage);
                 hitPlayer = true;
             }
         }

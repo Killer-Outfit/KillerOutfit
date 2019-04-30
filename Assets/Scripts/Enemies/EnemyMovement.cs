@@ -274,7 +274,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void Die(float time = 1f)
     {
-        anim.SetTrigger("Die");
+        anim.SetTrigger("Death");
         if(state != "dying")
         {
             state = "dying";
