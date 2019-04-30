@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class playerNew : MonoBehaviour
 {
+
+    public Material face;
+    [HideInInspector]
+    public int score;
     private CharacterController controller;
-    private Animator anim;
+    public Collider laserSpawn;
+    public Animator anim;
     private AnimatorOverrideController animatorOverrideController;
     private float maxHealth;
-    private float currentHealth;
+    [HideInInspector]
+    public float currentHealth;
     private string attackType;
     private string inputQueue;
     private int currentHitNum;
     private int maxEnergy;
+    [HideInInspector]
+    public int scraps;
 
     [SerializeField]
     private AudioClip[] punchSounds;
@@ -33,8 +41,41 @@ public class playerNew : MonoBehaviour
     public outfits misc;
     public outfits bot;
 
+    public outfits top1;
+    public outfits misc1;
+    public outfits bot1;
+
+    public outfits top2;
+    public outfits misc2;
+    public outfits bot2;
+
+    public bool outfitT;
+    public bool outfitM;
+    public bool outfitB;
+
+    public int bodyPart;
+
+    public Collider laser;
+    private GameObject healthbar;
+    private GameObject[] energyBars;
+
     void Start()
     {
+        scraps = 0;
+        score = 0;
+        // Initialize UI bar objects
+        energyBars = new GameObject[3];
+        energyBars[0] = GameObject.Find("B1");
+        energyBars[1] = GameObject.Find("B2");
+        energyBars[2] = GameObject.Find("B3");
+        healthbar = GameObject.Find("HBar");
+
+        // Temp vars for outfit switching
+        bodyPart = 1;
+        outfitT = true;
+        outfitM = true;
+        outfitB = true;
+
         audioSource = GetComponent<AudioSource>();
         maxEnergy = 300;
         energy = maxEnergy;
@@ -64,6 +105,10 @@ public class playerNew : MonoBehaviour
         {
             inputQueue = "misc";
         }
+        else if (Input.GetButtonDown("BButton"))
+        {
+            inputQueue = "change";
+        }
 
         if (state == "idle" || state == "run")
         {
@@ -88,6 +133,53 @@ public class playerNew : MonoBehaviour
             {
                 pressA();
             }
+            else if (inputQueue == "change")
+            {
+               if(bodyPart == 1)
+                {
+                    if (outfitT)
+                    {
+                        changeOutfit(top2);
+                        outfitT = false;
+                    }
+                    else
+                    {
+                        changeOutfit(top1);
+                        outfitT = true;
+                    }
+                }
+               else if(bodyPart == 2)
+                {
+                    if (outfitM)
+                    {
+                        changeOutfit(misc2);
+                        outfitM = false;
+                    }
+                    else
+                    {
+                        changeOutfit(misc1);
+                        outfitM = true;
+                    }
+                }
+               else
+                {
+                    if (outfitB)
+                    {
+                        changeOutfit(bot2);
+                        outfitB = false;
+                    }
+                    else
+                    {
+                        changeOutfit(bot1);
+                        outfitB = true;
+                    }
+                }
+                bodyPart += 1;
+                if( bodyPart == 4)
+                {
+                    bodyPart = 1;
+                }
+            }
             inputQueue = "";
         }
         else // No inputs at the moment
@@ -108,7 +200,9 @@ public class playerNew : MonoBehaviour
     // Activate punch
     public void pressX()
     {
-        Debug.Log("pressed x");
+        Instantiate(laser, transform.position, transform.rotation);
+        Instantiate(laserSpawn, transform.position, transform.rotation);
+        //Debug.Log("pressed x");
         anim.SetTrigger("punch");
         attackType = "punch";
         state = "attacking";
@@ -156,7 +250,7 @@ public class playerNew : MonoBehaviour
         {
             currentOutfitItem = misc;
         }
-
+        anim.SetFloat("animSpeed", currentOutfitItem.animSpeedMultiplier[currentHitNum]);
         attack = currentOutfitItem.attackColliders[currentHitNum];
         currentOutfitItem.trails[currentHitNum].enabled = true;
         // Go through each phase of the attack based on the outfit attack stats
@@ -186,7 +280,7 @@ public class playerNew : MonoBehaviour
                         if (c.tag == "Enemy")
                         {
                             // Decrease the hit target's health based on the attack's damage
-                            Debug.Log("hit enemy");
+                            //Debug.Log("hit enemy");
                             c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
                             hit = true;
                             if (currentOutfitItem == top)
@@ -243,6 +337,7 @@ public class playerNew : MonoBehaviour
     public void decreaseHealth(float damage)
     {
         currentHealth -= damage;
+        healthbar.transform.localScale -= new Vector3(damage/100, 0, 0);
         Debug.Log(currentHealth);
         //healthbar.value = currentHealth / maxHealth;
         // If health drops to or bellow 0 then the player dies
@@ -257,7 +352,7 @@ public class playerNew : MonoBehaviour
         controller.enabled = false;
         //controller.transform.position = checkpoint.getCheckpoint();
         controller.enabled = true;
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
         currentHealth = maxHealth;
         //healthbar.value = currentHealth / maxHealth;
         //transform.position = checkpoint.getCheckpoint();
@@ -274,14 +369,6 @@ public class playerNew : MonoBehaviour
         else if (newOutfit.outfitType == "Misc")
         {
             misc = newOutfit;
-            /*if (outfit2)
-            {
-                outfit2 = false;
-            }
-            else
-            {
-                outfit2 = true;
-            }*/
         }
         else if (newOutfit.outfitType == "Bot")
         {
@@ -289,7 +376,17 @@ public class playerNew : MonoBehaviour
         }
         // 
         newOutfit.outfitSkinRenderer.sharedMesh = newOutfit.outfitMesh;
-        newOutfit.outfitSkinRenderer.material = newOutfit.outfitMaterial;
+        if(newOutfit.outfitType == "Misc")
+        {
+            Material[] mats = new Material[2];
+            mats[1] = newOutfit.outfitMaterial;
+            mats[0] = face;
+            newOutfit.outfitSkinRenderer.materials = mats;
+        }else
+        {
+            newOutfit.outfitSkinRenderer.material = newOutfit.outfitMaterial;
+        }
+        
         // Create new runtime animator override controller
         AnimatorOverrideController aoc = new AnimatorOverrideController(anim.runtimeAnimatorController);
         // Create a list of current animations and their replacements

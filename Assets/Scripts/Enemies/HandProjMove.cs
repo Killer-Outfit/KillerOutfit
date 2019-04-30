@@ -37,6 +37,7 @@ public class HandProjMove : MonoBehaviour
             hit = true;
             c.gameObject.GetComponent<playerNew>().decreaseHealth(damage);
             Debug.Log("Hit player");
+            collision.gameObject.GetComponent<playerNew>().decreaseHealth(50f);
         }
     }
 }
