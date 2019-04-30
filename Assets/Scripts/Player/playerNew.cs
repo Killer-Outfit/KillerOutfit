@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class playerNew : MonoBehaviour
 {
+    [HideInInspector]
+    public int score;
     private CharacterController controller;
     public Collider laserSpawn;
     public Animator anim;
     private AnimatorOverrideController animatorOverrideController;
     private float maxHealth;
-    private float currentHealth;
+    [HideInInspector]
+    public float currentHealth;
     private string attackType;
     private string inputQueue;
     private int currentHitNum;
     private int maxEnergy;
+    [HideInInspector]
+    public int scraps;
 
     [SerializeField]
     private AudioClip[] punchSounds;
@@ -54,6 +59,8 @@ public class playerNew : MonoBehaviour
 
     void Start()
     {
+        scraps = 0;
+        score = 0;
         // Initialize UI bar objects
         energyBars = new GameObject[3];
         energyBars[0] = GameObject.Find("B1");
