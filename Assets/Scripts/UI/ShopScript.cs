@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ShopScript : MonoBehaviour, IPointerEnterHandler, ISelectHandler
+public class ShopScript : MonoBehaviour, IPointerEnterHandler
 {
 
     GameObject selectedItem;
