@@ -24,7 +24,7 @@ public class lazerSpawner : MonoBehaviour
         //transform.Rotate(180, 0, 0);
         mainCam = GameObject.Find("Main Camera");
         
-        xRange = new Vector2(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x - 7.4f, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x + 7.4f);
+        xRange = new Vector2(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x - 17.4f, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x + 17.4f);
         Debug.Log(xRange);
         zRange = new Vector2(-4, 3);
         StartCoroutine("spawn");

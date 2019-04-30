@@ -49,14 +49,23 @@ public class playerNew : MonoBehaviour
     public int bodyPart;
 
     public Collider laser;
+    private GameObject healthbar;
+    private GameObject[] energyBars;
 
     void Start()
     {
+        // Initialize UI bar objects
+        energyBars = new GameObject[3];
+        energyBars[0] = GameObject.Find("B1");
+        energyBars[1] = GameObject.Find("B2");
+        energyBars[2] = GameObject.Find("B3");
+        healthbar = GameObject.Find("HBar");
+
+        // Temp vars for outfit switching
         bodyPart = 1;
         outfitT = true;
         outfitM = true;
         outfitB = true;
-
 
         audioSource = GetComponent<AudioSource>();
         maxEnergy = 300;
@@ -319,7 +328,8 @@ public class playerNew : MonoBehaviour
     public void decreaseHealth(float damage)
     {
         currentHealth -= damage;
-        //Debug.Log(currentHealth);
+        healthbar.transform.localScale -= new Vector3(damage/100, 0, 0);
+        Debug.Log(currentHealth);
         //healthbar.value = currentHealth / maxHealth;
         // If health drops to or bellow 0 then the player dies
         if (currentHealth <= 0)
@@ -333,7 +343,7 @@ public class playerNew : MonoBehaviour
         controller.enabled = false;
         //controller.transform.position = checkpoint.getCheckpoint();
         controller.enabled = true;
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
         currentHealth = maxHealth;
         //healthbar.value = currentHealth / maxHealth;
         //transform.position = checkpoint.getCheckpoint();
