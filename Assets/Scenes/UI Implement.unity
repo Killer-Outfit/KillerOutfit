@@ -903,11 +903,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrailHead
       objectReference: {fileID: 0}
-    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -961,6 +956,11 @@ PrefabInstance:
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2163,6 +2163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d953fbcbdbfc143a3c3c94495d08a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  punchSounds: []
+  kickSounds: []
+  miscSounds: []
   state: 
   isAttacking: 0
   energy: 0
@@ -3196,11 +3199,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrailHR
       objectReference: {fileID: 0}
-    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3254,6 +3252,11 @@ PrefabInstance:
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3868,11 +3871,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrailFL
       objectReference: {fileID: 0}
-    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3928,6 +3926,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb5834104f61b848a6755db08993bfe, type: 3}
 --- !u!4 &1112132865 stripped
@@ -3953,11 +3956,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TrailFR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
@@ -4012,6 +4010,11 @@ PrefabInstance:
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4443,11 +4446,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrailEL
       objectReference: {fileID: 0}
-    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4501,6 +4499,11 @@ PrefabInstance:
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4677,11 +4680,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trail
       objectReference: {fileID: 0}
-    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4735,6 +4733,11 @@ PrefabInstance:
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6457,11 +6460,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrailHL
       objectReference: {fileID: 0}
-    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6531,6 +6529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb5834104f61b848a6755db08993bfe, type: 3}
