@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class lazerSpawner : MonoBehaviour
 {
-    public Collider laser;
+    public Collider skyLaser;
     public Collider targetTracker;
     public ParticleSystem target;
     private GameObject mainCam; 
@@ -16,9 +16,12 @@ public class lazerSpawner : MonoBehaviour
     private Vector3 targetSpawnPos;
     private Vector3 targetSpawnRot;
     private bool startLasers;
+    private Quaternion targetRotation;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("PlayerBody");
         startLasers = false;
         targets = new List<ParticleSystem>();
         //transform.Rotate(180, 0, 0);
@@ -37,14 +40,19 @@ public class lazerSpawner : MonoBehaviour
         {
             //transform.LookAt(targets[1].transform.position, transform.down);
             //Quaternion.Inverse(
-            Collider las = Instantiate(laser, transform.position, transform.rotation);
-            las.transform.LookAt(targets[1].transform.position);
+            transform.Rotate(180, 0, 0);
+            var rTarget = Random.Range(0, 20);
+            Collider las = Instantiate(skyLaser, transform.position, transform.rotation);
+            targetRotation = Quaternion.LookRotation(targets[rTarget].transform.position - las.transform.position);
+            las.transform.rotation = targetRotation;
+            //las.transform.LookAt(targets[rTarget].transform.position);
         }
     }
 
     IEnumerator spawn()
     {
         transform.Rotate(-90, 0f, 179.17f);
+        
         for (int i = 0; i < 20; i++)
         {
             targetSpawnPos = new Vector3(Random.Range(xRange[0], xRange[1]), 0, Random.Range(zRange[0], zRange[1]));

@@ -107,7 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f389122474ed5a44ac91594e68ae39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 6575087636490572328, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
+  skyLaser: {fileID: 6575087636490572328, guid: acdde619b28c0e44dbe79c398588fa12,
+    type: 3}
   targetTracker: {fileID: 6933261207970397787, guid: dae42b70b62893047b0b2b735025d5d8,
     type: 3}
   target: {fileID: 1668679834581161867, guid: ea4e78159d395764babd962da62e20a8, type: 3}

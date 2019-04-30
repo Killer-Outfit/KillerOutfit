@@ -5628,6 +5628,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8912132435394593532, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerBody
+      objectReference: {fileID: 0}
     - target: {fileID: 8912132435735975806, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5727,7 +5732,7 @@ PrefabInstance:
         type: 3}
       propertyPath: laser
       value: 
-      objectReference: {fileID: 6575087636490572328, guid: acdde619b28c0e44dbe79c398588fa12,
+      objectReference: {fileID: 5492814136836066553, guid: db5a2da80e0cc7b479ee30ca232a8c09,
         type: 3}
     - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
