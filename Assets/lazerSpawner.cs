@@ -38,14 +38,9 @@ public class lazerSpawner : MonoBehaviour
     {
         if (startLasers)
         {
-            //transform.LookAt(targets[1].transform.position, transform.down);
-            //Quaternion.Inverse(
-            transform.Rotate(180, 0, 0);
-            var rTarget = Random.Range(0, 20);
-            Collider las = Instantiate(skyLaser, transform.position, transform.rotation);
-            targetRotation = Quaternion.LookRotation(targets[rTarget].transform.position - las.transform.position);
-            las.transform.rotation = targetRotation;
-            //las.transform.LookAt(targets[rTarget].transform.position);
+            var rTarget = Random.Range(0, 10);
+            Vector3 spawnPos = new Vector3(targets[rTarget].transform.position.x, targets[rTarget].transform.position.y + 20f, targets[rTarget].transform.position.z);
+            Collider las = Instantiate(skyLaser, spawnPos, transform.rotation);
         }
     }
 
@@ -53,7 +48,7 @@ public class lazerSpawner : MonoBehaviour
     {
         transform.Rotate(-90, 0f, 179.17f);
         
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             targetSpawnPos = new Vector3(Random.Range(xRange[0], xRange[1]), 0, Random.Range(zRange[0], zRange[1]));
             Debug.Log(targetSpawnPos);
