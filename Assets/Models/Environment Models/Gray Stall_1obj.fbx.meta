@@ -11,7 +11,22 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Menu Sign
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Food Cart Gray
+    second: {fileID: 2100000, guid: 6783e782de4f7fc4a85eef6c8753d066, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Gray Pole
+    second: {fileID: 2100000, guid: fbd8ae9cd829c834e89b92e7df952950, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red Azz Sign
+    second: {fileID: 2100000, guid: 43873c66ed54ba24c86a404c7d3f3d8c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

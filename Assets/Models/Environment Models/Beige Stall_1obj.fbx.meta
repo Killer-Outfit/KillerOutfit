@@ -15,7 +15,42 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Roof
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Food Cart Beige
+    second: {fileID: 2100000, guid: 92915cc3f469ec74483df132abb778f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Food Stall Roof Blue
+    second: {fileID: 2100000, guid: 82029c9e290654f47ace08a3029c8b36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lantern_Black
+    second: {fileID: 2100000, guid: 9973dd597de4c564f8c8cb5b39f4d5b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lantern_Red
+    second: {fileID: 2100000, guid: e76eb94cdf0aa264b8d4342856cd580c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Gray Pole
+    second: {fileID: 2100000, guid: 19422461d4e84ce4fb8aac0c73612c3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Very Dark Gray
+    second: {fileID: 2100000, guid: 54fcaf673901dc34d9a07c41ecde3524, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White Sign
+    second: {fileID: 2100000, guid: 49c008b1215fd384da534c7a135eed14, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

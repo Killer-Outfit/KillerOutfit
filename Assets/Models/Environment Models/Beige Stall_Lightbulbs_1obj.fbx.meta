@@ -13,7 +13,32 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Light Bulb_LFront
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Food Cart Beige
+    second: {fileID: 2100000, guid: d893f9c0e08923e4cbf5958f71ca2d6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Food Stall Roof Faded Turquoise
+    second: {fileID: 2100000, guid: a81369bde6dc57649bcc38b92ebf5d2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Bulb Yellow
+    second: {fileID: 2100000, guid: 0654ae3612f72ed47a8799ad0d092d38, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Gray Pole
+    second: {fileID: 2100000, guid: 1ce7f13da84b94a439a7d8d6abbb952f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pink Sign
+    second: {fileID: 2100000, guid: ff989b3bc1e875f4ea65c2e3dc12edb4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
