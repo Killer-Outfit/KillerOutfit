@@ -436,7 +436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d953fbcbdbfc143a3c3c94495d08a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  face: {fileID: 0}
+  score: 0
+  laserSpawn: {fileID: 0}
   anim: {fileID: 0}
+  currentHealth: 0
+  scraps: 0
   punchSounds:
   - {fileID: 8300000, guid: 18453c68adc1c1540b828129d550a190, type: 3}
   - {fileID: 8300000, guid: 2139d6b30466a14438552c8b5fb7f3d4, type: 3}
@@ -1309,7 +1314,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8912132435394240132}
+    m_TransformParent: {fileID: 8912132435394240162}
     m_Modifications:
     - target: {fileID: 4289995021194909689, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
@@ -1324,42 +1329,42 @@ PrefabInstance:
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.51
+      value: -3.4253864
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.266
+      value: -3.2355597
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.87
+      value: -2.9882486
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.4745268
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.4745268
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.14277361
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7275056
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
         type: 3}
@@ -1767,9 +1772,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8912132435394626592}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8912132435394240132 stripped
+--- !u!4 &8912132435394240162 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400036, guid: 100f1a4fcb04a80499faf5cca45aea72,
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 100f1a4fcb04a80499faf5cca45aea72,
     type: 3}
   m_PrefabInstance: {fileID: 8912132435394626592}
   m_PrefabAsset: {fileID: 0}
