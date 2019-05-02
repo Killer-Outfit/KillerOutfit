@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class footsteps : MonoBehaviour
+public class attacks : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip[] footstepSounds;
+    private AudioClip[] attackSounds;
 
     private AudioSource audioSource;
 
@@ -14,7 +14,7 @@ public class footsteps : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void Step()
+    private void Whoosh()
     {
         AudioClip clip = GetRandomClip();
         audioSource.PlayOneShot(clip);
@@ -22,6 +22,7 @@ public class footsteps : MonoBehaviour
 
     private AudioClip GetRandomClip()
     {
-        return footstepSounds[UnityEngine.Random.Range(0, footstepSounds.Length)];
+        return attackSounds[UnityEngine.Random.Range(0, attackSounds.Length)];
     }
 }
+
