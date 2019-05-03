@@ -495,8 +495,8 @@ public class playerNew : MonoBehaviour
         if(newOutfit.outfitType == "Misc")
         {
             Material[] mats = new Material[2];
-            mats[1] = newOutfit.outfitMaterial;
-            mats[0] = face;
+            mats[0] = newOutfit.outfitMaterial;
+            mats[1] = face;
             newOutfit.outfitSkinRenderer.materials = mats;
         }else
         {
@@ -507,15 +507,28 @@ public class playerNew : MonoBehaviour
         AnimatorOverrideController aoc = new AnimatorOverrideController(anim.runtimeAnimatorController);
         // Create a list of current animations and their replacements
         var anims = new List<KeyValuePair<AnimationClip, AnimationClip>>();
-        int index = 0;
+        int indexT = 0;
+        int indexM = 0;
+        int indexB = 0;
         // For each animation in the current animation tree
-        foreach (var a in aoc.animationClips)
+        foreach (var a in aoc.animationClips) { 
             // If an animation name contains the outfitType(must be the word punch, kick, and misc)
-            if (a.name.Contains(newOutfit.attackType))
+            if (a.name.Contains(top.attackType))
             {
-                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, newOutfit.attacks[index]));
-                index += 1;
+                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, top.attacks[indexT]));
+                indexT += 1;
             }
+            else if (a.name.Contains(misc.attackType))
+            {
+                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, misc.attacks[indexM]));
+                indexM += 1;
+            }
+            else if (a.name.Contains(bot.attackType))
+            {
+                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, bot.attacks[indexB]));
+                indexB += 1;
+            }
+        }
         // Override all animations in the anims list
         aoc.ApplyOverrides(anims);
         anim.runtimeAnimatorController = aoc;

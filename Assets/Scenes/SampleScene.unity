@@ -11056,11 +11056,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8912132435394593532, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerBody
-      objectReference: {fileID: 0}
     - target: {fileID: 8912132435735975806, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11116,11 +11111,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8912132435394593532, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 5492814136836066553, guid: db5a2da80e0cc7b479ee30ca232a8c09,
+        type: 3}
+    - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: laserSpawn
+      value: 
+      objectReference: {fileID: 7923290385164730890, guid: 374bee40c0e348b4f949d1c0930a80b7,
+        type: 3}
+    - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: healthbar
+      value: 
+      objectReference: {fileID: 1487969589}
+    - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: face
+      value: 
+      objectReference: {fileID: 2100000, guid: 51aacbd5f960fa743af0cd2f404ff0bc, type: 2}
     - target: {fileID: 8912132435394626605, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 8912132434565285972, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: outfitMesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 265e5778c901c644cba6b1e0ebe96f49, type: 3}
+    - target: {fileID: 8912132434565285972, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: outfitMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 80aa8ac80988095458b4b651ba0fe2e5, type: 2}
+    - target: {fileID: 8912132435617761345, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: outfitMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bf27ccdf9db4b5446a4c3d644f8462b3, type: 2}
+    - target: {fileID: 8912132435617761345, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: outfitMesh
+      value: 
+      objectReference: {fileID: 4300004, guid: e81959eb7b4624f4a83d6622091d5004, type: 3}
     - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: animSpeedMultiplier.Array.size
@@ -11166,47 +11208,5 @@ PrefabInstance:
       propertyPath: outfitMaterial
       value: 
       objectReference: {fileID: 2100000, guid: e47feb0728437964494f29c4d8613984, type: 2}
-    - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: laser
-      value: 
-      objectReference: {fileID: 5492814136836066553, guid: db5a2da80e0cc7b479ee30ca232a8c09,
-        type: 3}
-    - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: laserSpawn
-      value: 
-      objectReference: {fileID: 7923290385164730890, guid: 374bee40c0e348b4f949d1c0930a80b7,
-        type: 3}
-    - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: healthbar
-      value: 
-      objectReference: {fileID: 1487969589}
-    - target: {fileID: 8912132435394626604, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: face
-      value: 
-      objectReference: {fileID: 2100000, guid: 51aacbd5f960fa743af0cd2f404ff0bc, type: 2}
-    - target: {fileID: 8912132434565285972, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: outfitMesh
-      value: 
-      objectReference: {fileID: 4300002, guid: e81959eb7b4624f4a83d6622091d5004, type: 3}
-    - target: {fileID: 8912132434565285972, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: outfitMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 80aa8ac80988095458b4b651ba0fe2e5, type: 2}
-    - target: {fileID: 8912132435617761345, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: outfitMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: bf27ccdf9db4b5446a4c3d644f8462b3, type: 2}
-    - target: {fileID: 8912132435617761345, guid: 62d6695dcb9ac9249843f67f54e3aa28,
-        type: 3}
-      propertyPath: outfitMesh
-      value: 
-      objectReference: {fileID: 4300004, guid: e81959eb7b4624f4a83d6622091d5004, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62d6695dcb9ac9249843f67f54e3aa28, type: 3}
