@@ -10,7 +10,17 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Roof Top
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pole Gray
+    second: {fileID: 2100000, guid: 1b53b66c7e32ce1458bc21a501c07f7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tent Roof Red
+    second: {fileID: 2100000, guid: d7685141501a419439638f956cd90319, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

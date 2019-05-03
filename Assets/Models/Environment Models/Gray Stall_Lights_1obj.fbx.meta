@@ -11,7 +11,22 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Light_L
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Food Cart Darker Gray
+    second: {fileID: 2100000, guid: 743396be3cc59bf4093094e316eeb1bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red Azz Sign
+    second: {fileID: 2100000, guid: a508831290523a542a7fe7c429268caf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yellow Light
+    second: {fileID: 2100000, guid: 64672d2d99564974cbb9e3f8995e6794, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

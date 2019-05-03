@@ -11,7 +11,22 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Table
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Bulb Yellow
+    second: {fileID: 2100000, guid: 5251ba85fb1c62a42899fada9241d593, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pole_Darker Gray
+    second: {fileID: 2100000, guid: 3751ed46041831d47b63e677aea037d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Table Off White
+    second: {fileID: 2100000, guid: b58553e0e58719a45880698ad66128ed, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

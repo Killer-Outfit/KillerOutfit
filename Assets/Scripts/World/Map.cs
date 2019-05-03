@@ -8,6 +8,7 @@ public class Map : MonoBehaviour
     private Transform pT;
     private int currentCombatNum;
     private GameObject enemyManager;
+
     public float[] combatPositions;
     public GameObject[] Encounter1 = new GameObject[6];
     public GameObject[] Encounter2 = new GameObject[6];
@@ -17,7 +18,7 @@ public class Map : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        pT = GameObject.Find("Initial_Outfit_1").transform;
+        pT = GameObject.Find("PlayerBody").transform;
         enemyManager = GameObject.Find("Overmind");
         currentCombatNum = 0;
 

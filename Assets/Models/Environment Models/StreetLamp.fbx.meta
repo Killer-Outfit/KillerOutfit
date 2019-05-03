@@ -6,10 +6,21 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: Very Dark Gray
+    2100002: StreetLampLight
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cylinder.002
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StreetLampLight
+    second: {fileID: 2100000, guid: f382f7b2dd14ec640acdf9ff6fc41469, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Very Dark Gray
+    second: {fileID: 2100000, guid: 018a6192cc1cdba4aaaba93ad6e9fab7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

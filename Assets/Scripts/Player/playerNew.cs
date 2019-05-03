@@ -5,6 +5,8 @@ using UnityEngine;
 public class playerNew : MonoBehaviour
 {
 
+    private GameObject enemyManager;
+
     public Material face;
     [HideInInspector]
     public int score;
@@ -59,8 +61,15 @@ public class playerNew : MonoBehaviour
     private GameObject healthbar;
     private GameObject[] energyBars;
 
+    private int curX;
+    private int combo;
+    private GameObject scoreUI;
+    private GameObject scrapsUI;
+
     void Start()
     {
+        combo = 0;
+        curX = (int)transform.position.x;
         scraps = 0;
         score = 0;
         // Initialize UI bar objects
@@ -69,12 +78,16 @@ public class playerNew : MonoBehaviour
         energyBars[1] = GameObject.Find("B2");
         energyBars[2] = GameObject.Find("B3");
         healthbar = GameObject.Find("HBar");
+        scoreUI = GameObject.Find("Score");
+        scrapsUI = GameObject.Find("ScrapCount");
 
         // Temp vars for outfit switching
         bodyPart = 1;
         outfitT = true;
         outfitM = true;
         outfitB = true;
+
+        enemyManager = GameObject.Find("Overmind");
 
         audioSource = GetComponent<AudioSource>();
         maxEnergy = 300;
@@ -92,6 +105,14 @@ public class playerNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
+        scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
+        // arbitrary score adds 100 for each game unit moved
+        if((int)transform.position.x > curX)
+        {
+            score += 100 * ((int)transform.position.x - curX);
+            curX = (int)transform.position.x;
+        }
         if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
         {
             //Instantiate(laser, transform.position, transform.rotation);
@@ -108,13 +129,19 @@ public class playerNew : MonoBehaviour
         else if (Input.GetButtonDown("BButton"))
         {
             inputQueue = "change";
+        }else if(Input.GetAxis("L2") > 0 || Input.GetKey("f"))
+        {
+            Debug.Log("pressing L2");
+            inputQueue = "heal";
         }
+        Debug.Log(Input.GetAxis("L2") );
 
         if (state == "idle" || state == "run")
         {
             gameObject.GetComponent<playerMove>().setAttacking(false);
             CheckQueue();
         }
+
     }
 
     public void CheckQueue()
@@ -179,6 +206,15 @@ public class playerNew : MonoBehaviour
                 {
                     bodyPart = 1;
                 }
+            }else if(inputQueue == "heal")
+            {
+                if (enemyManager.GetComponent<Overmind>().areThereEnemies())
+                {
+                    if (spendScraps(1))
+                    {
+                        increaseHealth(.5f);
+                    }
+                }
             }
             inputQueue = "";
         }
@@ -200,8 +236,8 @@ public class playerNew : MonoBehaviour
     // Activate punch
     public void pressX()
     {
-        Instantiate(laser, transform.position, transform.rotation);
-        Instantiate(laserSpawn, transform.position, transform.rotation);
+        //Instantiate(laser, transform.position, transform.rotation);
+        //Instantiate(laserSpawn, transform.position, transform.rotation);
         //Debug.Log("pressed x");
         anim.SetTrigger("punch");
         attackType = "punch";
@@ -272,31 +308,51 @@ public class playerNew : MonoBehaviour
                 // if this phase is an active hitbox and hasn't hit an enemy yet, try to hit an enemy
                 if (currentOutfitItem.GetPhaseActive(currentHitNum, i) && hit == false)
                 {
-                    Collider[] cols = Physics.OverlapBox(attack.bounds.center, attack.bounds.extents, attack.transform.rotation, LayerMask.GetMask("Default"));
-                    //Debug.Log(cols.Length);
-                    foreach (Collider c in cols)
+                    if (attackType == "misc" && j == 0)
                     {
-                        //Debug.Log(c.name);
-                        if (c.tag == "Enemy")
+                        if(energy >= 100 * (currentHitNum + 1))
                         {
-                            // Decrease the hit target's health based on the attack's damage
-                            //Debug.Log("hit enemy");
-                            c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
-                            hit = true;
-                            if (currentOutfitItem == top)
+                            Instantiate(currentOutfitItem.projectiles[currentHitNum], transform.position, transform.rotation);
+                            useEnergy(100 * (currentHitNum + 1));
+                            currentHitNum = 0;
+                        }else if(j == 0)
+                        {
+                            Debug.Log("you dumb");
+                        }
+                        
+                        
+                    }
+                    else
+                    {
+                        Collider[] cols = Physics.OverlapBox(attack.bounds.center, attack.bounds.extents, attack.transform.rotation, LayerMask.GetMask("Default"));
+                        //Debug.Log(cols.Length);
+                        foreach (Collider c in cols)
+                        {
+                            //Debug.Log(c.name);
+                            if (c.tag == "Enemy")
                             {
-                                AudioClip clip = GetRandomPunch();
-                                audioSource.PlayOneShot(clip);
-                            }
-                            if (currentOutfitItem == bot)
-                            {
-                                AudioClip clip = GetRandomKick();
-                                audioSource.PlayOneShot(clip);
-                            }
-                            if (currentOutfitItem == misc)
-                            {
-                                AudioClip clip = GetRandomMisc();
-                                audioSource.PlayOneShot(clip);
+                                combo++;
+                                score += combo * 553;
+                                increaseEnergy(10);
+                                // Decrease the hit target's health based on the attack's damage
+                                //Debug.Log("hit enemy");
+                                c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
+                                hit = true;
+                                if (currentOutfitItem == top)
+                                {
+                                    AudioClip clip = GetRandomPunch();
+                                    audioSource.PlayOneShot(clip);
+                                }
+                                if (currentOutfitItem == bot)
+                                {
+                                    AudioClip clip = GetRandomKick();
+                                    audioSource.PlayOneShot(clip);
+                                }
+                                if (currentOutfitItem == misc)
+                                {
+                                    AudioClip clip = GetRandomMisc();
+                                    audioSource.PlayOneShot(clip);
+                                }
                             }
                         }
                     }
@@ -323,6 +379,7 @@ public class playerNew : MonoBehaviour
         {
             energy = maxEnergy;
         }
+        updateBars();
     }
 
     public void useEnergy(int energyUsed)
@@ -332,23 +389,82 @@ public class playerNew : MonoBehaviour
         {
             energy = 0;
         }
+
+        updateBars();
     }
 
+    public void updateBars()
+    {
+        if (energy > 200)
+        {
+            energyBars[2].transform.localScale = new Vector3(((energy - 200) / 100) * 1.062334f, 1f, 1f);
+            energyBars[1].transform.localScale = new Vector3(1.062334f, 1f, 1f);
+            energyBars[0].transform.localScale = new Vector3(1.062334f, 1f, 1f);
+        }
+        else if (energy > 100)
+        {
+            energyBars[2].transform.localScale = new Vector3(0, 1f, 1f);
+            energyBars[1].transform.localScale = new Vector3(((energy - 100) / 100) * 1.062334f, 1f, 1f);
+            energyBars[0].transform.localScale = new Vector3(1.062334f, 1f, 1f);
+        }
+        else
+        {
+            energyBars[2].transform.localScale = new Vector3(0, 1f, 1f);
+            energyBars[1].transform.localScale = new Vector3(0, 1f, 1f);
+            energyBars[0].transform.localScale = new Vector3((energy / 100) * 1.062334f, 1f, 1f);
+        }
+    }
     public void decreaseHealth(float damage)
     {
+        increaseEnergy((int)damage / 2);
+        combo = 0;
+        score -= (int)damage * 12;
         currentHealth -= damage;
-        healthbar.transform.localScale -= new Vector3(damage/100, 0, 0);
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            healthbar.transform.localScale = new Vector3(0, 0, 0);
+            killPlayer();
+        }
+        else
+        {
+            healthbar.transform.localScale -= new Vector3(damage / 100, 0, 0);
+        }
         Debug.Log(currentHealth);
         //healthbar.value = currentHealth / maxHealth;
         // If health drops to or bellow 0 then the player dies
-        if (currentHealth <= 0)
+        
+    }
+
+    public bool spendScraps(int scrapSpediture)
+    {
+        scraps -= scrapSpediture;
+        if (scraps < 0)
         {
-            killPlayer();
+            scraps = 0;
+            return false;
         }
+        return true;
+    }
+
+    public void increaseHealth(float heal)
+    {
+        currentHealth += heal;
+        if (currentHealth >= 100)
+        {
+            heal = 0;
+            currentHealth = 100;
+        }
+        healthbar.transform.localScale += new Vector3(heal / 100, 0, 0);
+        Debug.Log(currentHealth);
+        //healthbar.value = currentHealth / maxHealth;
+        // If health drops to or bellow 0 then the player dies
+        
     }
 
     private void killPlayer()
     {
+        score -= 1000;
         controller.enabled = false;
         //controller.transform.position = checkpoint.getCheckpoint();
         controller.enabled = true;
@@ -419,3 +535,5 @@ public class playerNew : MonoBehaviour
     }
 
 }
+
+
