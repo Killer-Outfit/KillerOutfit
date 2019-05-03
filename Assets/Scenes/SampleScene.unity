@@ -11208,5 +11208,20 @@ PrefabInstance:
       propertyPath: outfitMaterial
       value: 
       objectReference: {fileID: 2100000, guid: e47feb0728437964494f29c4d8613984, type: 2}
+    - target: {fileID: 1114794313519564025, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114794313519564025, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114794313519564025, guid: 62d6695dcb9ac9249843f67f54e3aa28,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62d6695dcb9ac9249843f67f54e3aa28, type: 3}
