@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class footsteps : MonoBehaviour
+public class Footsteps : MonoBehaviour
 {
     [SerializeField]
     private AudioClip[] footstepSounds;
