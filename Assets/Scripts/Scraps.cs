@@ -70,7 +70,7 @@ public class Scraps : MonoBehaviour
         {
             if (col.gameObject.tag == "Player")
             {
-                col.gameObject.GetComponent<playerNew>().increaseEnergy(1);
+                col.gameObject.GetComponent<playerNew>().scraps += 1;
                 Destroy(this.gameObject);
             }
             if (col.gameObject.name == "Plane" || col.gameObject.name == "Plane (1)")

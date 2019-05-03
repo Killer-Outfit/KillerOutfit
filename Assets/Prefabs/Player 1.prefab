@@ -43,6 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1382f9091c520439b4aee8a7df0039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles:
+  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
+  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
+  - {fileID: 4215174575261070074, guid: 374bee40c0e348b4f949d1c0930a80b7, type: 3}
   trails:
   - {fileID: 4622767468192487150}
   - {fileID: 4622767468192487150}
@@ -188,6 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1382f9091c520439b4aee8a7df0039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles: []
   trails:
   - {fileID: 4622767468118593774}
   - {fileID: 4622767468118593774}
@@ -532,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1382f9091c520439b4aee8a7df0039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles: []
   trails:
   - {fileID: 1114794313519564029}
   - {fileID: 1587089262594771206}
@@ -685,6 +691,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1382f9091c520439b4aee8a7df0039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles:
+  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
+  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
+  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
   trails:
   - {fileID: 4622767468192487150}
   - {fileID: 4622767468192487150}
@@ -794,6 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1382f9091c520439b4aee8a7df0039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles: []
   trails:
   - {fileID: 1114794313519564029}
   - {fileID: 1114794313519564029}
@@ -935,6 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1382f9091c520439b4aee8a7df0039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles: []
   trails:
   - {fileID: 4622767468118593774}
   - {fileID: 4622767468118593774}
@@ -1624,14 +1636,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8912132435735975806}
     m_Modifications:
-    - target: {fileID: 100060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Name
-      value: Initial_Outfit_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 400060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.711685
@@ -1687,6 +1691,14 @@ PrefabInstance:
     - target: {fileID: 400060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Name
+      value: Initial_Outfit_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_RootOrder

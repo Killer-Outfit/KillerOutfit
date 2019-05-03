@@ -5,6 +5,8 @@ using UnityEngine;
 public class playerNew : MonoBehaviour
 {
 
+    private GameObject enemyManager;
+
     public Material face;
     [HideInInspector]
     public int score;
@@ -61,6 +63,8 @@ public class playerNew : MonoBehaviour
 
     private int curX;
     private int combo;
+    private GameObject scoreUI;
+    private GameObject scrapsUI;
 
     void Start()
     {
@@ -74,12 +78,16 @@ public class playerNew : MonoBehaviour
         energyBars[1] = GameObject.Find("B2");
         energyBars[2] = GameObject.Find("B3");
         healthbar = GameObject.Find("HBar");
+        scoreUI = GameObject.Find("Score");
+        scrapsUI = GameObject.Find("ScrapCount");
 
         // Temp vars for outfit switching
         bodyPart = 1;
         outfitT = true;
         outfitM = true;
         outfitB = true;
+
+        enemyManager = GameObject.Find("Overmind");
 
         audioSource = GetComponent<AudioSource>();
         maxEnergy = 300;
@@ -97,10 +105,13 @@ public class playerNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
+        scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
         // arbitrary score adds 100 for each game unit moved
         if((int)transform.position.x > curX)
         {
             score += 100 * ((int)transform.position.x - curX);
+            curX = (int)transform.position.x;
         }
         if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
         {
@@ -118,13 +129,19 @@ public class playerNew : MonoBehaviour
         else if (Input.GetButtonDown("BButton"))
         {
             inputQueue = "change";
+        }else if(Input.GetAxis("L2") > 0 || Input.GetKey("f"))
+        {
+            Debug.Log("pressing L2");
+            inputQueue = "heal";
         }
+        Debug.Log(Input.GetAxis("L2") );
 
         if (state == "idle" || state == "run")
         {
             gameObject.GetComponent<playerMove>().setAttacking(false);
             CheckQueue();
         }
+
     }
 
     public void CheckQueue()
@@ -188,6 +205,15 @@ public class playerNew : MonoBehaviour
                 if( bodyPart == 4)
                 {
                     bodyPart = 1;
+                }
+            }else if(inputQueue == "heal")
+            {
+                if (enemyManager.GetComponent<Overmind>().areThereEnemies())
+                {
+                    if (spendScraps(1))
+                    {
+                        increaseHealth(.5f);
+                    }
                 }
             }
             inputQueue = "";
@@ -394,14 +420,46 @@ public class playerNew : MonoBehaviour
         combo = 0;
         score -= (int)damage * 12;
         currentHealth -= damage;
-        healthbar.transform.localScale -= new Vector3(damage/100, 0, 0);
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            healthbar.transform.localScale = new Vector3(0, 0, 0);
+            killPlayer();
+        }
+        else
+        {
+            healthbar.transform.localScale -= new Vector3(damage / 100, 0, 0);
+        }
         Debug.Log(currentHealth);
         //healthbar.value = currentHealth / maxHealth;
         // If health drops to or bellow 0 then the player dies
-        if (currentHealth <= 0)
+        
+    }
+
+    public bool spendScraps(int scrapSpediture)
+    {
+        scraps -= scrapSpediture;
+        if (scraps < 0)
         {
-            killPlayer();
+            scraps = 0;
+            return false;
         }
+        return true;
+    }
+
+    public void increaseHealth(float heal)
+    {
+        currentHealth += heal;
+        if (currentHealth >= 100)
+        {
+            heal = 0;
+            currentHealth = 100;
+        }
+        healthbar.transform.localScale += new Vector3(heal / 100, 0, 0);
+        Debug.Log(currentHealth);
+        //healthbar.value = currentHealth / maxHealth;
+        // If health drops to or bellow 0 then the player dies
+        
     }
 
     private void killPlayer()
@@ -477,3 +535,5 @@ public class playerNew : MonoBehaviour
     }
 
 }
+
+
