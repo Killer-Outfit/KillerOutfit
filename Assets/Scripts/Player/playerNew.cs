@@ -210,7 +210,7 @@ public class playerNew : MonoBehaviour
             {
                 if (enemyManager.GetComponent<Overmind>().areThereEnemies())
                 {
-                    if (spendScraps(1))
+                    if (spendScraps(1) && currentHealth != maxHealth)
                     {
                         increaseHealth(.5f);
                     }
@@ -438,10 +438,11 @@ public class playerNew : MonoBehaviour
 
     public bool spendScraps(int scrapSpediture)
     {
+        int tempScraps = scraps;
         scraps -= scrapSpediture;
         if (scraps < 0)
         {
-            scraps = 0;
+            scraps = tempScraps;
             return false;
         }
         return true;
