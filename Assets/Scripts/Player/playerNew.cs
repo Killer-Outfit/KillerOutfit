@@ -221,13 +221,18 @@ public class playerNew : MonoBehaviour
         else // No inputs at the moment
         {
             currentHitNum = 0;
+            if(state != "idle" && state != "run") //If this is the end of an attack string
+            {
+                anim.SetTrigger("backtoIdle");
+            }
             if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
             {
                 state = "run";
+                anim.SetBool("isIdle", false);
             }else
             {
                 state = "idle";
-                anim.SetTrigger("backtoIdle");
+                anim.SetBool("isIdle", true);
             }
             gameObject.GetComponent<playerMove>().setAttacking(false);
             
@@ -325,6 +330,7 @@ public class playerNew : MonoBehaviour
                     else
                     {
                         Collider[] cols = Physics.OverlapBox(attack.bounds.center, attack.bounds.extents, attack.transform.rotation, LayerMask.GetMask("Default"));
+                        attack.GetComponent<SkinnedMeshRenderer>().enabled = true;
                         //Debug.Log(cols.Length);
                         foreach (Collider c in cols)
                         {
@@ -356,6 +362,10 @@ public class playerNew : MonoBehaviour
                             }
                         }
                     }
+                }
+                else
+                {
+                    attack.GetComponent<SkinnedMeshRenderer>().enabled = false;
                 }
                 yield return null;
             }
