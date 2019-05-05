@@ -438,11 +438,9 @@ public class playerNew : MonoBehaviour
 
     public bool spendScraps(int scrapSpediture)
     {
-        int tempScraps = scraps;
-        scraps -= scrapSpediture;
-        if (scraps < 0)
+        if (scraps >= scrapSpediture)
         {
-            scraps = tempScraps;
+            scraps -= scrapSpediture;
             return false;
         }
         return true;
