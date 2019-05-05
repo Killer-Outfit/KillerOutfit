@@ -42,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        playerTransform = GameObject.Find("Initial_Outfit_1").transform;
+        playerTransform = GameObject.Find("PlayerBody").transform;
         anim = this.GetComponent<Animator>();
         controller = this.GetComponent<CharacterController>();
         enemClass = this.GetComponent<EnemyGeneric>();
@@ -274,7 +274,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void Die(float time = 1f)
     {
-        anim.SetTrigger("Die");
+        anim.SetTrigger("Death");
         if(state != "dying")
         {
             state = "dying";

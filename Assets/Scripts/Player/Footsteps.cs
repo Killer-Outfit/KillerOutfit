@@ -5,7 +5,7 @@ using UnityEngine;
 public class Footsteps : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip[] footsteps;
+    private AudioClip[] footstepSounds;
 
     private AudioSource audioSource;
 
@@ -22,6 +22,6 @@ public class Footsteps : MonoBehaviour
 
     private AudioClip GetRandomClip()
     {
-        return footsteps[UnityEngine.Random.Range(0, footsteps.Length)];
+        return footstepSounds[UnityEngine.Random.Range(0, footstepSounds.Length)];
     }
 }

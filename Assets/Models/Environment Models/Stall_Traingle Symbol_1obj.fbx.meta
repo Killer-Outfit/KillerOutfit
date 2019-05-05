@@ -12,7 +12,27 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Roof
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stall_Lantern White
+    second: {fileID: 2100000, guid: 4e1cdf5772496a14ebd9070de8ee3789, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stall_Light Brown
+    second: {fileID: 2100000, guid: 304501d696c4a614d8c1bc98f3907fa7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stall_Logo Blackish
+    second: {fileID: 2100000, guid: d022a98e6363f1747a4378c7e0ba24a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stall_Off White
+    second: {fileID: 2100000, guid: 62159bc8772f3d24687d93468d32ffad, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
