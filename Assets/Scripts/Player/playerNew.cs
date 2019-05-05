@@ -343,6 +343,7 @@ public class playerNew : MonoBehaviour
                                 // Decrease the hit target's health based on the attack's damage
                                 //Debug.Log("hit enemy");
                                 c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
+                                StartCoroutine("hitpause");
                                 hit = true;
                                 if (currentOutfitItem == top)
                                 {
@@ -380,6 +381,13 @@ public class playerNew : MonoBehaviour
             currentHitNum = 0;
         }
         CheckQueue();
+    }
+
+    private IEnumerator hitpause()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.2f);
+        Time.timeScale = 1f;
     }
 
     public void increaseEnergy(int energyGained)
