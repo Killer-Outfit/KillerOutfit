@@ -15,7 +15,10 @@ public class clickable : MonoBehaviour
     private GameObject[] clickables;
     private Camera menuCamera;
     private Camera mainCamera;
+    [HideInInspector]
+    public bool stickInputAccepted;
     public bool hoverB;
+    //private Vector3[] clickablePortPos;
 
 
     public bool unlocked;
@@ -29,6 +32,11 @@ public class clickable : MonoBehaviour
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         menuCamera = GameObject.Find("OutfitCamera").GetComponent<Camera>();
         clickables = GameObject.FindGameObjectsWithTag("Clickable");
+        /*clickablePortPos = new Vector3[clickables.Length];
+        for(int i = 0; i < clickables.Length; i++)
+        {
+            clickablePortPos[i] = menuCamera.WorldToViewportPoint(clickables[i].transform.position);
+        }*/
         up = true;
         originalY = outfitDisplay.transform.position.y;
         rotate = false;
@@ -38,6 +46,7 @@ public class clickable : MonoBehaviour
         player = GameObject.Find("PlayerBody");
         menuModel = GameObject.Find("OutfitModel");
         Debug.Log(type);
+        stickInputAccepted = true;
     }
 
     // Update is called once per frame
@@ -106,6 +115,11 @@ public class clickable : MonoBehaviour
             mainCamera.enabled = true;
         }
 
+        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
+        {
+            stickInputAccepted = true;
+        }
+        
         if (hoverB)
         {
             hover();
@@ -139,11 +153,75 @@ public class clickable : MonoBehaviour
                 lockSelect();
             selected = true;
         }
+        if (stickInputAccepted)
+        {
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                move("up");
+            }
+            else if (Input.GetAxis("Vertical") < 0)
+            {
+                move("down");
+            }
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                move("right");
+            }
+            else if (Input.GetAxis("Horizontal") < 0)
+            {
+                move("left");
+            }
+        }
     }
     void OnMouseExit()
     {
         rotate = false;
         rend.enabled = false;
+    }
+
+    private void move(string direction)
+    {
+        for (int i = 0; i < clickables.Length; i++)
+        {
+            if (clickables[i].name == this.name)
+            {
+                if (direction == "up" && i % 3 != 0)
+                {
+                    swap(i, -1);
+                }
+                else if (direction == "right" && i != 3 && i != 4 && i != 5)
+                {
+                    swap(i, 3);
+                }
+                else if (direction == "left" && i != 0 && i != 1 && i != 2)
+                {
+                    swap(i, -3);
+                }
+                else if (direction == "down" && i != 2 && i != 5)
+                {
+                    swap(i, +1);
+                }
+            }
+        }
+        
+
+        /*
+        for(int i = 0; i < clickablePortPos.Length; i++)
+        {
+            if(clickablePortPos[i].x > menuCamera.WorldToViewportPoint(transform.position).x)
+            {
+
+            }
+        }*/
+    }
+
+    private void swap(int index, int modifier)
+    {
+        rotate = false;
+        rend.enabled = false;
+        hoverB = false;
+        clickables[index + modifier].GetComponent<clickable>().hoverB = true;
+        clickables[index + modifier].GetComponent<clickable>().stickInputAccepted = false;
     }
 
     private void unlockSelect()
