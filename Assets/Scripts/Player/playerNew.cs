@@ -66,6 +66,8 @@ public class playerNew : MonoBehaviour
     private GameObject scoreUI;
     private GameObject scrapsUI;
 
+    private GameObject gameOver;
+
     void Start()
     {
         combo = 0;
@@ -100,6 +102,9 @@ public class playerNew : MonoBehaviour
         inputQueue = "";
         anim = GetComponent<Animator>();
         currentHitNum = 0;
+
+        gameOver = GameObject.Find("GameOverElements");
+        gameOver.SetActive(false);
     }
 
     // Update is called once per frame
@@ -421,7 +426,7 @@ public class playerNew : MonoBehaviour
         score -= (int)damage * 12;
         currentHealth -= damage;
         if (currentHealth <= 0)
-        {
+        {   // If the player dies, enable the Game Over menu so players can restart or quit to main menu
             currentHealth = 0;
             healthbar.transform.localScale = new Vector3(0, 0, 0);
             killPlayer();
@@ -464,7 +469,7 @@ public class playerNew : MonoBehaviour
 
     private void killPlayer()
     {
-        score -= 1000;
+        //score -= 1000;
         controller.enabled = false;
         //controller.transform.position = checkpoint.getCheckpoint();
         controller.enabled = true;
@@ -473,6 +478,8 @@ public class playerNew : MonoBehaviour
         //healthbar.value = currentHealth / maxHealth;
         //transform.position = checkpoint.getCheckpoint();
         //canvas.SendMessage("PlayerDead", true);
+        Time.timeScale = 0.0f;
+        gameOver.SetActive(true);
     }
 
     // Change outfit function takes in the new outfit 
