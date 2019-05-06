@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class clickable : MonoBehaviour
 {
-    
-    private bool selected;
+    public bool selected;
     private Renderer rend;
     private string type;
     private GameObject player;
@@ -13,6 +12,10 @@ public class clickable : MonoBehaviour
     private float originalY;
     private bool up;
     private GameObject menuModel;
+    private GameObject[] clickables;
+    private Camera menuCamera;
+    private Camera mainCamera;
+
 
     public bool unlocked;
     public GameObject outfitDisplay;
@@ -22,15 +25,18 @@ public class clickable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        menuCamera = GameObject.Find("OutfitCamera").GetComponent<Camera>();
+        clickables = GameObject.FindGameObjectsWithTag("Clickable");
         up = true;
         originalY = outfitDisplay.transform.position.y;
         rotate = false;
         rend = GetComponent<Renderer>();
         rend.enabled = false;
-        selected = false;
         type = item.outfitType;
         player = GameObject.Find("PlayerBody");
         menuModel = GameObject.Find("OutfitModel");
+        Debug.Log(type);
     }
 
     // Update is called once per frame
@@ -60,7 +66,7 @@ public class clickable : MonoBehaviour
 
         if (rotate)
         {
-            outfitDisplay.transform.eulerAngles = new Vector3(0, outfitDisplay.transform.eulerAngles.y + .5f, 0);
+            outfitDisplay.transform.eulerAngles = new Vector3(0, outfitDisplay.transform.eulerAngles.y + 1f, 0);
         }
         else
         {
@@ -92,6 +98,12 @@ public class clickable : MonoBehaviour
         {
             up = true;
         }
+
+        if (Input.GetButtonDown("BButton"))
+        {
+            menuCamera.enabled = false;
+            mainCamera.enabled = true;
+        }
     }
 
     void OnMouseOver()
@@ -119,6 +131,14 @@ public class clickable : MonoBehaviour
     {
         player.GetComponent<playerNew>().changeOutfit(item);
         menuModel.GetComponent<menuCharacter>().changeOutfit(item);
+        for(int i = 0; i < clickables.Length; i++)
+        {
+            Debug.Log(clickables[i]);
+            if (clickables[i].name != this.name && clickables[i].GetComponent<clickable>().item.outfitType == type)
+            {
+                clickables[i].GetComponent<clickable>().selected = false;
+            }
+        }
     }
 
     private void lockSelect()
@@ -131,6 +151,7 @@ public class clickable : MonoBehaviour
             purchaseItem();
         }
     }
+
 
     public void purchaseItem()
     {

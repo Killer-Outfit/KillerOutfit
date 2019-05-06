@@ -37,7 +37,7 @@ Transform:
   m_GameObject: {fileID: 6343692966461507545}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -119.64177, y: 17.43811, z: -135.62903}
-  m_LocalScale: {x: 1.3333334, y: 1.3333334, z: 1.3333334}
+  m_LocalScale: {x: 1.9999995, y: 1.9999995, z: 1.9999995}
   m_Children:
   - {fileID: 8526005506444973541}
   - {fileID: 1843536340650864092}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 6193531657732636356}
   m_Layer: 5
   m_Name: Clickable
-  m_TagString: Untagged
+  m_TagString: Clickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06404d5e39e5d041bcebcf947e35446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected: 0
   unlocked: 0
   outfitDisplay: {fileID: 0}
   item: {fileID: 0}

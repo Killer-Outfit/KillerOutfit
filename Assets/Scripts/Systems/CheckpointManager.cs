@@ -14,6 +14,7 @@ public class CheckpointManager : MonoBehaviour
     private int currentCheckpoint;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
