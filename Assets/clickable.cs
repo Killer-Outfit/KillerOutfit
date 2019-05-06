@@ -123,14 +123,26 @@ public class clickable : MonoBehaviour
         if (hoverB)
         {
             hover();
+        }else
+        {
+            rend.enabled = false;
+            rotate = false;
         }
     }
 
     void OnMouseOver()
     {
-        rotate = true;
-        rend.enabled = true;
-        if (Input.GetMouseButtonDown(0) && !selected)
+        //rotate = true;
+        //rend.enabled = true;
+        hoverB = true;
+        for(int i = 0; i < clickables.Length; i++)
+        {
+            if (clickables[i].name != this.name)
+            {
+                clickables[i].GetComponent<clickable>().hoverB = false;
+            }
+        }
+        /*if (Input.GetMouseButtonDown(0) && !selected)
         {
             press();
             if(unlocked)
@@ -138,13 +150,13 @@ public class clickable : MonoBehaviour
             else
                 lockSelect();
             selected = true;
-        }
+        }*/
     }
     public void hover()
     {
         rotate = true;
         rend.enabled = true;
-        if (Input.GetButtonDown("AButton") && !selected)
+        if ((Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(0)) && !selected)
         {
             press();
             if (unlocked)
@@ -175,8 +187,8 @@ public class clickable : MonoBehaviour
     }
     void OnMouseExit()
     {
-        rotate = false;
-        rend.enabled = false;
+        //rotate = false;
+        //rend.enabled = false;
     }
 
     private void move(string direction)
