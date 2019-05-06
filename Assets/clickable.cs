@@ -15,6 +15,7 @@ public class clickable : MonoBehaviour
     private GameObject[] clickables;
     private Camera menuCamera;
     private Camera mainCamera;
+    public bool hoverB;
 
 
     public bool unlocked;
@@ -104,12 +105,17 @@ public class clickable : MonoBehaviour
             menuCamera.enabled = false;
             mainCamera.enabled = true;
         }
+
+        if (hoverB)
+        {
+            hover();
+        }
     }
 
     void OnMouseOver()
     {
         rotate = true;
-        //rend.enabled = true;
+        rend.enabled = true;
         if (Input.GetMouseButtonDown(0) && !selected)
         {
             press();
@@ -120,7 +126,20 @@ public class clickable : MonoBehaviour
             selected = true;
         }
     }
-
+    public void hover()
+    {
+        rotate = true;
+        rend.enabled = true;
+        if (Input.GetButtonDown("AButton") && !selected)
+        {
+            press();
+            if (unlocked)
+                unlockSelect();
+            else
+                lockSelect();
+            selected = true;
+        }
+    }
     void OnMouseExit()
     {
         rotate = false;

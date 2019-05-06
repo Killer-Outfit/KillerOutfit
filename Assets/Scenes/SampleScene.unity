@@ -7212,6 +7212,11 @@ PrefabInstance:
       propertyPath: selected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3657788673542637491, guid: 9fe6d88effeb8b34482743a26cbf7132,
+        type: 3}
+      propertyPath: hoverB
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6776190690597495966, guid: 9fe6d88effeb8b34482743a26cbf7132,
         type: 3}
       propertyPath: item
@@ -13888,6 +13893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
+  hoverB: 0
   unlocked: 1
   outfitDisplay: {fileID: 1900417364}
   item: {fileID: 1215704971}
