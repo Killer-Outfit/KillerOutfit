@@ -13,6 +13,7 @@ public class Map : MonoBehaviour
     public GameObject[] Encounter1 = new GameObject[6];
     public GameObject[] Encounter2 = new GameObject[6];
     public GameObject[] Encounter3 = new GameObject[6];
+    public GameObject[] Encounter4 = new GameObject[6];
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +23,11 @@ public class Map : MonoBehaviour
         enemyManager = GameObject.Find("Overmind");
         currentCombatNum = 0;
 
-        combatPositions = new float[3];
+        combatPositions = new float[4];
         combatPositions[0] = 20;
         combatPositions[1] = 40;
         combatPositions[2] = 60;
+        combatPositions[3] = 80;
     }
 
     // Update is called once per frame
@@ -63,6 +65,10 @@ public class Map : MonoBehaviour
         else if (num == 2)
         {
             SpawnWave(Encounter3);
+        }
+        else if (num == 3)
+        {
+            SpawnWave(Encounter4);
         }
         else
         {

@@ -114,46 +114,45 @@ public class playerNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
-        scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
-        // arbitrary score adds 100 for each game unit moved
-        if ((int)transform.position.x > curX)
-        {
-            score += 100 * ((int)transform.position.x - curX);
-            curX = (int)transform.position.x;
-        }
-        // Get inputs
-        if(state != "stagger")
-        {
-            if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
-            {
-                //Instantiate(laser, transform.position, transform.rotation);
-                inputQueue = "punch";
-            }
-            else if (Input.GetButtonDown("YButton") || Input.GetMouseButtonDown(1))
-            {
-                inputQueue = "kick";
-            }
-            else if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
-            {
-                inputQueue = "misc";
-            }
-            else if (Input.GetButtonDown("BButton"))
-            {
-                inputQueue = "change";
-            } else if (Input.GetAxis("L2") > 0 || Input.GetKey("f"))
-            {
-                Debug.Log("pressing L2");
-                inputQueue = "heal";
-            }
-        }
+		if (camera.GetComponent<Camera>().enabled)
+		{
+			scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
+			scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
+			// arbitrary score adds 100 for each game unit moved
+			if ((int)transform.position.x > curX)
+			{
+				score += 100 * ((int)transform.position.x - curX);
+				curX = (int)transform.position.x;
+			}
+			// Get inputs
+			if(state != "stagger")
+			{
+				if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
+				{
+					//Instantiate(laser, transform.position, transform.rotation);
+					inputQueue = "punch";
+				}
+				else if (Input.GetButtonDown("YButton") || Input.GetMouseButtonDown(1))
+				{
+					inputQueue = "kick";
+				}
+				else if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
+				{
+					inputQueue = "misc";
+				}
+				else if (Input.GetAxis("L2") > 0 || Input.GetKey("f"))
+				{
+					Debug.Log("pressing L2");
+					inputQueue = "heal";
+				}
+			}
 
-        if (state == "idle" || state == "run" || state == "stagger")
-        {
-            gameObject.GetComponent<playerMove>().setAttacking(false);
-            CheckQueue();
-        }
-
+			if (state == "idle" || state == "run" || state == "stagger")
+			{
+				gameObject.GetComponent<playerMove>().setAttacking(false);
+				CheckQueue();
+			}
+		}
     }
 
     public void CheckQueue()
@@ -173,19 +172,6 @@ public class playerNew : MonoBehaviour
                 else if (inputQueue == "misc")
                 {
                     pressA();
-                }
-                else if (inputQueue == "change")
-                {
-                    if(camera.GetComponent<Camera>().enabled)
-                    {
-                        camera.GetComponent<Camera>().enabled = false;
-                        shopCamera.GetComponent<Camera>().enabled = true;
-                    }
-                    else
-                    {
-                        camera.GetComponent<Camera>().enabled = true;
-                        shopCamera.GetComponent<Camera>().enabled = false;
-                    }
                 }
                 else if (inputQueue == "heal")
                 {
