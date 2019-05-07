@@ -33,7 +33,7 @@ public class playerNew : MonoBehaviour
 
     private AudioSource audioSource;
 
-    [HideInInspector]
+    //[HideInInspector]
     public string state;
     [HideInInspector]
     public bool isAttacking;
@@ -65,6 +65,7 @@ public class playerNew : MonoBehaviour
     private int combo;
     private GameObject scoreUI;
     private GameObject scrapsUI;
+    private GameObject camera;
 
     private GameObject gameOver;
 
@@ -82,6 +83,7 @@ public class playerNew : MonoBehaviour
         healthbar = GameObject.Find("HBar");
         scoreUI = GameObject.Find("Score");
         scrapsUI = GameObject.Find("ScrapCount");
+        camera = GameObject.Find("Main Camera");
 
         // Temp vars for outfit switching
         bodyPart = 1;
@@ -113,35 +115,38 @@ public class playerNew : MonoBehaviour
         scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
         scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
         // arbitrary score adds 100 for each game unit moved
-        if((int)transform.position.x > curX)
+        if ((int)transform.position.x > curX)
         {
             score += 100 * ((int)transform.position.x - curX);
             curX = (int)transform.position.x;
         }
-        if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
+        // Get inputs
+        if(state != "stagger")
         {
-            //Instantiate(laser, transform.position, transform.rotation);
-            inputQueue = "punch";
+            if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
+            {
+                //Instantiate(laser, transform.position, transform.rotation);
+                inputQueue = "punch";
+            }
+            else if (Input.GetButtonDown("YButton") || Input.GetMouseButtonDown(1))
+            {
+                inputQueue = "kick";
+            }
+            else if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
+            {
+                inputQueue = "misc";
+            }
+            else if (Input.GetButtonDown("BButton"))
+            {
+                inputQueue = "change";
+            } else if (Input.GetAxis("L2") > 0 || Input.GetKey("f"))
+            {
+                Debug.Log("pressing L2");
+                inputQueue = "heal";
+            }
         }
-        else if (Input.GetButtonDown("YButton") || Input.GetMouseButtonDown(1))
-        {
-            inputQueue = "kick";
-        }
-        else if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
-        {
-            inputQueue = "misc";
-        }
-        else if (Input.GetButtonDown("BButton"))
-        {
-            inputQueue = "change";
-        }else if(Input.GetAxis("L2") > 0 || Input.GetKey("f"))
-        {
-            Debug.Log("pressing L2");
-            inputQueue = "heal";
-        }
-        Debug.Log(Input.GetAxis("L2") );
 
-        if (state == "idle" || state == "run")
+        if (state == "idle" || state == "run" || state == "stagger")
         {
             gameObject.GetComponent<playerMove>().setAttacking(false);
             CheckQueue();
@@ -151,93 +156,104 @@ public class playerNew : MonoBehaviour
 
     public void CheckQueue()
     {
-        if (inputQueue != "")
+        if(state != "stagger")
         {
-            if (inputQueue == "punch")
+            if (inputQueue != "")
             {
-                pressX();
-            }
-            else if (inputQueue == "kick")
-            {
-                pressY();
-            }
-            else if (inputQueue == "misc")
-            {
-                pressA();
-            }
-            else if (inputQueue == "change")
-            {
-               if(bodyPart == 1)
+                if (inputQueue == "punch")
                 {
-                    if (outfitT)
+                    pressX();
+                }
+                else if (inputQueue == "kick")
+                {
+                    pressY();
+                }
+                else if (inputQueue == "misc")
+                {
+                    pressA();
+                }
+                else if (inputQueue == "change")
+                {
+                    if (bodyPart == 1)
                     {
-                        changeOutfit(top2);
-                        outfitT = false;
+                        if (outfitT)
+                        {
+                            changeOutfit(top2);
+                            outfitT = false;
+                        }
+                        else
+                        {
+                            changeOutfit(top1);
+                            outfitT = true;
+                        }
+                    }
+                    else if (bodyPart == 2)
+                    {
+                        if (outfitM)
+                        {
+                            changeOutfit(misc2);
+                            outfitM = false;
+                        }
+                        else
+                        {
+                            changeOutfit(misc1);
+                            outfitM = true;
+                        }
                     }
                     else
                     {
-                        changeOutfit(top1);
-                        outfitT = true;
+                        if (outfitB)
+                        {
+                            changeOutfit(bot2);
+                            outfitB = false;
+                        }
+                        else
+                        {
+                            changeOutfit(bot1);
+                            outfitB = true;
+                        }
+                    }
+                    bodyPart += 1;
+                    if (bodyPart == 4)
+                    {
+                        bodyPart = 1;
                     }
                 }
-               else if(bodyPart == 2)
+                else if (inputQueue == "heal")
                 {
-                    if (outfitM)
+                    if (enemyManager.GetComponent<Overmind>().areThereEnemies())
                     {
-                        changeOutfit(misc2);
-                        outfitM = false;
-                    }
-                    else
-                    {
-                        changeOutfit(misc1);
-                        outfitM = true;
+                        if (spendScraps(1) && currentHealth != maxHealth)
+                        {
+                            increaseHealth(.5f);
+                        }
                     }
                 }
-               else
-                {
-                    if (outfitB)
-                    {
-                        changeOutfit(bot2);
-                        outfitB = false;
-                    }
-                    else
-                    {
-                        changeOutfit(bot1);
-                        outfitB = true;
-                    }
-                }
-                bodyPart += 1;
-                if( bodyPart == 4)
-                {
-                    bodyPart = 1;
-                }
-            }else if(inputQueue == "heal")
-            {
-                if (enemyManager.GetComponent<Overmind>().areThereEnemies())
-                {
-                    if (spendScraps(1))
-                    {
-                        increaseHealth(.5f);
-                    }
-                }
+                inputQueue = "";
             }
-            inputQueue = "";
-        }
-        else // No inputs at the moment
-        {
-            currentHitNum = 0;
-            if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+            else // No inputs at the moment
             {
-                state = "run";
-            }else
-            {
-                state = "idle";
-                anim.SetTrigger("backtoIdle");
+                currentHitNum = 0;
+                if (state != "idle" && state != "run") //If this is the end of an attack string
+                {
+                    anim.SetTrigger("backtoIdle");
+                }
+                if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+                {
+                    state = "run";
+                    anim.SetBool("isIdle", false);
+                }
+                else
+                {
+                    state = "idle";
+                    anim.SetBool("isIdle", true);
+                }
+                gameObject.GetComponent<playerMove>().setAttacking(false);
+
             }
-            gameObject.GetComponent<playerMove>().setAttacking(false);
-            
         }
     }
+
     // Activate punch
     public void pressX()
     {
@@ -342,6 +358,8 @@ public class playerNew : MonoBehaviour
                                 // Decrease the hit target's health based on the attack's damage
                                 //Debug.Log("hit enemy");
                                 c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
+                                StartCoroutine("hitpause");
+                                camera.GetComponent<CameraScript>().doShake(0.02f);
                                 hit = true;
                                 if (currentOutfitItem == top)
                                 {
@@ -369,12 +387,20 @@ public class playerNew : MonoBehaviour
         //GetComponent<PlayerMove>().DefaultTurn();
         //GetComponent<PlayerMove>().DefaultSpeed();
         currentOutfitItem.trails[currentHitNum].enabled = false;
+
         currentHitNum++;
         if (currentHitNum == 3)
         {
             currentHitNum = 0;
         }
         CheckQueue();
+    }
+
+    private IEnumerator hitpause()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.2f);
+        Time.timeScale = 1f;
     }
 
     public void increaseEnergy(int energyGained)
@@ -419,10 +445,19 @@ public class playerNew : MonoBehaviour
             energyBars[0].transform.localScale = new Vector3((energy / 100) * 1.062334f, 1f, 1f);
         }
     }
+
     public void decreaseHealth(float damage)
     {
+        // Do stagger
+        inputQueue = "";
+        state = "stagger";
+        gameObject.GetComponent<playerMove>().setStagger(true);
+        StopCoroutine("launchAttack");
+        StartCoroutine("Stagger");
+
         increaseEnergy((int)damage / 2);
         combo = 0;
+        currentHitNum = 0;
         score -= (int)damage * 12;
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -441,12 +476,23 @@ public class playerNew : MonoBehaviour
         
     }
 
+    private IEnumerator Stagger()
+    {
+        top.trails[currentHitNum].enabled = false;
+        bot.trails[currentHitNum].enabled = false;
+        misc.trails[currentHitNum].enabled = false;
+        anim.SetTrigger("stagger");
+        yield return new WaitForSeconds(0.5f);
+        anim.SetTrigger("backtoIdle");
+        state = "idle";
+        gameObject.GetComponent<playerMove>().setStagger(false);
+    }
+
     public bool spendScraps(int scrapSpediture)
     {
-        scraps -= scrapSpediture;
-        if (scraps < 0)
+        if (scraps >= scrapSpediture)
         {
-            scraps = 0;
+            scraps -= scrapSpediture;
             return false;
         }
         return true;
@@ -502,8 +548,8 @@ public class playerNew : MonoBehaviour
         if(newOutfit.outfitType == "Misc")
         {
             Material[] mats = new Material[2];
-            mats[1] = newOutfit.outfitMaterial;
-            mats[0] = face;
+            mats[0] = newOutfit.outfitMaterial;
+            mats[1] = face;
             newOutfit.outfitSkinRenderer.materials = mats;
         }else
         {
@@ -514,15 +560,28 @@ public class playerNew : MonoBehaviour
         AnimatorOverrideController aoc = new AnimatorOverrideController(anim.runtimeAnimatorController);
         // Create a list of current animations and their replacements
         var anims = new List<KeyValuePair<AnimationClip, AnimationClip>>();
-        int index = 0;
+        int indexT = 0;
+        int indexM = 0;
+        int indexB = 0;
         // For each animation in the current animation tree
-        foreach (var a in aoc.animationClips)
+        foreach (var a in aoc.animationClips) { 
             // If an animation name contains the outfitType(must be the word punch, kick, and misc)
-            if (a.name.Contains(newOutfit.attackType))
+            if (a.name.Contains(top.attackType))
             {
-                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, newOutfit.attacks[index]));
-                index += 1;
+                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, top.attacks[indexT]));
+                indexT += 1;
             }
+            else if (a.name.Contains(misc.attackType))
+            {
+                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, misc.attacks[indexM]));
+                indexM += 1;
+            }
+            else if (a.name.Contains(bot.attackType))
+            {
+                anims.Add(new KeyValuePair<AnimationClip, AnimationClip>(a, bot.attacks[indexB]));
+                indexB += 1;
+            }
+        }
         // Override all animations in the anims list
         aoc.ApplyOverrides(anims);
         anim.runtimeAnimatorController = aoc;
