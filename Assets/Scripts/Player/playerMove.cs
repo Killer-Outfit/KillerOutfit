@@ -12,6 +12,7 @@ public class playerMove : MonoBehaviour
     public Camera mainCam;
     private Vector3 curPlayerPortPos;
     private bool attacking;
+    private bool stagger;
     private bool rightFacing;
     private Vector3 right;
     private Vector3 left;
@@ -25,6 +26,7 @@ public class playerMove : MonoBehaviour
         left = new Vector3(0, 60, 0);
         rightFacing = true;
         attacking = false;
+        stagger = false;
         controller = GetComponent<CharacterController>();
         vVelocity = -10;
     }
@@ -63,7 +65,7 @@ public class playerMove : MonoBehaviour
                 horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
             }
 
-        if (!attacking) { 
+        if (!attacking && !stagger) { 
 
             Vector2 inputs = new Vector2(horizontal, vertical);
             inputs = Vector2.ClampMagnitude(inputs, 1);
@@ -113,5 +115,10 @@ public class playerMove : MonoBehaviour
     public void setAttacking(bool isAttack)
     {
         attacking = isAttack;
+    }
+
+    public void setStagger(bool isStagger)
+    {
+        stagger = isStagger;
     }
 }

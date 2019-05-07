@@ -59,8 +59,8 @@ MonoBehaviour:
   - 3
   - 5
   - 10
-  outfitMesh: {fileID: 4300000, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
-  outfitMaterial: {fileID: 2100000, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
+  outfitMesh: {fileID: 4300002, guid: e81959eb7b4624f4a83d6622091d5004, type: 3}
+  outfitMaterial: {fileID: 2100000, guid: 80aa8ac80988095458b4b651ba0fe2e5, type: 2}
   outfitSkinRenderer: {fileID: 8912132435383029634}
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Misc
@@ -70,9 +70,9 @@ MonoBehaviour:
   - {fileID: 8912132435489540196}
   - {fileID: 8912132435489540196}
   attack1Time:
-  - 0.4
-  - 0.4
-  - 0.4
+  - 0.5
+  - 0.1
+  - 0.3
   attack1Move:
   - 0
   - 0
@@ -83,9 +83,9 @@ MonoBehaviour:
   - 0
   attack1Active: 000100
   attack2Time:
-  - 0.4
-  - 0.4
-  - 0.4
+  - 0.5
+  - 0.1
+  - 0.2
   attack2Move:
   - 0
   - 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   attack3Time:
   - 0.4
   - 0.4
-  - 0.4
+  - 0.8
   attack3Move:
   - 0
   - 0
@@ -109,7 +109,6 @@ MonoBehaviour:
   - 0
   attack3Active: 000100
   animSpeedMultiplier:
-  - 1
   - 1
   - 1
   - 1
@@ -218,7 +217,7 @@ MonoBehaviour:
   attack1Time:
   - 0.2
   - 0.1
-  - 0.1
+  - 0.2
   attack1Move:
   - 25
   - 10
@@ -231,7 +230,7 @@ MonoBehaviour:
   attack2Time:
   - 0.3
   - 0.1
-  - 0.1
+  - 0.2
   attack2Move:
   - 25
   - 10
@@ -242,9 +241,9 @@ MonoBehaviour:
   - 0
   attack2Active: 000100
   attack3Time:
-  - 0.3
+  - 0.45
   - 0.2
-  - 0.1
+  - 0.2
   attack3Move:
   - 30
   - 50
@@ -255,10 +254,9 @@ MonoBehaviour:
   - 0
   attack3Active: 000100
   animSpeedMultiplier:
-  - 1
-  - 1
-  - 1
-  - 1
+  - 1.5
+  - 1.5
+  - 1.5
 --- !u!54 &8912132435394626607
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -561,9 +559,9 @@ MonoBehaviour:
   - {fileID: 8912132435489540196}
   - {fileID: 8912132435489540196}
   attack1Time:
+  - 0.3
+  - 0.1
   - 0.2
-  - 0.1
-  - 0.1
   attack1Move:
   - 10
   - 20
@@ -587,9 +585,9 @@ MonoBehaviour:
   - 0
   attack2Active: 000100
   attack3Time:
-  - 0.3
+  - 0.5
   - 0.1
-  - 0.1
+  - 0.5
   attack3Move:
   - 20
   - 10
@@ -602,8 +600,7 @@ MonoBehaviour:
   animSpeedMultiplier:
   - 1
   - 1
-  - 1
-  - 1
+  - 1.5
 --- !u!1 &8912132435489540198
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8912132435489540199}
   - component: {fileID: 8912132435489540196}
+  - component: {fileID: 1270350233148230502}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -648,6 +646,55 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!137 &1270350233148230502
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912132435489540198}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0.5}
+  m_DirtyAABB: 0
 --- !u!1 &8912132435587634797
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +765,7 @@ MonoBehaviour:
   - {fileID: 8912132435489540196}
   - {fileID: 8912132435489540196}
   attack1Time:
-  - 0.2
+  - 0.4
   - 0.1
   - 0.2
   attack1Move:
@@ -733,7 +780,7 @@ MonoBehaviour:
   attack2Time:
   - 0.1
   - 0.2
-  - 0.1
+  - 0.2
   attack2Move:
   - 10
   - 40
@@ -744,9 +791,9 @@ MonoBehaviour:
   - 0
   attack2Active: 000100
   attack3Time:
-  - 0.3
+  - 0.5
   - 0.1
-  - 0.2
+  - 0.4
   attack3Move:
   - 25
   - 20
@@ -757,7 +804,6 @@ MonoBehaviour:
   - 0
   attack3Active: 000100
   animSpeedMultiplier:
-  - 1
   - 1
   - 1
   - 1
@@ -817,8 +863,8 @@ MonoBehaviour:
   - 3
   - 5
   - 10
-  outfitMesh: {fileID: 4300000, guid: d6e6fe290ff528c4a96582b16845e4af, type: 3}
-  outfitMaterial: {fileID: 2100000, guid: d6e6fe290ff528c4a96582b16845e4af, type: 3}
+  outfitMesh: {fileID: 4300004, guid: e81959eb7b4624f4a83d6622091d5004, type: 3}
+  outfitMaterial: {fileID: 2100000, guid: bf27ccdf9db4b5446a4c3d644f8462b3, type: 2}
   outfitSkinRenderer: {fileID: 8912132435383029636}
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Top
@@ -841,9 +887,9 @@ MonoBehaviour:
   - 0
   attack1Active: 000100
   attack2Time:
-  - 0.3
+  - 0.55
   - 0.1
-  - 0.1
+  - 0.2
   attack2Move:
   - 20
   - 10
@@ -856,7 +902,7 @@ MonoBehaviour:
   attack3Time:
   - 0.3
   - 0.1
-  - 0.1
+  - 0.4
   attack3Move:
   - 20
   - 10
@@ -868,8 +914,7 @@ MonoBehaviour:
   attack3Active: 000100
   animSpeedMultiplier:
   - 1
-  - 1
-  - 1
+  - 1.75
   - 1
 --- !u!1 &8912132435735975793
 GameObject:
@@ -952,15 +997,15 @@ MonoBehaviour:
   - {fileID: 4622767468118593774}
   - {fileID: 4622767468118593774}
   attacks:
-  - {fileID: 7400018, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
-  - {fileID: 7400020, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
-  - {fileID: 7400022, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
+  - {fileID: 7400010, guid: 6a42268d5f6174f488e4f409ae36747a, type: 3}
+  - {fileID: 7400012, guid: 6a42268d5f6174f488e4f409ae36747a, type: 3}
+  - {fileID: 7400014, guid: 6a42268d5f6174f488e4f409ae36747a, type: 3}
   attackDamage:
   - 3
   - 5
   - 10
-  outfitMesh: {fileID: 4300004, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
-  outfitMaterial: {fileID: 2100004, guid: 623b097bb4d1c9a44a2131cbe42d413a, type: 3}
+  outfitMesh: {fileID: 4300000, guid: e81959eb7b4624f4a83d6622091d5004, type: 3}
+  outfitMaterial: {fileID: 2100000, guid: e47feb0728437964494f29c4d8613984, type: 2}
   outfitSkinRenderer: {fileID: 8912132435383029632}
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Bot
@@ -970,22 +1015,28 @@ MonoBehaviour:
   - {fileID: 8912132435489540196}
   - {fileID: 8912132435489540196}
   attack1Time:
-  - 0.2
   - 0.1
   - 0.1
+  - 0.3
+  - 0.1
+  - 0.3
   attack1Move:
   - 25
   - 10
+  - 0
+  - 0
   - 0
   attack1Acc:
   - 0
   - 0
   - 0
-  attack1Active: 000100
+  - 0
+  - 0
+  attack1Active: 0001000100
   attack2Time:
-  - 0.3
-  - 0.1
-  - 0.1
+  - 0.4
+  - 0.2
+  - 0.2
   attack2Move:
   - 25
   - 10
@@ -996,9 +1047,9 @@ MonoBehaviour:
   - 0
   attack2Active: 000100
   attack3Time:
+  - 0.6
+  - 0.4
   - 0.3
-  - 0.2
-  - 0.1
   attack3Move:
   - 30
   - 50
@@ -1009,10 +1060,9 @@ MonoBehaviour:
   - 0
   attack3Active: 000100
   animSpeedMultiplier:
-  - 1
-  - 1
-  - 1
-  - 1
+  - 0.4
+  - 0.5
+  - 0.6
 --- !u!1001 &89122085546681262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1662,6 +1712,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top
       objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.028745245
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.029296063
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.028745245
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.029296063
+      objectReference: {fileID: 0}
     - target: {fileID: 400060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.711685
@@ -1726,6 +1792,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.01695264
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.20263825
+      objectReference: {fileID: 0}
+    - target: {fileID: 400138, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.01695264
+      objectReference: {fileID: 0}
+    - target: {fileID: 400138, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.20263825
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_Controller
       value: 
@@ -1778,15 +1860,15 @@ SkinnedMeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 8912132435394626592}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8912132435394240184 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400024, guid: 100f1a4fcb04a80499faf5cca45aea72,
-    type: 3}
-  m_PrefabInstance: {fileID: 8912132435394626592}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8912132435394240186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400026, guid: 100f1a4fcb04a80499faf5cca45aea72,
+    type: 3}
+  m_PrefabInstance: {fileID: 8912132435394626592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8912132435394240184 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400024, guid: 100f1a4fcb04a80499faf5cca45aea72,
     type: 3}
   m_PrefabInstance: {fileID: 8912132435394626592}
   m_PrefabAsset: {fileID: 0}
