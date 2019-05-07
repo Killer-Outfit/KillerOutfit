@@ -61,24 +61,33 @@ MonoBehaviour:
   combatPositions:
   - 20
   - 60
+  - 60
+  - 60
   Encounter1:
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
   - {fileID: 0}
   Encounter2:
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
+  - {fileID: 0}
+  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
+  - {fileID: 0}
+  Encounter3:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
   - {fileID: 0}
   - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
-  Encounter3:
+  Encounter4:
+  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
+  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
+  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
   - {fileID: 0}
