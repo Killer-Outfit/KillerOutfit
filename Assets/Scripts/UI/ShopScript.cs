@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class ShopScript : MonoBehaviour, IPointerEnterHandler
 {
 
-    GameObject selectedItem;
-    public Text itemName;
-    public Text itemDesc;
-    public Image itemVid;
+    Button selectedItem;
+    Text itemName;
+    Text itemDesc;
+    Image itemVid;
     int[,] itemArr;
 
     // Start is called before the first frame update
