@@ -1269,7 +1269,7 @@ PrefabInstance:
     - target: {fileID: 5936964836038601985, guid: 5f0f969f1f897a74f8761fad7cec2fd3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3368618574625439075, guid: 5f0f969f1f897a74f8761fad7cec2fd3,
         type: 3}
@@ -3347,7 +3347,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -3582,7 +3582,6 @@ GameObject:
   - component: {fileID: 567350454}
   - component: {fileID: 567350453}
   - component: {fileID: 567350452}
-  - component: {fileID: 567350456}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -3663,42 +3662,6 @@ Transform:
   m_Father: {fileID: 828203798}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &567350456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567350451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca471c89ec10564babae7286193b72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatPositions:
-  - 20
-  - 60
-  Encounter1:
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Encounter2:
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  Encounter3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &572973056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d8314ba5e02a94d4dba428da25e22fed,
@@ -10190,7 +10153,6 @@ GameObject:
   - component: {fileID: 1683223561}
   - component: {fileID: 1683223560}
   - component: {fileID: 1683223559}
-  - component: {fileID: 1683223558}
   m_Layer: 0
   m_Name: Plane (2)
   m_TagString: Untagged
@@ -10212,42 +10174,6 @@ Transform:
   m_Father: {fileID: 828203798}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1683223558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683223556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca471c89ec10564babae7286193b72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatPositions:
-  - 20
-  - 60
-  Encounter1:
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Encounter2:
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  Encounter3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!64 &1683223559
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10889,7 +10815,7 @@ PrefabInstance:
     - target: {fileID: 8114464942318180003, guid: 231c8ed42fabf47498499710b7b8a26b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6785520201550060393, guid: 231c8ed42fabf47498499710b7b8a26b,
         type: 3}
@@ -11349,7 +11275,6 @@ GameObject:
   - component: {fileID: 1806335045}
   - component: {fileID: 1806335044}
   - component: {fileID: 1806335043}
-  - component: {fileID: 1806335042}
   m_Layer: 0
   m_Name: Plane (3)
   m_TagString: Untagged
@@ -11371,42 +11296,6 @@ Transform:
   m_Father: {fileID: 828203798}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1806335042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806335040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca471c89ec10564babae7286193b72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatPositions:
-  - 20
-  - 60
-  Encounter1:
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Encounter2:
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  Encounter3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!64 &1806335043
 MeshCollider:
   m_ObjectHideFlags: 0
