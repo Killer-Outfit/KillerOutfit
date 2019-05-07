@@ -110,7 +110,7 @@ public class EnemyMovement : MonoBehaviour
         wanderTimer = Random.Range(0.5f, 1f);
         float randStop = Random.Range(0, 1f);
 
-        if ((movementType == "aggressive" || pDist > 10) && randStop > 0.1)
+        if ((movementType == "aggressive" || pDist > 5) && randStop > 0.1)
         {
             anim.SetBool("Walking", true);
             vertical = Random.Range(-1f, 1f);

@@ -52,82 +52,79 @@ public class clickable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (unlocked)
-        {
-            if (selected)
-            {
-                box.GetComponent<Renderer>().material.color = Color.blue;
-            }
-            else
-            {
-                box.GetComponent<Renderer>().material.color = Color.green;
-            }
-        } else
-        {
-            if (selected)
-            {
-                box.GetComponent<Renderer>().material.color = Color.yellow;
-            }
-            else
-            {
-                box.GetComponent<Renderer>().material.color = Color.red;
-            }
-        }
+		if (menuCamera.enabled)
+		{
+			if (unlocked)
+			{
+				if (selected)
+				{
+					box.GetComponent<Renderer>().material.color = Color.blue;
+				}
+				else
+				{
+					box.GetComponent<Renderer>().material.color = Color.green;
+				}
+			} else
+			{
+				if (selected)
+				{
+					box.GetComponent<Renderer>().material.color = Color.yellow;
+				}
+				else
+				{
+					box.GetComponent<Renderer>().material.color = Color.red;
+				}
+			}
 
-        if (rotate)
-        {
-            outfitDisplay.transform.eulerAngles = new Vector3(0, outfitDisplay.transform.eulerAngles.y + 1f, 0);
-        }
-        else
-        {
-            outfitDisplay.transform.eulerAngles = new Vector3(outfitDisplay.transform.eulerAngles.x, 0, 0);
-        }
+			if (rotate)
+			{
+				outfitDisplay.transform.eulerAngles = new Vector3(0, outfitDisplay.transform.eulerAngles.y + 1f, 0);
+			}
+			else
+			{
+				outfitDisplay.transform.eulerAngles = new Vector3(outfitDisplay.transform.eulerAngles.x, 0, 0);
+			}
 
-        if(outfitDisplay.transform.eulerAngles.y < originalY + 3f && up)
-        {
-            outfitDisplay.transform.position = new Vector3(0.0f, outfitDisplay.transform.position.y + 0.5f, 0.0f);
-        }else if(outfitDisplay.transform.position.y == originalY + 3f)
-        {
-            up = false;
-        }
+			if(outfitDisplay.transform.eulerAngles.y < originalY + 3f && up)
+			{
+				outfitDisplay.transform.position = new Vector3(0.0f, outfitDisplay.transform.position.y + 0.5f, 0.0f);
+			}else if(outfitDisplay.transform.position.y == originalY + 3f)
+			{
+				up = false;
+			}
 
-        if (outfitDisplay.transform.position.y < originalY + 2f && up)
-        {
-            outfitDisplay.transform.position = new Vector3(outfitDisplay.transform.position.x, outfitDisplay.transform.position.y + 0.05f, outfitDisplay.transform.position.z);
-        }
-        else if (outfitDisplay.transform.position.y >= originalY + 2f)
-        {
-            up = false;
-        }
+			if (outfitDisplay.transform.position.y < originalY + 2f && up)
+			{
+				outfitDisplay.transform.position = new Vector3(outfitDisplay.transform.position.x, outfitDisplay.transform.position.y + 0.05f, outfitDisplay.transform.position.z);
+			}
+			else if (outfitDisplay.transform.position.y >= originalY + 2f)
+			{
+				up = false;
+			}
 
-        if (outfitDisplay.transform.position.y > originalY - 2f && !up)
-        {
-            outfitDisplay.transform.position = new Vector3(outfitDisplay.transform.position.x, outfitDisplay.transform.position.y - 0.05f, outfitDisplay.transform.position.z);
-        }
-        else if (outfitDisplay.transform.position.y <= originalY - 2f)
-        {
-            up = true;
-        }
+			if (outfitDisplay.transform.position.y > originalY - 2f && !up)
+			{
+				outfitDisplay.transform.position = new Vector3(outfitDisplay.transform.position.x, outfitDisplay.transform.position.y - 0.05f, outfitDisplay.transform.position.z);
+			}
+			else if (outfitDisplay.transform.position.y <= originalY - 2f)
+			{
+				up = true;
+			}
 
-        /*if (Input.GetButtonDown("BButton"))
-        {
-            menuCamera.enabled = false;
-            mainCamera.enabled = true;
-        }*/
-
-        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
-        {
-            stickInputAccepted = true;
-        }
-        
-        if (hoverB)
-        {
-            hover();
-        }else
-        {
-            rend.enabled = false;
-            rotate = false;
-        }
+			if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
+			{
+				stickInputAccepted = true;
+			}
+			
+			if (hoverB)
+			{
+				hover();
+			}else
+			{
+				rend.enabled = false;
+				rotate = false;
+			}
+		}
     }
 
     void OnMouseOver()
