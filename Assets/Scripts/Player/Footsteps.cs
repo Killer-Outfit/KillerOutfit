@@ -9,6 +9,8 @@ public class Footsteps : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public float volume;
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -17,7 +19,7 @@ public class Footsteps : MonoBehaviour
     private void Step()
     {
         AudioClip clip = GetRandomClip();
-        audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clip, volume);
     }
 
     private AudioClip GetRandomClip()

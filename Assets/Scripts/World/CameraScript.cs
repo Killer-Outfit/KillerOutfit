@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private Vector3 curPlayerPortPos;
     public Camera mainCam;
 
@@ -27,6 +27,7 @@ public class CameraScript : MonoBehaviour
     // Get the transform 
     private void Awake()
     {
+        player = GameObject.Find("PlayerBody");
         if (camTransform == null)
         {
             camTransform = GetComponent(typeof(Transform)) as Transform;

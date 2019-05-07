@@ -66,6 +66,7 @@ public class playerNew : MonoBehaviour
     private GameObject scoreUI;
     private GameObject scrapsUI;
     private GameObject camera;
+    private GameObject shopCamera;
 
     private GameObject gameOver;
 
@@ -84,6 +85,7 @@ public class playerNew : MonoBehaviour
         scoreUI = GameObject.Find("Score");
         scrapsUI = GameObject.Find("ScrapCount");
         camera = GameObject.Find("Main Camera");
+        shopCamera = GameObject.Find("OutfitCamera");
 
         // Temp vars for outfit switching
         bodyPart = 1;
@@ -174,49 +176,15 @@ public class playerNew : MonoBehaviour
                 }
                 else if (inputQueue == "change")
                 {
-                    if (bodyPart == 1)
+                    if(camera.GetComponent<Camera>().enabled)
                     {
-                        if (outfitT)
-                        {
-                            changeOutfit(top2);
-                            outfitT = false;
-                        }
-                        else
-                        {
-                            changeOutfit(top1);
-                            outfitT = true;
-                        }
-                    }
-                    else if (bodyPart == 2)
-                    {
-                        if (outfitM)
-                        {
-                            changeOutfit(misc2);
-                            outfitM = false;
-                        }
-                        else
-                        {
-                            changeOutfit(misc1);
-                            outfitM = true;
-                        }
+                        camera.GetComponent<Camera>().enabled = false;
+                        shopCamera.GetComponent<Camera>().enabled = true;
                     }
                     else
                     {
-                        if (outfitB)
-                        {
-                            changeOutfit(bot2);
-                            outfitB = false;
-                        }
-                        else
-                        {
-                            changeOutfit(bot1);
-                            outfitB = true;
-                        }
-                    }
-                    bodyPart += 1;
-                    if (bodyPart == 4)
-                    {
-                        bodyPart = 1;
+                        camera.GetComponent<Camera>().enabled = true;
+                        shopCamera.GetComponent<Camera>().enabled = false;
                     }
                 }
                 else if (inputQueue == "heal")
@@ -549,7 +517,7 @@ public class playerNew : MonoBehaviour
         {
             Material[] mats = new Material[2];
             mats[0] = newOutfit.outfitMaterial;
-            mats[1] = face;
+            //mats[1] = face;
             newOutfit.outfitSkinRenderer.materials = mats;
         }else
         {

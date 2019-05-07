@@ -9,6 +9,8 @@ public class attacks : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public float volume;
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -17,7 +19,7 @@ public class attacks : MonoBehaviour
     private void Whoosh()
     {
         AudioClip clip = GetRandomClip();
-        audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clip, volume);
     }
 
     private AudioClip GetRandomClip()

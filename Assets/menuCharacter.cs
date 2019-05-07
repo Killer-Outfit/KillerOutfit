@@ -25,7 +25,7 @@ public class menuCharacter : MonoBehaviour
         {
             Material[] mats = new Material[2];
             mats[0] = newOutfit.outfitMaterial;
-            mats[1] = face;
+            //mats[1] = face;
             newOutfit.outfitMenuSkinRenderer.materials = mats;
         }
         else

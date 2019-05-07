@@ -109,11 +109,11 @@ public class clickable : MonoBehaviour
             up = true;
         }
 
-        if (Input.GetButtonDown("BButton"))
+        /*if (Input.GetButtonDown("BButton"))
         {
             menuCamera.enabled = false;
             mainCamera.enabled = true;
-        }
+        }*/
 
         if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
         {
