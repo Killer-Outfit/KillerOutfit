@@ -402,6 +402,9 @@ public class playerNew : MonoBehaviour
 
     public void decreaseHealth(float damage)
     {
+        // Play hit sound effect
+        AudioClip clip = GetRandomPunch();
+        audioSource.PlayOneShot(clip);
         // Do stagger
         inputQueue = "";
         state = "stagger";
@@ -553,7 +556,10 @@ public class playerNew : MonoBehaviour
     {
         return miscSounds[UnityEngine.Random.Range(0, miscSounds.Length)];
     }
-
+    private AudioClip GetRandomDamage()
+    {
+        return punchSounds[UnityEngine.Random.Range(0, punchSounds.Length)];
+    }
 }
 
 
