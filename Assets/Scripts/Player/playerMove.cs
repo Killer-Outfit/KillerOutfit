@@ -5,11 +5,11 @@ using UnityEngine;
 public class playerMove : MonoBehaviour
 {
     Vector3 movementVector;
-    public float movementSpeed;
-    public float turningSpeed;
+    private float movementSpeed;
+    private float turningSpeed;
     float vVelocity;
     CharacterController controller;
-    public Camera mainCam;
+    private Camera mainCam;
     private Vector3 curPlayerPortPos;
     private bool attacking;
     private bool stagger;
@@ -21,6 +21,9 @@ public class playerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        movementSpeed = 15f;
+        turningSpeed = 0;
         anim = GetComponent<Animator>();
         right = new Vector3(0, -60, 0);
         left = new Vector3(0, 60, 0);

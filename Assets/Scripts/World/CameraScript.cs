@@ -6,7 +6,7 @@ public class CameraScript : MonoBehaviour
 {
     private GameObject player;
     private Vector3 curPlayerPortPos;
-    public Camera mainCam;
+    private Camera mainCam;
 
     public float smoothSpeed = 0.125f;
 
@@ -22,6 +22,7 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         locked = false;
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     // Get the transform 

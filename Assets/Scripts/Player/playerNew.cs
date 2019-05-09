@@ -6,58 +6,18 @@ public class playerNew : MonoBehaviour
 {
 
     private GameObject enemyManager;
-
-    public Material face;
-    [HideInInspector]
-    public int score;
     private CharacterController controller;
-    public Collider laserSpawn;
-    public Animator anim;
+    private Animator anim;
     private AnimatorOverrideController animatorOverrideController;
     private float maxHealth;
-    [HideInInspector]
-    public float currentHealth;
     private string attackType;
     private string inputQueue;
     private int currentHitNum;
     private int maxEnergy;
-    [HideInInspector]
-    public int scraps;
+    private outfits top;
+    private outfits misc;
+    private outfits bot;
 
-    [SerializeField]
-    private AudioClip[] punchSounds;
-    [SerializeField]
-    private AudioClip[] kickSounds;
-    [SerializeField]
-    private AudioClip[] miscSounds;
-
-    private AudioSource audioSource;
-
-    //[HideInInspector]
-    public string state;
-    [HideInInspector]
-    public bool isAttacking;
-    [HideInInspector]
-    public int energy;
-    public outfits top;
-    public outfits misc;
-    public outfits bot;
-
-    public outfits top1;
-    public outfits misc1;
-    public outfits bot1;
-
-    public outfits top2;
-    public outfits misc2;
-    public outfits bot2;
-
-    public bool outfitT;
-    public bool outfitM;
-    public bool outfitB;
-
-    public int bodyPart;
-
-    public Collider laser;
     private GameObject healthbar;
     private GameObject[] energyBars;
 
@@ -69,6 +29,30 @@ public class playerNew : MonoBehaviour
     private GameObject shopCamera;
 
     private GameObject gameOver;
+
+    [SerializeField]
+    private AudioClip[] punchSounds;
+    [SerializeField]
+    private AudioClip[] kickSounds;
+    [SerializeField]
+    private AudioClip[] miscSounds;
+    private AudioSource audioSource;
+
+    public Material face;
+    [HideInInspector]
+    public int score;
+    [HideInInspector]
+    public float currentHealth;
+    [HideInInspector]
+    public int scraps;
+
+    [HideInInspector]
+    public string state;
+    [HideInInspector]
+    public bool isAttacking;
+    [HideInInspector]
+    public int energy;
+   
 
     void Start()
     {
@@ -87,11 +71,9 @@ public class playerNew : MonoBehaviour
         camera = GameObject.Find("Main Camera");
         shopCamera = GameObject.Find("OutfitCamera");
 
-        // Temp vars for outfit switching
-        bodyPart = 1;
-        outfitT = true;
-        outfitM = true;
-        outfitB = true;
+        top = GameObject.Find("TOP_1").GetComponent<outfits>();
+        misc = GameObject.Find("MISC_1").GetComponent<outfits>();
+        bot = GameObject.Find("BOT_1").GetComponent<outfits>();
 
         enemyManager = GameObject.Find("Overmind");
 
