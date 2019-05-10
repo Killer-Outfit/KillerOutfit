@@ -74,6 +74,7 @@ public class playerNew : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1.0f;
         combo = 0;
         curX = (int)transform.position.x;
         scraps = 0;
