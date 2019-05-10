@@ -25,6 +25,9 @@ public class playerNew : MonoBehaviour
     public int scraps;
 
     [SerializeField]
+    private AudioClip[] loseSound;
+
+    [SerializeField]
     private AudioClip[] punchSounds;
     [SerializeField]
     private AudioClip[] kickSounds;
@@ -421,6 +424,8 @@ public class playerNew : MonoBehaviour
         {   // If the player dies, enable the Game Over menu so players can restart or quit to main menu
             currentHealth = 0;
             healthbar.transform.localScale = new Vector3(0, 0, 0);
+            clip = GetLoseSound();
+            audioSource.PlayOneShot(clip);
             killPlayer();
         }
         else
@@ -472,17 +477,18 @@ public class playerNew : MonoBehaviour
 
     private void killPlayer()
     {
+        //FMODUnity.RuntimeManager.MuteAllEvents(true);
         //score -= 1000;
         controller.enabled = false;
         //controller.transform.position = checkpoint.getCheckpoint();
         controller.enabled = true;
-        Destroy(this.gameObject);
         currentHealth = maxHealth;
         //healthbar.value = currentHealth / maxHealth;
         //transform.position = checkpoint.getCheckpoint();
         //canvas.SendMessage("PlayerDead", true);
         Time.timeScale = 0.0f;
         gameOver.SetActive(true);
+        Destroy(this.gameObject);
     }
 
     // Change outfit function takes in the new outfit 
@@ -559,6 +565,10 @@ public class playerNew : MonoBehaviour
     private AudioClip GetRandomDamage()
     {
         return punchSounds[UnityEngine.Random.Range(0, punchSounds.Length)];
+    }
+    private AudioClip GetLoseSound()
+    {
+        return loseSound[UnityEngine.Random.Range(0, loseSound.Length)];
     }
 }
 
