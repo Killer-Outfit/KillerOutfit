@@ -25,9 +25,6 @@ public class playerNew : MonoBehaviour
     public int scraps;
 
     [SerializeField]
-    private AudioClip[] loseSound;
-
-    [SerializeField]
     private AudioClip[] punchSounds;
     [SerializeField]
     private AudioClip[] kickSounds;
@@ -73,6 +70,8 @@ public class playerNew : MonoBehaviour
 
     private GameObject gameOver;
 
+    private LoseSound loseSound;
+
     void Start()
     {
         combo = 0;
@@ -111,6 +110,7 @@ public class playerNew : MonoBehaviour
         currentHitNum = 0;
 
         gameOver = GameObject.Find("GameOverElements");
+        loseSound = gameOver.GetComponent<LoseSound>();
         gameOver.SetActive(false);
     }
 
@@ -424,8 +424,6 @@ public class playerNew : MonoBehaviour
         {   // If the player dies, enable the Game Over menu so players can restart or quit to main menu
             currentHealth = 0;
             healthbar.transform.localScale = new Vector3(0, 0, 0);
-            clip = GetLoseSound();
-            audioSource.PlayOneShot(clip);
             killPlayer();
         }
         else
@@ -488,6 +486,7 @@ public class playerNew : MonoBehaviour
         //canvas.SendMessage("PlayerDead", true);
         Time.timeScale = 0.0f;
         gameOver.SetActive(true);
+        loseSound.Play();
         Destroy(this.gameObject);
     }
 
@@ -561,14 +560,6 @@ public class playerNew : MonoBehaviour
     private AudioClip GetRandomMisc()
     {
         return miscSounds[UnityEngine.Random.Range(0, miscSounds.Length)];
-    }
-    private AudioClip GetRandomDamage()
-    {
-        return punchSounds[UnityEngine.Random.Range(0, punchSounds.Length)];
-    }
-    private AudioClip GetLoseSound()
-    {
-        return loseSound[UnityEngine.Random.Range(0, loseSound.Length)];
     }
 }
 
