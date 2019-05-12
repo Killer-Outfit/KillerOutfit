@@ -43,30 +43,32 @@ public class playerMove : MonoBehaviour
 
     private void normalMovement()
     {
-            // Get stick inputs
-            float horizontal = 0; // Input.GetAxis("LStick X") * movementSpeed * Time.deltaTime;
-            float vertical = 0;  // Input.GetAxis("LStick Y") * movementSpeed * Time.deltaTime;
+        // Get stick inputs
+        float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+        float horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
 
-            if (Input.GetAxis("Vertical") > 0 && transform.position.z < 3f)
-            {
-                vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+        if(Input.GetAxis("Horizontal") < 0)
+        {
+            rightFacing = false;
+        }
+        else
+        {
+            rightFacing = true;
+        }
 
-            }
-            else if (Input.GetAxis("Vertical") < 0 && transform.position.z > -4f)
-            {
-                vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
-            }
+        if ((Input.GetAxis("Vertical") < 0 && transform.position.z < -4f) || (Input.GetAxis("Vertical") > 0 && transform.position.z > 3f))
+        {
+            vertical = 0;
 
-            if (Input.GetAxis("Horizontal") > 0 && curPlayerPortPos.x < 1f)
-            {
-                rightFacing = true;
-                horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-            }
-            else if (Input.GetAxis("Horizontal") < 0 && curPlayerPortPos.x > 0f)
-            {
-                rightFacing = false;
-                horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-            }
+        }
+        if (curPlayerPortPos.x < 0f)
+        {
+            horizontal += 1f;
+        }
+        else if(curPlayerPortPos.x > 1f)
+        {
+            horizontal -= 1f;
+        }
 
         if (!attacking && !stagger) { 
 

@@ -73,11 +73,15 @@ public class EnemyMovement : MonoBehaviour
             // Check for wall collision
             if (transform.position.z > 3f || transform.position.z < -4f)
             {
-                vertical = -vertical;
+                vertical = 0;
             }
-            if (mainCam.WorldToViewportPoint(transform.position).x > 1f || mainCam.WorldToViewportPoint(transform.position).x < 0f)
+            if (mainCam.WorldToViewportPoint(transform.position).x < 0f)
             {
-                horizontal = -horizontal;
+                horizontal += 1;
+            }
+            else if(mainCam.WorldToViewportPoint(transform.position).x > 1f)
+            {
+                horizontal -= 1;
             }
         }
         else if (state == "attacking")
@@ -245,9 +249,9 @@ public class EnemyMovement : MonoBehaviour
 
     public void Knockdown(float speed = 5f)
     {
-        anim.SetTrigger("Knockdown");
         if (state != "knockdown" && state != "dying")
         {
+            anim.SetTrigger("Knockdown");
             state = "knockdown";
             knockSpeed = speed;
             StartCoroutine("KnockdownCR");

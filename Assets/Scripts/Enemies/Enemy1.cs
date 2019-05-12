@@ -19,22 +19,40 @@ public class Enemy1 : EnemyGeneric
     protected override IEnumerator Attack()
     {
         hitPlayer = false;
-        yield return new WaitForSeconds(0.4f);
-        for(float i=0; i < 0.3f; i+= Time.deltaTime)
+        for(float i=0; i<1.2f; i += Time.deltaTime)
         {
-            if(!hitPlayer)
+            if(GetComponent<EnemyMovement>().state != "doingattack")
             {
-                AtkDetect();
+                break;
+            }
+
+            if(i >= 0f && i < 0.5f)
+            {
+                yield return null;
+            }
+            else if(i >= 0.5f && i < 0.6f)
+            {
+                atkBox.GetComponent<MeshRenderer>().enabled = true;
+                if (!hitPlayer)
+                {
+                    AtkDetect();
+                }
+                yield return null;
+            }
+            else
+            {
+                atkBox.GetComponent<MeshRenderer>().enabled = false;
+                yield return null;
             }
         }
-        yield return new WaitForSeconds(0.4f);
+        atkBox.GetComponent<MeshRenderer>().enabled = false;
         GetComponent<EnemyMovement>().ResumeMovement();
     }
 
     // Check if the attack hitbox hit the player
     private void AtkDetect()
     {
-        Collider[] cols = Physics.OverlapSphere(atkBox.bounds.center, 1.8f, LayerMask.GetMask("Default"));
+        Collider[] cols = Physics.OverlapSphere(atkBox.bounds.center, atkBox.radius, LayerMask.GetMask("Default"));
         foreach(Collider c in cols)
         {
             if (c.gameObject.tag == "Player")

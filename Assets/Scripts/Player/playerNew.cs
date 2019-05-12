@@ -23,6 +23,7 @@ public class playerNew : MonoBehaviour
 
     private int curX;
     private int combo;
+    private float qTime;
     private GameObject scoreUI;
     private GameObject scrapsUI;
     private GameObject camera;
@@ -57,6 +58,7 @@ public class playerNew : MonoBehaviour
     void Start()
     {
         combo = 0;
+        qTime = 0;
         curX = (int)transform.position.x;
         scraps = 0;
         score = 0;
@@ -106,28 +108,38 @@ public class playerNew : MonoBehaviour
 				score += 100 * ((int)transform.position.x - curX);
 				curX = (int)transform.position.x;
 			}
-			// Get inputs
+			// Get inputs and put them into the queue
 			if(state != "stagger")
 			{
 				if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
 				{
 					//Instantiate(laser, transform.position, transform.rotation);
 					inputQueue = "punch";
+                    qTime = 0.4f;
 				}
 				else if (Input.GetButtonDown("YButton") || Input.GetMouseButtonDown(1))
 				{
 					inputQueue = "kick";
-				}
+                    qTime = 0.4f;
+                }
 				else if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
 				{
 					inputQueue = "misc";
-				}
+                    qTime = 0.4f;
+                }
 				else if (Input.GetAxis("L2") > 0 || Input.GetKey("f"))
 				{
-					Debug.Log("pressing L2");
 					inputQueue = "heal";
-				}
+                    qTime = 0.4f;
+                }
 			}
+
+            //Empty the queue if something's been in there too long
+            qTime -= Time.deltaTime;
+            if(qTime <= 0)
+            {
+                inputQueue = "";
+            }
 
 			if (state == "idle" || state == "run" || state == "stagger")
 			{
