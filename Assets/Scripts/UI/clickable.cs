@@ -26,9 +26,18 @@ public class clickable : MonoBehaviour
     public outfits item;
     public int cost;
     public GameObject box;
+
+    [SerializeField]
+    private AudioClip[] menuHover;
+
+    public AudioClip menuClick;
+
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         menuCamera = GameObject.Find("OutfitCamera").GetComponent<Camera>();
         clickables = GameObject.FindGameObjectsWithTag("Clickable");
@@ -58,6 +67,8 @@ public class clickable : MonoBehaviour
 			{
 				if (selected)
 				{
+                    // the hover sound effect should remain muted until the third column has outfits and are no longer permanently "selected" - Eric
+                    //Hover();
 					box.GetComponent<Renderer>().material.color = Color.blue;
 				}
 				else
@@ -68,6 +79,7 @@ public class clickable : MonoBehaviour
 			{
 				if (selected)
 				{
+                    //Hover();
 					box.GetComponent<Renderer>().material.color = Color.yellow;
 				}
 				else
@@ -157,7 +169,10 @@ public class clickable : MonoBehaviour
         {
             press();
             if (unlocked)
+            {
+                Click();
                 unlockSelect();
+            }
             else
                 lockSelect();
             selected = true;
@@ -276,5 +291,21 @@ public class clickable : MonoBehaviour
     IEnumerable shake()
     {
         yield return null;
+    }
+
+    public void Hover()
+    {
+        AudioClip clip = GetMenuHover();
+        audioSource.PlayOneShot(clip);
+    }
+
+    public void Click()
+    {
+        audioSource.PlayOneShot(menuClick);
+    }
+
+    private AudioClip GetMenuHover()
+    {
+        return menuHover[UnityEngine.Random.Range(0, menuHover.Length)];
     }
 }

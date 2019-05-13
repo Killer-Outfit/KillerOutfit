@@ -17,6 +17,7 @@ public class playerMove : MonoBehaviour
     private Vector3 right;
     private Vector3 left;
     Animator anim;
+    private GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,8 @@ public class playerMove : MonoBehaviour
         stagger = false;
         controller = GetComponent<CharacterController>();
         vVelocity = -10;
+        pauseMenu = GameObject.Find("PauseMenuElements");
+        pauseMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,6 +42,20 @@ public class playerMove : MonoBehaviour
     {
         normalMovement();
         curPlayerPortPos = mainCam.WorldToViewportPoint(transform.position);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("the escape key was pressed");
+            if (!pauseMenu.activeInHierarchy)
+            {
+                Debug.Log("pause the game");
+                PauseGame();
+            }
+            else if (pauseMenu.activeInHierarchy)
+            {
+                Debug.Log("play the game");
+                ContinueGame();
+            }
+        }
     }
 
     private void normalMovement()
@@ -114,7 +131,19 @@ public class playerMove : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
     }
-    
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
+
+    private void ContinueGame()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+
     public void setAttacking(bool isAttack)
     {
         attacking = isAttack;
