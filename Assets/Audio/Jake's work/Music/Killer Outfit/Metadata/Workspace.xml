@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
     <object class="Workspace" id="{59c68d18-7f5f-4c61-8e86-73abbff11e3c}">
+        <property name="builtBanksOutputDirectory">
+            <value>Assets/Audio/Jake's work/Music/Killer Outfit</value>
+        </property>
         <relationship name="masterEventFolder">
             <destination>{6a80e30b-928c-4d70-84c7-466e9efddd69}</destination>
         </relationship>

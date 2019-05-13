@@ -72,6 +72,15 @@ public class playerNew : MonoBehaviour
 
     private LoseSound loseSound;
 
+    private GameObject healthBarUI;
+    private GameObject energyBarUI;
+
+    private GameObject audioController;
+
+    private string masterBusString = "bus:/";
+    FMOD.Studio.Bus masterBus;
+
+
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -89,6 +98,9 @@ public class playerNew : MonoBehaviour
         scrapsUI = GameObject.Find("ScrapCount");
         camera = GameObject.Find("Main Camera");
         shopCamera = GameObject.Find("OutfitCamera");
+        energyBarUI = GameObject.Find("Player Energy");
+        healthBarUI = GameObject.Find("Player Health");
+        audioController = GameObject.Find("AudioController");
 
         // Temp vars for outfit switching
         bodyPart = 1;
@@ -113,12 +125,14 @@ public class playerNew : MonoBehaviour
         gameOver = GameObject.Find("GameOverElements");
         loseSound = gameOver.GetComponent<LoseSound>();
         gameOver.SetActive(false);
+
+        masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (camera.GetComponent<Camera>().enabled)
+        if (camera.GetComponent<Camera>().enabled)
 		{
 			scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
 			scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
@@ -485,6 +499,14 @@ public class playerNew : MonoBehaviour
         //healthbar.value = currentHealth / maxHealth;
         //transform.position = checkpoint.getCheckpoint();
         //canvas.SendMessage("PlayerDead", true);
+        masterBus.setMute(true);
+        healthbar.SetActive(false);
+        for (int i = 0; i < 3; i++)
+            energyBars[i].SetActive(false);
+        scrapsUI.SetActive(false);
+        healthBarUI.SetActive(false);
+        energyBarUI.SetActive(false);
+        audioController.SetActive(false);
         Time.timeScale = 0.0f;
         gameOver.SetActive(true);
         loseSound.Play();
