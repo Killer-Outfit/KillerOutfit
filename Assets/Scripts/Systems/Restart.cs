@@ -20,6 +20,7 @@ public class Restart : MonoBehaviour
     public void restartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        FMODUnity.RuntimeManager.MuteAllEvents(false);
         Time.timeScale = 1.0f;
     }
 }

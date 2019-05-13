@@ -56,8 +56,20 @@ public class playerNew : MonoBehaviour
     public int energy;
    
 
+    private LoseSound loseSound;
+
+    private GameObject healthBarUI;
+    private GameObject energyBarUI;
+
+    private GameObject audioController;
+
+    private string masterBusString = "bus:/";
+    FMOD.Studio.Bus masterBus;
+
+
     void Start()
     {
+        Time.timeScale = 1.0f;
         combo = 0;
         qTime = 0;
         curX = (int)transform.position.x;
@@ -73,6 +85,9 @@ public class playerNew : MonoBehaviour
         scrapsUI = GameObject.Find("ScrapCount");
         camera = GameObject.Find("Main Camera");
         shopCamera = GameObject.Find("OutfitCamera");
+        energyBarUI = GameObject.Find("Player Energy");
+        healthBarUI = GameObject.Find("Player Health");
+        audioController = GameObject.Find("AudioController");
 
         top = GameObject.Find("TOP_1").GetComponent<outfits>();
         misc = GameObject.Find("MISC_1").GetComponent<outfits>();
@@ -93,13 +108,16 @@ public class playerNew : MonoBehaviour
         currentHitNum = 0;
 
         gameOver = GameObject.Find("GameOverElements");
+        loseSound = gameOver.GetComponent<LoseSound>();
         gameOver.SetActive(false);
+
+        masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (camera.GetComponent<Camera>().enabled)
+        if (camera.GetComponent<Camera>().enabled)
 		{
 			scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
 			scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
@@ -404,6 +422,9 @@ public class playerNew : MonoBehaviour
 
     public void decreaseHealth(float damage)
     {
+        // Play hit sound effect
+        AudioClip clip = GetRandomPunch();
+        audioSource.PlayOneShot(clip);
         // Do stagger
         inputQueue = "";
         state = "stagger";
@@ -471,17 +492,27 @@ public class playerNew : MonoBehaviour
 
     private void killPlayer()
     {
+        //FMODUnity.RuntimeManager.MuteAllEvents(true);
         //score -= 1000;
         controller.enabled = false;
         //controller.transform.position = checkpoint.getCheckpoint();
         controller.enabled = true;
-        Destroy(this.gameObject);
         currentHealth = maxHealth;
         //healthbar.value = currentHealth / maxHealth;
         //transform.position = checkpoint.getCheckpoint();
         //canvas.SendMessage("PlayerDead", true);
+        masterBus.setMute(true);
+        healthbar.SetActive(false);
+        for (int i = 0; i < 3; i++)
+            energyBars[i].SetActive(false);
+        scrapsUI.SetActive(false);
+        healthBarUI.SetActive(false);
+        energyBarUI.SetActive(false);
+        audioController.SetActive(false);
         Time.timeScale = 0.0f;
         gameOver.SetActive(true);
+        loseSound.Play();
+        Destroy(this.gameObject);
     }
 
     // Change outfit function takes in the new outfit 
@@ -555,7 +586,6 @@ public class playerNew : MonoBehaviour
     {
         return miscSounds[UnityEngine.Random.Range(0, miscSounds.Length)];
     }
-
 }
 
 

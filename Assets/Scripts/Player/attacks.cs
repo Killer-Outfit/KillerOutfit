@@ -7,6 +7,9 @@ public class attacks : MonoBehaviour
     [SerializeField]
     private AudioClip[] attackSounds;
 
+    public AudioClip laser;
+    public AudioClip heart;
+
     private AudioSource audioSource;
 
     public float volume;
@@ -18,11 +21,21 @@ public class attacks : MonoBehaviour
 
     private void Whoosh()
     {
-        AudioClip clip = GetRandomClip();
+        AudioClip clip = GetRandomWhoosh();
         audioSource.PlayOneShot(clip, volume);
     }
 
-    private AudioClip GetRandomClip()
+    private void Laser()
+    { 
+        audioSource.PlayOneShot(laser, volume);
+    }
+
+    private void Heart()
+    {
+        audioSource.PlayOneShot(heart, volume);
+    }
+
+    private AudioClip GetRandomWhoosh()
     {
         return attackSounds[UnityEngine.Random.Range(0, attackSounds.Length)];
     }
