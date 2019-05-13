@@ -10,7 +10,9 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform playerTransform;
 
-    private Animator anim;
+    [HideInInspector]
+    public Animator anim;
+
     private CharacterController controller;
     private EnemyGeneric enemClass;
 
@@ -221,15 +223,16 @@ public class EnemyMovement : MonoBehaviour
     public void ResumeMovement()
     {
         anim.SetTrigger("BackToIdle");
+        wanderTimer = 0;
         state = "idle";
     }
 
-    public void Stagger(float stuntime = 0.4f)
+    public void Stagger()
     {
         if(state != "dying")
         {
             anim.SetTrigger("Stagger");
-            stagTimer = stuntime;
+            stagTimer = 0.4f;
             if (state != "stagger")
             {
                 state = "stagger";

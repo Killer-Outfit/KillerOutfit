@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerMove : MonoBehaviour
 {
     Vector3 movementVector;
-    private float movementSpeed;
+    public float movementSpeed;
     private float turningSpeed;
     float vVelocity;
     CharacterController controller;
@@ -22,7 +22,6 @@ public class playerMove : MonoBehaviour
     void Start()
     {
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        movementSpeed = 15f;
         turningSpeed = 0;
         anim = GetComponent<Animator>();
         right = new Vector3(0, -60, 0);
@@ -51,7 +50,7 @@ public class playerMove : MonoBehaviour
         {
             rightFacing = false;
         }
-        else
+        else if (Input.GetAxis("Horizontal") > 0)
         {
             rightFacing = true;
         }

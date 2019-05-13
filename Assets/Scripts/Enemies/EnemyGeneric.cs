@@ -29,7 +29,7 @@ public class EnemyGeneric : MonoBehaviour
         }
         else
         {
-            GetComponent<EnemyMovement>().Stagger(5f);
+            GetComponent<EnemyMovement>().Stagger();
         }
     }
 

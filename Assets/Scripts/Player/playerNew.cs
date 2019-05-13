@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerNew : MonoBehaviour
 {
+    public bool debugmode = false; // set true for hitbox debugging
 
     private GameObject enemyManager;
     private CharacterController controller;
@@ -277,6 +278,8 @@ public class playerNew : MonoBehaviour
                 // if this phase is an active hitbox and hasn't hit an enemy yet, try to hit an enemy
                 if (currentOutfitItem.GetPhaseActive(currentHitNum, i) && hit == false)
                 {
+                    if (debugmode)
+                        attack.GetComponent<SkinnedMeshRenderer>().enabled = true;
                     if (attackType == "misc" && j == 0)
                     {
                         if(energy >= 100 * (currentHitNum + 1))
@@ -327,6 +330,11 @@ public class playerNew : MonoBehaviour
                             }
                         }
                     }
+                }
+                else
+                {
+                    if (debugmode)
+                        attack.GetComponent<SkinnedMeshRenderer>().enabled = false;
                 }
                 yield return null;
             }

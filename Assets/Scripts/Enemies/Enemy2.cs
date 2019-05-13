@@ -18,12 +18,45 @@ public class Enemy2 : EnemyGeneric
     // Attack timing
     protected override IEnumerator Attack()
     {
-        yield return new WaitForSeconds(0.5f);
-        GameObject hand = Instantiate(proj, handTransform.position, Quaternion.identity);
-        hand.GetComponent<HandProjMove>().direction = GetComponent<EnemyMovement>().direction;
-        hand.GetComponent<HandProjMove>().damage = damage;
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<EnemyMovement>().ResumeMovement();
+        GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1.5f);
+        bool atk = true;
+        for (float i = 0; i < 1f; i += Time.deltaTime)
+        {
+            if (GetComponent<EnemyMovement>().state != "doingattack")
+            {
+                atk = false;
+                break;
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+
+        if(atk)
+        {
+            GameObject hand = Instantiate(proj, handTransform.position, Quaternion.identity);
+            hand.GetComponent<HandProjMove>().direction = GetComponent<EnemyMovement>().direction;
+            hand.GetComponent<HandProjMove>().damage = damage;
+        }
+
+        for (float i = 0; i < 1.2f; i += Time.deltaTime)
+        {
+            if (GetComponent<EnemyMovement>().state != "doingattack")
+            {
+                atk = false;
+                break;
+            }
+            else
+            {
+                yield return null;
+            };
+        }
+
+        if (GetComponent<EnemyMovement>().state == "doingattack")
+        {
+            GetComponent<EnemyMovement>().ResumeMovement();
+        }
     }
 
     public override void Die()
