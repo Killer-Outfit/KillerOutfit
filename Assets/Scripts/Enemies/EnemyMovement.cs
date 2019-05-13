@@ -71,20 +71,6 @@ public class EnemyMovement : MonoBehaviour
             {
                 state = "attacking";
             }
-
-            // Check for wall collision
-            if (transform.position.z > 3f || transform.position.z < -4f)
-            {
-                vertical = 0;
-            }
-            if (mainCam.WorldToViewportPoint(transform.position).x < 0f)
-            {
-                horizontal += 1;
-            }
-            else if(mainCam.WorldToViewportPoint(transform.position).x > 1f)
-            {
-                horizontal -= 1;
-            }
         }
         else if (state == "attacking")
         {
@@ -96,7 +82,25 @@ public class EnemyMovement : MonoBehaviour
             vertical = 0;
         }
 
-        if(controller.isGrounded)
+        // Check for wall collision
+        if (transform.position.z > 3f)
+        {
+            vertical -= 5;
+        }
+        else if(transform.position.z < -4f)
+        {
+            vertical += 5;
+        }
+        if (mainCam.WorldToViewportPoint(transform.position).x < 0f)
+        {
+            horizontal -= 5;
+        }
+        else if (mainCam.WorldToViewportPoint(transform.position).x > 1f)
+        {
+            horizontal += 5;
+        }
+
+        if (controller.isGrounded)
         {
             gravity = 0;
         }
@@ -232,7 +236,7 @@ public class EnemyMovement : MonoBehaviour
         if(state != "dying")
         {
             anim.SetTrigger("Stagger");
-            stagTimer = 0.4f;
+            stagTimer = 0.6f;
             if (state != "stagger")
             {
                 state = "stagger";

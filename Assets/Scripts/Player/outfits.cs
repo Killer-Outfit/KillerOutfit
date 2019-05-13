@@ -24,7 +24,7 @@ public class outfits : MonoBehaviour
     public string attackType;
 
     // Colliders for this outfit's attacks
-    public Collider[] attackColliders;
+    public SphereCollider[] attackColliders;
 
     // Attack variables for phase timing, movement speed, acceleration and active hitbox. All arrays for each attack need to be the same size.
     [Header("Attack1")]

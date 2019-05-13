@@ -87,6 +87,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementType: aggressive
   speed: 5
+  anim: {fileID: 0}
   pDist: 0
   wantsToAttack: 0
   direction: 0

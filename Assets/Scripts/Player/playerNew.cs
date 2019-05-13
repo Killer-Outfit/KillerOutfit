@@ -261,7 +261,7 @@ public class playerNew : MonoBehaviour
         bool hit;
         outfits currentOutfitItem = null;
         // Set the collider being used based on current attack type
-        Collider attack = null;
+        SphereCollider attack = null;
         if (attackType == "punch")
         {
             currentOutfitItem = top;
@@ -314,7 +314,7 @@ public class playerNew : MonoBehaviour
                     }
                     else
                     {
-                        Collider[] cols = Physics.OverlapBox(attack.bounds.center, attack.bounds.extents, attack.transform.rotation, LayerMask.GetMask("Default"));
+                        Collider[] cols = Physics.OverlapSphere(attack.bounds.center, attack.radius, LayerMask.GetMask("Default"));
                         //Debug.Log(cols.Length);
                         foreach (Collider c in cols)
                         {
