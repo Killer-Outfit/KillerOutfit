@@ -129,7 +129,7 @@
 			ENDCG
 
 
-			// Outline pass 2, render colored outline + get bright pixels
+			// Outline pass, renders colored outline
 			Pass
 			{
 				Cull Front
@@ -156,8 +156,9 @@
 				v2f vert(appdata v)
 				{
 					v2f o;
+					//float3 forward = mul((float3x3)unity_CameraToWorld, float3(0, 0, 1));
 					float3 normal = normalize(v.normal);
-					float3 position = v.vertex + (normal * _Depth);
+					float3 position = v.vertex + (normal * _Depth);// + (forward * 0.03);
 					//convert the vertex positions from object space to clip space so they can be rendered
 					o.vertex = UnityObjectToClipPos(position);
 					return o;

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: O2M
-  m_Shader: {fileID: 4800000, guid: 7bf3bda476119fb41b3e7d220c140cdb, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5952d8ce7f7f77841bcd31156416195d, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
