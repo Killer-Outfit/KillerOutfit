@@ -45,7 +45,7 @@ public class outfits : MonoBehaviour
 
     // Multiplier to change an attack animation
     public float[] animSpeedMultiplier;
-
+    public bool[] continuousHitbox;
 
     // Start is called before the first frame update
     void Start()

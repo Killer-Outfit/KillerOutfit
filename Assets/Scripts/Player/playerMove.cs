@@ -62,6 +62,7 @@ public class playerMove : MonoBehaviour
         // Get stick inputs
         float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
         float horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+        anim.SetFloat("RunSpeed", Mathf.Max(Mathf.Abs(vertical), Mathf.Abs(horizontal)) * 3);
 
         if(Input.GetAxis("Horizontal") < 0)
         {

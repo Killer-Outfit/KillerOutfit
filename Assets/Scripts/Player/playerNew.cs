@@ -287,6 +287,9 @@ public class playerNew : MonoBehaviour
             //GetComponent<PlayerMove>().collideMaxSpeed = currentOutfitItem.GetPhaseMove(currentHitNum, i);
             //GetComponent<PlayerMove>().turningSpeed = currentOutfitItem.GetPhaseTurnSpeed(currentHitNumber, i);
 
+            // List of enemies hit thus far. Used for continuous attacks like outfit 2 kick 3.
+            List<int> enemiesHit = new List<int>();
+
             // Go through this phase's timer
             for (float j = 0; j < currentOutfitItem.GetPhaseTime(currentHitNum, i); j += Time.deltaTime)
             {
@@ -296,8 +299,10 @@ public class playerNew : MonoBehaviour
                 // if this phase is an active hitbox and hasn't hit an enemy yet, try to hit an enemy
                 if (currentOutfitItem.GetPhaseActive(currentHitNum, i) && hit == false)
                 {
+                    // If debugging is on, show hitbox.
                     if (debugmode)
                         attack.GetComponent<SkinnedMeshRenderer>().enabled = true;
+
                     if (attackType == "misc" && j == 0)
                     {
                         if(energy >= 100 * (currentHitNum + 1))
@@ -319,7 +324,7 @@ public class playerNew : MonoBehaviour
                         foreach (Collider c in cols)
                         {
                             //Debug.Log(c.name);
-                            if (c.tag == "Enemy")
+                            if (c.tag == "Enemy" && !enemiesHit.Contains(c.gameObject.GetInstanceID()))
                             {
                                 combo++;
                                 score += combo * 553;
@@ -329,7 +334,14 @@ public class playerNew : MonoBehaviour
                                 c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
                                 StartCoroutine("hitpause");
                                 camera.GetComponent<CameraScript>().doShake(0.02f);
-                                hit = true;
+                                if(currentOutfitItem.continuousHitbox[currentHitNum])
+                                {
+                                    enemiesHit.Add(c.gameObject.GetInstanceID());
+                                }
+                                else
+                                {
+                                    hit = true;
+                                }
                                 if (currentOutfitItem == top)
                                 {
                                     AudioClip clip = GetRandomPunch();
