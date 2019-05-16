@@ -585,9 +585,9 @@ MonoBehaviour:
   - {fileID: 187082721565042566}
   - {fileID: 187082721565042566}
   attack1Time:
-  - 0.5
+  - 0.55
   - 0.1
-  - 0.3
+  - 0.5
   attack1Move:
   - 0
   - 0
@@ -598,9 +598,9 @@ MonoBehaviour:
   - 0
   attack1Active: 000100
   attack2Time:
-  - 0.5
+  - 0.85
   - 0.1
-  - 0.2
+  - 0.9
   attack2Move:
   - 0
   - 0
@@ -611,7 +611,7 @@ MonoBehaviour:
   - 0
   attack2Active: 000100
   attack3Time:
-  - 0.4
+  - 0.8
   - 0.4
   - 0.8
   attack3Move:
@@ -624,9 +624,9 @@ MonoBehaviour:
   - 0
   attack3Active: 000100
   animSpeedMultiplier:
-  - 1
-  - 1
-  - 1
+  - 0.8
+  - 0.35
+  - 0.5
   continuousHitbox: 000000
 --- !u!1 &8912132434859980954
 GameObject:
@@ -979,7 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d953fbcbdbfc143a3c3c94495d08a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugmode: 1
+  debugmode: 0
   punchSounds:
   - {fileID: 8300000, guid: 1103770dfc55a274dbfad74a49a447a7, type: 3}
   - {fileID: 8300000, guid: a89895214ea72e644b3b289cc687a3c6, type: 3}

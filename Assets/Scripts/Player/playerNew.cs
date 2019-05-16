@@ -330,18 +330,9 @@ public class playerNew : MonoBehaviour
                                 score += combo * 553;
                                 increaseEnergy(10);
                                 // Decrease the hit target's health based on the attack's damage
-                                //Debug.Log("hit enemy");
                                 c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
-                                StartCoroutine("hitpause");
-                                camera.GetComponent<CameraScript>().doShake(0.02f);
-                                if(currentOutfitItem.continuousHitbox[currentHitNum])
-                                {
-                                    enemiesHit.Add(c.gameObject.GetInstanceID());
-                                }
-                                else
-                                {
-                                    hit = true;
-                                }
+
+                                // SFX
                                 if (currentOutfitItem == top)
                                 {
                                     AudioClip clip = GetRandomPunch();
@@ -357,6 +348,46 @@ public class playerNew : MonoBehaviour
                                     AudioClip clip = GetRandomMisc();
                                     audioSource.PlayOneShot(clip);
                                 }
+
+                                // Hitpause + screenshake
+                                StartCoroutine("hitpause");
+                                camera.GetComponent<CameraScript>().doShake(0.07f);
+                                if(currentOutfitItem.continuousHitbox[currentHitNum])
+                                {
+                                    enemiesHit.Add(c.gameObject.GetInstanceID());
+                                }
+                                else
+                                {
+                                    hit = true;
+                                }
+                            }
+                            if(c.tag == "Destructible")
+                            {
+                                combo++;
+                                score += combo * 553;
+                                increaseEnergy(10);
+                                c.GetComponent<Destructible>().doBreak();
+
+                                // SFX
+                                if (currentOutfitItem == top)
+                                {
+                                    AudioClip clip = GetRandomPunch();
+                                    audioSource.PlayOneShot(clip);
+                                }
+                                if (currentOutfitItem == bot)
+                                {
+                                    AudioClip clip = GetRandomKick();
+                                    audioSource.PlayOneShot(clip);
+                                }
+                                if (currentOutfitItem == misc)
+                                {
+                                    AudioClip clip = GetRandomMisc();
+                                    audioSource.PlayOneShot(clip);
+                                }
+
+                                // Hitpause + screenshake
+                                StartCoroutine("hitpause");
+                                camera.GetComponent<CameraScript>().doShake(0.07f);
                             }
                         }
                     }
@@ -384,7 +415,7 @@ public class playerNew : MonoBehaviour
 
     private IEnumerator hitpause()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0.1f;
         yield return new WaitForSecondsRealtime(0.2f);
         Time.timeScale = 1f;
     }

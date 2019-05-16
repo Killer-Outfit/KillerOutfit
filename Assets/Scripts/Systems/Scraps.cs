@@ -38,6 +38,7 @@ public class Scraps : MonoBehaviour
         mt = new MaterialPropertyBlock();
         rn.GetPropertyBlock(mt);
         mt.SetColor("_Color", color);
+        mt.SetFloat("_Depth", 0.03f);
         rn.SetPropertyBlock(mt);
         GetComponent<TrailRenderer>().startColor = color;
         GetComponent<TrailRenderer>().endColor = color;

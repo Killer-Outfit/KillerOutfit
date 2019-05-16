@@ -53,16 +53,18 @@ public class CameraScript : MonoBehaviour
     public void doShake(float duration)
     {
         shakeDuration = duration;
-        shakeAmount = 0.2f;
+        shakeAmount = 0.5f;
         StartCoroutine("Shake");
     }
 
     private IEnumerator Shake()
     {
         Vector3 originalPos = camTransform.localPosition;
+        Quaternion originalRot = camTransform.rotation;
         while(shakeDuration > 0)
         {
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+            camTransform.Rotate(new Vector3(0, 0, Random.Range(-shakeAmount, shakeAmount)));
             shakeAmount -= Time.deltaTime * decreaseFactor;
             if(shakeAmount < 0)
             {
@@ -73,5 +75,6 @@ public class CameraScript : MonoBehaviour
         }
         shakeDuration = 0f;
         camTransform.localPosition = originalPos;
+        camTransform.rotation = originalRot;
     }
 }

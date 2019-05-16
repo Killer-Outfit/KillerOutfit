@@ -6,6 +6,10 @@
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+
+		// Outline Params
+		_Depth("Depth", Range(0.0,1.0)) = 0.02
+		_LineColor("LineColor", Color) = (0,0,0,1)
     }
     SubShader
     {
@@ -48,6 +52,50 @@
             o.Alpha = c.a;
         }
         ENDCG
+
+		// Outline pass, renders colored outline
+		Pass
+		{
+			Cull Front
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+
+			#include "UnityCG.cginc"
+
+			fixed4 _LineColor;
+			float _Depth;
+
+			struct appdata
+			{
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
+			};
+
+			struct v2f
+			{
+				float4 vertex : SV_POSITION;
+			};
+
+			v2f vert(appdata v)
+			{
+				v2f o;
+				//float3 forward = mul((float3x3)unity_CameraToWorld, float3(0, 0, 1));
+				float3 normal = normalize(v.normal);
+				float3 position = v.vertex + (normal * _Depth);// + (forward * 0.03);
+				//convert the vertex positions from object space to clip space so they can be rendered
+				o.vertex = UnityObjectToClipPos(position);
+				return o;
+			}
+
+			sampler2D _MainTex;
+
+			fixed4 frag(v2f i) : SV_TARGET
+			{
+				return _LineColor;
+			}
+			ENDCG
+		}
     }
-    FallBack "Diffuse"
+    
 }

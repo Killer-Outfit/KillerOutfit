@@ -6,7 +6,7 @@
 		_MainTex("Texture", 2D) = "white" {}
 
 		// Outline Params
-		_Depth("Depth", Range(0.0,1.0)) = 0.03
+		_Depth("Depth", Range(0.0,1.0)) = 0.01
 		_LineColor("LineColor", Color) = (0,0,0,1)
 
 		// Toon Params
