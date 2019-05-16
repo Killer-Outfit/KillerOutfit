@@ -7,7 +7,7 @@ public class StartGame : MonoBehaviour
 {
     public void startFirstLevel()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void ReturntoMain()

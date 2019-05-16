@@ -99,6 +99,8 @@ MonoBehaviour:
   item: {fileID: 0}
   cost: 5
   box: {fileID: 5737708073553774512}
+  menuHover: []
+  menuClick: {fileID: 0}
 --- !u!1 &4007030782729529316
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +582,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSounds:
   - {fileID: 8300000, guid: 27682b7cfc0c6f646bc1bb720c05211e, type: 3}
+  laser: {fileID: 0}
+  heart: {fileID: 0}
   volume: 0
 --- !u!82 &1369065421954028376
 AudioSource:
@@ -901,7 +905,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1306305997411403185}
   - component: {fileID: 3892432808321298258}
-  - component: {fileID: 2221054177952333243}
   m_Layer: 11
   m_Name: OutfitCamera
   m_TagString: Untagged
@@ -965,14 +968,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2221054177952333243
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6898709931463212756}
-  m_Enabled: 1
 --- !u!1 &8411597952504489556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1901,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5936964836013984036}
     m_Modifications:
+    - target: {fileID: 100060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Name
+      value: MenuBody
+      objectReference: {fileID: 0}
+    - target: {fileID: 100060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100130, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Name
+      value: MenuBottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 100130, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100132, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Name
+      value: MenuMisc
+      objectReference: {fileID: 0}
+    - target: {fileID: 100132, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100134, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Name
+      value: MenuTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100134, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 400060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1949,42 +1980,6 @@ PrefabInstance:
     - target: {fileID: 400060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Name
-      value: MenuBody
-      objectReference: {fileID: 0}
-    - target: {fileID: 100060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 100130, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Name
-      value: MenuBottom
-      objectReference: {fileID: 0}
-    - target: {fileID: 100130, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 100132, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Name
-      value: MenuMisc
-      objectReference: {fileID: 0}
-    - target: {fileID: 100132, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 100134, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Name
-      value: MenuTop
-      objectReference: {fileID: 0}
-    - target: {fileID: 100134, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_Layer

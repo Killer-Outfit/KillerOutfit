@@ -34,6 +34,8 @@ public class clickable : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private bool hoverSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,8 +69,7 @@ public class clickable : MonoBehaviour
 			{
 				if (selected)
 				{
-                    // the hover sound effect should remain muted until the third column has outfits and are no longer permanently "selected" - Eric
-                    //Hover();
+                    
 					box.GetComponent<Renderer>().material.color = Color.blue;
 				}
 				else
@@ -79,7 +80,6 @@ public class clickable : MonoBehaviour
 			{
 				if (selected)
 				{
-                    //Hover();
 					box.GetComponent<Renderer>().material.color = Color.yellow;
 				}
 				else
@@ -131,8 +131,14 @@ public class clickable : MonoBehaviour
 			if (hoverB)
 			{
 				hover();
+
+                if(hoverSound)
+                {
+                    Hover();
+                }
 			}else
 			{
+                hoverSound = true;
 				rend.enabled = false;
 				rotate = false;
 			}
@@ -295,6 +301,7 @@ public class clickable : MonoBehaviour
 
     public void Hover()
     {
+        hoverSound = false;
         AudioClip clip = GetMenuHover();
         audioSource.PlayOneShot(clip);
     }
