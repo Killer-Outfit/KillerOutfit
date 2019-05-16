@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114846102011129962}
-  - {fileID: 114577044999901112}
+  - {fileID: 114660700785056186}
   EditorEvents:
   - {fileID: 114545061167459722}
   - {fileID: 114168185470657952}
   - {fileID: 114443250335244034}
   - {fileID: 114012454747610304}
   MasterBanks:
-  - {fileID: 114577044999901112}
+  - {fileID: 114660700785056186}
   StringsBanks:
   - {fileID: 114846102011129962}
   stringsBankWriteTime: 636932899490356926
@@ -41,7 +41,7 @@ MonoBehaviour:
   Path: event:/Music/Main Menu
   guid: 1b16e0b1140d1a4c8bf965c32bc3bb87
   Banks:
-  - {fileID: 114577044999901112}
+  - {fileID: 114660700785056186}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -142,12 +142,12 @@ MonoBehaviour:
   Path: event:/Music/District One
   guid: 65a7796a1f1f5143bf76d0c6da5dec37
   Banks:
-  - {fileID: 114577044999901112}
+  - {fileID: 114660700785056186}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114334365876778866}
+  - {fileID: 114778968450850230}
   MinDistance: 0
   MaxDistance: 0
   Length: 73600
@@ -278,6 +278,26 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114327400611381722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
+    Outfit\Build\Desktop\Master Bank.bank
+  lastModified: 636929681642009751
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 4259584
+  Exists: 1
 --- !u!114 &114334365876778866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +395,7 @@ MonoBehaviour:
   Path: event:/Music/Level One
   guid: 95b0cae477c05945b92308ce4f70d611
   Banks:
-  - {fileID: 114577044999901112}
+  - {fileID: 114660700785056186}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -470,7 +490,7 @@ MonoBehaviour:
   Path: event:/SFX/Footsteps
   guid: 4ccbdeeade1a8a4097112d8b76b00991
   Banks:
-  - {fileID: 114577044999901112}
+  - {fileID: 114660700785056186}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -521,7 +541,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 4259584
-  Exists: 1
+  Exists: 0
 --- !u!114 &114609217521619072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +594,26 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114660700785056186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Admin\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
+    Outfit\Build\Desktop\Master Bank.bank
+  lastModified: 636932899490327002
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 4259584
+  Exists: 1
 --- !u!114 &114679643577755258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,6 +690,22 @@ MonoBehaviour:
   - Name: Desktop
     Value: 4259584
   Exists: 0
+--- !u!114 &114778968450850230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: In Battle
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114812162925011694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +741,22 @@ MonoBehaviour:
   - Name: Desktop
     Value: 876
   Exists: 1
+--- !u!114 &114846418609179760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: In Battle
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114870257298533250
 MonoBehaviour:
   m_ObjectHideFlags: 0
