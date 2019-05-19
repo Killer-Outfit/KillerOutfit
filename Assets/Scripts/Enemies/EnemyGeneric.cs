@@ -17,6 +17,11 @@ public class EnemyGeneric : MonoBehaviour
     [HideInInspector]
     public GameObject overmind;
 
+    // Blatantly and shamelessly stolen from the camera script
+    public float shakeDuration = 0f;
+    public float shakeAmount = 0.2f;
+    public float decreaseFactor = 6f;
+
     protected bool dead = false;
 
     // Called when the player hits the enemy.
@@ -37,6 +42,7 @@ public class EnemyGeneric : MonoBehaviour
     public void Damage(float atk)
     {
         health -= atk;
+        doShake(0.3f);
         if (health <= 0 && dead == false)
         {
             dead = true;
@@ -62,5 +68,32 @@ public class EnemyGeneric : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         GetComponent<EnemyMovement>().ResumeMovement();
+    }
+
+    private void doShake(float duration)
+    {
+        shakeDuration = duration;
+        shakeAmount = 1f;
+        StartCoroutine("Shake");
+    }
+
+    private IEnumerator Shake()
+    {
+        Vector3 originalPos = transform.localPosition;
+        Quaternion originalRot = transform.rotation;
+        while (shakeDuration > 0)
+        {
+            transform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+            shakeAmount -= Time.deltaTime * decreaseFactor;
+            if (shakeAmount < 0)
+            {
+                shakeAmount = 0;
+            }
+            shakeDuration -= Time.deltaTime;
+            yield return null;
+        }
+        shakeDuration = 0f;
+        transform.localPosition = originalPos;
+        transform.rotation = originalRot;
     }
 }
