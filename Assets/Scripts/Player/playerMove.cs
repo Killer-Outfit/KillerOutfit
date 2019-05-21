@@ -43,15 +43,15 @@ public class playerMove : MonoBehaviour
         curPlayerPortPos = mainCam.WorldToViewportPoint(transform.position);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("the escape key was pressed");
+            //Debug.Log("the escape key was pressed");
             if (!pauseMenu.activeInHierarchy)
             {
-                Debug.Log("pause the game");
+                //Debug.Log("pause the game");
                 PauseGame();
             }
             else if (pauseMenu.activeInHierarchy)
             {
-                Debug.Log("play the game");
+                //Debug.Log("play the game");
                 ContinueGame();
             }
         }

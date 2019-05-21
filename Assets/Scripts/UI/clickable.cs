@@ -58,7 +58,7 @@ public class clickable : MonoBehaviour
         type = item.outfitType;
         player = GameObject.Find("PlayerBody");
         menuModel = GameObject.Find("OutfitModel");
-        Debug.Log(type);
+        //Debug.Log(type);
         stickInputAccepted = true;
     }
 

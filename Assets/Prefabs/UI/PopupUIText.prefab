@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6795317734644823191}
   - component: {fileID: 8527407053382068292}
   - component: {fileID: 6242405011093617138}
+  - component: {fileID: 9024255448146552129}
   m_Layer: 5
   m_Name: PopupUIText
   m_TagString: Untagged
@@ -95,3 +96,15 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.5235849, b: 0.5235849, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &9024255448146552129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158899234156575451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6729730d94f3e43b40528ff7bf4816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
