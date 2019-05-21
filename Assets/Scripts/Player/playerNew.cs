@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerNew : MonoBehaviour
 {
@@ -65,8 +66,6 @@ public class playerNew : MonoBehaviour
 
     private string masterBusString = "bus:/";
     FMOD.Studio.Bus masterBus;
-
-
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -224,9 +223,8 @@ public class playerNew : MonoBehaviour
     // Activate punch
     public void pressX()
     {
-        //Instantiate(laser, transform.position, transform.rotation);
-        //Instantiate(laserSpawn, transform.position, transform.rotation);
-        //Debug.Log("pressed x");
+
+        
         anim.SetTrigger("punch");
         attackType = "punch";
         state = "attacking";
@@ -247,6 +245,7 @@ public class playerNew : MonoBehaviour
     // Activate misc attack
     public void pressA()
     {
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Energy", 50f, true);
         anim.SetTrigger("miscAttack");
         attackType = "misc";
         state = "attacking";
@@ -426,7 +425,9 @@ public class playerNew : MonoBehaviour
         if(energy > maxEnergy)
         {
             energy = maxEnergy;
+            energyGained = maxEnergy - energy;
         }
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Energy", (float)energyGained, true);
         updateBars();
     }
 
@@ -435,9 +436,10 @@ public class playerNew : MonoBehaviour
         energy -= energyUsed;
         if(energy < 0)
         {
+            energyUsed = energy;
             energy = 0;
         }
-
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Energy", (float)energyUsed, false);
         updateBars();
     }
 
@@ -465,6 +467,7 @@ public class playerNew : MonoBehaviour
 
     public void decreaseHealth(float damage)
     {
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Health", damage, false);
         // Play hit sound effect
         AudioClip clip = GetRandomPunch();
         audioSource.PlayOneShot(clip);
@@ -510,6 +513,7 @@ public class playerNew : MonoBehaviour
 
     public bool spendScraps(int scrapSpediture)
     {
+        
         if (scraps >= scrapSpediture)
         {
             scraps -= scrapSpediture;
@@ -520,6 +524,7 @@ public class playerNew : MonoBehaviour
 
     public void increaseHealth(float heal)
     {
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Health", heal, true);
         currentHealth += heal;
         if (currentHealth >= 100)
         {
@@ -578,8 +583,8 @@ public class playerNew : MonoBehaviour
         if(newOutfit.outfitType == "Misc")
         {
             Material[] mats = new Material[2];
-            mats[0] = newOutfit.outfitMaterial;
-            //mats[1] = face;
+            mats[0] = face;
+            mats[1] = newOutfit.outfitMaterial;
             newOutfit.outfitSkinRenderer.materials = mats;
         }else
         {

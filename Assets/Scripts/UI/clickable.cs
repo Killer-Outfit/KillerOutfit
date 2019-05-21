@@ -35,10 +35,12 @@ public class clickable : MonoBehaviour
     private AudioSource audioSource;
 
     private bool hoverSound;
+    private float startYRot;
 
     // Start is called before the first frame update
     void Start()
     {
+        startYRot = outfitDisplay.transform.eulerAngles.y;
         audioSource = GetComponent<AudioSource>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         menuCamera = GameObject.Find("OutfitCamera").GetComponent<Camera>();
@@ -94,7 +96,7 @@ public class clickable : MonoBehaviour
 			}
 			else
 			{
-				outfitDisplay.transform.eulerAngles = new Vector3(outfitDisplay.transform.eulerAngles.x, 0, 0);
+				outfitDisplay.transform.eulerAngles = new Vector3(outfitDisplay.transform.eulerAngles.x, startYRot, 0);
 			}
 
 			if(outfitDisplay.transform.eulerAngles.y < originalY + 3f && up)
