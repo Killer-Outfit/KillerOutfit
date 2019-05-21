@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+// Attached to main canvas
 public class textSpawner : MonoBehaviour
 {
     private Dictionary<string, Color> colors;

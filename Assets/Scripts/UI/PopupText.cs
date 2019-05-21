@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// Used for the PopupScoreText prefab
 public class PopupText : MonoBehaviour
 {
     private float speedY;

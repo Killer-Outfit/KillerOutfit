@@ -18,6 +18,7 @@ public class Scraps : MonoBehaviour
     private Color color;
     private Renderer rn;
     private MaterialPropertyBlock mt;
+    public GameObject popupText;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +72,8 @@ public class Scraps : MonoBehaviour
         {
             if (col.gameObject.tag == "Player")
             {
-                col.gameObject.GetComponent<playerNew>().scraps += 1;
+                Instantiate(popupText, transform.position, Quaternion.identity);
+                //col.gameObject.GetComponent<playerNew>().scraps += 1;
                 Destroy(this.gameObject);
             }
             if (col.gameObject.name == "Plane" || col.gameObject.name == "Plane (1)")
