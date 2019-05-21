@@ -28,22 +28,22 @@ public class Enemy1 : EnemyGeneric
 
             if(i >= 0f && i < 0.2f)
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 0.6f);
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1.2f);
                 yield return null;
             }
             else if (i >= 0.2f && i < 0.7f)
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 0.2f);
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 0.4f);
                 yield return null;
             }
             else if (i >= 0.7f && i < 0.8f)
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1.5f);
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 3f);
                 yield return null;
             }
             else if(i >= 0.8f && i < 0.9f)
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 2f);
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 4f);
                 //atkBox.GetComponent<MeshRenderer>().enabled = true;
                 if (!hitPlayer)
                 {
@@ -53,7 +53,7 @@ public class Enemy1 : EnemyGeneric
             }
             else
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1f);
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 2f);
                 //atkBox.GetComponent<MeshRenderer>().enabled = false;
                 yield return null;
             }
