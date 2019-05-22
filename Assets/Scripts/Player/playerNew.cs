@@ -69,6 +69,7 @@ public class playerNew : MonoBehaviour
     FMOD.Studio.Bus masterBus;
 
     public GameObject textBoi;
+    public GameObject curTextBoi;
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -123,9 +124,22 @@ public class playerNew : MonoBehaviour
         if (camera.GetComponent<Camera>().enabled)
 		{
             //Debug.Log(maxScore);
+            int difference = maxScore - score;
             if(score < maxScore)
             {
-                score += 1;
+                if(difference > 1000)
+                {
+                    score += 100;
+                }
+                else if(difference > 100)
+                {
+                    score += 10;
+                }
+                else
+                {
+                    score += 1;
+                }
+                
             }
 			scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
 			scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
@@ -445,8 +459,8 @@ public class playerNew : MonoBehaviour
     {
         Debug.Log(textForSpawner);
         Vector3 pos = new Vector3(transform.position.x, transform.position.y + 4, transform.position.z);
-        GameObject curTextBoi = Instantiate(textBoi, pos, Quaternion.identity);
-        curTextBoi.GetComponent<PopupText>().currentText = textForSpawner;
+        curTextBoi = Instantiate(textBoi, pos, Quaternion.identity);
+        curTextBoi.GetComponent<PopupText>().assignText(textForSpawner);
         //Debug.Log(curTextBoi.GetComponent<PopupText>().currentText);
     }
     public void useEnergy(int energyUsed)

@@ -720,7 +720,7 @@ MonoBehaviour:
   - 3
   - 5
   - 10
-  outfitMesh: {fileID: 4300000, guid: 4dbf13b99d4c566439c4e3c5e76ea019, type: 3}
+  outfitMesh: {fileID: 4300000, guid: 8298ad313da642845ad66b8d7aae55e7, type: 3}
   outfitMaterial: {fileID: 2100000, guid: 1f36b114c48326e429519cf554fa3b4e, type: 2}
   outfitSkinRenderer: {fileID: 8912132435383029632}
   outfitMenuSkinRenderer: {fileID: 0}
@@ -1025,7 +1025,8 @@ MonoBehaviour:
   state: 
   isAttacking: 0
   energy: 0
-  t: {fileID: 2613048093708944727, guid: e6c5456b4854b9041b4f42df6161b33a, type: 3}
+  textBoi: {fileID: 0}
+  curTextBoi: {fileID: 0}
 --- !u!114 &8912132435394626605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,7 +1096,7 @@ MonoBehaviour:
   - 3
   - 5
   - 10
-  outfitMesh: {fileID: 4300004, guid: 4dbf13b99d4c566439c4e3c5e76ea019, type: 3}
+  outfitMesh: {fileID: 4300004, guid: 8298ad313da642845ad66b8d7aae55e7, type: 3}
   outfitMaterial: {fileID: 2100000, guid: 9c18935232852f24289600c79da944c4, type: 2}
   outfitSkinRenderer: {fileID: 8912132435383029636}
   outfitMenuSkinRenderer: {fileID: 0}
@@ -2264,7 +2265,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 4dbf13b99d4c566439c4e3c5e76ea019, type: 3}
+      objectReference: {fileID: 4300000, guid: 8298ad313da642845ad66b8d7aae55e7, type: 3}
     - target: {fileID: 13700004, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2272,7 +2273,7 @@ PrefabInstance:
     - target: {fileID: 13700004, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300004, guid: 4dbf13b99d4c566439c4e3c5e76ea019, type: 3}
+      objectReference: {fileID: 4300004, guid: 8298ad313da642845ad66b8d7aae55e7, type: 3}
     - target: {fileID: 400138, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.01695264
