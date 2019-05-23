@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy1 : EnemyGeneric
 {
     public SphereCollider atkBox;
+    public GameObject hitParticle;
     private bool hitPlayer;
 
     private void Start()
@@ -75,6 +76,10 @@ public class Enemy1 : EnemyGeneric
             {
                 c.gameObject.GetComponent<playerNew>().decreaseHealth(damage);
                 hitPlayer = true;
+                GameObject p = Instantiate(hitParticle, atkBox.bounds.center, transform.rotation, null);
+                p.transform.Rotate(0, 90, 0);
+                var main = p.GetComponent<ParticleSystem>().main;
+                main.startColor = new Color(255, 0, 0, 255);
             }
         }
     }

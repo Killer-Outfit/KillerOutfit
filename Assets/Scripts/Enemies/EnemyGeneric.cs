@@ -73,7 +73,7 @@ public class EnemyGeneric : MonoBehaviour
     private void doShake(float duration)
     {
         shakeDuration = duration;
-        shakeAmount = 1f;
+        shakeAmount = 0.7f;
         StartCoroutine("Shake");
     }
 
