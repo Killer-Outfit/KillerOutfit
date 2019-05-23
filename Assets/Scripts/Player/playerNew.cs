@@ -56,7 +56,9 @@ public class playerNew : MonoBehaviour
     public bool isAttacking;
     [HideInInspector]
     public int energy;
-   
+
+    public GameObject hitParticle;
+    private int particledir;
 
     private LoseSound loseSound;
 
@@ -374,6 +376,8 @@ public class playerNew : MonoBehaviour
                                 // Hitpause + screenshake
                                 StartCoroutine("hitpause");
                                 camera.GetComponent<CameraScript>().doShake(0.07f);
+                                GameObject p = Instantiate(hitParticle, attack.bounds.center, transform.rotation, null);
+                                p.transform.Rotate(0, 90, 0);
                                 if(currentOutfitItem.continuousHitbox[currentHitNum])
                                 {
                                     enemiesHit.Add(c.gameObject.GetInstanceID());
@@ -438,7 +442,7 @@ public class playerNew : MonoBehaviour
 
     private IEnumerator hitpause()
     {
-        Time.timeScale = 0.1f;
+        Time.timeScale = 0.2f;
         yield return new WaitForSecondsRealtime(0.2f);
         Time.timeScale = 1f;
     }

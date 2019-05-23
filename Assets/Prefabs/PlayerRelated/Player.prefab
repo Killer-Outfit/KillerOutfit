@@ -1027,6 +1027,8 @@ MonoBehaviour:
   energy: 0
   textBoi: {fileID: 0}
   curTextBoi: {fileID: 0}
+  hitParticle: {fileID: 8397477145943708121, guid: c89cd17fe3c17674a9b1c7d67e111ba0,
+    type: 3}
 --- !u!114 &8912132435394626605
 MonoBehaviour:
   m_ObjectHideFlags: 0

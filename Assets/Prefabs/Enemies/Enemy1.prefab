@@ -72,7 +72,12 @@ MonoBehaviour:
   Scrap: {fileID: 6678152591484481640, guid: 9b18424f429953b499232568ecf6361e, type: 3}
   health: 0
   overmind: {fileID: 0}
+  shakeDuration: 0
+  shakeAmount: 0.2
+  decreaseFactor: 6
   atkBox: {fileID: 6628695692028463931}
+  hitParticle: {fileID: 8397477145943708121, guid: c89cd17fe3c17674a9b1c7d67e111ba0,
+    type: 3}
 --- !u!114 &3072224614342063312
 MonoBehaviour:
   m_ObjectHideFlags: 0
