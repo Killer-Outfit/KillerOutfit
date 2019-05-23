@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerNew : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class playerNew : MonoBehaviour
     public Material face;
     [HideInInspector]
     public int score;
+    private int maxScore;
     [HideInInspector]
     public float currentHealth;
     [HideInInspector]
@@ -66,7 +68,8 @@ public class playerNew : MonoBehaviour
     private string masterBusString = "bus:/";
     FMOD.Studio.Bus masterBus;
 
-
+    public GameObject textBoi;
+    public GameObject curTextBoi;
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -75,6 +78,7 @@ public class playerNew : MonoBehaviour
         curX = (int)transform.position.x;
         scraps = 0;
         score = 0;
+        maxScore = 0;
         // Initialize UI bar objects
         energyBars = new GameObject[3];
         energyBars[0] = GameObject.Find("B1");
@@ -119,12 +123,30 @@ public class playerNew : MonoBehaviour
     {
         if (camera.GetComponent<Camera>().enabled)
 		{
+            //Debug.Log(maxScore);
+            int difference = maxScore - score;
+            if(score < maxScore)
+            {
+                if(difference > 1000)
+                {
+                    score += 100;
+                }
+                else if(difference > 100)
+                {
+                    score += 10;
+                }
+                else
+                {
+                    score += 1;
+                }
+                
+            }
 			scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
 			scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
 			// arbitrary score adds 100 for each game unit moved
 			if ((int)transform.position.x > curX)
 			{
-				score += 100 * ((int)transform.position.x - curX);
+				maxScore += 100 * ((int)transform.position.x - curX);
 				curX = (int)transform.position.x;
 			}
 			// Get inputs and put them into the queue
@@ -224,9 +246,8 @@ public class playerNew : MonoBehaviour
     // Activate punch
     public void pressX()
     {
-        //Instantiate(laser, transform.position, transform.rotation);
-        //Instantiate(laserSpawn, transform.position, transform.rotation);
-        //Debug.Log("pressed x");
+
+        
         anim.SetTrigger("punch");
         attackType = "punch";
         state = "attacking";
@@ -312,7 +333,7 @@ public class playerNew : MonoBehaviour
                             currentHitNum = 0;
                         }else if(j == 0)
                         {
-                            Debug.Log("you dumb");
+                            //Debug.Log("you dumb");
                         }
                         
                         
@@ -327,7 +348,8 @@ public class playerNew : MonoBehaviour
                             if (c.tag == "Enemy" && !enemiesHit.Contains(c.gameObject.GetInstanceID()))
                             {
                                 combo++;
-                                score += combo * 553;
+                                maxScore += combo * 553;
+                                spawnText("+" + (combo * 553).ToString());
                                 increaseEnergy(10);
                                 // Decrease the hit target's health based on the attack's damage
                                 c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
@@ -364,7 +386,8 @@ public class playerNew : MonoBehaviour
                             if(c.tag == "Destructible")
                             {
                                 combo++;
-                                score += combo * 553;
+                                maxScore += combo * 553;
+                                spawnText("+" + (combo * 553).ToString());
                                 increaseEnergy(10);
                                 c.GetComponent<Destructible>().doBreak();
 
@@ -426,18 +449,29 @@ public class playerNew : MonoBehaviour
         if(energy > maxEnergy)
         {
             energy = maxEnergy;
+            energyGained = maxEnergy - energy;
         }
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Energy", (float)energyGained, true);
         updateBars();
     }
 
+    public void spawnText(string textForSpawner)
+    {
+        Debug.Log(textForSpawner);
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 4, transform.position.z);
+        curTextBoi = Instantiate(textBoi, pos, Quaternion.identity);
+        curTextBoi.GetComponent<PopupText>().assignText(textForSpawner);
+        //Debug.Log(curTextBoi.GetComponent<PopupText>().currentText);
+    }
     public void useEnergy(int energyUsed)
     {
         energy -= energyUsed;
         if(energy < 0)
         {
+            energyUsed = energy;
             energy = 0;
         }
-
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Energy", (float)energyUsed, false);
         updateBars();
     }
 
@@ -445,26 +479,27 @@ public class playerNew : MonoBehaviour
     {
         if (energy > 200)
         {
-            energyBars[2].transform.localScale = new Vector3(((energy - 200) / 100) * 1.062334f, 1f, 1f);
+            energyBars[2].transform.localScale = new Vector3(((float)(energy - 200) / 100) * 1.062334f, 1f, 1f);
             energyBars[1].transform.localScale = new Vector3(1.062334f, 1f, 1f);
             energyBars[0].transform.localScale = new Vector3(1.062334f, 1f, 1f);
         }
         else if (energy > 100)
         {
             energyBars[2].transform.localScale = new Vector3(0, 1f, 1f);
-            energyBars[1].transform.localScale = new Vector3(((energy - 100) / 100) * 1.062334f, 1f, 1f);
+            energyBars[1].transform.localScale = new Vector3(((float)(energy - 100) / 100) * 1.062334f, 1f, 1f);
             energyBars[0].transform.localScale = new Vector3(1.062334f, 1f, 1f);
         }
         else
         {
             energyBars[2].transform.localScale = new Vector3(0, 1f, 1f);
             energyBars[1].transform.localScale = new Vector3(0, 1f, 1f);
-            energyBars[0].transform.localScale = new Vector3((energy / 100) * 1.062334f, 1f, 1f);
+            energyBars[0].transform.localScale = new Vector3(((float)energy / 100) * 1.062334f, 1f, 1f);
         }
     }
 
     public void decreaseHealth(float damage)
     {
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Health", damage, false);
         // Play hit sound effect
         AudioClip clip = GetRandomPunch();
         audioSource.PlayOneShot(clip);
@@ -478,7 +513,8 @@ public class playerNew : MonoBehaviour
         increaseEnergy((int)damage / 2);
         combo = 0;
         currentHitNum = 0;
-        score -= (int)damage * 12;
+        maxScore -= (int)damage * 12;
+        spawnText("-" + ((int)damage * 12).ToString());
         currentHealth -= damage;
         if (currentHealth <= 0)
         {   // If the player dies, enable the Game Over menu so players can restart or quit to main menu
@@ -490,7 +526,7 @@ public class playerNew : MonoBehaviour
         {
             healthbar.transform.localScale -= new Vector3(damage / 100, 0, 0);
         }
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
         //healthbar.value = currentHealth / maxHealth;
         // If health drops to or bellow 0 then the player dies
         
@@ -510,6 +546,7 @@ public class playerNew : MonoBehaviour
 
     public bool spendScraps(int scrapSpediture)
     {
+        
         if (scraps >= scrapSpediture)
         {
             scraps -= scrapSpediture;
@@ -520,6 +557,7 @@ public class playerNew : MonoBehaviour
 
     public void increaseHealth(float heal)
     {
+        GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Health", heal, true);
         currentHealth += heal;
         if (currentHealth >= 100)
         {
@@ -527,7 +565,7 @@ public class playerNew : MonoBehaviour
             currentHealth = 100;
         }
         healthbar.transform.localScale += new Vector3(heal / 100, 0, 0);
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
         //healthbar.value = currentHealth / maxHealth;
         // If health drops to or bellow 0 then the player dies
         
@@ -578,8 +616,8 @@ public class playerNew : MonoBehaviour
         if(newOutfit.outfitType == "Misc")
         {
             Material[] mats = new Material[2];
-            mats[0] = newOutfit.outfitMaterial;
-            //mats[1] = face;
+            mats[0] = face;
+            mats[1] = newOutfit.outfitMaterial;
             newOutfit.outfitSkinRenderer.materials = mats;
         }else
         {
