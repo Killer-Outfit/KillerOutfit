@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e81959eb7b4624f4a83d6622091d5004
+guid: a3f0c08ac9a75fc46a9f6aaa932311d7
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -71,30 +71,32 @@ ModelImporter:
     100130: Outfit_2_Bottom
     100132: Outfit_2_Misc
     100134: Outfit_2_Top
-    100136: Ring Finger-1.L
-    100138: Ring Finger-1.R
-    100140: Ring Finger-2.L
-    100142: Ring Finger-2.R
-    100144: Ring Finger-3.L
-    100146: Ring Finger-3.L_end
-    100148: Ring Finger-3.R
-    100150: Ring Finger-3.R_end
-    100152: Shoulder.L
-    100154: Shoulder.R
-    100156: Thumb-1.L
-    100158: Thumb-1.R
-    100160: Thumb-2.L
-    100162: Thumb-2.R
-    100164: Thumb-3.L
-    100166: Thumb-3.L_end
-    100168: Thumb-3.R
-    100170: Thumb-3.R_end
-    100172: Upper Arm.L
-    100174: Upper Arm.R
-    100176: Upper Leg.L
-    100178: Upper Leg.R
-    100180: Upper Torso
-    100182: Waist
+    100136: Outfit_2_Top.001
+    100138: Outfit_2_Top.003
+    100140: Ring Finger-1.L
+    100142: Ring Finger-1.R
+    100144: Ring Finger-2.L
+    100146: Ring Finger-2.R
+    100148: Ring Finger-3.L
+    100150: Ring Finger-3.L_end
+    100152: Ring Finger-3.R
+    100154: Ring Finger-3.R_end
+    100156: Shoulder.L
+    100158: Shoulder.R
+    100160: Thumb-1.L
+    100162: Thumb-1.R
+    100164: Thumb-2.L
+    100166: Thumb-2.R
+    100168: Thumb-3.L
+    100170: Thumb-3.L_end
+    100172: Thumb-3.R
+    100174: Thumb-3.R_end
+    100176: Upper Arm.L
+    100178: Upper Arm.R
+    100180: Upper Leg.L
+    100182: Upper Leg.R
+    100184: Upper Torso
+    100186: Waist
     400000: Armature
     400002: ArmIK.L
     400004: ArmIK.R
@@ -163,41 +165,47 @@ ModelImporter:
     400130: Outfit_2_Bottom
     400132: Outfit_2_Misc
     400134: Outfit_2_Top
-    400136: Ring Finger-1.L
-    400138: Ring Finger-1.R
-    400140: Ring Finger-2.L
-    400142: Ring Finger-2.R
-    400144: Ring Finger-3.L
-    400146: Ring Finger-3.L_end
-    400148: Ring Finger-3.R
-    400150: Ring Finger-3.R_end
-    400152: Shoulder.L
-    400154: Shoulder.R
-    400156: Thumb-1.L
-    400158: Thumb-1.R
-    400160: Thumb-2.L
-    400162: Thumb-2.R
-    400164: Thumb-3.L
-    400166: Thumb-3.L_end
-    400168: Thumb-3.R
-    400170: Thumb-3.R_end
-    400172: Upper Arm.L
-    400174: Upper Arm.R
-    400176: Upper Leg.L
-    400178: Upper Leg.R
-    400180: Upper Torso
-    400182: Waist
+    400136: Outfit_2_Top.001
+    400138: Outfit_2_Top.003
+    400140: Ring Finger-1.L
+    400142: Ring Finger-1.R
+    400144: Ring Finger-2.L
+    400146: Ring Finger-2.R
+    400148: Ring Finger-3.L
+    400150: Ring Finger-3.L_end
+    400152: Ring Finger-3.R
+    400154: Ring Finger-3.R_end
+    400156: Shoulder.L
+    400158: Shoulder.R
+    400160: Thumb-1.L
+    400162: Thumb-1.R
+    400164: Thumb-2.L
+    400166: Thumb-2.R
+    400168: Thumb-3.L
+    400170: Thumb-3.L_end
+    400172: Thumb-3.R
+    400174: Thumb-3.R_end
+    400176: Upper Arm.L
+    400178: Upper Arm.R
+    400180: Upper Leg.L
+    400182: Upper Leg.R
+    400184: Upper Torso
+    400186: Waist
     2100000: Outfit_2_Bottom
     2100002: Outfit_2_Misc
-    2100004: Outfit_2_Top
+    2100004: Player_Head
+    2100006: Outfit_2_Top
     4300000: Outfit_2_Bottom
     4300002: Outfit_2_Misc
-    4300004: Outfit_2_Top
+    4300004: Outfit_2_Top.003
+    4300006: Outfit_2_Top.001
+    4300008: Outfit_2_Top
     9500000: //RootNode
     13700000: Outfit_2_Bottom
     13700002: Outfit_2_Misc
     13700004: Outfit_2_Top
-    2186277476908879412: ImportLogs
+    13700006: Outfit_2_Top.001
+    13700008: Outfit_2_Top.003
   externalObjects: {}
   materials:
     importMaterials: 1
