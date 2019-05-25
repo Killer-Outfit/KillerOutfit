@@ -560,7 +560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectiles:
   - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
-  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
+  - {fileID: 5471744772573381507, guid: d645671fb2233f74d8a0e6dad050a41e, type: 3}
   - {fileID: 4215174575261070074, guid: 374bee40c0e348b4f949d1c0930a80b7, type: 3}
   trails:
   - {fileID: 4622767468192487150}

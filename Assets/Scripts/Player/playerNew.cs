@@ -330,7 +330,8 @@ public class playerNew : MonoBehaviour
                     {
                         if(energy >= 100 * (currentHitNum + 1))
                         {
-                            Instantiate(currentOutfitItem.projectiles[currentHitNum], transform.position, transform.rotation);
+                            Vector3 p = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+                            Instantiate(currentOutfitItem.projectiles[currentHitNum], p, transform.rotation);
                             useEnergy(100 * (currentHitNum + 1));
                             currentHitNum = 0;
                         }else if(j == 0)
