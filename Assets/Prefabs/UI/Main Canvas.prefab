@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -467,11 +467,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6785520201550060393}
     m_Modifications:
-    - target: {fileID: 1023384553376851424, guid: e59fad62871326c4baf6afda609c7f7a,
-        type: 3}
-      propertyPath: m_Name
-      value: Score
-      objectReference: {fileID: 0}
     - target: {fileID: 1928378563957114561, guid: e59fad62871326c4baf6afda609c7f7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -586,6 +581,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1023384553376851424, guid: e59fad62871326c4baf6afda609c7f7a,
+        type: 3}
+      propertyPath: m_Name
+      value: Score
       objectReference: {fileID: 0}
     - target: {fileID: 3355470759903621844, guid: e59fad62871326c4baf6afda609c7f7a,
         type: 3}
@@ -762,11 +762,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6785520201550060393}
     m_Modifications:
-    - target: {fileID: 5079908908540841357, guid: 0d530442fa04ff94593be3f0ac801670,
-        type: 3}
-      propertyPath: m_Name
-      value: Player Health
-      objectReference: {fileID: 0}
     - target: {fileID: 5079908908540841358, guid: 0d530442fa04ff94593be3f0ac801670,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -882,6 +877,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5079908908540841357, guid: 0d530442fa04ff94593be3f0ac801670,
+        type: 3}
+      propertyPath: m_Name
+      value: Player Health
+      objectReference: {fileID: 0}
     - target: {fileID: 5079908908362905535, guid: 0d530442fa04ff94593be3f0ac801670,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -973,11 +973,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6785520201550060393}
     m_Modifications:
-    - target: {fileID: 1745017281146067243, guid: 37d13742b6e7c12499a5268868390b16,
-        type: 3}
-      propertyPath: m_Name
-      value: PauseMenuElements
-      objectReference: {fileID: 0}
     - target: {fileID: 1745017281146067242, guid: 37d13742b6e7c12499a5268868390b16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1083,6 +1078,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1745017281146067243, guid: 37d13742b6e7c12499a5268868390b16,
+        type: 3}
+      propertyPath: m_Name
+      value: PauseMenuElements
+      objectReference: {fileID: 0}
     - target: {fileID: 4497003882262043317, guid: 37d13742b6e7c12499a5268868390b16,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1123,11 +1123,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6785520201550060393}
     m_Modifications:
-    - target: {fileID: 7704870532496779654, guid: 45e11df4bf3fcdf4f9953b0aea9b5f12,
-        type: 3}
-      propertyPath: m_Name
-      value: GameOverElements
-      objectReference: {fileID: 0}
     - target: {fileID: 7704870532496779653, guid: 45e11df4bf3fcdf4f9953b0aea9b5f12,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1232,6 +1227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704870532496779654, guid: 45e11df4bf3fcdf4f9953b0aea9b5f12,
+        type: 3}
+      propertyPath: m_Name
+      value: GameOverElements
       objectReference: {fileID: 0}
     - target: {fileID: 8224170357121210661, guid: 45e11df4bf3fcdf4f9953b0aea9b5f12,
         type: 3}
