@@ -84,21 +84,21 @@ public class EnemyMovement : MonoBehaviour
         }
 
         // Check for wall collision
-        if (transform.position.z > 3f)
+        if (transform.position.z > 3.1f)
         {
-            vertical -= 5;
+            controller.Move(new Vector3(0, 0, -0.05f));
         }
-        else if(transform.position.z < -4f)
+        else if(transform.position.z < -4.1f)
         {
-            vertical += 5;
+            controller.Move(new Vector3(0, 0, 0.05f));
         }
         if (mainCam.WorldToViewportPoint(transform.position).x < 0f)
         {
-            horizontal -= 5;
+            controller.Move(new Vector3(direction * -0.05f, 0, 0));
         }
         else if (mainCam.WorldToViewportPoint(transform.position).x > 1f)
         {
-            horizontal += 5;
+            controller.Move(new Vector3(direction * 0.05f, 0, 0));
         }
 
         if (controller.isGrounded)
@@ -193,6 +193,7 @@ public class EnemyMovement : MonoBehaviour
             vertical = Mathf.Sign(vDiff);
         }
 
+        CheckPlayer();
         CheckForAttack();
     }
 

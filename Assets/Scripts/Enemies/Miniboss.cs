@@ -6,15 +6,21 @@ using UnityEngine;
 public class Miniboss : EnemyGeneric
 {
     public SphereCollider atkBox;
+    public SphereCollider groundDetector;
     public GameObject hitParticle;
+    private Transform playerTransform;
     private bool hitPlayer;
 
     private bool vulnerable;
     private float vulnTimer;
+    private bool grounded;
+    private float groundTimer;
 
-    public float punchSpeed = 10f;
-    public float punchDecel = 1f;
+    public float punchSpeed = 1f;
+    public float punchDecel = 0.5f;
     private float curPunchSpeed;
+
+    public int numBounces = 3;
 
     private CharacterController controller;
 
@@ -22,11 +28,14 @@ public class Miniboss : EnemyGeneric
     {
         health = maxHP;
         vulnerable = false;
+        grounded = true;
         vulnTimer = 5f;
+        groundTimer = 0.5f;
         curPunchSpeed = 0f;
         controller = this.GetComponent<CharacterController>();
         overmind = GameObject.Find("Overmind");
         overmind.GetComponent<Overmind>().AddMiniboss(this.gameObject);
+        playerTransform = GameObject.Find("PlayerBody").transform;
     }
 
     private void Update()
@@ -39,6 +48,12 @@ public class Miniboss : EnemyGeneric
                 vulnerable = false;
                 vulnTimer = 5f;
             }
+        }
+
+        groundTimer -= Time.deltaTime;
+        if(groundTimer <= 0)
+        {
+            grounded = CheckGrounded();
         }
     }
 
@@ -54,7 +69,7 @@ public class Miniboss : EnemyGeneric
     public override void DoAttack()
     {
         GetComponent<EnemyMovement>().StopForAttack();
-        int thisattack = Random.Range(0,1);
+        int thisattack = Random.Range(0, 2);
         if(thisattack == 0)
         {
             StartCoroutine("Attack");
@@ -93,8 +108,16 @@ public class Miniboss : EnemyGeneric
                 {
                     AtkDetect();
                 }
-                curPunchSpeed -= punchDecel * Time.deltaTime;
+
                 controller.Move(new Vector3(GetComponent<EnemyMovement>().direction * curPunchSpeed, 0, 0));
+                if(curPunchSpeed > 0)
+                {
+                    curPunchSpeed -= punchDecel * Time.deltaTime;
+                }
+                else
+                {
+                    curPunchSpeed = 0;
+                }
                 yield return null;
             }
             else if (i >= 2f && i < 3f)
@@ -113,6 +136,50 @@ public class Miniboss : EnemyGeneric
     // Bounce attack
     private IEnumerator Bounce()
     {
+        float jumpForce;
+        // Windup, add particle later
+        yield return new WaitForSeconds(1.5f);
+
+        // Do the set number of bounces
+        for (int i = 0; i < numBounces; i++)
+        {
+            // Target a position near the player
+            Vector3 nextTarget = playerTransform.position;
+            nextTarget.x += Random.Range(-2f, 2f);
+            nextTarget.z += Random.Range(-2f, 2f);
+
+            jumpForce = 30f;
+            Vector3 moveDirection = nextTarget - transform.position;
+            moveDirection = moveDirection.normalized * 3 * Time.deltaTime;
+            moveDirection.y = jumpForce * Time.deltaTime;
+
+            // Leap, should set grounded to false, and don't check grounding for 0.5 seconds.
+            controller.Move(moveDirection);
+            grounded = false;
+            groundTimer = 0.5f;
+            yield return null;
+
+            // Boss is in the air presumably.
+            while(!grounded)
+            {
+                if(jumpForce > -30f)
+                {
+                    jumpForce -= 30 * Time.deltaTime;
+                }
+                moveDirection = nextTarget - transform.position;
+                moveDirection = moveDirection.normalized * 3 * Time.deltaTime;
+                moveDirection.y = jumpForce * Time.deltaTime;
+                controller.Move(moveDirection);
+                yield return null;
+            }
+            // Create shockwave here
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        if (GetComponent<EnemyMovement>().state == "doingattack")
+        {
+            GetComponent<EnemyMovement>().ResumeMovement();
+        }
         yield return null;
     }
 
@@ -145,4 +212,16 @@ public class Miniboss : EnemyGeneric
         }
     }
 
+    private bool CheckGrounded()
+    {
+        Collider[] cols = Physics.OverlapSphere(groundDetector.bounds.center, groundDetector.radius, LayerMask.GetMask("Plane"));
+        foreach (Collider c in cols)
+        {
+            if (c.gameObject.name.Contains("Plane"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
