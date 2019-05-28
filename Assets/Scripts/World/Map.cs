@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Map : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class Map : MonoBehaviour
                 combatEvent(currentCombatNum);
                 currentCombatNum += 1;
             }
-        }else if(mainCam.GetComponent<CameraScript>().locked = true)
+        }else if(mainCam.GetComponent<CameraScript>().locked == true)
         {
             if(enemyManager.GetComponent<Overmind>().areThereEnemies())
             {
@@ -49,8 +50,6 @@ public class Map : MonoBehaviour
             }
         }
     }
-
-
 
     public void combatEvent(int num)
     {

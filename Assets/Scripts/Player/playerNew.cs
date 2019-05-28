@@ -33,6 +33,8 @@ public class playerNew : MonoBehaviour
 
     private GameObject gameOver;
 
+    private GameObject pauseMenu;
+
     [SerializeField]
     private AudioClip[] punchSounds;
     [SerializeField]
@@ -120,6 +122,11 @@ public class playerNew : MonoBehaviour
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
     }
 
+    void Awake()
+    {
+        pauseMenu = GameObject.Find("PauseMenuElements");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -151,8 +158,8 @@ public class playerNew : MonoBehaviour
 				maxScore += 100 * ((int)transform.position.x - curX);
 				curX = (int)transform.position.x;
 			}
-			// Get inputs and put them into the queue
-			if(state != "stagger")
+			// Get inputs and put them into the queue as long as the game is not paused
+			if(state != "stagger" && pauseMenu.activeInHierarchy == false)
 			{
 				if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
 				{
