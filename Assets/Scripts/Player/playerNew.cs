@@ -113,9 +113,12 @@ public class playerNew : MonoBehaviour
         loseSound = gameOver.GetComponent<LoseSound>();
         gameOver.SetActive(false);
 
-        pauseMenu = GameObject.Find("PauseMenuElements");
-
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
+    }
+
+    void Awake()
+    {
+        pauseMenu = GameObject.Find("PauseMenuElements");
     }
 
     // Update is called once per frame
