@@ -12,12 +12,15 @@ public class CheckpointManager : MonoBehaviour
     private int scraps;
     private int energy;
     private int currentCheckpoint;
+    private Camera mainCam;
+    private int nextCombatNumber;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        nextCombatNumber = 0;
         PlayerPos = new Vector3(-26.71169f, 169.9676f, -303.9063f);
         Player = GameObject.Find("PlayerBody");
         playerHealth = 100f;
@@ -38,6 +41,7 @@ public class CheckpointManager : MonoBehaviour
             playerHealth = Player.GetComponent<playerNew>().currentHealth;
             score = Player.GetComponent<playerNew>().score;
             scraps = Player.GetComponent<playerNew>().scraps;
+            nextCombatNumber = this.gameObject.GetComponent<Map>().currentCombatNum;
         }
     }
 
@@ -48,6 +52,10 @@ public class CheckpointManager : MonoBehaviour
         Player.GetComponent<playerNew>().score = score;
         Player.GetComponent<playerNew>().scraps = scraps;
         Player.transform.position = PlayerPos;
+        this.gameObject.GetComponent<Map>().currentCombatNum = nextCombatNumber;
+        this.gameObject.GetComponent<Map>().mainCam.GetComponent<CameraScript>().locked = false;
+        Player.GetComponent<playerNew>().revive();
+        this.gameObject.GetComponent<Map>().mainCam.GetComponent<CameraScript>().revive();
     }
    
 

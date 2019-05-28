@@ -36,17 +36,17 @@ public class lazerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startLasers)
+        /*if (startLasers)
         {
             var rTarget = Random.Range(0, 10);
             Vector3 spawnPos = new Vector3(targets[rTarget].transform.position.x, targets[rTarget].transform.position.y + 20f, targets[rTarget].transform.position.z);
             Collider las = Instantiate(skyLaser, spawnPos, transform.rotation);
-        }
+        }*/
     }
 
     IEnumerator spawn()
     {
-        transform.Rotate(-90, 0f, 179.17f);
+        transform.Rotate(90, 0f, 179.17f);
         
         for (int i = 0; i < 10; i++)
         {
@@ -56,7 +56,24 @@ public class lazerSpawner : MonoBehaviour
             targets.Add(ring);
             yield return new WaitForSeconds(.1f);
         }
-        startLasers = true;
+        StartCoroutine("spawnLaser");
+    }
 
+    IEnumerator spawnLaser()
+    {
+        for (int i = 0; i < targets.Count; i++)
+        {
+            Vector3 spawnPos = new Vector3(targets[i].transform.position.x, targets[i].transform.position.y + 20f, targets[i].transform.position.z);
+            Collider las = Instantiate(skyLaser, spawnPos, transform.rotation);
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
+    void OnDestroy()
+    {
+        for(int i = 0; i < targets.Count; i++)
+        {
+            Destroy(targets[i].gameObject);
+        }
     }
 }

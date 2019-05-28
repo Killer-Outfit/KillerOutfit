@@ -20,6 +20,9 @@ public class Scraps : MonoBehaviour
     private MaterialPropertyBlock mt;
     public GameObject popupText;
 
+    public Mesh[] possibleMesh;
+    private MeshFilter thisMesh;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,10 +42,12 @@ public class Scraps : MonoBehaviour
         mt = new MaterialPropertyBlock();
         rn.GetPropertyBlock(mt);
         mt.SetColor("_Color", color);
-        mt.SetFloat("_Depth", 0.03f);
+        //mt.SetFloat("_Depth", 0.0f);
         rn.SetPropertyBlock(mt);
         GetComponent<TrailRenderer>().startColor = color;
         GetComponent<TrailRenderer>().endColor = color;
+        thisMesh = this.gameObject.GetComponent<MeshFilter>();
+        thisMesh.mesh = possibleMesh[Random.Range(0, possibleMesh.Length)];
     }
 
     // Update is called once per frame
@@ -52,6 +57,10 @@ public class Scraps : MonoBehaviour
         {
             YSpeed -= gravity;
             transform.Translate(new Vector3(XSpeed, YSpeed, ZSpeed));
+        }
+        if(YSpeed <= 0)
+        {
+            transform.GetChild(0).gameObject.GetComponent<scrapFloorHitter>().activate();
         }
 
         transform.rotation = Quaternion.Euler(0, rotate, 0);
@@ -76,10 +85,11 @@ public class Scraps : MonoBehaviour
                 //col.gameObject.GetComponent<playerNew>().scraps += 1;
                 Destroy(this.gameObject);
             }
-            if (col.gameObject.name == "Plane" || col.gameObject.name == "Plane (1)")
-            {
-                doFalling = false;
-            }
         }
+    }
+
+    public void stopFalling()
+    {
+        doFalling = false;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class outfits : MonoBehaviour
 {
+    public bool clothPhys;
     public GameObject[] projectiles;
     public TrailRenderer[] trails; 
     // Outfit anims
@@ -46,6 +47,8 @@ public class outfits : MonoBehaviour
     // Multiplier to change an attack animation
     public float[] animSpeedMultiplier;
     public bool[] continuousHitbox;
+
+    public float[] offsets;
 
     // Start is called before the first frame update
     void Start()

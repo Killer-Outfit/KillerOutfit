@@ -99,8 +99,11 @@ MonoBehaviour:
   item: {fileID: 0}
   cost: 5
   box: {fileID: 5737708073553774512}
-  menuHover: []
-  menuClick: {fileID: 0}
+  menuHover:
+  - {fileID: 8300000, guid: cf005ac782de4b3499ee09312ffdbd00, type: 3}
+  - {fileID: 8300000, guid: 26e48268d359b4a41bc4f03f0b202ca2, type: 3}
+  menuClick: {fileID: 8300000, guid: 0f3a6e49c167daf49b1b95bdfb96ec59, type: 3}
+  misc: 1
 --- !u!1 &4007030782729529316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1337,11 @@ PrefabInstance:
     - target: {fileID: 8204501433964601456, guid: 1bd5c116b3911514aaa71074009e9b16,
         type: 3}
       propertyPath: hoverB
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204501433964601456, guid: 1bd5c116b3911514aaa71074009e9b16,
+        type: 3}
+      propertyPath: misc
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2594,6 +2602,18 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 54ef674e151206040b1bc486be91fa34, type: 3}
       propertyPath: m_Name
       value: Outfit_2_rework_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 54ef674e151206040b1bc486be91fa34, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 54ef674e151206040b1bc486be91fa34, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 54ef674e151206040b1bc486be91fa34, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 54ef674e151206040b1bc486be91fa34, type: 3}
       propertyPath: m_LocalPosition.x

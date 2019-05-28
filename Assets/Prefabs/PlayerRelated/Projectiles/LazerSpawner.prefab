@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f389122474ed5a44ac91594e68ae39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skyLaser: {fileID: 6575087636490572328, guid: acdde619b28c0e44dbe79c398588fa12,
+  skyLaser: {fileID: 6419040946687339932, guid: d8af30b9896ef2e48aab7560cc971bcd,
     type: 3}
   targetTracker: {fileID: 6933261207970397787, guid: dae42b70b62893047b0b2b735025d5d8,
     type: 3}
@@ -121,7 +121,7 @@ BoxCollider:
   m_GameObject: {fileID: 4215174575261070074}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

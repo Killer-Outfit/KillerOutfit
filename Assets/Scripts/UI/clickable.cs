@@ -36,6 +36,7 @@ public class clickable : MonoBehaviour
 
     private bool hoverSound;
     private float startYRot;
+    public bool misc;
 
     // Start is called before the first frame update
     void Start()
@@ -90,16 +91,25 @@ public class clickable : MonoBehaviour
 				}
 			}
 
-			if (rotate)
+			if (rotate && !misc)
 			{
 				outfitDisplay.transform.eulerAngles = new Vector3(0, outfitDisplay.transform.eulerAngles.y + 1f, 0);
 			}
-			else
-			{
-				outfitDisplay.transform.eulerAngles = new Vector3(outfitDisplay.transform.eulerAngles.x, startYRot, 0);
-			}
+            else if(!rotate && !misc)
 
-			if(outfitDisplay.transform.eulerAngles.y < originalY + 3f && up)
+            {
+				outfitDisplay.transform.eulerAngles = new Vector3(outfitDisplay.transform.eulerAngles.x, startYRot, 0);
+            }
+            if (rotate && misc)
+            {
+                outfitDisplay.transform.eulerAngles = new Vector3(-90f, outfitDisplay.transform.eulerAngles.y + 1f, 0);
+            }
+            else if(!rotate && misc)
+            {
+                outfitDisplay.transform.eulerAngles = new Vector3(-90f, startYRot, 0);
+            }
+
+            if (outfitDisplay.transform.eulerAngles.y < originalY + 3f && up)
 			{
 				outfitDisplay.transform.position = new Vector3(0.0f, outfitDisplay.transform.position.y + 0.5f, 0.0f);
 			}else if(outfitDisplay.transform.position.y == originalY + 3f)
@@ -172,7 +182,7 @@ public class clickable : MonoBehaviour
     public void hover()
     {
         rotate = true;
-        rend.enabled = true;
+        rend.enabled = false;
         if ((Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(0)) && !selected)
         {
             press();
