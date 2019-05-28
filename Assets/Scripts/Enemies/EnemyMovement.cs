@@ -120,7 +120,7 @@ public class EnemyMovement : MonoBehaviour
     // Updates the current idle movement on a random timer, based on behavior type (aggressive, defensive, stationary).
     void IdleMove()
     {
-        wanderTimer = Random.Range(0.5f, 1f);
+        wanderTimer = Random.Range(1f, 1.5f);
         float randStop = Random.Range(0, 1f);
 
         if ((movementType == "aggressive" || pDist > 5) && randStop > 0.1)
@@ -134,6 +134,12 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("Walking", true);
             vertical = Random.Range(-1f, 1f);
             horizontal = Random.Range(0.25f, -0.75f);
+        }
+        else if (movementType == "miniboss" && randStop > 0.5f)
+        {
+            anim.SetBool("Walking", true);
+            vertical = Random.Range(-1f, 1f);
+            horizontal = Random.Range(1f, -0.25f);
         }
         else
         {
@@ -170,6 +176,10 @@ public class EnemyMovement : MonoBehaviour
         {
             horizontal = Random.Range(0.25f, -0.75f);
         }
+        else if(movementType == "miniboss")
+        {
+            horizontal = Random.Range(1f, -0.25f);
+        }
 
         float playerZ = attackMoveTarget.z;
         float enemyZ = this.transform.position.z;
@@ -197,6 +207,13 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         else if (movementType == "defensive")
+        {
+            if (vertical == 0)
+            {
+                enemClass.DoAttack();
+            }
+        }
+        else if (movementType == "miniboss")
         {
             if (vertical == 0)
             {
