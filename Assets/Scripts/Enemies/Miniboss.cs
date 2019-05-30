@@ -8,6 +8,7 @@ public class Miniboss : EnemyGeneric
     public SphereCollider atkBox;
     public SphereCollider groundDetector;
     public GameObject hitParticle;
+    public GameObject shockwave;
     private Transform playerTransform;
     private bool hitPlayer;
 
@@ -23,6 +24,8 @@ public class Miniboss : EnemyGeneric
     public int numBounces = 3;
 
     private CharacterController controller;
+    private ParticleSystem ps;
+    private ParticleSystem.EmissionModule em;
 
     private void Start()
     {
@@ -36,6 +39,9 @@ public class Miniboss : EnemyGeneric
         overmind = GameObject.Find("Overmind");
         overmind.GetComponent<Overmind>().AddMiniboss(this.gameObject);
         playerTransform = GameObject.Find("PlayerBody").transform;
+        ps = GetComponent<ParticleSystem>();
+        em = ps.emission;
+        em.rateOverTime = 0;
     }
 
     private void Update()
@@ -47,6 +53,7 @@ public class Miniboss : EnemyGeneric
             {
                 vulnerable = false;
                 vulnTimer = 5f;
+                em.rateOverTime = 0;
             }
         }
 
@@ -131,6 +138,7 @@ public class Miniboss : EnemyGeneric
         {
             GetComponent<EnemyMovement>().ResumeMovement();
         }
+        yield return null;
     }
 
     // Bounce attack
@@ -150,7 +158,7 @@ public class Miniboss : EnemyGeneric
 
             jumpForce = 30f;
             Vector3 moveDirection = nextTarget - transform.position;
-            moveDirection = moveDirection.normalized * 3 * Time.deltaTime;
+            moveDirection = moveDirection.normalized * 5 * Time.deltaTime;
             moveDirection.y = jumpForce * Time.deltaTime;
 
             // Leap, should set grounded to false, and don't check grounding for 0.5 seconds.
@@ -167,12 +175,13 @@ public class Miniboss : EnemyGeneric
                     jumpForce -= 30 * Time.deltaTime;
                 }
                 moveDirection = nextTarget - transform.position;
-                moveDirection = moveDirection.normalized * 3 * Time.deltaTime;
+                moveDirection = moveDirection.normalized * 5 * Time.deltaTime;
                 moveDirection.y = jumpForce * Time.deltaTime;
                 controller.Move(moveDirection);
                 yield return null;
             }
-            // Create shockwave here
+            // Create shockwave
+            Instantiate(shockwave, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
         }
 
@@ -180,6 +189,8 @@ public class Miniboss : EnemyGeneric
         {
             GetComponent<EnemyMovement>().ResumeMovement();
         }
+        vulnerable = true;
+        em.rateOverTime = 10;
         yield return null;
     }
 

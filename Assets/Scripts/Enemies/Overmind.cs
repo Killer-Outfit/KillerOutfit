@@ -325,7 +325,7 @@ public class Overmind : MonoBehaviour
 
     public bool areThereEnemies()
     {
-        if(enemMelee.Count == 0 && enemRanged.Count == 0)
+        if(enemMelee.Count == 0 && enemRanged.Count == 0 && enemMiniboss == null)
         {
             return true;
         }

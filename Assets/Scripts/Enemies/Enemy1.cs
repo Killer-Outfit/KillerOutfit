@@ -20,32 +20,32 @@ public class Enemy1 : EnemyGeneric
     protected override IEnumerator Attack()
     {
         hitPlayer = false;
-        for(float i=0; i<1.4f; i += Time.deltaTime)
+        for(float i=0; i<1.1f; i += Time.deltaTime)
         {
             if(GetComponent<EnemyMovement>().state != "doingattack")
             {
                 break;
             }
 
-            if(i >= 0f && i < 0.2f)
+            if(i >= 0f && i < 0.1f)
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1.2f);
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1.8f);
                 yield return null;
             }
-            else if (i >= 0.2f && i < 0.7f)
+            else if (i >= 0.1f && i < 0.4f)
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 0.4f);
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1f);
                 yield return null;
             }
-            else if (i >= 0.7f && i < 0.8f)
+            else if (i >= 0.3f && i < 0.6f)
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 3f);
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 2.5f);
                 yield return null;
             }
-            else if(i >= 0.8f && i < 0.9f)
+            else if(i >= 0.6f && i < 0.8f)
             {
-                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 4f);
-                //atkBox.GetComponent<MeshRenderer>().enabled = true;
+                GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 2.5f);
+                atkBox.GetComponent<MeshRenderer>().enabled = true;
                 if (!hitPlayer)
                 {
                     AtkDetect();
@@ -55,7 +55,7 @@ public class Enemy1 : EnemyGeneric
             else
             {
                 GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 2f);
-                //atkBox.GetComponent<MeshRenderer>().enabled = false;
+                atkBox.GetComponent<MeshRenderer>().enabled = false;
                 yield return null;
             }
         }

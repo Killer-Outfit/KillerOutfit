@@ -123,7 +123,7 @@ public class EnemyMovement : MonoBehaviour
         wanderTimer = Random.Range(1f, 1.5f);
         float randStop = Random.Range(0, 1f);
 
-        if ((movementType == "aggressive" || pDist > 5) && randStop > 0.1)
+        if ((movementType == "aggressive" || pDist > 5) && randStop > 0.2)
         {
             anim.SetBool("Walking", true);
             vertical = Random.Range(-1f, 1f);
@@ -135,7 +135,7 @@ public class EnemyMovement : MonoBehaviour
             vertical = Random.Range(-1f, 1f);
             horizontal = Random.Range(0.25f, -0.75f);
         }
-        else if (movementType == "miniboss" && randStop > 0.5f)
+        else if (movementType == "miniboss" && randStop > 0.4f)
         {
             anim.SetBool("Walking", true);
             vertical = Random.Range(-1f, 1f);
@@ -163,7 +163,7 @@ public class EnemyMovement : MonoBehaviour
             float playerX = attackMoveTarget.x;
             float enemyX = this.transform.position.x;
             float hDiff = playerX - enemyX;
-            if (Mathf.Abs(hDiff) < 0.05)
+            if (Mathf.Abs(hDiff) < 0.1)
             {
                 horizontal = 0;
             }
@@ -184,7 +184,7 @@ public class EnemyMovement : MonoBehaviour
         float playerZ = attackMoveTarget.z;
         float enemyZ = this.transform.position.z;
         float vDiff = playerZ - enemyZ;
-        if (Mathf.Abs(vDiff) < 0.05)
+        if (Mathf.Abs(vDiff) < 0.1)
         {
             vertical = 0;
         }
