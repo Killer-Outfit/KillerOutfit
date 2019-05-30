@@ -65,6 +65,7 @@ public class EnemyMovement : MonoBehaviour
             wanderTimer -= Time.deltaTime;
             if (wanderTimer <= 0)
             {
+                CheckPlayer();
                 IdleMove();
             }
             if(wantsToAttack == true)
@@ -109,7 +110,9 @@ public class EnemyMovement : MonoBehaviour
             gravity = -5;
         }
 
-        CheckPlayer();
+        // Update distance to player, used by the controller
+        pDist = Mathf.Abs(Vector3.Distance(new Vector3(playerTransform.position.x, 0, playerTransform.position.z), new Vector3(this.transform.position.x, 0, this.transform.position.z)));
+
         movementVector = new Vector3(direction * horizontal, gravity, vertical);
         controller.Move(movementVector.normalized * speed * Time.deltaTime);
     }
@@ -213,8 +216,6 @@ public class EnemyMovement : MonoBehaviour
             direction = -direction;
             this.transform.Rotate(new Vector3(0, 180, 0));
         }
-        // Update distance to player, used by the controller
-        pDist = Mathf.Abs(Vector3.Distance(new Vector3(playerTransform.position.x, 0, playerTransform.position.z), new Vector3(this.transform.position.x, 0, this.transform.position.z)));
     }
 
     public void StopForAttack()
