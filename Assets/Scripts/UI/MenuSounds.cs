@@ -18,6 +18,7 @@ public class MenuSounds : MonoBehaviour
 
     public void Hover()
     {
+        Debug.Log("hovered over button");
         AudioClip clip = GetMenuHover();
         audioSource.PlayOneShot(clip);
     }
