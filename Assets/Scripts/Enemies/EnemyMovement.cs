@@ -84,21 +84,21 @@ public class EnemyMovement : MonoBehaviour
         }
 
         // Check for wall collision
-        if (transform.position.z > 3f)
+        if (transform.position.z > 3.1f)
         {
-            vertical -= 5;
+            controller.Move(new Vector3(0, 0, -0.05f));
         }
-        else if(transform.position.z < -4f)
+        else if(transform.position.z < -4.1f)
         {
-            vertical += 5;
+            controller.Move(new Vector3(0, 0, 0.05f));
         }
         if (mainCam.WorldToViewportPoint(transform.position).x < 0f)
         {
-            horizontal -= 5;
+            controller.Move(new Vector3(direction * -0.05f, 0, 0));
         }
         else if (mainCam.WorldToViewportPoint(transform.position).x > 1f)
         {
-            horizontal += 5;
+            controller.Move(new Vector3(direction * 0.05f, 0, 0));
         }
 
         if (controller.isGrounded)
@@ -120,10 +120,10 @@ public class EnemyMovement : MonoBehaviour
     // Updates the current idle movement on a random timer, based on behavior type (aggressive, defensive, stationary).
     void IdleMove()
     {
-        wanderTimer = Random.Range(0.5f, 1f);
+        wanderTimer = Random.Range(1f, 1.5f);
         float randStop = Random.Range(0, 1f);
 
-        if ((movementType == "aggressive" || pDist > 5) && randStop > 0.1)
+        if ((movementType == "aggressive" || pDist > 5) && randStop > 0.2)
         {
             anim.SetBool("Walking", true);
             vertical = Random.Range(-1f, 1f);
@@ -134,6 +134,12 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("Walking", true);
             vertical = Random.Range(-1f, 1f);
             horizontal = Random.Range(0.25f, -0.75f);
+        }
+        else if (movementType == "miniboss" && randStop > 0.4f)
+        {
+            anim.SetBool("Walking", true);
+            vertical = Random.Range(-1f, 1f);
+            horizontal = Random.Range(1f, -0.25f);
         }
         else
         {
@@ -157,7 +163,7 @@ public class EnemyMovement : MonoBehaviour
             float playerX = attackMoveTarget.x;
             float enemyX = this.transform.position.x;
             float hDiff = playerX - enemyX;
-            if (Mathf.Abs(hDiff) < 0.05)
+            if (Mathf.Abs(hDiff) < 0.1)
             {
                 horizontal = 0;
             }
@@ -170,11 +176,15 @@ public class EnemyMovement : MonoBehaviour
         {
             horizontal = Random.Range(0.25f, -0.75f);
         }
+        else if(movementType == "miniboss")
+        {
+            horizontal = Random.Range(1f, -0.25f);
+        }
 
         float playerZ = attackMoveTarget.z;
         float enemyZ = this.transform.position.z;
         float vDiff = playerZ - enemyZ;
-        if (Mathf.Abs(vDiff) < 0.05)
+        if (Mathf.Abs(vDiff) < 0.1)
         {
             vertical = 0;
         }
@@ -183,6 +193,7 @@ public class EnemyMovement : MonoBehaviour
             vertical = Mathf.Sign(vDiff);
         }
 
+        CheckPlayer();
         CheckForAttack();
     }
 
@@ -197,6 +208,13 @@ public class EnemyMovement : MonoBehaviour
             }
         }
         else if (movementType == "defensive")
+        {
+            if (vertical == 0)
+            {
+                enemClass.DoAttack();
+            }
+        }
+        else if (movementType == "miniboss")
         {
             if (vertical == 0)
             {

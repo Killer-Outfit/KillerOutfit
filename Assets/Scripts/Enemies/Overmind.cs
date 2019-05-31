@@ -12,22 +12,28 @@ public class Overmind : MonoBehaviour
     public List<GameObject> enemRanged;
     private GameObject RangedL;
     private GameObject RangedR;
+    [HideInInspector]
+    public GameObject enemMiniboss;
 
     private float aggroTimerMelee;
     private float aggroTimerRanged;
+    private float aggroTimerMiniboss;
 
     // Start is called before the first frame update
     void Start()
     {
         enemMelee = new List<GameObject>();
         enemRanged = new List<GameObject>();
+        enemMiniboss = null;
         aggroTimerMelee = Random.Range(1f, 4f);
         aggroTimerRanged = Random.Range(2f, 5f);
+        aggroTimerMiniboss = Random.Range(4f, 8f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Update melee
         aggroTimerMelee -= Time.deltaTime;
         if(aggroTimerMelee <= 0)
         {
@@ -37,6 +43,8 @@ public class Overmind : MonoBehaviour
                 CallMeleeAttack();
             }
         }
+
+        // Update ranged
         aggroTimerRanged -= Time.deltaTime;
         if(aggroTimerRanged <= 0)
         {
@@ -46,6 +54,18 @@ public class Overmind : MonoBehaviour
                 CallRangedAttack();
             }
         }
+
+        // Update miniboss if one exists
+        if(enemMiniboss != null && enemMiniboss.GetComponent<EnemyMovement>().state != "attacking" && enemMiniboss.GetComponent<EnemyMovement>().state != "doingattack")
+        {
+            aggroTimerMiniboss -= Time.deltaTime;
+            if (aggroTimerMiniboss <= 0)
+            {
+                aggroTimerMiniboss = Random.Range(4f, 8f);
+                CallMinibossAttack();
+            }
+        }
+
         UpdateAttackers();
     }
 
@@ -221,6 +241,15 @@ public class Overmind : MonoBehaviour
         }
     }
 
+    // Tells the miniboss to attack
+    private void CallMinibossAttack()
+    {
+        if(enemMiniboss != null)
+        {
+            SetToAttack(enemMiniboss);
+        }
+    }
+
     // Tells the enemy that they want to attack when available.
     private void SetToAttack(GameObject enem)
     {
@@ -284,9 +313,19 @@ public class Overmind : MonoBehaviour
         enemRanged.Remove(obj);
     }
 
+    public void AddMiniboss(GameObject obj)
+    {
+        enemMiniboss = obj;
+    }
+
+    public void RemoveMiniboss()
+    {
+        enemMiniboss = null;
+    }
+
     public bool areThereEnemies()
     {
-        if(enemMelee.Count == 0 && enemRanged.Count == 0)
+        if(enemMelee.Count == 0 && enemRanged.Count == 0 && enemMiniboss == null)
         {
             return true;
         }

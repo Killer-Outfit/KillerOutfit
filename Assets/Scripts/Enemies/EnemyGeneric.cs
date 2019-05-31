@@ -25,7 +25,7 @@ public class EnemyGeneric : MonoBehaviour
     protected bool dead = false;
 
     // Called when the player hits the enemy.
-    public void TakeDamage(float atk, bool isKnockdown)
+    public virtual void TakeDamage(float atk, bool isKnockdown)
     {
         Damage(atk);
         if (isKnockdown == true)
@@ -56,8 +56,8 @@ public class EnemyGeneric : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    // Enemy starts their attack. Called by EnemyMovement when in position to attack. Overridden in enemy classes.
-    public void DoAttack()
+    // Enemy starts their attack. Called by EnemyMovement when in position to attack.
+    public virtual void DoAttack()
     {
         GetComponent<EnemyMovement>().StopForAttack();
         StartCoroutine("Attack");
