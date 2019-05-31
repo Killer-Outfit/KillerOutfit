@@ -28,7 +28,7 @@ public class ShopControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("BButton"))
+        if (Input.GetButtonDown("YButton"))
 		{
 			maincam.enabled = !maincam.enabled;
             shopcam.enabled = !shopcam.enabled;

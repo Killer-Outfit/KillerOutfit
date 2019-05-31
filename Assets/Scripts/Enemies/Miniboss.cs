@@ -12,7 +12,7 @@ public class Miniboss : EnemyGeneric
     private Transform playerTransform;
     private bool hitPlayer;
 
-    private bool vulnerable;
+    public bool vulnerable;
     private float vulnTimer;
     private bool grounded;
     private float groundTimer;

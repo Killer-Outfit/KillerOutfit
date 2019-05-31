@@ -13,6 +13,8 @@ public class HandProjMove : MonoBehaviour
     [HideInInspector]
     public float damage;
 
+    public GameObject hitParticle;
+
     public ParticleSystem emitter;
 
     // Start is called before the first frame update
@@ -54,8 +56,12 @@ public class HandProjMove : MonoBehaviour
         {
             hit = true;
             //c.gameObject.GetComponent<playerNew>().decreaseHealth(damage);
+            GameObject p = Instantiate(hitParticle, transform.position, transform.rotation, null);
+            p.transform.Rotate(0, 90, 0);
+            var main = p.GetComponent<ParticleSystem>().main;
+            main.startColor = new Color(255, 0, 0, 255);
             Debug.Log("Hit player");
-            c.gameObject.GetComponent<playerNew>().decreaseHealth(50f);
+            c.gameObject.GetComponent<playerNew>().decreaseHealth(10f);
         }
     }
 

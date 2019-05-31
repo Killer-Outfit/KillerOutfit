@@ -140,6 +140,7 @@ public class playerNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject.Find("Combo").GetComponent<comboShake>().changeCombo(combo);
         if (camera.GetComponent<Camera>().enabled)
 		{
             //Debug.Log(maxScore);
@@ -193,12 +194,12 @@ public class playerNew : MonoBehaviour
 					inputQueue = "punch";
                     qTime = 0.4f;
 				}
-				else if (Input.GetButtonDown("YButton") || Input.GetMouseButtonDown(1))
+				else if (Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(1))
 				{
 					inputQueue = "kick";
                     qTime = 0.4f;
                 }
-				else if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
+				else if (Input.GetButtonDown("BButton") || Input.GetKeyDown(KeyCode.Space))
 				{
 					inputQueue = "misc";
                     qTime = 0.4f;
@@ -401,12 +402,17 @@ public class playerNew : MonoBehaviour
                             //Debug.Log(c.name);
                             if (c.tag == "Enemy" && !enemiesHit.Contains(c.gameObject.GetInstanceID()))
                             {
-                                combo++;
-                                maxScore += combo * 553;
-                                spawnText("+" + (combo * 553).ToString());
-                                increaseEnergy(10);
-                                // Decrease the hit target's health based on the attack's damage
-                                c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
+                                if(!c.name.Contains("Miniboss") || (c.name.Contains("Miniboss") && c.GetComponent<Miniboss>().vulnerable))
+                                {
+                                    combo++;
+                                    maxScore += combo * 553;
+                                    spawnText("+" + (combo * 553).ToString());
+                                    increaseEnergy(10);
+                                    // Decrease the hit target's health based on the attack's damage
+                                    c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
+                                    GameObject p = Instantiate(hitParticle, attack.bounds.center, transform.rotation, null);
+                                    p.transform.Rotate(0, 90, 0);
+                                }
 
                                 // SFX
                                 if (currentOutfitItem == top)
@@ -428,8 +434,6 @@ public class playerNew : MonoBehaviour
                                 // Hitpause + screenshake
                                 StartCoroutine("hitpause");
                                 camera.GetComponent<CameraScript>().doShake(0.07f);
-                                GameObject p = Instantiate(hitParticle, attack.bounds.center, transform.rotation, null);
-                                p.transform.Rotate(0, 90, 0);
                                 if(currentOutfitItem.continuousHitbox[currentHitNum])
                                 {
                                     enemiesHit.Add(c.gameObject.GetInstanceID());
@@ -606,9 +610,9 @@ public class playerNew : MonoBehaviour
         if (scraps >= scrapSpediture)
         {
             scraps -= scrapSpediture;
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public bool spendScore(int scoreSpediture)
@@ -616,9 +620,9 @@ public class playerNew : MonoBehaviour
         if (score >= scoreSpediture)
         {
             score -= scoreSpediture;
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public void increaseHealth(float heal)
@@ -678,7 +682,7 @@ public class playerNew : MonoBehaviour
             Time.timeScale = 1.0f;
             gameOver.SetActive(false);
             updateBars();
-            healthbar.transform.localScale = new Vector3( currentHealth/ 100, 0, 0);
+            healthbar.transform.localScale += new Vector3( currentHealth/ 100, 1, 1);
             return true;
         }
         else

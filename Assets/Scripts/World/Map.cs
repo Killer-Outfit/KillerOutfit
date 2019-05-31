@@ -78,4 +78,21 @@ public class Map : MonoBehaviour
         if (arr[4] != null) { Instantiate(arr[4], new Vector3(pT.position.x + 12, -2, -4), arr[4].transform.rotation); }
         if (arr[5] != null) { Instantiate(arr[5], new Vector3(pT.position.x + 12, -4, -6), arr[5].transform.rotation); }
     }
+
+    public void reset()
+    {
+        GameObject[] currentEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        for(int i = 0; i < currentEnemies.Length; i++)
+        {
+            Destroy(currentEnemies[i]);
+        }
+
+        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
+        for (int i = 0; i < projectiles.Length; i++)
+        {
+            Destroy(projectiles[i]);
+        }
+
+        enemyManager.GetComponent<Overmind>().ClearLists();
+    }
 }

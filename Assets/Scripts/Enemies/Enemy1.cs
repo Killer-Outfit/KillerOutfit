@@ -45,7 +45,7 @@ public class Enemy1 : EnemyGeneric
             else if(i >= 0.6f && i < 0.8f)
             {
                 GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 2.5f);
-                atkBox.GetComponent<MeshRenderer>().enabled = true;
+                //atkBox.GetComponent<MeshRenderer>().enabled = true;
                 if (!hitPlayer)
                 {
                     AtkDetect();
@@ -55,11 +55,11 @@ public class Enemy1 : EnemyGeneric
             else
             {
                 GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 2f);
-                atkBox.GetComponent<MeshRenderer>().enabled = false;
+                //atkBox.GetComponent<MeshRenderer>().enabled = false;
                 yield return null;
             }
         }
-        atkBox.GetComponent<MeshRenderer>().enabled = false;
+        //atkBox.GetComponent<MeshRenderer>().enabled = false;
         if (GetComponent<EnemyMovement>().state == "doingattack")
         {
             GetComponent<EnemyMovement>().ResumeMovement();

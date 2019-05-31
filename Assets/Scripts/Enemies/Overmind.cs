@@ -331,4 +331,18 @@ public class Overmind : MonoBehaviour
         }
         return false;
     }
+
+    public void ClearLists()
+    {
+        enemMelee.Clear();
+        enemRanged.Clear();
+        MeleeL = null;
+        MeleeR = null;
+        RangedL = null;
+        RangedR = null;
+        enemMiniboss = null;
+        aggroTimerMelee = Random.Range(1f, 4f);
+        aggroTimerRanged = Random.Range(2f, 5f);
+        aggroTimerMiniboss = Random.Range(4f, 8f);
+    }
 }

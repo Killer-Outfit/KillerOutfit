@@ -14,14 +14,16 @@ public class CheckpointManager : MonoBehaviour
     private int currentCheckpoint;
     private Camera mainCam;
     private int nextCombatNumber;
+    private Vector3 camCheckpointPos;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        camCheckpointPos = new Vector3(0, 0, 0);
         nextCombatNumber = 0;
-        PlayerPos = new Vector3(-26.71169f, 171f, -306f);
+        PlayerPos = new Vector3(-26.71169f, 170f, -304f);
         Player = GameObject.Find("PlayerBody");
         playerHealth = 100f;
         energy = 300;
@@ -33,12 +35,11 @@ public class CheckpointManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Player.transform.position.x);
-        Debug.Log(checkpointLocations[currentCheckpoint]);
         if (mainCam.transform.position.x >= checkpointLocations[currentCheckpoint])
         {
             Debug.Log("Updated Checkpoints");
-            PlayerPos = new Vector3(Player.transform.position.x, 171f, -306f);
+            camCheckpointPos = mainCam.transform.position;
+            PlayerPos = Player.transform.position;
             currentCheckpoint++;
             energy = Player.GetComponent<playerNew>().energy;
             playerHealth = Player.GetComponent<playerNew>().currentHealth;
@@ -56,9 +57,10 @@ public class CheckpointManager : MonoBehaviour
         Player.GetComponent<playerNew>().scraps = scraps;
         Player.transform.position = PlayerPos;
         this.gameObject.GetComponent<Map>().currentCombatNum = nextCombatNumber;
-        this.gameObject.GetComponent<Map>().mainCam.GetComponent<CameraScript>().locked = false;
+        mainCam.GetComponent<CameraScript>().locked = false;
         Player.GetComponent<playerNew>().revive();
-        this.gameObject.GetComponent<Map>().mainCam.GetComponent<CameraScript>().revive();
+        mainCam.GetComponent<CameraScript>().revive(camCheckpointPos);
+        this.gameObject.GetComponent<Map>().reset();
     }
    
 

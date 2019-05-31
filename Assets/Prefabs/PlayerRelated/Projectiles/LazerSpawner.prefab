@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7923290385164730890}
   m_Layer: 0
   m_Name: LazerSpawner
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   lifeTime: 10
   damage: 30
   hasHit: 0
+  currentTime: 0
 --- !u!114 &2301511297353600649
 MonoBehaviour:
   m_ObjectHideFlags: 0
