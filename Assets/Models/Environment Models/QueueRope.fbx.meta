@@ -1,29 +1,26 @@
 fileFormatVersion: 2
-guid: 3f6d5cad6412c0642a7bc45db1abcc1f
+guid: 76ffbdb57da7d1a4ba34d12e379d2cb1
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube.001
-    100004: Cylinder
-    100006: //RootNode
-    400000: Cube
-    400002: Cube.001
-    400004: Cylinder
-    400006: //RootNode
-    2100000: No Name
-    2300000: Cube
-    2300002: Cube.001
-    2300004: Cylinder
-    2300006: //RootNode
-    3300000: Cube
-    3300002: Cube.001
-    3300004: Cylinder
-    3300006: //RootNode
-    4300000: Cube.001
-    4300002: Cube
-    4300004: Cylinder
-  externalObjects: {}
+    100000: //RootNode
+    400000: //RootNode
+    2100000: RopeMetal
+    2100002: RopeRed
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Hook
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RopeMetal
+    second: {fileID: 2100000, guid: 24d3bc4c1b9deae4bb06efe28fb13ace, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RopeRed
+    second: {fileID: 2100000, guid: 32e0066fa034c2740b212c438d9b19ac, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

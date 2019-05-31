@@ -1,29 +1,49 @@
 fileFormatVersion: 2
-guid: 3f6d5cad6412c0642a7bc45db1abcc1f
+guid: a02f20ba8ccfcf748938d28349c73265
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cube.001
-    100004: Cylinder
-    100006: //RootNode
-    400000: Cube
-    400002: Cube.001
-    400004: Cylinder
-    400006: //RootNode
+    100000: //RootNode
+    100002: Body
+    100004: Camera
+    100006: Lamp
+    400000: //RootNode
+    400002: Body
+    400004: Camera
+    400006: Lamp
+    2000000: Camera
     2100000: No Name
-    2300000: Cube
-    2300002: Cube.001
-    2300004: Cylinder
-    2300006: //RootNode
-    3300000: Cube
-    3300002: Cube.001
-    3300004: Cylinder
-    3300006: //RootNode
-    4300000: Cube.001
-    4300002: Cube
-    4300004: Cylinder
-  externalObjects: {}
+    2100002: QueueGold
+    2100004: QueueMetal
+    2100006: QueueRed
+    2100008: QueueWhite
+    2300000: //RootNode
+    2300002: Body
+    3300000: //RootNode
+    3300002: Body
+    4300000: Body
+    10800000: Lamp
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: QueueGold
+    second: {fileID: 2100000, guid: 4a014cfb8a5370549b11b62929894585, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: QueueMetal
+    second: {fileID: 2100000, guid: 24d3bc4c1b9deae4bb06efe28fb13ace, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: QueueRed
+    second: {fileID: 2100000, guid: 32e0066fa034c2740b212c438d9b19ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: QueueWhite
+    second: {fileID: 2100000, guid: 69272f487ae1d33489269f45b77e7f7a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
