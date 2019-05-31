@@ -148,6 +148,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cf005ac782de4b3499ee09312ffdbd00, type: 3}
   - {fileID: 8300000, guid: 26e48268d359b4a41bc4f03f0b202ca2, type: 3}
   menuClick: {fileID: 8300000, guid: 0f3a6e49c167daf49b1b95bdfb96ec59, type: 3}
+  misc: 0
 --- !u!65 &6193531657732636356
 BoxCollider:
   m_ObjectHideFlags: 0

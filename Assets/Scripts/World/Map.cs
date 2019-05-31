@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Map : MonoBehaviour
 {
-    private Camera mainCam;
+    public Camera mainCam;
     private Transform pT;
-    private int currentCombatNum;
+    public int currentCombatNum;
     private GameObject enemyManager;
 
     public float[] combatPositions;
@@ -23,12 +23,6 @@ public class Map : MonoBehaviour
         pT = GameObject.Find("PlayerBody").transform;
         enemyManager = GameObject.Find("Overmind");
         currentCombatNum = 0;
-
-        combatPositions = new float[4];
-        combatPositions[0] = 20;
-        combatPositions[1] = 40;
-        combatPositions[2] = 60;
-        combatPositions[3] = 80;
     }
 
     // Update is called once per frame

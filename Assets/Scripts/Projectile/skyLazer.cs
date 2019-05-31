@@ -1,38 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VolumetricLines;
 
 public class skyLazer : MonoBehaviour
 {
-    private float maxLength;
-    private float incriment;
-    private float currentSize;
     private float speed;
-    private float rotate;
+    private BoxCollider skyLaserCollider;
+    private VolumetricLineBehavior vmLines;
+    public GameObject explosionSphere;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*maxLength = 140.0f;
-        incriment = 7f;
-        currentSize = 0.0f;
-       // transform.rotation = new Vector3(90, 0, 0);
-        transform.Rotate(90, 0, 0);
-        */
-        speed = 1;
-        rotate = Random.Range(-120f, -60f);
-        transform.Rotate(rotate, 180 + rotate, 0);
-        transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+        skyLaserCollider = this.gameObject.GetComponent<BoxCollider>();
+        vmLines = this.gameObject.GetComponent<VolumetricLineBehavior>();
+        speed = 50f;
+        Instantiate(explosionSphere, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed);
-        /*if (currentSize < maxLength)
-        {
-            transform.localScale = new Vector3(1, currentSize, 1);
-            currentSize += incriment;
-        }*/
+        skyLaserCollider.size = new Vector3(skyLaserCollider.size.x, skyLaserCollider.size.y, skyLaserCollider.size.z + speed * 2);
+        vmLines.EndPos = new Vector3(vmLines.EndPos.x, vmLines.EndPos.y, vmLines.EndPos.z + speed);
     }
 }

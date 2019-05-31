@@ -9,6 +9,7 @@ public class CameraScript : MonoBehaviour
     private Camera mainCam;
 
     public float smoothSpeed = 0.125f;
+    private float reviveSpeed = 1f;
 
     // Cam shake
     private Transform camTransform;
@@ -76,5 +77,12 @@ public class CameraScript : MonoBehaviour
         shakeDuration = 0f;
         camTransform.localPosition = originalPos;
         camTransform.rotation = originalRot;
+    }
+
+    public void revive()
+    {
+        Vector3 revivePos = new Vector3(player.transform.position.x + 29.705215f, mainCam.transform.position.y, mainCam.transform.position.z);
+        Vector3 smoothedPos = Vector3.Lerp(transform.position, revivePos, reviveSpeed);
+        transform.position = smoothedPos;
     }
 }

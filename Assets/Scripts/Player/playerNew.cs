@@ -69,11 +69,14 @@ public class playerNew : MonoBehaviour
 
     private GameObject audioController;
 
+    private List<Color> trailColors;
+
     private string masterBusString = "bus:/";
     FMOD.Studio.Bus masterBus;
 
     public GameObject textBoi;
     public GameObject curTextBoi;
+
     void Start()
     {
         Time.timeScale = 1.0f;
@@ -119,6 +122,13 @@ public class playerNew : MonoBehaviour
         loseSound = gameOver.GetComponent<LoseSound>();
         gameOver.SetActive(false);
 
+        trailColors = new List<Color>() {
+            new Color(0f/255f, 16f/255f, 255f/255f, 255f/255f),
+            new Color(255f/255f, 0f/255f, 247f/255f, 255f/255f),
+            new Color(255f/255f, 0f/255f, 0f/255f, 255f/255f),
+            new Color(255f/255f, 0f/255f, 0f/255f, 255f/255f)
+        };
+
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
     }
 
@@ -138,9 +148,25 @@ public class playerNew : MonoBehaviour
             {
                 if(difference > 1000)
                 {
+                    score += 500;
+                }
+                else if (difference > 600)
+                {
+                    score += 300;
+                }
+                else if (difference > 200)
+                {
                     score += 100;
                 }
                 else if(difference > 100)
+                {
+                    score += 20;
+                }
+                else if (difference > 60)
+                {
+                    score += 15;
+                }
+                else if (difference > 20)
                 {
                     score += 10;
                 }
@@ -306,7 +332,11 @@ public class playerNew : MonoBehaviour
         }
         anim.SetFloat("animSpeed", currentOutfitItem.animSpeedMultiplier[currentHitNum]);
         attack = currentOutfitItem.attackColliders[currentHitNum];
+        currentOutfitItem.trails[currentHitNum].startColor = trailColors[currentHitNum];
+        currentOutfitItem.trails[currentHitNum].endColor = trailColors[currentHitNum];
         currentOutfitItem.trails[currentHitNum].enabled = true;
+        //Debug.Log(trailColors[currentHitNum]);
+        
         // Go through each phase of the attack based on the outfit attack stats
         for (int i = 0; i < currentOutfitItem.GetPhases(currentHitNum); i++)
         {
@@ -337,7 +367,22 @@ public class playerNew : MonoBehaviour
                     {
                         if(energy >= 100 * (currentHitNum + 1))
                         {
-                            Instantiate(currentOutfitItem.projectiles[currentHitNum], transform.position, transform.rotation);
+                            var currOutfitScript = currentOutfitItem.GetComponent<outfits>();
+                            Vector3 p;
+                            if (transform.rotation.y < 0)
+                            {
+                                p = new Vector3(transform.position.x + currOutfitScript.offsets[0 + 3 * currentHitNum],
+                                transform.position.y + currOutfitScript.offsets[1 + 3 * currentHitNum],
+                                transform.position.z + currOutfitScript.offsets[2 + 3 * currentHitNum]);
+                            }
+                            else
+                            {
+                                p = new Vector3(transform.position.x - currOutfitScript.offsets[0 + 3 * currentHitNum],
+                                transform.position.y + currOutfitScript.offsets[1 + 3 * currentHitNum],
+                                transform.position.z + currOutfitScript.offsets[2 + 3 * currentHitNum]);
+                            }
+                            
+                            Instantiate(currentOutfitItem.projectiles[currentHitNum], p, transform.rotation);
                             useEnergy(100 * (currentHitNum + 1));
                             currentHitNum = 0;
                         }else if(j == 0)
@@ -566,6 +611,16 @@ public class playerNew : MonoBehaviour
         return true;
     }
 
+    public bool spendScore(int scoreSpediture)
+    {
+        if (score >= scoreSpediture)
+        {
+            score -= scoreSpediture;
+            return false;
+        }
+        return true;
+    }
+
     public void increaseHealth(float heal)
     {
         GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Health", heal, true);
@@ -588,8 +643,8 @@ public class playerNew : MonoBehaviour
         //score -= 1000;
         controller.enabled = false;
         //controller.transform.position = checkpoint.getCheckpoint();
-        controller.enabled = true;
-        currentHealth = maxHealth;
+        //controller.enabled = true;
+        //currentHealth = maxHealth;
         //healthbar.value = currentHealth / maxHealth;
         //transform.position = checkpoint.getCheckpoint();
         //canvas.SendMessage("PlayerDead", true);
@@ -604,7 +659,32 @@ public class playerNew : MonoBehaviour
         Time.timeScale = 0.0f;
         gameOver.SetActive(true);
         loseSound.Play();
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+    }
+
+    public bool revive()
+    {
+        if (spendScore(500))
+        {
+            controller.enabled = true;
+            masterBus.setMute(false);
+            healthbar.SetActive(true);
+            for (int i = 0; i < 3; i++)
+                energyBars[i].SetActive(true);
+            scrapsUI.SetActive(true);
+            healthBarUI.SetActive(true);
+            energyBarUI.SetActive(true);
+            audioController.SetActive(true);
+            Time.timeScale = 1.0f;
+            gameOver.SetActive(false);
+            updateBars();
+            healthbar.transform.localScale = new Vector3( currentHealth/ 100, 0, 0);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     // Change outfit function takes in the new outfit 
@@ -634,7 +714,8 @@ public class playerNew : MonoBehaviour
         {
             newOutfit.outfitSkinRenderer.material = newOutfit.outfitMaterial;
         }
-        
+
+        newOutfit.outfitSkinRenderer.GetComponent<Cloth>().enabled = newOutfit.clothPhys;
         // Create new runtime animator override controller
         AnimatorOverrideController aoc = new AnimatorOverrideController(anim.runtimeAnimatorController);
         // Create a list of current animations and their replacements
@@ -664,6 +745,8 @@ public class playerNew : MonoBehaviour
         // Override all animations in the anims list
         aoc.ApplyOverrides(anims);
         anim.runtimeAnimatorController = aoc;
+
+
     }
 
     private AudioClip GetRandomPunch()

@@ -7,8 +7,8 @@ public class Projectile : MonoBehaviour
     public float lifeTime;
     public int damage;
     public bool hasHit;
-
-    private float currentTime;
+    [HideInInspector]
+    public float currentTime;
     
 
     // Start is called before the first frame update
