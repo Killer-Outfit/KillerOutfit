@@ -9,6 +9,8 @@ public class StartGame : MonoBehaviour
     public AudioClip clip;
     public AudioClip clip2;
 
+    FMOD.Studio.EventInstance music;
+
     CanvasGroup canvas;
     Button startButton;
     Button quitButton;
@@ -17,6 +19,7 @@ public class StartGame : MonoBehaviour
     GameObject title;
     bool fadeDone;
     bool nextScene;
+    bool cutsceneDone;
     AudioSource source;
     GameObject[] cutscenes = new GameObject[6];
     SpriteRenderer ler_p;
@@ -24,6 +27,8 @@ public class StartGame : MonoBehaviour
 
     void Awake()
     {
+        music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Main Menu");
+        music.start();
         Time.timeScale = 1.0f;
         canvas = GameObject.Find("MainMenuCanvas").GetComponent<CanvasGroup>();
         startButton = GameObject.Find("Start Game (Button)").GetComponent<Button>();
@@ -43,6 +48,7 @@ public class StartGame : MonoBehaviour
             i.SetActive(false);
         fadeDone = false;
         nextScene = false;
+        cutsceneDone = false;
         tim = 0f;
     }
 
@@ -92,6 +98,8 @@ public class StartGame : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
+        if (cutsceneDone)
+            StartCoroutine(LoadAsync());
         yield return null;
     }
 
@@ -108,11 +116,13 @@ public class StartGame : MonoBehaviour
             ler_p.color = Color.black;
             nextScene = false;
             yield return StartCoroutine(NextCutscene());
-            if (i == 5)
+            if (i == cutscenes.Length-1)
             {
+                music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 source.PlayOneShot(clip2);
                 Debug.Log("reached end of cutscenes");
-                StartCoroutine(LoadAsync());
+                cutsceneDone = true;
+                //StartCoroutine(LoadAsync());
             }
             else
             {
