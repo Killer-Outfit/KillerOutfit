@@ -273,13 +273,13 @@ public class EnemyMovement : MonoBehaviour
         ResumeMovement();
     }
 
-    public void Knockdown(float speed = 5f)
+    public void Knockdown()
     {
         if (state != "knockdown" && state != "dying")
         {
             anim.SetTrigger("Knockdown");
             state = "knockdown";
-            knockSpeed = speed;
+            knockSpeed = 0.4f;
             StartCoroutine("KnockdownCR");
         }
     }
@@ -288,7 +288,7 @@ public class EnemyMovement : MonoBehaviour
     {
         while (knockSpeed > 0)
         {
-            controller.Move(new Vector3(direction * knockSpeed, 0, 0));
+            controller.Move(new Vector3(-direction * knockSpeed, 0, 0));
             knockSpeed -= Time.deltaTime;
             yield return null;
         }
@@ -298,7 +298,7 @@ public class EnemyMovement : MonoBehaviour
     private IEnumerator GetUp()
     {
         anim.SetTrigger("GetUp");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.2f);
         ResumeMovement();
     }
 

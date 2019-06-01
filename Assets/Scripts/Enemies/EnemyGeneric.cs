@@ -31,7 +31,7 @@ public class EnemyGeneric : MonoBehaviour
         Damage(atk);
         if (isKnockdown == true)
         {
-            GetComponent<EnemyMovement>().Knockdown(0.4f);
+            GetComponent<EnemyMovement>().Knockdown();
         }
         else
         {

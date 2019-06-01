@@ -52,6 +52,7 @@ public class outfits : MonoBehaviour
     // Multiplier to change an attack animation
     public float[] animSpeedMultiplier;
     public bool[] continuousHitbox;
+    public bool[] isKnockdown;
 
     public float[] offsets;
 

@@ -439,7 +439,7 @@ public class playerNew : MonoBehaviour
                                         spawnText("+" + (combo * 553).ToString());
                                         increaseEnergy(10);
                                         // Decrease the hit target's health based on the attack's damage
-                                        c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
+                                        c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], currentOutfitItem.isKnockdown[currentHitNum]);
                                         GameObject p = Instantiate(hitParticle, s.bounds.center, transform.rotation, null);
                                         p.transform.Rotate(0, 90, 0);
                                     }
