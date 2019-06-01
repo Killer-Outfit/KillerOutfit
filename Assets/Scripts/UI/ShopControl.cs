@@ -11,10 +11,14 @@ public class ShopControl : MonoBehaviour
     private bool shopOpen;
     private GameObject shopResume;
     private GameObject resume;
+    private GameObject player;
+    public bool openable;
 
     // Start is called before the first frame update
     void Awake()
     {
+        player = GameObject.Find("PlayerBody");
+        openable = false;
         can = GameObject.Find("Main Canvas").GetComponent<Canvas>();
         maincam = GameObject.Find("Main Camera").GetComponent<Camera>();
         shopcam = GameObject.Find("OutfitCamera").GetComponent<Camera>();
@@ -28,13 +32,15 @@ public class ShopControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("YButton"))
+        if (Input.GetButtonDown("AButton") && openable)
 		{
 			maincam.enabled = !maincam.enabled;
             shopcam.enabled = !shopcam.enabled;
             can.enabled = !can.enabled;
             shopOpen = !shopOpen;
-		}
+            player.GetComponent<playerMove>().active = !player.GetComponent<playerMove>().active;
+            player.GetComponent<playerNew>().active = !player.GetComponent<playerNew>().active;
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape) && shopOpen == true)
         {

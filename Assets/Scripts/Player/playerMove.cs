@@ -22,10 +22,12 @@ public class playerMove : MonoBehaviour
     private GameObject energyBar;
     private GameObject scrapCount;
     private GameObject score;
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
     {
+        active = true;
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         turningSpeed = 0;
         anim = GetComponent<Animator>();
@@ -47,20 +49,23 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        normalMovement();
-        curPlayerPortPos = mainCam.WorldToViewportPoint(transform.position);
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (active)
         {
-            //Debug.Log("the escape key was pressed");
-            if (!pauseMenu.activeInHierarchy)
+            normalMovement();
+            curPlayerPortPos = mainCam.WorldToViewportPoint(transform.position);
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                //Debug.Log("pause the game");
-                PauseGame();
-            }
-            else if (pauseMenu.activeInHierarchy)
-            {
-                //Debug.Log("play the game");
-                ContinueGame();
+                //Debug.Log("the escape key was pressed");
+                if (!pauseMenu.activeInHierarchy)
+                {
+                    //Debug.Log("pause the game");
+                    PauseGame();
+                }
+                else if (pauseMenu.activeInHierarchy)
+                {
+                    //Debug.Log("play the game");
+                    ContinueGame();
+                }
             }
         }
     }
