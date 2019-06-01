@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && hasHit == false)
         {
             //Debug.Log("You Whore Im going to fuck your mom till she gives you a brother");
             hasHit = true;

@@ -60,6 +60,7 @@ public class playerNew : MonoBehaviour
     public int energy;
 
     public GameObject hitParticle;
+    public GameObject failParticle;
     private int particledir;
 
     private LoseSound loseSound;
@@ -317,8 +318,12 @@ public class playerNew : MonoBehaviour
         float startTime = 0f;
         bool hit;
         outfits currentOutfitItem = null;
-        // Set the collider being used based on current attack type
-        SphereCollider attack = null;
+
+        // Set the colliders being used based on current attack type
+        SphereCollider[] collidersArray = null;
+        List<SphereCollider> activeColliders = new List<SphereCollider>();
+        int currentColliderNum = -1;
+
         if (attackType == "punch")
         {
             currentOutfitItem = top;
@@ -332,11 +337,12 @@ public class playerNew : MonoBehaviour
             currentOutfitItem = misc;
         }
         anim.SetFloat("animSpeed", currentOutfitItem.animSpeedMultiplier[currentHitNum]);
-        attack = currentOutfitItem.attackColliders[currentHitNum];
+
+        collidersArray = currentOutfitItem.attackColliderArrays[currentHitNum];
+        
         currentOutfitItem.trails[currentHitNum].startColor = trailColors[currentHitNum];
         currentOutfitItem.trails[currentHitNum].endColor = trailColors[currentHitNum];
         currentOutfitItem.trails[currentHitNum].enabled = true;
-        //Debug.Log(trailColors[currentHitNum]);
         
         // Go through each phase of the attack based on the outfit attack stats
         for (int i = 0; i < currentOutfitItem.GetPhases(currentHitNum); i++)
@@ -344,9 +350,21 @@ public class playerNew : MonoBehaviour
             startTime += Time.deltaTime;
             // Reset hit counter and set speed
             hit = false;
-            //GetComponent<playerMove>().movementSpeed = currentOutfitItem.GetPhaseMove(currentHitNum, i);
-            //GetComponent<PlayerMove>().collideMaxSpeed = currentOutfitItem.GetPhaseMove(currentHitNum, i);
-            //GetComponent<PlayerMove>().turningSpeed = currentOutfitItem.GetPhaseTurnSpeed(currentHitNumber, i);
+
+            //If this phase is an active phase, get a list of the current active colliders (length 1 if non-continuous, otherwise use the whole array).
+            if (currentOutfitItem.GetPhaseActive(currentHitNum, i))
+            {
+                activeColliders.Clear();
+                currentColliderNum++;
+                if(currentOutfitItem.continuousHitbox[currentHitNum])
+                {
+                    activeColliders.AddRange(collidersArray);
+                }
+                else
+                {
+                    activeColliders.Add(collidersArray[currentColliderNum]);
+                }
+            }
 
             // List of enemies hit thus far. Used for continuous attacks like outfit 2 kick 3.
             List<int> enemiesHit = new List<int>();
@@ -354,17 +372,10 @@ public class playerNew : MonoBehaviour
             // Go through this phase's timer
             for (float j = 0; j < currentOutfitItem.GetPhaseTime(currentHitNum, i); j += Time.deltaTime)
             {
-                // Apply acceleration
-                //GetComponent<playerMove>().movementSpeed += currentOutfitItem.GetPhaseAcc(currentHitNum, i);
-
                 // if this phase is an active hitbox and hasn't hit an enemy yet, try to hit an enemy
                 if (currentOutfitItem.GetPhaseActive(currentHitNum, i) && hit == false)
                 {
-                    // If debugging is on, show hitbox.
-                    if (debugmode)
-                        attack.GetComponent<SkinnedMeshRenderer>().enabled = true;
-
-                    if (attackType == "misc" && j == 0)
+                    if (currentOutfitItem.projectiles[currentHitNum] != null && j == 0)
                     {
                         if(energy >= 100 * (currentHitNum + 1))
                         {
@@ -388,89 +399,110 @@ public class playerNew : MonoBehaviour
                             currentHitNum = 0;
                         }else if(j == 0)
                         {
-                            //Debug.Log("you dumb");
+                            Instantiate(failParticle, transform.Find("FrontCollider").position, transform.rotation);
+                            currentHitNum = 0;
                         }
-                        
-                        
                     }
                     else
                     {
-                        Collider[] cols = Physics.OverlapSphere(attack.bounds.center, attack.radius, LayerMask.GetMask("Default"));
-                        //Debug.Log(cols.Length);
-                        foreach (Collider c in cols)
+                        if(attackType == "misc" && j == 0)
                         {
-                            //Debug.Log(c.name);
-                            if (c.tag == "Enemy" && !enemiesHit.Contains(c.gameObject.GetInstanceID()))
+                            if (energy >= 100 * (currentHitNum + 1))
                             {
-                                if(!c.name.Contains("Miniboss") || (c.name.Contains("Miniboss") && c.GetComponent<Miniboss>().vulnerable))
+                                useEnergy(100 * (currentHitNum + 1));
+                            }
+                            else
+                            {
+                                Instantiate(failParticle, transform.Find("FrontCollider").position, transform.rotation);
+                                currentHitNum = 0;
+                                break;
+                            }
+                        }
+
+                        foreach (SphereCollider s in activeColliders)
+                        {
+                            // If debugging is on, show hitbox(es)
+                            if (debugmode)
+                                s.GetComponent<SkinnedMeshRenderer>().enabled = true;
+
+                            Collider[] cols = Physics.OverlapSphere(s.bounds.center, s.radius, LayerMask.GetMask("Default"));
+                            //Debug.Log(cols.Length);
+                            foreach (Collider c in cols)
+                            {
+                                //Debug.Log(c.name);
+                                if (c.tag == "Enemy" && !enemiesHit.Contains(c.gameObject.GetInstanceID()))
                                 {
+                                    if (!c.name.Contains("Miniboss") || (c.name.Contains("Miniboss") && c.GetComponent<Miniboss>().vulnerable))
+                                    {
+                                        combo++;
+                                        maxScore += combo * 553;
+                                        spawnText("+" + (combo * 553).ToString());
+                                        increaseEnergy(10);
+                                        // Decrease the hit target's health based on the attack's damage
+                                        c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], currentOutfitItem.isKnockdown[currentHitNum]);
+                                        GameObject p = Instantiate(hitParticle, s.bounds.center, transform.rotation, null);
+                                        p.transform.Rotate(0, 90, 0);
+                                    }
+
+                                    // SFX
+                                    if (currentOutfitItem == top)
+                                    {
+                                        AudioClip clip = GetRandomPunch();
+                                        audioSource.PlayOneShot(clip);
+                                    }
+                                    if (currentOutfitItem == bot)
+                                    {
+                                        AudioClip clip = GetRandomKick();
+                                        audioSource.PlayOneShot(clip);
+                                    }
+                                    if (currentOutfitItem == misc)
+                                    {
+                                        AudioClip clip = GetRandomMisc();
+                                        audioSource.PlayOneShot(clip);
+                                    }
+
+                                    // Hitpause + screenshake
+                                    StartCoroutine("hitpause");
+                                    camera.GetComponent<CameraScript>().doShake(0.07f);
+                                    if (currentOutfitItem.continuousHitbox[currentHitNum])
+                                    {
+                                        enemiesHit.Add(c.gameObject.GetInstanceID());
+                                    }
+                                    else
+                                    {
+                                        hit = true;
+                                    }
+                                }
+                                if (c.tag == "Destructible")
+                                {
+                                    hit = true;
                                     combo++;
                                     maxScore += combo * 553;
                                     spawnText("+" + (combo * 553).ToString());
                                     increaseEnergy(10);
-                                    // Decrease the hit target's health based on the attack's damage
-                                    c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], false); // Change knockdown array
-                                    GameObject p = Instantiate(hitParticle, attack.bounds.center, transform.rotation, null);
-                                    p.transform.Rotate(0, 90, 0);
-                                }
+                                    c.GetComponent<Destructible>().doBreak();
 
-                                // SFX
-                                if (currentOutfitItem == top)
-                                {
-                                    AudioClip clip = GetRandomPunch();
-                                    audioSource.PlayOneShot(clip);
-                                }
-                                if (currentOutfitItem == bot)
-                                {
-                                    AudioClip clip = GetRandomKick();
-                                    audioSource.PlayOneShot(clip);
-                                }
-                                if (currentOutfitItem == misc)
-                                {
-                                    AudioClip clip = GetRandomMisc();
-                                    audioSource.PlayOneShot(clip);
-                                }
+                                    // SFX
+                                    if (currentOutfitItem == top)
+                                    {
+                                        AudioClip clip = GetRandomPunch();
+                                        audioSource.PlayOneShot(clip);
+                                    }
+                                    if (currentOutfitItem == bot)
+                                    {
+                                        AudioClip clip = GetRandomKick();
+                                        audioSource.PlayOneShot(clip);
+                                    }
+                                    if (currentOutfitItem == misc)
+                                    {
+                                        AudioClip clip = GetRandomMisc();
+                                        audioSource.PlayOneShot(clip);
+                                    }
 
-                                // Hitpause + screenshake
-                                StartCoroutine("hitpause");
-                                camera.GetComponent<CameraScript>().doShake(0.07f);
-                                if(currentOutfitItem.continuousHitbox[currentHitNum])
-                                {
-                                    enemiesHit.Add(c.gameObject.GetInstanceID());
+                                    // Hitpause + screenshake
+                                    StartCoroutine("hitpause");
+                                    camera.GetComponent<CameraScript>().doShake(0.07f);
                                 }
-                                else
-                                {
-                                    hit = true;
-                                }
-                            }
-                            if(c.tag == "Destructible")
-                            {
-                                combo++;
-                                maxScore += combo * 553;
-                                spawnText("+" + (combo * 553).ToString());
-                                increaseEnergy(10);
-                                c.GetComponent<Destructible>().doBreak();
-
-                                // SFX
-                                if (currentOutfitItem == top)
-                                {
-                                    AudioClip clip = GetRandomPunch();
-                                    audioSource.PlayOneShot(clip);
-                                }
-                                if (currentOutfitItem == bot)
-                                {
-                                    AudioClip clip = GetRandomKick();
-                                    audioSource.PlayOneShot(clip);
-                                }
-                                if (currentOutfitItem == misc)
-                                {
-                                    AudioClip clip = GetRandomMisc();
-                                    audioSource.PlayOneShot(clip);
-                                }
-
-                                // Hitpause + screenshake
-                                StartCoroutine("hitpause");
-                                camera.GetComponent<CameraScript>().doShake(0.07f);
                             }
                         }
                     }
@@ -478,7 +510,12 @@ public class playerNew : MonoBehaviour
                 else
                 {
                     if (debugmode)
-                        attack.GetComponent<SkinnedMeshRenderer>().enabled = false;
+                    {
+                        foreach (SphereCollider c in activeColliders)
+                        {
+                            c.GetComponent<SkinnedMeshRenderer>().enabled = false;
+                        }
+                    }
                 }
                 yield return null;
             }

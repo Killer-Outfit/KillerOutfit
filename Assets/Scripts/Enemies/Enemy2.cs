@@ -18,7 +18,7 @@ public class Enemy2 : EnemyGeneric
     // Attack timing
     protected override IEnumerator Attack()
     {
-        GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1.5f);
+        GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1.2f);
         bool atk = true;
         for (float i = 0; i < 1f; i += Time.deltaTime)
         {
@@ -40,7 +40,7 @@ public class Enemy2 : EnemyGeneric
             hand.GetComponent<HandProjMove>().damage = damage;
         }
 
-        for (float i = 0; i < 1.2f; i += Time.deltaTime)
+        for (float i = 0; i < 0.6f; i += Time.deltaTime)
         {
             if (GetComponent<EnemyMovement>().state != "doingattack")
             {

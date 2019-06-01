@@ -281,6 +281,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 406722461066464902, guid: b6ee9466fb8b05a4e838beb68dcb3bda,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8133489794175239895, guid: 231c8ed42fabf47498499710b7b8a26b,
+        type: 3}
+    - target: {fileID: 406722461066464902, guid: b6ee9466fb8b05a4e838beb68dcb3bda,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturntoMain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6ee9466fb8b05a4e838beb68dcb3bda, type: 3}
 --- !u!224 &4655279510833440126 stripped
@@ -421,11 +432,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1745017281146067242}
     m_Modifications:
-    - target: {fileID: 6059933792362391779, guid: 62fd93d3f0c963b42b6687749465152f,
-        type: 3}
-      propertyPath: m_Name
-      value: ResumeGame_ShopMenu (Button)
-      objectReference: {fileID: 0}
     - target: {fileID: 4837649879784679058, guid: 62fd93d3f0c963b42b6687749465152f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -530,6 +536,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6059933792362391779, guid: 62fd93d3f0c963b42b6687749465152f,
+        type: 3}
+      propertyPath: m_Name
+      value: ResumeGame_ShopMenu (Button)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62fd93d3f0c963b42b6687749465152f, type: 3}

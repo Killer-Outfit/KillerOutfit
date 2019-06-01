@@ -581,9 +581,11 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Misc
   attackType: Misc
-  attackColliders:
+  attack1Colliders:
   - {fileID: 187082721565042566}
+  attack2Colliders:
   - {fileID: 187082721565042566}
+  attack3Colliders:
   - {fileID: 187082721565042566}
   attack1Time:
   - 0.55
@@ -629,6 +631,7 @@ MonoBehaviour:
   - 0.35
   - 0.5
   continuousHitbox: 000000
+  isKnockdown: 000000
   offsets:
   - 2
   - 0.6
@@ -719,7 +722,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothPhys: 0
-  projectiles: []
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 4622767468192487150}
   - {fileID: 4622767468118593774}
@@ -738,9 +744,11 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Bot
   attackType: Kick
-  attackColliders:
+  attack1Colliders:
   - {fileID: 1626936186116409159}
+  attack2Colliders:
   - {fileID: 187082721565042566}
+  attack3Colliders:
   - {fileID: 3301246273219127713}
   attack1Time:
   - 0.2
@@ -786,6 +794,7 @@ MonoBehaviour:
   - 1.5
   - 1.5
   continuousHitbox: 000000
+  isKnockdown: 000001
   offsets: []
 --- !u!54 &8912132435394626607
 Rigidbody:
@@ -1039,6 +1048,8 @@ MonoBehaviour:
   isAttacking: 0
   energy: 0
   hitParticle: {fileID: 8397477145943708121, guid: c89cd17fe3c17674a9b1c7d67e111ba0,
+    type: 3}
+  failParticle: {fileID: 145983146665802313, guid: 0723b82fe3053d6439aa944ed8af9a17,
     type: 3}
   textBoi: {fileID: 0}
   curTextBoi: {fileID: 0}
@@ -12297,7 +12308,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothPhys: 0
-  projectiles: []
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 96059982984970910}
   - {fileID: 1114794313519564029}
@@ -12316,9 +12330,11 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Top
   attackType: Punch
-  attackColliders:
+  attack1Colliders:
   - {fileID: 9187374576541811894}
+  attack2Colliders:
   - {fileID: 6062515649263513968}
+  attack3Colliders:
   - {fileID: 6062515649263513968}
   attack1Time:
   - 0.2
@@ -12364,6 +12380,7 @@ MonoBehaviour:
   - 0.7
   - 0.9
   continuousHitbox: 000000
+  isKnockdown: 000001
   offsets: []
 --- !u!1 &8912132435587634797
 GameObject:
@@ -12410,17 +12427,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clothPhys: 0
   projectiles:
-  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
-  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
-  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 4622767468192487150}
   - {fileID: 4622767468192487150}
   - {fileID: 4622767468192487150}
   attacks:
-  - {fileID: 7400010, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
-  - {fileID: 7400012, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
-  - {fileID: 7400012, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
+  - {fileID: 7400000, guid: 4f0c9dbfc861cb9408db3e3088a41c4e, type: 3}
+  - {fileID: 7400002, guid: 4f0c9dbfc861cb9408db3e3088a41c4e, type: 3}
+  - {fileID: 7400004, guid: 4f0c9dbfc861cb9408db3e3088a41c4e, type: 3}
   attackDamage:
   - 3
   - 5
@@ -12431,14 +12448,17 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Misc
   attackType: Misc
-  attackColliders:
+  attack1Colliders:
   - {fileID: 9187374576541811894}
-  - {fileID: 9187374576541811894}
-  - {fileID: 9187374576541811894}
+  attack2Colliders:
+  - {fileID: 187082721565042566}
+  - {fileID: 1626936186116409159}
+  attack3Colliders:
+  - {fileID: 1626936186116409159}
   attack1Time:
-  - 0.4
+  - 1.2
   - 0.1
-  - 0.2
+  - 0.3
   attack1Move:
   - 25
   - 10
@@ -12449,9 +12469,9 @@ MonoBehaviour:
   - 0
   attack1Active: 000100
   attack2Time:
-  - 0.1
-  - 0.2
-  - 0.2
+  - 0.5
+  - 1
+  - 0.8
   attack2Move:
   - 10
   - 40
@@ -12462,9 +12482,9 @@ MonoBehaviour:
   - 0
   attack2Active: 000100
   attack3Time:
-  - 0.5
-  - 0.1
-  - 0.4
+  - 0.6
+  - 0.3
+  - 0.8
   attack3Move:
   - 25
   - 20
@@ -12478,7 +12498,8 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  continuousHitbox: 000000
+  continuousHitbox: 000100
+  isKnockdown: 000100
   offsets: []
 --- !u!1 &8912132435617761347
 GameObject:
@@ -12524,7 +12545,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothPhys: 0
-  projectiles: []
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 1114794313519564029}
   - {fileID: 1114794313519564029}
@@ -12543,9 +12567,11 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Top
   attackType: punch
-  attackColliders:
+  attack1Colliders:
   - {fileID: 6062515649263513968}
+  attack2Colliders:
   - {fileID: 9187374576541811894}
+  attack3Colliders:
   - {fileID: 3301246273219127713}
   attack1Time:
   - 0.1
@@ -12591,6 +12617,7 @@ MonoBehaviour:
   - 1.75
   - 1
   continuousHitbox: 000000
+  isKnockdown: 000000
   offsets: []
 --- !u!1 &8912132435735975793
 GameObject:
@@ -12668,7 +12695,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothPhys: 1
-  projectiles: []
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 4622767468118593774}
   - {fileID: 4622767468118593774}
@@ -12687,9 +12717,12 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Bot
   attackType: Kick
-  attackColliders:
+  attack1Colliders:
   - {fileID: 3301246273219127713}
+  - {fileID: 187082721565042566}
+  attack2Colliders:
   - {fileID: 3301246273219127713}
+  attack3Colliders:
   - {fileID: 187082721565042566}
   attack1Time:
   - 0.1
@@ -12741,6 +12774,7 @@ MonoBehaviour:
   - 0.5
   - 0.6
   continuousHitbox: 000001
+  isKnockdown: 000000
   offsets: []
 --- !u!1001 &89122085546681262
 PrefabInstance:

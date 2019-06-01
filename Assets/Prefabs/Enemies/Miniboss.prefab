@@ -110,6 +110,8 @@ MonoBehaviour:
   maxHP: 200
   damage: 20
   Scrap: {fileID: 6678152591484481640, guid: 9b18424f429953b499232568ecf6361e, type: 3}
+  chargeParticle: {fileID: 8704751111199571759, guid: 1c5322534d44ab64ebfce65c66f62ba8,
+    type: 3}
   health: 0
   overmind: {fileID: 0}
   shakeDuration: 0
@@ -121,6 +123,7 @@ MonoBehaviour:
     type: 3}
   shockwave: {fileID: 617371696295536264, guid: 6cec1ca739556a140a1b9a5aca49e2b3,
     type: 3}
+  vulnerable: 0
   punchSpeed: 0.5
   punchDecel: 0.5
   numBounces: 3
