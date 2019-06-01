@@ -15,6 +15,12 @@ public class Map : MonoBehaviour
     public GameObject[] Encounter2 = new GameObject[6];
     public GameObject[] Encounter3 = new GameObject[6];
     public GameObject[] Encounter4 = new GameObject[6];
+	public GameObject[] Encounter5 = new GameObject[6];
+	public GameObject[] Encounter6 = new GameObject[6];
+	public GameObject[] Encounter7 = new GameObject[6];
+	public GameObject[] Encounter8 = new GameObject[6];
+	public GameObject[] Encounter9 = new GameObject[6];
+	public GameObject[] Encounter10 = new GameObject[6];
 
     // Start is called before the first frame update
     void Start()
@@ -63,10 +69,31 @@ public class Map : MonoBehaviour
         {
             SpawnWave(Encounter4);
         }
-        else
+		else if (num == 4)
         {
-
+            SpawnWave(Encounter5);
         }
+		else if (num == 5)
+        {
+            SpawnWave(Encounter6);
+        }
+		else if (num == 6)
+        {
+            SpawnWave(Encounter7);
+        }
+		else if (num == 7)
+        {
+            SpawnWave(Encounter8);
+        }
+		else if (num == 8)
+        {
+            SpawnWave(Encounter9);
+        }
+		else if (num == 9)
+        {
+            SpawnWave(Encounter10);
+        }
+		
     }
 
     private void SpawnWave(GameObject[] arr)

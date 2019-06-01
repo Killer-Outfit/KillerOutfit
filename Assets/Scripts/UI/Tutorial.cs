@@ -10,6 +10,7 @@ public class Tutorial : MonoBehaviour
 
     private Camera mainCam;
     private Text activeMessage;
+	private GameObject dialogueBackground;
     private int currentTutorialNum;
     private GameObject healthBar;
     private GameObject energyBar;
@@ -23,6 +24,8 @@ public class Tutorial : MonoBehaviour
         currentTutorialNum = 0;
         activeMessage = GameObject.Find("TutorialText").GetComponent<Text>();
         activeMessage.enabled = false;
+		dialogueBackground = GameObject.Find("Dialogue");
+		dialogueBackground.SetActive(false);
         healthBar = GameObject.Find("Player Health");
         energyBar = GameObject.Find("Player Energy");
         score = GameObject.Find("Score");
@@ -48,6 +51,7 @@ public class Tutorial : MonoBehaviour
         energyBar.SetActive(false);
         score.SetActive(false);
         scrapCount.SetActive(false);
+		dialogueBackground.SetActive(true);
         activeMessage.enabled = true;
         activeMessage.text = tutorialMessages[num];
         Time.timeScale = 0;
@@ -60,6 +64,7 @@ public class Tutorial : MonoBehaviour
             energyBar.SetActive(true);
             score.SetActive(true);
             scrapCount.SetActive(true);
+			dialogueBackground.SetActive(false);
             activeMessage.enabled = false;
             currentTutorialNum += 1;
         }
