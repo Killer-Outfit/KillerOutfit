@@ -10,6 +10,7 @@ public class EnemyGeneric : MonoBehaviour
     public float damage;
 
     public GameObject Scrap;
+    public GameObject chargeParticle;
 
     [HideInInspector]
     public float health;
@@ -60,6 +61,10 @@ public class EnemyGeneric : MonoBehaviour
     public virtual void DoAttack()
     {
         GetComponent<EnemyMovement>().StopForAttack();
+        Vector3 particlepos = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
+        GameObject p = Instantiate(chargeParticle, particlepos, Quaternion.identity);
+        var main = p.GetComponent<ParticleSystem>().main;
+        main.startColor = new Color(255, 0, 0, 100);
         StartCoroutine("Attack");
     }
 

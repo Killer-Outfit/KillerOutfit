@@ -25,7 +25,12 @@ public class outfits : MonoBehaviour
     public string attackType;
 
     // Colliders for this outfit's attacks
-    public SphereCollider[] attackColliders;
+    [HideInInspector]
+    public SphereCollider[][] attackColliderArrays;
+
+    public SphereCollider[] attack1Colliders;
+    public SphereCollider[] attack2Colliders;
+    public SphereCollider[] attack3Colliders;
 
     // Attack variables for phase timing, movement speed, acceleration and active hitbox. All arrays for each attack need to be the same size.
     [Header("Attack1")]
@@ -53,7 +58,10 @@ public class outfits : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        attackColliderArrays = new SphereCollider[3][];
+        attackColliderArrays[0] = attack1Colliders;
+        attackColliderArrays[1] = attack2Colliders;
+        attackColliderArrays[2] = attack3Colliders;
     }
 
     // Get the length of a certain phase of an attack

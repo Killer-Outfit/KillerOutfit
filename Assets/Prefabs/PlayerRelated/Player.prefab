@@ -581,9 +581,11 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Misc
   attackType: Misc
-  attackColliders:
+  attack1Colliders:
   - {fileID: 187082721565042566}
+  attack2Colliders:
   - {fileID: 187082721565042566}
+  attack3Colliders:
   - {fileID: 187082721565042566}
   attack1Time:
   - 0.55
@@ -719,7 +721,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothPhys: 0
-  projectiles: []
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 4622767468192487150}
   - {fileID: 4622767468118593774}
@@ -738,9 +743,11 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Bot
   attackType: Kick
-  attackColliders:
+  attack1Colliders:
   - {fileID: 1626936186116409159}
+  attack2Colliders:
   - {fileID: 187082721565042566}
+  attack3Colliders:
   - {fileID: 3301246273219127713}
   attack1Time:
   - 0.2
@@ -1039,6 +1046,8 @@ MonoBehaviour:
   isAttacking: 0
   energy: 0
   hitParticle: {fileID: 8397477145943708121, guid: c89cd17fe3c17674a9b1c7d67e111ba0,
+    type: 3}
+  failParticle: {fileID: 145983146665802313, guid: 0723b82fe3053d6439aa944ed8af9a17,
     type: 3}
   textBoi: {fileID: 0}
   curTextBoi: {fileID: 0}
@@ -12297,7 +12306,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothPhys: 0
-  projectiles: []
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 96059982984970910}
   - {fileID: 1114794313519564029}
@@ -12316,9 +12328,11 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Top
   attackType: Punch
-  attackColliders:
+  attack1Colliders:
   - {fileID: 9187374576541811894}
+  attack2Colliders:
   - {fileID: 6062515649263513968}
+  attack3Colliders:
   - {fileID: 6062515649263513968}
   attack1Time:
   - 0.2
@@ -12410,17 +12424,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clothPhys: 0
   projectiles:
-  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
-  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
-  - {fileID: 3026633078251939834, guid: acdde619b28c0e44dbe79c398588fa12, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 4622767468192487150}
   - {fileID: 4622767468192487150}
   - {fileID: 4622767468192487150}
   attacks:
-  - {fileID: 7400010, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
-  - {fileID: 7400012, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
-  - {fileID: 7400012, guid: 278df500c19ef154d87c081ba647c34e, type: 3}
+  - {fileID: 7400000, guid: 4f0c9dbfc861cb9408db3e3088a41c4e, type: 3}
+  - {fileID: 7400002, guid: 4f0c9dbfc861cb9408db3e3088a41c4e, type: 3}
+  - {fileID: 7400004, guid: 4f0c9dbfc861cb9408db3e3088a41c4e, type: 3}
   attackDamage:
   - 3
   - 5
@@ -12431,14 +12445,17 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Misc
   attackType: Misc
-  attackColliders:
+  attack1Colliders:
   - {fileID: 9187374576541811894}
-  - {fileID: 9187374576541811894}
-  - {fileID: 9187374576541811894}
+  attack2Colliders:
+  - {fileID: 187082721565042566}
+  - {fileID: 1626936186116409159}
+  attack3Colliders:
+  - {fileID: 1626936186116409159}
   attack1Time:
-  - 0.4
+  - 1.2
   - 0.1
-  - 0.2
+  - 0.3
   attack1Move:
   - 25
   - 10
@@ -12449,9 +12466,9 @@ MonoBehaviour:
   - 0
   attack1Active: 000100
   attack2Time:
-  - 0.1
-  - 0.2
-  - 0.2
+  - 0.5
+  - 1
+  - 0.8
   attack2Move:
   - 10
   - 40
@@ -12462,9 +12479,9 @@ MonoBehaviour:
   - 0
   attack2Active: 000100
   attack3Time:
-  - 0.5
-  - 0.1
-  - 0.4
+  - 0.6
+  - 0.3
+  - 0.8
   attack3Move:
   - 25
   - 20
@@ -12478,7 +12495,7 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  continuousHitbox: 000000
+  continuousHitbox: 000100
   offsets: []
 --- !u!1 &8912132435617761347
 GameObject:
@@ -12524,7 +12541,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothPhys: 0
-  projectiles: []
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 1114794313519564029}
   - {fileID: 1114794313519564029}
@@ -12543,9 +12563,11 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Top
   attackType: punch
-  attackColliders:
+  attack1Colliders:
   - {fileID: 6062515649263513968}
+  attack2Colliders:
   - {fileID: 9187374576541811894}
+  attack3Colliders:
   - {fileID: 3301246273219127713}
   attack1Time:
   - 0.1
@@ -12668,7 +12690,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothPhys: 1
-  projectiles: []
+  projectiles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trails:
   - {fileID: 4622767468118593774}
   - {fileID: 4622767468118593774}
@@ -12687,9 +12712,12 @@ MonoBehaviour:
   outfitMenuSkinRenderer: {fileID: 0}
   outfitType: Bot
   attackType: Kick
-  attackColliders:
+  attack1Colliders:
   - {fileID: 3301246273219127713}
+  - {fileID: 187082721565042566}
+  attack2Colliders:
   - {fileID: 3301246273219127713}
+  attack3Colliders:
   - {fileID: 187082721565042566}
   attack1Time:
   - 0.1
@@ -13385,22 +13413,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top
       objectReference: {fileID: 0}
-    - target: {fileID: 400052, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.028745245
-      objectReference: {fileID: 0}
-    - target: {fileID: 400052, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.029296063
-      objectReference: {fileID: 0}
-    - target: {fileID: 400056, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.028745245
-      objectReference: {fileID: 0}
-    - target: {fileID: 400056, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.029296063
-      objectReference: {fileID: 0}
     - target: {fileID: 400060, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.711685
@@ -13457,29 +13469,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 400132, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 400136, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.01695264
-      objectReference: {fileID: 0}
-    - target: {fileID: 400136, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.20263825
-      objectReference: {fileID: 0}
-    - target: {fileID: 400138, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.01695264
-      objectReference: {fileID: 0}
-    - target: {fileID: 400138, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.20263825
+    - target: {fileID: 400132, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_Controller
@@ -13488,6 +13484,26 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 54ecadad8560c9944b8eaf3a659c41e1, type: 2}
+    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300002, guid: 4dbf13b99d4c566439c4e3c5e76ea019, type: 3}
+    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 324ee4eb0e1de474a83d69e612f3ce2a, type: 2}
+    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13525,26 +13541,6 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.035820786
       objectReference: {fileID: 0}
-    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 54ecadad8560c9944b8eaf3a659c41e1, type: 2}
-    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300002, guid: 4dbf13b99d4c566439c4e3c5e76ea019, type: 3}
-    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 324ee4eb0e1de474a83d69e612f3ce2a, type: 2}
-    - target: {fileID: 13700002, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 13700004, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -13557,6 +13553,38 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300004, guid: 8298ad313da642845ad66b8d7aae55e7, type: 3}
+    - target: {fileID: 400138, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.01695264
+      objectReference: {fileID: 0}
+    - target: {fileID: 400138, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.20263825
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.01695264
+      objectReference: {fileID: 0}
+    - target: {fileID: 400136, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.20263825
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.028745245
+      objectReference: {fileID: 0}
+    - target: {fileID: 400056, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.029296063
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.028745245
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.029296063
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 100f1a4fcb04a80499faf5cca45aea72, type: 3}
 --- !u!4 &8912132435394240226 stripped

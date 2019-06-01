@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 457915d19e2503a4db06c0c31fc31e43
+guid: 33f3c974675cca6408b68c7e81403a48
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Armature
+    100000: Armature.001
     100002: ArmIK.L
     100004: ArmIK.R
     100006: Control
@@ -11,8 +11,8 @@ ModelImporter:
     100010: Elbow Poll.L_end
     100012: Elbow Poll.R
     100014: Elbow Poll.R_end
-    100016: //RootNode
-    100018: femalelopoly-female1605
+    100016: Enemy 1
+    100018: //RootNode
     100020: Foot-1 Roll.L
     100022: Foot-1 Roll.R
     100024: Foot-1.L
@@ -93,7 +93,7 @@ ModelImporter:
     100174: Upper Leg.R
     100176: Upper Torso
     100178: Waist
-    400000: Armature
+    400000: Armature.001
     400002: ArmIK.L
     400004: ArmIK.R
     400006: Control
@@ -101,8 +101,8 @@ ModelImporter:
     400010: Elbow Poll.L_end
     400012: Elbow Poll.R
     400014: Elbow Poll.R_end
-    400016: //RootNode
-    400018: femalelopoly-female1605
+    400016: Enemy 1
+    400018: //RootNode
     400020: Foot-1 Roll.L
     400022: Foot-1 Roll.R
     400024: Foot-1.L
@@ -183,12 +183,10 @@ ModelImporter:
     400174: Upper Leg.R
     400176: Upper Torso
     400178: Waist
-    2100000: Enemy_1_Body
-    2100002: Enemy_1_Head
-    4300000: femalelopoly-female1605
+    2100000: Enemy_1
+    4300000: Enemy 1
     9500000: //RootNode
-    13700000: femalelopoly-female1605
-    2186277476908879412: ImportLogs
+    13700000: Enemy 1
   externalObjects: {}
   materials:
     importMaterials: 1
