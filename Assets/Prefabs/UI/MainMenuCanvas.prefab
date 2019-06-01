@@ -976,11 +976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8228002214941406136}
     m_Modifications:
-    - target: {fileID: 3745199937836297574, guid: 5fe4420d79b3f3d439ff66da2078d590,
-        type: 3}
-      propertyPath: m_Name
-      value: Start Game (Button)
-      objectReference: {fileID: 0}
     - target: {fileID: 862204916530254545, guid: 5fe4420d79b3f3d439ff66da2078d590,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1086,6 +1081,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3745199937836297574, guid: 5fe4420d79b3f3d439ff66da2078d590,
+        type: 3}
+      propertyPath: m_Name
+      value: Start Game (Button)
+      objectReference: {fileID: 0}
     - target: {fileID: 9154699505666465071, guid: 5fe4420d79b3f3d439ff66da2078d590,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1116,11 +1116,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8228002214941406136}
     m_Modifications:
-    - target: {fileID: 6620625391939317466, guid: b493e751f9d04af4c8c96f29bba7b9b5,
-        type: 3}
-      propertyPath: m_Name
-      value: Exit (Button)
-      objectReference: {fileID: 0}
     - target: {fileID: 252371510, guid: b493e751f9d04af4c8c96f29bba7b9b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1204,6 +1199,11 @@ PrefabInstance:
     - target: {fileID: 252371510, guid: b493e751f9d04af4c8c96f29bba7b9b5, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620625391939317466, guid: b493e751f9d04af4c8c96f29bba7b9b5,
+        type: 3}
+      propertyPath: m_Name
+      value: Exit (Button)
       objectReference: {fileID: 0}
     - target: {fileID: 2268570238814503766, guid: b493e751f9d04af4c8c96f29bba7b9b5,
         type: 3}
