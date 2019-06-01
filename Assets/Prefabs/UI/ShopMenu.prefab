@@ -744,6 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30343985225f37f47b1c559bbd8a0f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openable: 0
 --- !u!1 &6465635028934148667
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,7 +937,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6898709931463212756}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -1773,7 +1774,7 @@ PrefabInstance:
     - target: {fileID: 8204501433964601456, guid: 1bd5c116b3911514aaa71074009e9b16,
         type: 3}
       propertyPath: unlocked
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd5c116b3911514aaa71074009e9b16, type: 3}

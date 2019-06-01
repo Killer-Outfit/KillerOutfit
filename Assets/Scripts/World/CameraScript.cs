@@ -78,9 +78,8 @@ public class CameraScript : MonoBehaviour
         camTransform.rotation = originalRot;
     }
 
-    public void revive()
+    public void revive(Vector3 revivePos)
     {
-        Vector3 revivePos = new Vector3(player.transform.position.x + 29.705215f, 2.09f, -14.63f);
         transform.position = revivePos;
     }
 }

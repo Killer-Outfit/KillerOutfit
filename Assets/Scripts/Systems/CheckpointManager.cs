@@ -14,12 +14,14 @@ public class CheckpointManager : MonoBehaviour
     private int currentCheckpoint;
     private Camera mainCam;
     private int nextCombatNumber;
+    private Vector3 camCheckpointPos;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        camCheckpointPos = new Vector3(0f, 0f, 0f);
         nextCombatNumber = 0;
         PlayerPos = new Vector3(-26.71169f, 169.9676f, -303.9063f);
         Player = GameObject.Find("PlayerBody");
@@ -27,15 +29,17 @@ public class CheckpointManager : MonoBehaviour
         energy = 300;
         score = 0;
         scraps = 0;
-        checkpointLocations = new List<float>();
         currentCheckpoint = 0;
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     void Update()
     {
-        if(Player.transform.position.x >= checkpointLocations[currentCheckpoint])
+        if(mainCam.transform.position.x >= checkpointLocations[currentCheckpoint])
         {
-            PlayerPos = new Vector3(checkpointLocations[currentCheckpoint], 169.9676f, -303.9063f);
+            Debug.Log("CHECK");
+            camCheckpointPos = mainCam.transform.position;
+            PlayerPos = Player.transform.position;
             currentCheckpoint++;
             energy = Player.GetComponent<playerNew>().energy;
             playerHealth = Player.GetComponent<playerNew>().currentHealth;
@@ -53,9 +57,11 @@ public class CheckpointManager : MonoBehaviour
         Player.GetComponent<playerNew>().scraps = scraps;
         Player.transform.position = PlayerPos;
         this.gameObject.GetComponent<Map>().currentCombatNum = nextCombatNumber;
-        this.gameObject.GetComponent<Map>().mainCam.GetComponent<CameraScript>().locked = false;
+        mainCam.GetComponent<CameraScript>().locked = false;
         Player.GetComponent<playerNew>().revive();
-        this.gameObject.GetComponent<Map>().mainCam.GetComponent<CameraScript>().revive();
+        mainCam.GetComponent<CameraScript>().revive(camCheckpointPos);
+        this.gameObject.GetComponent<Map>().Reset();
+
     }
    
 

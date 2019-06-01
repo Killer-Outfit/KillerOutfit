@@ -4769,7 +4769,7 @@ GameObject:
   - component: {fileID: 8529879150758362103}
   m_Layer: 0
   m_Name: HeartBlast
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4805,6 +4805,7 @@ MonoBehaviour:
   lifeTime: 3
   damage: 20
   hasHit: 0
+  currentTime: 0
 --- !u!65 &8529879150758362103
 BoxCollider:
   m_ObjectHideFlags: 0

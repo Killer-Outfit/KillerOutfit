@@ -75,8 +75,13 @@ public class playerNew : MonoBehaviour
     public GameObject textBoi;
     public GameObject curTextBoi;
 
+    public bool active;
+    public bool nearInteractable;
+
     void Start()
     {
+        nearInteractable = false;
+        active = true;
         Time.timeScale = 1.0f;
         combo = 0;
         qTime = 0;
@@ -133,89 +138,94 @@ public class playerNew : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (camera.GetComponent<Camera>().enabled)
-		{
-            //Debug.Log(maxScore);
-            int difference = maxScore - score;
-            if(score < maxScore)
+        if (active)
+        {
+            GameObject.Find("Combo").GetComponent<comboShake>().changeCombo(combo);
+            if (camera.GetComponent<Camera>().enabled)
             {
-                if(difference > 1000)
+                //Debug.Log(maxScore);
+                int difference = maxScore - score;
+                if (score < maxScore)
                 {
-                    score += 500;
-                }
-                else if (difference > 600)
-                {
-                    score += 300;
-                }
-                else if (difference > 200)
-                {
-                    score += 100;
-                }
-                else if(difference > 100)
-                {
-                    score += 20;
-                }
-                else if (difference > 60)
-                {
-                    score += 15;
-                }
-                else if (difference > 20)
-                {
-                    score += 10;
-                }
-                else
-                {
-                    score += 1;
-                }
-                
-            }
-			scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
-			scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
-			// arbitrary score adds 100 for each game unit moved
-			if ((int)transform.position.x > curX)
-			{
-				maxScore += 100 * ((int)transform.position.x - curX);
-				curX = (int)transform.position.x;
-			}
-			// Get inputs and put them into the queue
-			if(state != "stagger")
-			{
-				if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
-				{
-					//Instantiate(laser, transform.position, transform.rotation);
-					inputQueue = "punch";
-                    qTime = 0.4f;
-				}
-				else if (Input.GetButtonDown("YButton") || Input.GetMouseButtonDown(1))
-				{
-					inputQueue = "kick";
-                    qTime = 0.4f;
-                }
-				else if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
-				{
-					inputQueue = "misc";
-                    qTime = 0.4f;
-                }
-				else if (Input.GetAxis("L2") > 0 || Input.GetKey("f"))
-				{
-					inputQueue = "heal";
-                    qTime = 0.4f;
-                }
-			}
+                    if (difference > 1000)
+                    {
+                        score += 500;
+                    }
+                    else if (difference > 600)
+                    {
+                        score += 300;
+                    }
+                    else if (difference > 200)
+                    {
+                        score += 100;
+                    }
+                    else if (difference > 100)
+                    {
+                        score += 20;
+                    }
+                    else if (difference > 60)
+                    {
+                        score += 15;
+                    }
+                    else if (difference > 20)
+                    {
+                        score += 10;
+                    }
+                    else
+                    {
+                        score += 1;
+                    }
 
-            //Empty the queue if something's been in there too long
-            qTime -= Time.deltaTime;
-            if(qTime <= 0)
-            {
-                inputQueue = "";
-            }
+                }
+                scoreUI.GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
+                scrapsUI.GetComponent<UnityEngine.UI.Text>().text = "Scraps: " + scraps.ToString();
+                // arbitrary score adds 100 for each game unit moved
+                if ((int)transform.position.x > curX)
+                {
+                    maxScore += 100 * ((int)transform.position.x - curX);
+                    curX = (int)transform.position.x;
+                }
+                // Get inputs and put them into the queue
+                if (state != "stagger")
+                {
+                    if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
+                    {
+                        //Instantiate(laser, transform.position, transform.rotation);
+                        inputQueue = "punch";
+                        qTime = 0.4f;
+                    }
+                    else if (Input.GetButtonDown("YButton") || Input.GetMouseButtonDown(1))
+                    {
+                        inputQueue = "kick";
+                        qTime = 0.4f;
+                    }
+                    else if ((Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space)) && !nearInteractable)
+                    {
+                        inputQueue = "misc";
+                        qTime = 0.4f;
+                    }
+                    else if (Input.GetAxis("L2") > 0 || Input.GetKey("f"))
+                    {
+                        inputQueue = "heal";
+                        qTime = 0.4f;
+                    }
+                }
 
-			if (state == "idle" || state == "run" || state == "stagger")
-			{
-				gameObject.GetComponent<playerMove>().setAttacking(false);
-				CheckQueue();
-			}
-		}
+                //Empty the queue if something's been in there too long
+                qTime -= Time.deltaTime;
+                if (qTime <= 0)
+                {
+                    inputQueue = "";
+                }
+
+                if (state == "idle" || state == "run" || state == "stagger")
+                {
+                    gameObject.GetComponent<playerMove>().setAttacking(false);
+                    CheckQueue();
+                }
+            }
+        }
+
     }
 
     public void CheckQueue()
@@ -599,9 +609,9 @@ public class playerNew : MonoBehaviour
         if (scraps >= scrapSpediture)
         {
             scraps -= scrapSpediture;
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public bool spendScore(int scoreSpediture)
@@ -609,9 +619,9 @@ public class playerNew : MonoBehaviour
         if (score >= scoreSpediture)
         {
             score -= scoreSpediture;
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public void increaseHealth(float heal)
@@ -659,6 +669,7 @@ public class playerNew : MonoBehaviour
     {
         if (spendScore(500))
         {
+            Debug.Log("revived");
             controller.enabled = true;
             masterBus.setMute(false);
             healthbar.SetActive(true);
@@ -671,11 +682,12 @@ public class playerNew : MonoBehaviour
             Time.timeScale = 1.0f;
             gameOver.SetActive(false);
             updateBars();
-            healthbar.transform.localScale = new Vector3( currentHealth/ 100, 0, 0);
+            healthbar.transform.localScale += new Vector3( currentHealth/ 100, 1, 1);
             return true;
         }
         else
         {
+            Debug.Log("NOWORK");
             return false;
         }
     }
