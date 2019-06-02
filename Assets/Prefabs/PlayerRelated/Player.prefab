@@ -1964,6 +1964,9 @@ MonoBehaviour:
     type: 3}
   textBoi: {fileID: 1925097546324530619, guid: 0704c45f06531cf41aea089f19265944, type: 3}
   curTextBoi: {fileID: 0}
+  active: 0
+  nearInteractable: 0
+  input: 0
 --- !u!114 &3282796768058850857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,6 +1980,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 20
+  active: 0
+  input: 0
 --- !u!1 &8611697885791146548
 GameObject:
   m_ObjectHideFlags: 0
