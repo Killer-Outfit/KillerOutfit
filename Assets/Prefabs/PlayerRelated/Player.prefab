@@ -13021,7 +13021,7 @@ MonoBehaviour:
   - 3
   - 5
   - 10
-  outfitMesh: {fileID: 4300002, guid: 4dbf13b99d4c566439c4e3c5e76ea019, type: 3}
+  outfitMesh: {fileID: 4300002, guid: 8298ad313da642845ad66b8d7aae55e7, type: 3}
   outfitMaterial: {fileID: 2100000, guid: 324ee4eb0e1de474a83d69e612f3ce2a, type: 2}
   outfitSkinRenderer: {fileID: 8611697885785939646}
   outfitMenuSkinRenderer: {fileID: 0}
