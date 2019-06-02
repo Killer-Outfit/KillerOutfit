@@ -81,7 +81,7 @@ public class playerMove : MonoBehaviour
             rightFacing = true;
         }
 
-        if ((Input.GetAxis("Vertical") < 0 && transform.position.z < -4f) || (Input.GetAxis("Vertical") > 0 && transform.position.z > 3f))
+        if ((Input.GetAxis("Vertical") < 0 && transform.position.z < -4f) || (Input.GetAxis("Vertical") > 0 && transform.position.z > 1f))
         {
             vertical = 0;
 
