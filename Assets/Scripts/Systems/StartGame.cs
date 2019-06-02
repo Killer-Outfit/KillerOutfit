@@ -106,7 +106,7 @@ public class StartGame : MonoBehaviour
     private IEnumerator PlayCutscene()
     {
         Debug.Log("cutscene started");
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < cutscenes.Length; i++)
         {
             Debug.Log("cutscene " + i + " active");
             cutscenes[i].SetActive(true);

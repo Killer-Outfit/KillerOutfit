@@ -81,8 +81,11 @@ public class playerNew : MonoBehaviour
     public bool active;
     public bool nearInteractable;
 
+    public bool input;
+
     void Start()
     {
+        input = false;
         nearInteractable = false;
         active = true;
         Time.timeScale = 1.0f;
@@ -194,7 +197,7 @@ public class playerNew : MonoBehaviour
                     curX = (int)transform.position.x;
                 }
                 // Get inputs and put them into the queue
-                if (state != "stagger")
+                if (state != "stagger" && input)
                 {
                     if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
                     {
@@ -273,7 +276,7 @@ public class playerNew : MonoBehaviour
                 {
                     anim.SetTrigger("backtoIdle");
                 }
-                if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0)
+                if (Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0 && input)
                 {
                     state = "run";
                     anim.SetBool("isIdle", false);
