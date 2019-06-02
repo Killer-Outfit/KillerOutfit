@@ -18,6 +18,10 @@ public class playerMove : MonoBehaviour
     private Vector3 left;
     Animator anim;
     private GameObject pauseMenu;
+    private GameObject healthBar;
+    private GameObject energyBar;
+    private GameObject scrapCount;
+    private GameObject score;
     public bool active;
 
     // Start is called before the first frame update
@@ -36,6 +40,10 @@ public class playerMove : MonoBehaviour
         vVelocity = -10;
         pauseMenu = GameObject.Find("PauseMenuElements");
         pauseMenu.SetActive(false);
+        healthBar = GameObject.Find("Player Health");
+        energyBar = GameObject.Find("Player Energy");
+        score = GameObject.Find("Score");
+        scrapCount = GameObject.Find("ScrapCount");
     }
 
     // Update is called once per frame
@@ -141,12 +149,20 @@ public class playerMove : MonoBehaviour
 
     private void PauseGame()
     {
+        healthBar.SetActive(false);
+        energyBar.SetActive(false);
+        score.SetActive(false);
+        scrapCount.SetActive(false);
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
     private void ContinueGame()
     {
+        healthBar.SetActive(true);
+        energyBar.SetActive(true);
+        score.SetActive(true);
+        scrapCount.SetActive(true);
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }

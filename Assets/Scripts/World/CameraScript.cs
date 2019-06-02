@@ -9,6 +9,7 @@ public class CameraScript : MonoBehaviour
     private Camera mainCam;
 
     public float smoothSpeed = 0.125f;
+    private float reviveSpeed = 1f;
 
     // Cam shake
     private Transform camTransform;

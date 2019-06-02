@@ -23,7 +23,7 @@ public class CheckpointManager : MonoBehaviour
     {
         camCheckpointPos = new Vector3(0f, 0f, 0f);
         nextCombatNumber = 0;
-        PlayerPos = new Vector3(-26.71169f, 169.9676f, -303.9063f);
+        PlayerPos = new Vector3(-26.71169f, 170f, -304f);
         Player = GameObject.Find("PlayerBody");
         playerHealth = 100f;
         energy = 300;
@@ -35,9 +35,9 @@ public class CheckpointManager : MonoBehaviour
 
     void Update()
     {
-        if(mainCam.transform.position.x >= checkpointLocations[currentCheckpoint])
+        if (mainCam.transform.position.x >= checkpointLocations[currentCheckpoint])
         {
-            Debug.Log("CHECK");
+            Debug.Log("Updated Checkpoints");
             camCheckpointPos = mainCam.transform.position;
             PlayerPos = Player.transform.position;
             currentCheckpoint++;
@@ -60,8 +60,7 @@ public class CheckpointManager : MonoBehaviour
         mainCam.GetComponent<CameraScript>().locked = false;
         Player.GetComponent<playerNew>().revive();
         mainCam.GetComponent<CameraScript>().revive(camCheckpointPos);
-        this.gameObject.GetComponent<Map>().Reset();
-
+        this.gameObject.GetComponent<Map>().reset();
     }
    
 

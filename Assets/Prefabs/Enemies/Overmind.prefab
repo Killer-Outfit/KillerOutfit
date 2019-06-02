@@ -61,8 +61,10 @@ MonoBehaviour:
   combatPositions:
   - 20
   - 60
-  - 95
-  - 145
+  - 60
+  - 60
+  tutorialPositions: []
+  tutorialMessages: []
   Encounter1:
   - {fileID: 0}
   - {fileID: 0}

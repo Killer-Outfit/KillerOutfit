@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Map : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class Map : MonoBehaviour
                 combatEvent(currentCombatNum);
                 currentCombatNum += 1;
             }
-        }else if(mainCam.GetComponent<CameraScript>().locked = true)
+        }else if(mainCam.GetComponent<CameraScript>().locked == true)
         {
             if(enemyManager.GetComponent<Overmind>().areThereEnemies())
             {
@@ -43,8 +44,6 @@ public class Map : MonoBehaviour
             }
         }
     }
-
-
 
     public void combatEvent(int num)
     {
@@ -80,7 +79,7 @@ public class Map : MonoBehaviour
         if (arr[5] != null) { Instantiate(arr[5], new Vector3(pT.position.x + 12, -4, -6), arr[5].transform.rotation); }
     }
 
-    public void Reset()
+    public void reset()
     {
         GameObject[] currentEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         for(int i = 0; i < currentEnemies.Length; i++)
@@ -88,10 +87,12 @@ public class Map : MonoBehaviour
             Destroy(currentEnemies[i]);
         }
 
-        GameObject[] currentProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
-        for (int i = 0; i < currentProjectiles.Length; i++)
+        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
+        for (int i = 0; i < projectiles.Length; i++)
         {
-            Destroy(currentProjectiles[i]);
+            Destroy(projectiles[i]);
         }
+
+        enemyManager.GetComponent<Overmind>().ClearLists();
     }
 }

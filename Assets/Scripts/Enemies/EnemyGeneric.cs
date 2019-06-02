@@ -10,6 +10,7 @@ public class EnemyGeneric : MonoBehaviour
     public float damage;
 
     public GameObject Scrap;
+    public GameObject chargeParticle;
 
     [HideInInspector]
     public float health;
@@ -25,12 +26,12 @@ public class EnemyGeneric : MonoBehaviour
     protected bool dead = false;
 
     // Called when the player hits the enemy.
-    public void TakeDamage(float atk, bool isKnockdown)
+    public virtual void TakeDamage(float atk, bool isKnockdown)
     {
         Damage(atk);
         if (isKnockdown == true)
         {
-            GetComponent<EnemyMovement>().Knockdown(0.4f);
+            GetComponent<EnemyMovement>().Knockdown();
         }
         else
         {
@@ -56,10 +57,14 @@ public class EnemyGeneric : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    // Enemy starts their attack. Called by EnemyMovement when in position to attack. Overridden in enemy classes.
-    public void DoAttack()
+    // Enemy starts their attack. Called by EnemyMovement when in position to attack.
+    public virtual void DoAttack()
     {
         GetComponent<EnemyMovement>().StopForAttack();
+        Vector3 particlepos = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
+        GameObject p = Instantiate(chargeParticle, particlepos, Quaternion.identity);
+        var main = p.GetComponent<ParticleSystem>().main;
+        main.startColor = new Color(255, 0, 0, 100);
         StartCoroutine("Attack");
     }
 
