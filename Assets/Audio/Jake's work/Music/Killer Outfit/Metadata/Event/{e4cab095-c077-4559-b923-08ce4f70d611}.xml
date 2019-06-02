@@ -106,6 +106,9 @@
         <property name="name">
             <value>Neotyo</value>
         </property>
+        <relationship name="modulators">
+            <destination>{70840c25-dcc2-4611-8c27-81c2cae3bcd5}</destination>
+        </relationship>
         <relationship name="effectChain">
             <destination>{511185fc-1da3-4283-bf9a-3e6cbae0b338}</destination>
         </relationship>
@@ -121,7 +124,7 @@
             <value>0</value>
         </property>
         <property name="length">
-            <value>55.767301587301588</value>
+            <value>54.866961451247164</value>
         </property>
         <relationship name="timeline">
             <destination>{c4070cc7-d516-4ca8-bda1-863560e94d1f}</destination>
@@ -137,6 +140,17 @@
     </object>
     <object class="MixerBusPanner" id="{81bf485e-742c-4c71-b4d3-9288841bfb41}"/>
     <object class="MixerBusFader" id="{47335e2b-5e28-4fbf-835f-70df54892f05}"/>
+    <object class="ADSRModulator" id="{70840c25-dcc2-4611-8c27-81c2cae3bcd5}">
+        <property name="nameOfPropertyBeingModulated">
+            <value>volume</value>
+        </property>
+        <property name="initialValue">
+            <value>-14</value>
+        </property>
+        <property name="attackTime">
+            <value>380</value>
+        </property>
+    </object>
     <object class="MixerBusEffectChain" id="{511185fc-1da3-4283-bf9a-3e6cbae0b338}">
         <relationship name="effects">
             <destination>{5d18ebdf-edb0-422a-bd48-7a00e55a8a63}</destination>
