@@ -761,8 +761,10 @@ public class playerNew : MonoBehaviour
         newOutfit.outfitSkinRenderer.sharedMesh = newOutfit.outfitMesh;
         if(newOutfit.outfitType == "Misc")
         {
+            
             Material[] mats = new Material[2];
-            mats[0] = face;
+            //mats[0] = face;
+            mats[0] = newOutfit.outfitMaterial;
             mats[1] = newOutfit.outfitMaterial;
             newOutfit.outfitSkinRenderer.materials = mats;
         }else
