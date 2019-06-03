@@ -200,7 +200,7 @@ public class playerNew : MonoBehaviour
                     curX = (int)transform.position.x;
                 }
                 // Get inputs and put them into the queue
-                if (state != "stagger" && input)
+                if (state != "stagger" && input && !pauseMenu.activeInHierarchy)
                 {
                     if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
                     {
