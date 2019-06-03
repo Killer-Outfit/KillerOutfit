@@ -83,10 +83,22 @@ public class EnemyMovement : MonoBehaviour
             vertical = 0;
         }
 
-        // Check for lower wall collision
-        if (transform.position.z < -4.1f)
+        // Check for wall collision
+        if (transform.position.z > 3.1f)
+        {
+            controller.Move(new Vector3(0, 0, -0.05f));
+        }
+        else if(transform.position.z < -4.1f)
         {
             controller.Move(new Vector3(0, 0, 0.05f));
+        }
+        if (mainCam.WorldToViewportPoint(transform.position).x < 0f)
+        {
+            controller.Move(new Vector3(direction * -0.05f, 0, 0));
+        }
+        else if (mainCam.WorldToViewportPoint(transform.position).x > 1f)
+        {
+            controller.Move(new Vector3(direction * 0.05f, 0, 0));
         }
 
         if (controller.isGrounded)

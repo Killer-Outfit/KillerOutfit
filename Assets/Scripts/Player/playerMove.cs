@@ -22,14 +22,10 @@ public class playerMove : MonoBehaviour
     private GameObject energyBar;
     private GameObject scrapCount;
     private GameObject score;
-    public bool active;
-    public bool input;
 
     // Start is called before the first frame update
     void Start()
     {
-        input = false;
-        active = true;
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         turningSpeed = 0;
         anim = GetComponent<Animator>();
@@ -51,33 +47,20 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!input)
+        normalMovement();
+        curPlayerPortPos = mainCam.WorldToViewportPoint(transform.position);
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (controller.isGrounded == false || transform.position.y > 0)
+            //Debug.Log("the escape key was pressed");
+            if (!pauseMenu.activeInHierarchy)
             {
-                Debug.Log("I am off the ground");
-                vVelocity = Physics.gravity.y / 10;
+                //Debug.Log("pause the game");
+                PauseGame();
             }
-            movementVector.y = vVelocity;
-            controller.Move(movementVector * Time.deltaTime * movementSpeed);
-        }
-        if (active)
-        {
-            normalMovement();
-            curPlayerPortPos = mainCam.WorldToViewportPoint(transform.position);
-            if (Input.GetKeyDown(KeyCode.Escape))
+            else if (pauseMenu.activeInHierarchy)
             {
-                //Debug.Log("the escape key was pressed");
-                if (!pauseMenu.activeInHierarchy)
-                {
-                    //Debug.Log("pause the game");
-                    PauseGame();
-                }
-                else if (pauseMenu.activeInHierarchy)
-                {
-                    //Debug.Log("play the game");
-                    ContinueGame();
-                }
+                //Debug.Log("play the game");
+                ContinueGame();
             }
         }
     }
@@ -85,80 +68,75 @@ public class playerMove : MonoBehaviour
     private void normalMovement()
     {
         // Get stick inputs
-        if (input)
+        float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+        float horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+        anim.SetFloat("RunSpeed", Mathf.Max(Mathf.Abs(vertical), Mathf.Abs(horizontal)) * 3);
+
+        if(Input.GetAxis("Horizontal") < 0)
         {
-            float vertical = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
-            float horizontal = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-            anim.SetFloat("RunSpeed", Mathf.Max(Mathf.Abs(vertical), Mathf.Abs(horizontal)) * 3);
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                rightFacing = false;
-            }
-            else if (Input.GetAxis("Horizontal") > 0)
-            {
-                rightFacing = true;
-            }
+            rightFacing = false;
+        }
+        else if (Input.GetAxis("Horizontal") > 0)
+        {
+            rightFacing = true;
+        }
 
-            if ((Input.GetAxis("Vertical") < 0 && transform.position.z < -4f) || (Input.GetAxis("Vertical") > 0 && transform.position.z > 3f))
-            {
-                vertical = 0;
+        if ((Input.GetAxis("Vertical") < 0 && transform.position.z < -4f) || (Input.GetAxis("Vertical") > 0 && transform.position.z > 3f))
+        {
+            vertical = 0;
 
+        }
+        if (curPlayerPortPos.x < 0f)
+        {
+            horizontal += 1f;
+        }
+        else if(curPlayerPortPos.x > 1f)
+        {
+            horizontal -= 1f;
+        }
+
+        if (!attacking && !stagger) { 
+
+            Vector2 inputs = new Vector2(horizontal, vertical);
+            inputs = Vector2.ClampMagnitude(inputs, 1);
+            movementVector.x = inputs.x;
+            movementVector.z = inputs.y;
+            vVelocity = 0;
+            if (controller.isGrounded == false || transform.position.y > 0)
+            {
+                //Debug.Log("I am off the ground");
+                vVelocity = Physics.gravity.y / 10;
             }
-            if (curPlayerPortPos.x < 0f)
-            {
-                horizontal += 1f;
-            }
-            else if (curPlayerPortPos.x > 1f)
-            {
-                horizontal -= 1f;
-            }
+            movementVector.y = vVelocity;
+            controller.Move(movementVector * Time.deltaTime * movementSpeed);
 
-            if (!attacking && !stagger)
+            // play run animation when the player is moving
+            if (vertical != 0 || horizontal != 0)
             {
-
-                Vector2 inputs = new Vector2(horizontal, vertical);
-                inputs = Vector2.ClampMagnitude(inputs, 1);
-                movementVector.x = inputs.x;
-                movementVector.z = inputs.y;
-                vVelocity = 0;
-                if (controller.isGrounded == false || transform.position.y > 0)
-                {
-                    //Debug.Log("I am off the ground");
-                    vVelocity = Physics.gravity.y / 10;
-                }
-                movementVector.y = vVelocity;
-                controller.Move(movementVector * Time.deltaTime * movementSpeed);
-
-                // play run animation when the player is moving
-                if (vertical != 0 || horizontal != 0)
-                {
-                    //anim.Play("HumanoidRun");
-                    anim.SetBool("isIdle", false);
-                }
-                else
-                {
-                    //anim.SetTrigger("stopRun");
-                    anim.SetBool("isIdle", true);
-                }
+                //anim.Play("HumanoidRun");
+                anim.SetBool("isIdle", false);
             }
             else
             {
-                if (Input.GetAxis("Horizontal") > 0)
-                {
-                    rightFacing = true;
-                }
-                else if (Input.GetAxis("Horizontal") < 0)
-                {
-                    rightFacing = false;
-                }
+                //anim.SetTrigger("stopRun");
+                anim.SetBool("isIdle", true);
             }
-
+        }
+        else
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                rightFacing = true;
+            }
+            else if (Input.GetAxis("Horizontal") < 0)
+            {
+                rightFacing = false;
+            }
         }
         if (rightFacing)
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);
-        }
-        else
+        }else
         {
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
