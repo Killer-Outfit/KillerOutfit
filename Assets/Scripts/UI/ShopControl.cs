@@ -25,7 +25,7 @@ public class ShopControl : MonoBehaviour
         shopResume = GameObject.Find("ResumeGame_ShopMenu (Button)");
         resume = GameObject.Find("ResumeGame (Button)");
         shopResume.SetActive(false);
-        shopOpen = true;
+        shopOpen = false;
     }
 
 
