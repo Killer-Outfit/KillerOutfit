@@ -10,7 +10,7 @@
 		_LineColor("LineColor", Color) = (0,0,0,1)
 
 		// Toon Params
-		_Specular("Specular Color", Color) = (1,1,1,1)
+		_Specular("Specular Color", Color) = (0,0,0,1)
 		[HDR] _Emission("Emission", color) = (0 ,0 ,0 , 1)
 
 		[Header(Lighting Parameters)]

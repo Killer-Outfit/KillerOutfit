@@ -274,10 +274,13 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator KnockdownCR()
     {
-        while (knockSpeed > 0)
+        for (float i = 0.5f; i > 0; i -= Time.deltaTime)
         {
             controller.Move(new Vector3(-direction * knockSpeed, 0, 0));
-            knockSpeed -= Time.deltaTime;
+            if(knockSpeed > 0)
+            {
+                knockSpeed -= 0.02f;
+            }
             yield return null;
         }
         StartCoroutine("GetUp");

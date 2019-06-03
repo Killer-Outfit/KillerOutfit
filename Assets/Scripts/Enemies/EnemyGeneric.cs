@@ -11,6 +11,7 @@ public class EnemyGeneric : MonoBehaviour
 
     public GameObject Scrap;
     public GameObject chargeParticle;
+    private GameObject curChargeParticle;
 
     [HideInInspector]
     public float health;
@@ -29,6 +30,10 @@ public class EnemyGeneric : MonoBehaviour
     public virtual void TakeDamage(float atk, bool isKnockdown)
     {
         Damage(atk);
+        if (curChargeParticle != null)
+        {
+            Destroy(curChargeParticle);
+        }
         if (isKnockdown == true)
         {
             GetComponent<EnemyMovement>().Knockdown();
@@ -62,8 +67,8 @@ public class EnemyGeneric : MonoBehaviour
     {
         GetComponent<EnemyMovement>().StopForAttack();
         Vector3 particlepos = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
-        GameObject p = Instantiate(chargeParticle, particlepos, Quaternion.identity);
-        var main = p.GetComponent<ParticleSystem>().main;
+        curChargeParticle = Instantiate(chargeParticle, particlepos, Quaternion.identity);
+        var main = curChargeParticle.GetComponent<ParticleSystem>().main;
         main.startColor = new Color(255, 0, 0, 100);
         StartCoroutine("Attack");
     }
