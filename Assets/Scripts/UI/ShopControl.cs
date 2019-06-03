@@ -36,12 +36,10 @@ public class ShopControl : MonoBehaviour
         shopResume.SetActive(false);
         shopOpen = false;
         flashColors = new List<Color>();
-        flashColors.Add(new Color(124f, 255f, 205f, 255f));
-        flashColors.Add(new Color(214f, 124f, 205f, 255f));
-        flashColors.Add(new Color(255f, 124f, 236f, 255f));
-        flashColors.Add(new Color(255f, 142f, 124f, 255f));
-        flashColors.Add(new Color(255f, 197f, 124f, 255f));
-        flashColors.Add(new Color(236f, 255f, 124f, 255f));
+        flashColors.Add(new Color(189f, 191f, 0f, 255f));
+        flashColors.Add(new Color(0f, 111f, 191f, 255f));
+        flashColors.Add(new Color(48f, 0f, 191f, 255f));
+        flashColors.Add(new Color(255f, 255f, 255f, 255f));
         //shopCanvas = GameObject.Find("ShopCanvas").GetComponent<Canvas>();
     }
 
@@ -55,7 +53,7 @@ public class ShopControl : MonoBehaviour
         {
             Debug.Log("frames match");
             curFrame = 0;
-            nextFrameEvent = Random.Range(15, 181);
+            nextFrameEvent = Random.Range(15, 60);
             amountOfFlashes = Random.Range(1, 4);
             StartCoroutine("flashCameras");
 
