@@ -9421,6 +9421,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12100000, guid: 1b8cbb37f206944c7bc235686d0cb229,
         type: 2}
+    - target: {fileID: 2999922592232793016, guid: 5f0f969f1f897a74f8761fad7cec2fd3,
+        type: 3}
+      propertyPath: m_PlaybackSpeed
+      value: 2.95
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f0f969f1f897a74f8761fad7cec2fd3, type: 3}
 --- !u!1001 &1139587877

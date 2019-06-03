@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class paparaziCamera : MonoBehaviour
 {
-    public void snap(Color snapColor, float spotAngle)
+    public void snap(Color snapColor, float spotAngle, Flare currentFlash)
     {
         GetComponent<Light>().color = snapColor;
         GetComponent<Light>().spotAngle = spotAngle;
+        GetComponent<Light>().flare = currentFlash;
         StartCoroutine("flash");
     }
     private IEnumerator flash()

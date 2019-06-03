@@ -18,6 +18,7 @@ public class ShopControl : MonoBehaviour
     private int nextFrameEvent;
     private int amountOfFlashes;
     private List<Color> flashColors;
+    public Flare[] possibleFlashes;
     //private Canvas shopCanvas;
     // Start is called before the first frame update
     void Awake()
@@ -49,7 +50,7 @@ public class ShopControl : MonoBehaviour
     {
        
         Debug.Log(curFrame.ToString() + " " + nextFrameEvent.ToString());
-        if (shopOpen && curFrame == nextFrameEvent)
+        /*if (shopOpen && curFrame == nextFrameEvent)
         {
             Debug.Log("frames match");
             curFrame = 0;
@@ -61,6 +62,17 @@ public class ShopControl : MonoBehaviour
         else if (shopOpen)
         {
             curFrame += 1;
+        }*/
+        if (shopOpen && curFrame == nextFrameEvent)
+        {
+            Debug.Log("frames match");
+            curFrame += 1;
+            StartCoroutine("flashCameras");
+
+        }
+        else if (!shopOpen)
+        {
+            curFrame = 0;
         }
         if (Input.GetButtonDown("AButton") && openable)
 		{
@@ -99,14 +111,15 @@ public class ShopControl : MonoBehaviour
 
     IEnumerator flashCameras()
     {
-        for(int i = 0; i < amountOfFlashes; i++)
+        while(shopOpen)
         {
             int flashIndex = Random.Range(0, papCams.Length);
             float snapAngle = Random.Range(87f, 121f);
             int colorIndex = Random.Range(0, flashColors.Count);
             float waitTime = Random.Range(.05f, .3f);
+            int flareIndex = Random.Range(0, possibleFlashes.Length);
             Debug.Log("snapCam");
-            papCams[flashIndex].GetComponent<paparaziCamera>().snap(flashColors[colorIndex], snapAngle);
+            papCams[flashIndex].GetComponent<paparaziCamera>().snap(flashColors[colorIndex], snapAngle, possibleFlashes[flareIndex]);
             yield return new WaitForSeconds(waitTime);
         }
     }

@@ -6,6 +6,8 @@ public class clickable : MonoBehaviour
 {
     public bool selected;
     private Renderer rend;
+    private SpriteRenderer innerBox;
+    private SpriteRenderer outerBox;
     private string type;
     private GameObject player;
     private bool rotate;
@@ -25,7 +27,7 @@ public class clickable : MonoBehaviour
     public GameObject outfitDisplay;
     public outfits item;
     public int cost;
-    public GameObject box;
+    //public GameObject box;
 
     [SerializeField]
     private AudioClip[] menuHover;
@@ -41,6 +43,8 @@ public class clickable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        innerBox = transform.parent.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
+        outerBox = transform.parent.GetChild(3).gameObject.GetComponent<SpriteRenderer>();
         startYRot = outfitDisplay.transform.eulerAngles.y;
         audioSource = GetComponent<AudioSource>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -71,24 +75,28 @@ public class clickable : MonoBehaviour
 			if (unlocked)
 			{
 				if (selected)
-				{
+                {
                     
-					box.GetComponent<Renderer>().material.color = Color.blue;
-				}
+					//box.GetComponent<Renderer>().material.color = Color.blue;
+                    innerBox.color = Color.blue;
+                }
 				else
 				{
-					box.GetComponent<Renderer>().material.color = Color.green;
-				}
+					//box.GetComponent<Renderer>().material.color = Color.green;
+                    innerBox.color = Color.green;
+                }
 			} else
 			{
 				if (selected)
 				{
-					box.GetComponent<Renderer>().material.color = Color.yellow;
-				}
+					//box.GetComponent<Renderer>().material.color = Color.yellow;
+                    innerBox.color = Color.yellow;
+                }
 				else
-				{
-					box.GetComponent<Renderer>().material.color = Color.red;
-				}
+                {
+					//box.GetComponent<Renderer>().material.color = Color.red;
+                    innerBox.color = Color.red;
+                }
 			}
 
 			if (rotate && !misc)
@@ -152,6 +160,7 @@ public class clickable : MonoBehaviour
 			{
                 hoverSound = true;
 				rend.enabled = false;
+                outerBox.enabled = false;
 				rotate = false;
 			}
 		}
@@ -183,6 +192,7 @@ public class clickable : MonoBehaviour
     {
         rotate = true;
         rend.enabled = false;
+        outerBox.enabled = true;
         if ((Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(0)) && !selected)
         {
             press();
@@ -261,6 +271,7 @@ public class clickable : MonoBehaviour
     {
         rotate = false;
         rend.enabled = false;
+        outerBox.enabled = false;
         hoverB = false;
         clickables[index + modifier].GetComponent<clickable>().hoverB = true;
         clickables[index + modifier].GetComponent<clickable>().stickInputAccepted = false;
