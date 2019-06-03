@@ -21,7 +21,7 @@ public class CheckpointManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camCheckpointPos = new Vector3(0f, 0f, 0f);
+        camCheckpointPos = new Vector3(0, 0, 0);
         nextCombatNumber = 0;
         PlayerPos = new Vector3(-26.71169f, 170f, -304f);
         Player = GameObject.Find("PlayerBody");

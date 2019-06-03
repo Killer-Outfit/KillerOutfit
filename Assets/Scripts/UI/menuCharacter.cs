@@ -24,8 +24,7 @@ public class menuCharacter : MonoBehaviour
         if (newOutfit.outfitType == "Misc")
         {
             Material[] mats = new Material[2];
-            //mats[0] = face;
-            mats[0] = newOutfit.outfitMaterial;
+            mats[0] = face;
             mats[1] = newOutfit.outfitMaterial;
             newOutfit.outfitMenuSkinRenderer.materials = mats;
         }
