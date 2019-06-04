@@ -1653,6 +1653,7 @@ GameObject:
   - component: {fileID: 8611697885791637010}
   - component: {fileID: 8611697885781762170}
   - component: {fileID: 4423132652960733949}
+  - component: {fileID: 6634026521597712744}
   - component: {fileID: 9146511727928318079}
   - component: {fileID: 2838473202787163204}
   - component: {fileID: 397247699511208261}
@@ -1723,6 +1724,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6634026521597712744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8611697885791146546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f74a170ce7eb6b45a2ff78c428ed166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomSlams:
+  - {fileID: 8300000, guid: cb788689f834ad64683e4b1520823061, type: 3}
+  - {fileID: 8300000, guid: a40dd091129d0d543bbfb30234ec9181, type: 3}
+  - {fileID: 8300000, guid: b5821838e5d3f024ba1e8dd5aa32b4f5, type: 3}
+  - {fileID: 8300000, guid: f1bbca62e6a0fd241b70c6610b65cd42, type: 3}
 --- !u!82 &9146511727928318079
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1937,15 +1955,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugmode: 0
   punchSounds:
-  - {fileID: 8300000, guid: 1103770dfc55a274dbfad74a49a447a7, type: 3}
-  - {fileID: 8300000, guid: a89895214ea72e644b3b289cc687a3c6, type: 3}
-  - {fileID: 8300000, guid: 1cc30057df8c3f6479e3f749568f3700, type: 3}
-  - {fileID: 8300000, guid: 9dfa60ec9c278bf4ca20d9ef5c18186a, type: 3}
+  - {fileID: 8300000, guid: 0412621d677f49548aefed09cd8546ca, type: 3}
+  - {fileID: 8300000, guid: 1cec93722d7862f46989dc83858f4d58, type: 3}
+  - {fileID: 8300000, guid: 5b81757b791e7124aa421d02ca8b35ee, type: 3}
+  - {fileID: 8300000, guid: 74d30f3497e81a24c8db38347d92e0b3, type: 3}
   kickSounds:
-  - {fileID: 8300000, guid: cf9a8302899f8d242a1d3500cf826c81, type: 3}
-  - {fileID: 8300000, guid: 934e3e040fed2eb43a5fe7bc1832d789, type: 3}
-  - {fileID: 8300000, guid: 7d12b6a412e2868448522dd637a45361, type: 3}
-  - {fileID: 8300000, guid: ed599699109af154590329b44e83e4f0, type: 3}
+  - {fileID: 8300000, guid: 59f1f5f2b81117347ba800402582f6df, type: 3}
+  - {fileID: 8300000, guid: c785bb4abe9465d4b84feffc702c88df, type: 3}
+  - {fileID: 8300000, guid: ac0052f270e818c4990974a53324e7e3, type: 3}
+  - {fileID: 8300000, guid: d4c3f798d5b207c40a3addd74d296563, type: 3}
   miscSounds:
   - {fileID: 8300000, guid: cb788689f834ad64683e4b1520823061, type: 3}
   - {fileID: 8300000, guid: a40dd091129d0d543bbfb30234ec9181, type: 3}
@@ -13600,15 +13618,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb5834104f61b848a6755db08993bfe, type: 3}
---- !u!96 &2845718696763166210 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
-    type: 3}
-  m_PrefabInstance: {fileID: 2087165186850281976}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2845718696763166214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 2087165186850281976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &2845718696763166210 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
     type: 3}
   m_PrefabInstance: {fileID: 2087165186850281976}
   m_PrefabAsset: {fileID: 0}
@@ -14018,15 +14036,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb5834104f61b848a6755db08993bfe, type: 3}
---- !u!4 &4974166177858575511 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
-    type: 3}
-  m_PrefabInstance: {fileID: 9119462101449018217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!96 &4974166177858575507 stripped
 TrailRenderer:
   m_CorrespondingSourceObject: {fileID: 4289995021194909690, guid: deb5834104f61b848a6755db08993bfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 9119462101449018217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4974166177858575511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4289995021194909694, guid: deb5834104f61b848a6755db08993bfe,
     type: 3}
   m_PrefabInstance: {fileID: 9119462101449018217}
   m_PrefabAsset: {fileID: 0}
