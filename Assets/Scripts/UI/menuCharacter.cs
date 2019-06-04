@@ -5,16 +5,33 @@ using UnityEngine;
 public class menuCharacter : MonoBehaviour
 {
     public Material face;
-    
+    private float tiltAroundy;
+
     // Start is called before the first frame update
     void Start()
     {
+        tiltAroundy = -35f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Smoothly tilts a transform towards a target rotation
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("RStick X") > 0)
+        {
+            tiltAroundy -= 1;
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("RStick X") < 0)
+        {
+            tiltAroundy += 1;
+        }
+
+
+        // Rotate the cube by converting the angles into a quaternion.
+        Quaternion target = Quaternion.Euler(0, tiltAroundy, 0);
+
+        // Dampen towards the target rotation
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 5f);
     }
 
     // Change outfit function takes in the new outfit 

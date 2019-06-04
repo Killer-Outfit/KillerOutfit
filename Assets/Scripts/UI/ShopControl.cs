@@ -13,10 +13,20 @@ public class ShopControl : MonoBehaviour
     private GameObject resume;
     private GameObject player;
     public bool openable;
-
+    private GameObject[] papCams;
+    private int curFrame;
+    private int nextFrameEvent;
+    private int amountOfFlashes;
+    private List<Color> flashColors;
+    public Flare[] possibleFlashes;
+    //private Canvas shopCanvas;
     // Start is called before the first frame update
     void Awake()
     {
+        curFrame = 0;
+        nextFrameEvent = 0;
+        amountOfFlashes = 0;
+        papCams = GameObject.FindGameObjectsWithTag("flash");
         player = GameObject.Find("PlayerBody");
         openable = false;
         can = GameObject.Find("Main Canvas").GetComponent<Canvas>();
@@ -26,12 +36,44 @@ public class ShopControl : MonoBehaviour
         resume = GameObject.Find("ResumeGame (Button)");
         shopResume.SetActive(false);
         shopOpen = false;
+        flashColors = new List<Color>();
+        flashColors.Add(new Color(189f, 191f, 0f, 255f));
+        flashColors.Add(new Color(0f, 111f, 191f, 255f));
+        flashColors.Add(new Color(48f, 0f, 191f, 255f));
+        flashColors.Add(new Color(255f, 255f, 255f, 255f));
+        //shopCanvas = GameObject.Find("ShopCanvas").GetComponent<Canvas>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
+       
+        //Debug.Log(curFrame.ToString() + " " + nextFrameEvent.ToString());
+        /*if (shopOpen && curFrame == nextFrameEvent)
+        {
+            Debug.Log("frames match");
+            curFrame = 0;
+            nextFrameEvent = Random.Range(15, 60);
+            amountOfFlashes = Random.Range(1, 4);
+            StartCoroutine("flashCameras");
+
+        }
+        else if (shopOpen)
+        {
+            curFrame += 1;
+        }*/
+        if (shopOpen && curFrame == nextFrameEvent)
+        {
+            //Debug.Log("frames match");
+            curFrame += 1;
+            StartCoroutine("flashCameras");
+
+        }
+        else if (!shopOpen)
+        {
+            curFrame = 0;
+        }
         if (Input.GetButtonDown("AButton") && openable)
 		{
 			maincam.enabled = !maincam.enabled;
@@ -40,6 +82,7 @@ public class ShopControl : MonoBehaviour
             shopOpen = !shopOpen;
             player.GetComponent<playerMove>().active = !player.GetComponent<playerMove>().active;
             player.GetComponent<playerNew>().active = !player.GetComponent<playerNew>().active;
+            //shopCanvas.enabled = !shopCanvas.enabled;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && shopOpen == true)
@@ -63,6 +106,21 @@ public class ShopControl : MonoBehaviour
                 shopcam.enabled = true;
                 can.enabled = false;
             }
+        }
+    }
+
+    IEnumerator flashCameras()
+    {
+        while(shopOpen)
+        {
+            int flashIndex = Random.Range(0, papCams.Length);
+            float snapAngle = Random.Range(87f, 121f);
+            int colorIndex = Random.Range(0, flashColors.Count);
+            float waitTime = Random.Range(.05f, .3f);
+            int flareIndex = Random.Range(0, possibleFlashes.Length);
+            //Debug.Log("snapCam");
+            papCams[flashIndex].GetComponent<paparaziCamera>().snap(flashColors[colorIndex], snapAngle, possibleFlashes[flareIndex]);
+            yield return new WaitForSeconds(waitTime);
         }
     }
 }
