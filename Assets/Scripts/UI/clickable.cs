@@ -77,43 +77,33 @@ public class clickable : MonoBehaviour
 			if (unlocked)
 			{
                 purchaseText.enabled = false;
-                //this.gameObject.GetComponent<Material>().color = new Color(0f, 255f, 255f, 0f);
 				if (selected)
                 {
-                    
-					//box.GetComponent<Renderer>().material.color = Color.blue;
                     innerBox.material.color = Color.blue;
                 }
 				else
 				{
-					//box.GetComponent<Renderer>().material.color = Color.green;
                     innerBox.material.color = Color.green;
                 }
 			} else
 			{
-                //this.gameObject.GetComponent<Material>().color = new Color(0f, 255f, 255f, 112f);
-                
                 if (selected)
 				{
-                    //box.GetComponent<Renderer>().material.color = Color.yellow;
                     purchaseText.GetComponent<TextMesh>().text = "Purchase?\n" + "-" + cost.ToString() + " Scraps";
                     innerBox.material.color = Color.yellow;
                 }
 				else
                 {
                     purchaseText.GetComponent<TextMesh>().text = cost.ToString() + " Scraps";
-					//box.GetComponent<Renderer>().material.color = Color.red;
                     innerBox.material.color = Color.red;
                 }
                 purchaseText.enabled = true;
             }
-
 			if (rotate && !misc)
 			{
 				outfitDisplay.transform.eulerAngles = new Vector3(0, outfitDisplay.transform.eulerAngles.y + 1f, 0);
 			}
             else if(!rotate && !misc)
-
             {
 				outfitDisplay.transform.eulerAngles = new Vector3(outfitDisplay.transform.eulerAngles.x, startYRot, 0);
             }
@@ -202,17 +192,18 @@ public class clickable : MonoBehaviour
         rotate = true;
         rend.enabled = false;
         outerBox.enabled = true;
-        if ((Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(0)) && !selected)
+        if ((Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(0))) //&& !selected)
         {
-            press();
             if (unlocked)
             {
                 Click();
                 unlockSelect();
             }
             else
+            {
+                Click();
                 lockSelect();
-            selected = true;
+            }
         }
         if (stickInputAccepted)
         {
@@ -264,16 +255,6 @@ public class clickable : MonoBehaviour
                 }
             }
         }
-        
-
-        /*
-        for(int i = 0; i < clickablePortPos.Length; i++)
-        {
-            if(clickablePortPos[i].x > menuCamera.WorldToViewportPoint(transform.position).x)
-            {
-
-            }
-        }*/
     }
 
     private void swap(int index, int modifier)
@@ -297,6 +278,7 @@ public class clickable : MonoBehaviour
                 clickables[i].GetComponent<clickable>().selected = false;
             }
         }
+        selected = true;
     }
 
     private void lockSelect()
@@ -304,6 +286,7 @@ public class clickable : MonoBehaviour
         if (!selected)
         {
             // display are you sure text
+            selected = true;
         }else
         {
             purchaseItem();
@@ -313,18 +296,17 @@ public class clickable : MonoBehaviour
 
     public void purchaseItem()
     {
+        Debug.Log("in purchase item");
         if(player.GetComponent<playerNew>().spendScraps(cost))
         {
+            Debug.Log("SpentScraps");
             unlocked = true;
+            selected = false;
         }else
         {
-            StartCoroutine("shake");
+            Debug.Log("NotEnoughScraps");
+            selected = false;
         }
-    }
-
-    private void press()
-    {
-
     }
     IEnumerable shake()
     {

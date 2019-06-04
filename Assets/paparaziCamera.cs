@@ -14,13 +14,13 @@ public class paparaziCamera : MonoBehaviour
     }
     private IEnumerator flash()
     {
-        Debug.Log(GetComponent<Light>().enabled);
+        //Debug.Log(GetComponent<Light>().enabled);
         GetComponent<Light>().enabled = true;
         transform.GetChild(0).gameObject.GetComponent<Light>().enabled = true;
-        Debug.Log(GetComponent<Light>().enabled);
+        //Debug.Log(GetComponent<Light>().enabled);
         yield return new WaitForSeconds(.2f);
         GetComponent<Light>().enabled = false;
         transform.GetChild(0).gameObject.GetComponent<Light>().enabled = false;
-        Debug.Log(GetComponent<Light>().enabled);
+        //Debug.Log(GetComponent<Light>().enabled);
     }
 }

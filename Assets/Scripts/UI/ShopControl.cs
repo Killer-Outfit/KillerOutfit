@@ -49,7 +49,7 @@ public class ShopControl : MonoBehaviour
     void Update()
     {
        
-        Debug.Log(curFrame.ToString() + " " + nextFrameEvent.ToString());
+        //Debug.Log(curFrame.ToString() + " " + nextFrameEvent.ToString());
         /*if (shopOpen && curFrame == nextFrameEvent)
         {
             Debug.Log("frames match");
@@ -65,7 +65,7 @@ public class ShopControl : MonoBehaviour
         }*/
         if (shopOpen && curFrame == nextFrameEvent)
         {
-            Debug.Log("frames match");
+            //Debug.Log("frames match");
             curFrame += 1;
             StartCoroutine("flashCameras");
 
@@ -118,7 +118,7 @@ public class ShopControl : MonoBehaviour
             int colorIndex = Random.Range(0, flashColors.Count);
             float waitTime = Random.Range(.05f, .3f);
             int flareIndex = Random.Range(0, possibleFlashes.Length);
-            Debug.Log("snapCam");
+            //Debug.Log("snapCam");
             papCams[flashIndex].GetComponent<paparaziCamera>().snap(flashColors[colorIndex], snapAngle, possibleFlashes[flareIndex]);
             yield return new WaitForSeconds(waitTime);
         }
