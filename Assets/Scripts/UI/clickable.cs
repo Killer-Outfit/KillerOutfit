@@ -6,6 +6,9 @@ public class clickable : MonoBehaviour
 {
     public bool selected;
     private Renderer rend;
+    private SpriteRenderer innerBox;
+    private SpriteRenderer outerBox;
+    private MeshRenderer purchaseText;
     private string type;
     private GameObject player;
     private bool rotate;
@@ -25,7 +28,7 @@ public class clickable : MonoBehaviour
     public GameObject outfitDisplay;
     public outfits item;
     public int cost;
-    public GameObject box;
+    //public GameObject box;
 
     [SerializeField]
     private AudioClip[] menuHover;
@@ -41,6 +44,9 @@ public class clickable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        innerBox = transform.parent.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
+        outerBox = transform.parent.GetChild(4).gameObject.GetComponent<SpriteRenderer>();
+        purchaseText = transform.parent.GetChild(3).gameObject.GetComponent<MeshRenderer>();
         startYRot = outfitDisplay.transform.eulerAngles.y;
         audioSource = GetComponent<AudioSource>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -70,33 +76,38 @@ public class clickable : MonoBehaviour
 		{
 			if (unlocked)
 			{
+                purchaseText.enabled = false;
 				if (selected)
-				{
-                    
-					box.GetComponent<Renderer>().material.color = Color.blue;
-				}
+                {
+                    innerBox.material.color = Color.blue;
+                }
 				else
 				{
-					box.GetComponent<Renderer>().material.color = Color.green;
-				}
+                    innerBox.material.color = Color.green;
+                }
 			} else
 			{
-				if (selected)
+                if (!hoverB)
+                {
+                    selected = false;
+                }
+                if (selected)
 				{
-					box.GetComponent<Renderer>().material.color = Color.yellow;
-				}
+                    purchaseText.GetComponent<TextMesh>().text = "Purchase?\n" + "-" + cost.ToString() + " Scraps";
+                    innerBox.material.color = Color.yellow;
+                }
 				else
-				{
-					box.GetComponent<Renderer>().material.color = Color.red;
-				}
-			}
-
+                {
+                    purchaseText.GetComponent<TextMesh>().text = cost.ToString() + " Scraps";
+                    innerBox.material.color = Color.red;
+                }
+                purchaseText.enabled = true;
+            }
 			if (rotate && !misc)
 			{
 				outfitDisplay.transform.eulerAngles = new Vector3(0, outfitDisplay.transform.eulerAngles.y + 1f, 0);
 			}
             else if(!rotate && !misc)
-
             {
 				outfitDisplay.transform.eulerAngles = new Vector3(outfitDisplay.transform.eulerAngles.x, startYRot, 0);
             }
@@ -152,6 +163,7 @@ public class clickable : MonoBehaviour
 			{
                 hoverSound = true;
 				rend.enabled = false;
+                outerBox.enabled = false;
 				rotate = false;
 			}
 		}
@@ -183,17 +195,19 @@ public class clickable : MonoBehaviour
     {
         rotate = true;
         rend.enabled = false;
-        if ((Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(0)) && !selected)
+        outerBox.enabled = true;
+        if ((Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(0))) //&& !selected)
         {
-            press();
             if (unlocked)
             {
                 Click();
                 unlockSelect();
             }
             else
+            {
+                Click();
                 lockSelect();
-            selected = true;
+            }
         }
         if (stickInputAccepted)
         {
@@ -245,22 +259,13 @@ public class clickable : MonoBehaviour
                 }
             }
         }
-        
-
-        /*
-        for(int i = 0; i < clickablePortPos.Length; i++)
-        {
-            if(clickablePortPos[i].x > menuCamera.WorldToViewportPoint(transform.position).x)
-            {
-
-            }
-        }*/
     }
 
     private void swap(int index, int modifier)
     {
         rotate = false;
         rend.enabled = false;
+        outerBox.enabled = false;
         hoverB = false;
         clickables[index + modifier].GetComponent<clickable>().hoverB = true;
         clickables[index + modifier].GetComponent<clickable>().stickInputAccepted = false;
@@ -277,6 +282,7 @@ public class clickable : MonoBehaviour
                 clickables[i].GetComponent<clickable>().selected = false;
             }
         }
+        selected = true;
     }
 
     private void lockSelect()
@@ -284,6 +290,7 @@ public class clickable : MonoBehaviour
         if (!selected)
         {
             // display are you sure text
+            selected = true;
         }else
         {
             purchaseItem();
@@ -293,18 +300,17 @@ public class clickable : MonoBehaviour
 
     public void purchaseItem()
     {
+        Debug.Log("in purchase item");
         if(player.GetComponent<playerNew>().spendScraps(cost))
         {
+            Debug.Log("SpentScraps");
             unlocked = true;
+            selected = false;
         }else
         {
-            StartCoroutine("shake");
+            Debug.Log("NotEnoughScraps");
+            selected = false;
         }
-    }
-
-    private void press()
-    {
-
     }
     IEnumerable shake()
     {

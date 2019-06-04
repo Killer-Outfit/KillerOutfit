@@ -56,7 +56,11 @@ public class Scraps : MonoBehaviour
         if(doFalling == true)
         {
             YSpeed -= gravity;
-            transform.Translate(new Vector3(XSpeed, YSpeed, ZSpeed));
+            if(!(transform.position.z < -4f || transform.position.z > 3f))
+            {
+                ZSpeed = 0;
+            }
+                    transform.Translate(new Vector3(XSpeed, YSpeed, ZSpeed));
         }
         if(YSpeed <= 0)
         {
