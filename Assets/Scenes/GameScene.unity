@@ -4977,6 +4977,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77af1a03e953d2c4cb0b191824d9a9a1, type: 3}
+--- !u!137 &557848048 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6044122250003985746, guid: 5f0f969f1f897a74f8761fad7cec2fd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1103238192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &567350451
 GameObject:
   m_ObjectHideFlags: 0
@@ -8654,6 +8660,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7dbcfcd9a52360b409536e9a1da6bb81,
     type: 3}
   m_PrefabInstance: {fileID: 1037496072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1050680082 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6044122250003985750, guid: 5f0f969f1f897a74f8761fad7cec2fd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1103238192}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1055121816
 PrefabInstance:
@@ -18553,6 +18565,12 @@ Transform:
   m_Father: {fileID: 775774967}
   m_RootOrder: 181
   m_LocalEulerAnglesHint: {x: 0, y: -93.744, z: 0}
+--- !u!137 &2120853288 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6044122250003985748, guid: 5f0f969f1f897a74f8761fad7cec2fd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1103238192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2121230185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 77af1a03e953d2c4cb0b191824d9a9a1,
@@ -19076,27 +19094,27 @@ PrefabInstance:
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1050680082}
     - target: {fileID: 8912132435587634794, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2120853288}
     - target: {fileID: 8912132435190848312, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 557848048}
     - target: {fileID: 8912132435799237045, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 557848048}
     - target: {fileID: 8912132435467604217, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1050680082}
     - target: {fileID: 8912132435467604217, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: outfitMesh
@@ -19106,7 +19124,7 @@ PrefabInstance:
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2120853288}
     - target: {fileID: 8912132434565285972, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: attackType
@@ -27845,16 +27863,16 @@ PrefabInstance:
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1050680082}
     - target: {fileID: 8617237135225370345, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2120853288}
     - target: {fileID: 8828075647640955696, guid: 62d6695dcb9ac9249843f67f54e3aa28,
         type: 3}
       propertyPath: outfitMenuSkinRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 557848048}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62d6695dcb9ac9249843f67f54e3aa28, type: 3}

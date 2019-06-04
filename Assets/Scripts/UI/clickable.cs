@@ -8,6 +8,7 @@ public class clickable : MonoBehaviour
     private Renderer rend;
     private SpriteRenderer innerBox;
     private SpriteRenderer outerBox;
+    private MeshRenderer purchaseText;
     private string type;
     private GameObject player;
     private bool rotate;
@@ -44,7 +45,8 @@ public class clickable : MonoBehaviour
     void Start()
     {
         innerBox = transform.parent.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
-        outerBox = transform.parent.GetChild(3).gameObject.GetComponent<SpriteRenderer>();
+        outerBox = transform.parent.GetChild(4).gameObject.GetComponent<SpriteRenderer>();
+        purchaseText = transform.parent.GetChild(3).gameObject.GetComponent<MeshRenderer>();
         startYRot = outfitDisplay.transform.eulerAngles.y;
         audioSource = GetComponent<AudioSource>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -74,30 +76,37 @@ public class clickable : MonoBehaviour
 		{
 			if (unlocked)
 			{
+                purchaseText.enabled = false;
+                //this.gameObject.GetComponent<Material>().color = new Color(0f, 255f, 255f, 0f);
 				if (selected)
                 {
                     
 					//box.GetComponent<Renderer>().material.color = Color.blue;
-                    innerBox.color = Color.blue;
+                    innerBox.material.color = Color.blue;
                 }
 				else
 				{
 					//box.GetComponent<Renderer>().material.color = Color.green;
-                    innerBox.color = Color.green;
+                    innerBox.material.color = Color.green;
                 }
 			} else
 			{
-				if (selected)
+                //this.gameObject.GetComponent<Material>().color = new Color(0f, 255f, 255f, 112f);
+                
+                if (selected)
 				{
-					//box.GetComponent<Renderer>().material.color = Color.yellow;
-                    innerBox.color = Color.yellow;
+                    //box.GetComponent<Renderer>().material.color = Color.yellow;
+                    purchaseText.GetComponent<TextMesh>().text = "Purchase?\n" + "-" + cost.ToString() + " Scraps";
+                    innerBox.material.color = Color.yellow;
                 }
 				else
                 {
+                    purchaseText.GetComponent<TextMesh>().text = cost.ToString() + " Scraps";
 					//box.GetComponent<Renderer>().material.color = Color.red;
-                    innerBox.color = Color.red;
+                    innerBox.material.color = Color.red;
                 }
-			}
+                purchaseText.enabled = true;
+            }
 
 			if (rotate && !misc)
 			{
