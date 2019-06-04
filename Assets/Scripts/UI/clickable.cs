@@ -87,6 +87,10 @@ public class clickable : MonoBehaviour
                 }
 			} else
 			{
+                if (!hoverB)
+                {
+                    selected = false;
+                }
                 if (selected)
 				{
                     purchaseText.GetComponent<TextMesh>().text = "Purchase?\n" + "-" + cost.ToString() + " Scraps";
