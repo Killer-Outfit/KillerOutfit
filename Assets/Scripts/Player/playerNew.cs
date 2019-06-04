@@ -26,6 +26,7 @@ public class playerNew : MonoBehaviour
     private int curX;
     private int combo;
     private float qTime;
+    private float hTime;
     private GameObject scoreUI;
     private GameObject scrapsUI;
     private GameObject camera;
@@ -61,6 +62,7 @@ public class playerNew : MonoBehaviour
 
     public GameObject hitParticle;
     public GameObject failParticle;
+    public GameObject healParticle;
     private int particledir;
 
     private LoseSound loseSound;
@@ -91,6 +93,7 @@ public class playerNew : MonoBehaviour
         Time.timeScale = 1.0f;
         combo = 0;
         qTime = 0;
+        hTime = 0;
         curX = (int)transform.position.x;
         scraps = 0;
         score = 0;
@@ -197,7 +200,7 @@ public class playerNew : MonoBehaviour
                     curX = (int)transform.position.x;
                 }
                 // Get inputs and put them into the queue
-                if (state != "stagger" && input)
+                if (state != "stagger" && input && !pauseMenu.activeInHierarchy)
                 {
                     if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
                     {
@@ -217,8 +220,12 @@ public class playerNew : MonoBehaviour
                     }
                     else if (Input.GetAxis("L2") > 0 || Input.GetKey("f"))
                     {
-                        inputQueue = "heal";
                         qTime = 0.4f;
+                        if(hTime <= 0)
+                        {
+                            inputQueue = "heal";
+                        }
+                        hTime = 0.1f;
                     }
                 }
 
@@ -227,6 +234,12 @@ public class playerNew : MonoBehaviour
                 if (qTime <= 0)
                 {
                     inputQueue = "";
+                }
+
+                //Healing timer
+                if(hTime > 0)
+                {
+                    hTime -= Time.deltaTime;
                 }
 
                 if (state == "idle" || state == "run" || state == "stagger")
@@ -261,10 +274,15 @@ public class playerNew : MonoBehaviour
                 {
                     if (enemyManager.GetComponent<Overmind>().areThereEnemies())
                     {
-                        if (spendScraps(1) && currentHealth != maxHealth)
+                        if (currentHealth != maxHealth && spendScraps(1))
                         {
                             increaseHealth(.5f);
                         }
+                    }
+                    if (state != "idle" && state != "run") //If this during an attack string
+                    {
+                        state = "idle";
+                        anim.SetTrigger("backtoIdle");
                     }
                 }
                 inputQueue = "";
@@ -677,6 +695,13 @@ public class playerNew : MonoBehaviour
     public void increaseHealth(float heal)
     {
         GameObject.Find("Main Canvas").GetComponent<textSpawner>().spawnText("Health", heal, true);
+
+        // Make a green healing particle
+        Vector3 particlepos = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
+        GameObject newHeal = Instantiate(healParticle, particlepos, Quaternion.identity);
+        var main = newHeal.GetComponent<ParticleSystem>().main;
+        main.startColor = Color.green;
+
         currentHealth += heal;
         if (currentHealth >= 100)
         {

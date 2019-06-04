@@ -77,10 +77,10 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularFalloff: 1
     - _SpecularHighlights: 1
-    - _SpecularSize: 0.1
+    - _SpecularSize: 0
     - _SrcBlend: 1
     - _StepAmount: 4
-    - _StepWidth: 1
+    - _StepWidth: 0.25
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

@@ -61,24 +61,24 @@ public class playerMove : MonoBehaviour
             movementVector.y = vVelocity;
             controller.Move(movementVector * Time.deltaTime * movementSpeed);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Debug.Log("the escape key was pressed");
+            if (!pauseMenu.activeInHierarchy)
+            {
+                //Debug.Log("pause the game");
+                PauseGame();
+            }
+            else if (pauseMenu.activeInHierarchy)
+            {
+                //Debug.Log("play the game");
+                ContinueGame();
+            }
+        }
         if (active)
         {
             normalMovement();
             curPlayerPortPos = mainCam.WorldToViewportPoint(transform.position);
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                //Debug.Log("the escape key was pressed");
-                if (!pauseMenu.activeInHierarchy)
-                {
-                    //Debug.Log("pause the game");
-                    PauseGame();
-                }
-                else if (pauseMenu.activeInHierarchy)
-                {
-                    //Debug.Log("play the game");
-                    ContinueGame();
-                }
-            }
         }
     }
 

@@ -56,7 +56,7 @@ public class SceneFade : MonoBehaviour
             //Debug.Log(fadeImage.color.a);
             yield return null;
         }
-        fadeImage.color = Alpha0;
+        fadeImage.enabled = false;
         source.volume = 0.06f;
         //Debug.Log(player.GetComponent<playerMove>().active);
         player.GetComponent<playerNew>().input = true;
