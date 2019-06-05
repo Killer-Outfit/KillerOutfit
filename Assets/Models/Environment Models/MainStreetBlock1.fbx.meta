@@ -26,6 +26,7 @@ ModelImporter:
     2100036: NeonTeal
     2100038: NeonGreen
     2100040: SignTextures.001
+    2100042: SignTextures
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
@@ -121,6 +122,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: RedWalls
     second: {fileID: 2100000, guid: ce1cfa333153c904e85702bc3f4b2985, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SignTextures
+    second: {fileID: 2100000, guid: 592f13f17e5dac04d81734f473f1e997, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
