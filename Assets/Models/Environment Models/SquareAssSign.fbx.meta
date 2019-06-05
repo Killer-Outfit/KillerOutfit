@@ -1,68 +1,15 @@
 fileFormatVersion: 2
-guid: 77af1a03e953d2c4cb0b191824d9a9a1
+guid: 8c6d4a02eb7c92d4aa96d115bc72458d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: SushiSignWhite
-    2100002: SushiDarkerGrey
-    2100004: SushiWallGrey
-    2100006: SushiHandleBlack
-    2100008: SushiWindow
-    2100010: SushiRed
-    2100012: SushiDoorBrown
-    2100014: SushiBlack
-    2100016: SushiChopsticks
+    2100000: Material
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiBlack
-    second: {fileID: 2100000, guid: 70596c774ac665949bd3f0d000f0809f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiChopsticks
-    second: {fileID: 2100000, guid: 8dcdc56c53345874ab6b148b4fdd081c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiDarkerGrey
-    second: {fileID: 2100000, guid: 362c65785147fed4fa5c08ebcaccb36d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiDoorBrown
-    second: {fileID: 2100000, guid: e813186d179a8ea4281e39c76154dab4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiHandleBlack
-    second: {fileID: 2100000, guid: b7cd29f68a868a243a6c50896c2eb449, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiRed
-    second: {fileID: 2100000, guid: 6a54e5017f04ea84b9845e40492503af, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiSignWhite
-    second: {fileID: 2100000, guid: 0dbd08498f05a7440bdb0cf87e3f2faf, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiWallGrey
-    second: {fileID: 2100000, guid: a102a3ef017666e4bb131a9c818a5426, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SushiWindow
-    second: {fileID: 2100000, guid: 9b25d0db73f604a49afa3c2659c33d7f, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
