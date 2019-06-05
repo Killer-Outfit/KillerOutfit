@@ -1558,6 +1558,7 @@ MonoBehaviour:
   movementType: aggressive
   speed: 5
   anim: {fileID: 0}
+  render: {fileID: 6420609789275966315}
   pDist: 0
   wantsToAttack: 0
   direction: 0

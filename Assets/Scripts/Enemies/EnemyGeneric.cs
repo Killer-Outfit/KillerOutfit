@@ -25,6 +25,7 @@ public class EnemyGeneric : MonoBehaviour
     public float decreaseFactor = 6f;
 
     protected bool dead = false;
+    public bool deadForPlayer = false;
 
     // Called when the player hits the enemy.
     public virtual void TakeDamage(float atk, bool isKnockdown)
@@ -47,18 +48,23 @@ public class EnemyGeneric : MonoBehaviour
     // Reduce HP
     public void Damage(float atk)
     {
-        health -= atk;
-        doShake(0.3f);
-        if (health <= 0 && dead == false)
+        if (dead == false)
         {
-            dead = true;
-            Die();
+            health -= atk;
+            doShake(0.3f);
+            if (health <= 0 && dead == false)
+            {
+                deadForPlayer = true;
+                dead = true;
+                Die();
+            }
         }
     }
 
     // Default death behavior. Overridden.
     public virtual void Die()
     {
+        //Debug.Log("Enemy Generic death");
         Destroy(this.gameObject);
     }
 

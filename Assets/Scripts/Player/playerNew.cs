@@ -462,45 +462,48 @@ public class playerNew : MonoBehaviour
                                 //Debug.Log(c.name);
                                 if (c.tag == "Enemy" && !enemiesHit.Contains(c.gameObject.GetInstanceID()))
                                 {
-                                    if (!c.name.Contains("Miniboss") || (c.name.Contains("Miniboss") && c.GetComponent<Miniboss>().vulnerable))
+                                    if (c.GetComponent<EnemyGeneric>().deadForPlayer == false || c.GetComponent<EnemyMovement>().state != "knockdown")
                                     {
-                                        combo++;
-                                        maxScore += combo * 553;
-                                        spawnText("+" + (combo * 553).ToString());
-                                        increaseEnergy(10);
-                                        // Decrease the hit target's health based on the attack's damage
-                                        c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], currentOutfitItem.isKnockdown[currentHitNum]);
-                                        GameObject p = Instantiate(hitParticle, s.bounds.center, transform.rotation, null);
-                                        p.transform.Rotate(0, 90, 0);
-                                    }
+                                        if (!c.name.Contains("Miniboss") || (c.name.Contains("Miniboss") && c.GetComponent<Miniboss>().vulnerable))
+                                        {
+                                            combo++;
+                                            maxScore += combo * 553;
+                                            spawnText("+" + (combo * 553).ToString());
+                                            increaseEnergy(10);
+                                            // Decrease the hit target's health based on the attack's damage
+                                            c.GetComponent<EnemyGeneric>().TakeDamage(currentOutfitItem.attackDamage[currentHitNum], currentOutfitItem.isKnockdown[currentHitNum]);
+                                            GameObject p = Instantiate(hitParticle, s.bounds.center, transform.rotation, null);
+                                            p.transform.Rotate(0, 90, 0);
+                                        }
 
-                                    // SFX
-                                    if (currentOutfitItem == top)
-                                    {
-                                        AudioClip clip = GetRandomPunch();
-                                        audioSource.PlayOneShot(clip);
-                                    }
-                                    if (currentOutfitItem == bot)
-                                    {
-                                        AudioClip clip = GetRandomKick();
-                                        audioSource.PlayOneShot(clip);
-                                    }
-                                    if (currentOutfitItem == misc)
-                                    {
-                                        AudioClip clip = GetRandomMisc();
-                                        audioSource.PlayOneShot(clip);
-                                    }
+                                        // SFX
+                                        if (currentOutfitItem == top)
+                                        {
+                                            AudioClip clip = GetRandomPunch();
+                                            audioSource.PlayOneShot(clip);
+                                        }
+                                        if (currentOutfitItem == bot)
+                                        {
+                                            AudioClip clip = GetRandomKick();
+                                            audioSource.PlayOneShot(clip);
+                                        }
+                                        if (currentOutfitItem == misc)
+                                        {
+                                            AudioClip clip = GetRandomMisc();
+                                            audioSource.PlayOneShot(clip);
+                                        }
 
-                                    // Hitpause + screenshake
-                                    StartCoroutine("hitpause");
-                                    camera.GetComponent<CameraScript>().doShake(0.07f);
-                                    if (currentOutfitItem.continuousHitbox[currentHitNum])
-                                    {
-                                        enemiesHit.Add(c.gameObject.GetInstanceID());
-                                    }
-                                    else
-                                    {
-                                        hit = true;
+                                        // Hitpause + screenshake
+                                        StartCoroutine("hitpause");
+                                        camera.GetComponent<CameraScript>().doShake(0.07f);
+                                        if (currentOutfitItem.continuousHitbox[currentHitNum])
+                                        {
+                                            enemiesHit.Add(c.gameObject.GetInstanceID());
+                                        }
+                                        else
+                                        {
+                                            hit = true;
+                                        }
                                     }
                                 }
                                 if (c.tag == "Destructible")

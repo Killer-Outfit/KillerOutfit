@@ -29,6 +29,10 @@ public class EnemyMovement : MonoBehaviour
     private float knockSpeed;
     private float dieTime;
 
+    private Color32 originalColor;
+
+    public SkinnedMeshRenderer render;
+
     //Public variables accessed by other scripts. Do not need to be set manually.
     [HideInInspector]
     public float pDist;
@@ -54,6 +58,8 @@ public class EnemyMovement : MonoBehaviour
         movementVector = new Vector3(0, 0, 0);
         IdleMove();
         CheckPlayer();
+
+        originalColor = render.material.color;
     }
 
     // Update is called once per frame
@@ -256,9 +262,11 @@ public class EnemyMovement : MonoBehaviour
     {
         for (float i=0; i < stagTimer; stagTimer-=Time.deltaTime)
         {
+            StartCoroutine(FlashDamage());
             yield return null;
         }
-        ResumeMovement();
+        if (state != "dead")
+            ResumeMovement();
     }
 
     public void Knockdown()
@@ -274,6 +282,7 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator KnockdownCR()
     {
+        StartCoroutine(FlashDamage());
         for (float i = 0.5f; i > 0; i -= Time.deltaTime)
         {
             controller.Move(new Vector3(-direction * knockSpeed, 0, 0));
@@ -281,33 +290,101 @@ public class EnemyMovement : MonoBehaviour
             {
                 knockSpeed -= 0.02f;
             }
+
             yield return null;
         }
-        StartCoroutine("GetUp");
+        int rand = Random.Range(5, 15);
+        if (rand < 7)
+            rand = 5;
+        else if (rand > 12)
+            rand = 15;
+        else
+            rand = 10;
+        float ranF = (float) rand;
+        ranF /= 10;
+        Debug.Log(ranF);
+        yield return new WaitForSeconds(ranF);
+        if(state != "dying")
+            StartCoroutine("GetUp");
     }
 
     private IEnumerator GetUp()
     {
+        //Debug.Log("GetUp called");
         anim.SetTrigger("GetUp");
         yield return new WaitForSeconds(1.2f);
         ResumeMovement();
     }
 
-    public void Die(float time = 1f)
+    public void KnockdownDeath()
     {
-        anim.SetTrigger("Death");
+        //anim.SetBool("Walking", false);
+        anim.SetTrigger("Knockdown");
+        //state = "knockdown";
+        knockSpeed = 0.4f;
+        //Debug.Log("starting knockdown death slow");
+        StartCoroutine("KnockdownCRDeath");
+    }
+    private IEnumerator KnockdownCRDeath()
+    {
+        //anim.SetBool("Walking", false);
+        for (float i = 0.5f; i > 0; i -= Time.deltaTime)
+        {
+            controller.Move(new Vector3(-direction * knockSpeed, 0, 0));
+            if (knockSpeed > 0)
+            {
+                knockSpeed -= 0.02f;
+            }
+            yield return null;
+        }
+        //Debug.Log("starting flash");
+        StartCoroutine("DieCR");
+    }
+
+    public void Die(float time = 2f)
+    {
+        //anim.SetTrigger("Death");
         if(state != "dying")
         {
+            //Debug.Log("enemy is kill");
+            anim.SetBool("Walking", false);
             state = "dying";
             dieTime = time;
-            StartCoroutine("DieCR");
+            //Debug.Log("Enemy Movement death");
+            //StartCoroutine("DieCR");
+            KnockdownDeath();
         }
     }
 
     private IEnumerator DieCR()
     {
-        yield return new WaitForSeconds(dieTime);
+        //anim.SetBool("Walking", false);
+        yield return FlashDeath();
+        //Debug.Log("Done with flash");
+        //yield return new WaitForSeconds(dieTime);
         Destroy(this.gameObject);
+    }
+
+    public IEnumerator FlashDamage()
+    {
+        render.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        //Debug.Log("flash at " + f);
+        render.material.color = originalColor;
+        yield return null;
+    }
+
+    public IEnumerator FlashDeath()
+    {
+        for (float f = 0.1f; f > 0; f -= Time.deltaTime)
+        {
+            render.material.color = Color.red;
+            yield return new WaitForSeconds(f);
+            //Debug.Log("flash at " + f);
+            render.material.color = originalColor;
+            yield return new WaitForSeconds(f);
+        }
+        yield return null;
     }
 
     // Move away from walls.
