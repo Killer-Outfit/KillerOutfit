@@ -13,160 +13,20 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114458798010883438}
-<<<<<<< HEAD
-  - {fileID: 114644689329124304}
-=======
-  - {fileID: 114198806623766158}
->>>>>>> 7fa2fe26c5d5f94f866161c4823e12dfbae375bd
+  - {fileID: 114074866861521680}
+  - {fileID: 114431334070743594}
   EditorEvents:
-  - {fileID: 114663019040024474}
-  - {fileID: 114257625332828334}
-  - {fileID: 114790816719685054}
-  - {fileID: 114121799745447872}
+  - {fileID: 114548055762291844}
+  - {fileID: 114698985769791992}
+  - {fileID: 114761104450732534}
+  - {fileID: 114934795009842150}
   MasterBanks:
-<<<<<<< HEAD
-  - {fileID: 114644689329124304}
+  - {fileID: 114431334070743594}
   StringsBanks:
-  - {fileID: 114458798010883438}
+  - {fileID: 114074866861521680}
   stringsBankWriteTime: 636932899490356926
-=======
-  - {fileID: 114198806623766158}
-  StringsBanks:
-  - {fileID: 114458798010883438}
-  stringsBankWriteTime: 636949605493149231
->>>>>>> 7fa2fe26c5d5f94f866161c4823e12dfbae375bd
   cacheVersion: 3
---- !u!114 &114012454747610304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Main Menu
-  guid: 1b16e0b1140d1a4c8bf965c32bc3bb87
-  Banks:
-  - {fileID: 114095745017260264}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 65539
---- !u!114 &114026934070777052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Main Menu
-  guid: 1b16e0b1140d1a4c8bf965c32bc3bb87
-  Banks:
-  - {fileID: 114679643577755258}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 65539
---- !u!114 &114093302213923408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636929681642009751
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4259584
-  Exists: 1
---- !u!114 &114095745017260264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636929681642009751
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4259584
-  Exists: 1
---- !u!114 &114121799745447872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Level One
-  guid: 95b0cae477c05945b92308ce4f70d611
-  Banks:
-<<<<<<< HEAD
-  - {fileID: 114644689329124304}
-=======
-  - {fileID: 114198806623766158}
->>>>>>> 7fa2fe26c5d5f94f866161c4823e12dfbae375bd
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 54866
---- !u!114 &114135362234973466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114148925296195816
+--- !u!114 &114074866861521680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,487 +39,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636910544200952513
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 836
-  Exists: 1
---- !u!114 &114167878678058298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114168185470657952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/District One
-  guid: 65a7796a1f1f5143bf76d0c6da5dec37
-  Banks:
-  - {fileID: 114095745017260264}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 114317969579006452}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 73600
---- !u!114 &114170137666019794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114187732507697032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/District One
-  guid: 65a7796a1f1f5143bf76d0c6da5dec37
-  Banks:
-  - {fileID: 114620388218831140}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 114312718629766576}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 73600
---- !u!114 &114198806623766158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636949605493119236
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4260096
-  Exists: 1
---- !u!114 &114216553927162144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114227806636202278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Footsteps
-  guid: 4ccbdeeade1a8a4097112d8b76b00991
-  Banks:
-  - {fileID: 114351228127667212}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &114257625332828334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Footsteps
-  guid: 4ccbdeeade1a8a4097112d8b76b00991
-  Banks:
-<<<<<<< HEAD
-  - {fileID: 114644689329124304}
-=======
-  - {fileID: 114198806623766158}
->>>>>>> 7fa2fe26c5d5f94f866161c4823e12dfbae375bd
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &114262974869425802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114285709114800052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114312718629766576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114313986166141290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114317969579006452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114327400611381722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636929681642009751
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4259584
-  Exists: 1
---- !u!114 &114334365876778866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114338510789815094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114340771945281660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Footsteps
-  guid: 4ccbdeeade1a8a4097112d8b76b00991
-  Banks:
-  - {fileID: 114620388218831140}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &114351228127667212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636910544200922153
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 3220768
-  Exists: 1
---- !u!114 &114370207698824966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114381787364668888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Level One
-  guid: 95b0cae477c05945b92308ce4f70d611
-  Banks:
-  - {fileID: 114351228127667212}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 55767
---- !u!114 &114391136832080292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114443250335244034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/Level One
-  guid: 95b0cae477c05945b92308ce4f70d611
-  Banks:
-  - {fileID: 114095745017260264}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 55767
---- !u!114 &114458798010883438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop\Master Bank.strings.bank
-<<<<<<< HEAD
   lastModified: 636932899490356926
-=======
-  lastModified: 636949605493149231
->>>>>>> 7fa2fe26c5d5f94f866161c4823e12dfbae375bd
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 876
   Exists: 1
---- !u!114 &114501902950373012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114509166556796336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114511274319925398
+--- !u!114 &114431334070743594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -671,166 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: C:\Users\Admin\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636914644354657617
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 3220768
-  Exists: 1
---- !u!114 &114537272670098578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114538937636832104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Admin\Documents\GitHub\KillerOutfit_2.5D\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636907793438655305
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 3221792
-  Exists: 1
---- !u!114 &114545061167459722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Footsteps
-  guid: 4ccbdeeade1a8a4097112d8b76b00991
-  Banks:
-  - {fileID: 114095745017260264}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 0
---- !u!114 &114556378798500130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/Music/District One
-  guid: 65a7796a1f1f5143bf76d0c6da5dec37
-  Banks:
-  - {fileID: 114351228127667212}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters:
-  - {fileID: 114970794769266708}
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 73600
---- !u!114 &114577044999901112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Admin\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636932899490327002
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4259584
-  Exists: 0
---- !u!114 &114609217521619072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114620388218831140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\eramitch\Documents\GitHub\KillerOutfit_2.5D\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636910255748256333
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 3220768
-  Exists: 1
---- !u!114 &114644689329124304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Kevin\Desktop\KillerOutfit\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
+  Path: C:\Users\Kevin Ly\Desktop\KillerOutfit\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
     Outfit\Build\Desktop\Master Bank.bank
   lastModified: 636949870293229001
   LoadResult: 0
@@ -838,7 +65,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 4260096
   Exists: 1
---- !u!114 &114658733980250832
+--- !u!114 &114435306104988130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -854,27 +81,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114660700785056186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Admin\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636932899490327002
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4259584
-  Exists: 1
---- !u!114 &114663019040024474
+--- !u!114 &114548055762291844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -889,11 +96,7 @@ MonoBehaviour:
   Path: event:/Music/Main Menu
   guid: 1b16e0b1140d1a4c8bf965c32bc3bb87
   Banks:
-<<<<<<< HEAD
-  - {fileID: 114644689329124304}
-=======
-  - {fileID: 114198806623766158}
->>>>>>> 7fa2fe26c5d5f94f866161c4823e12dfbae375bd
+  - {fileID: 114431334070743594}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -901,7 +104,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 65539
---- !u!114 &114679643577755258
+--- !u!114 &114698985769791992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -910,110 +113,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: C:\Users\Admin\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636926812144257950
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4259584
-  Exists: 1
---- !u!114 &114700348234168316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636911307396231693
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 3220768
-  Exists: 1
---- !u!114 &114744559164374680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114764735861385234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636949605493119236
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4260096
-  Exists: 1
---- !u!114 &114773231757014936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Admin\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636926812144257950
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4259584
-  Exists: 0
---- !u!114 &114778968450850230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114790816719685054
+  Path: event:/SFX/Footsteps
+  guid: 4ccbdeeade1a8a4097112d8b76b00991
+  Banks:
+  - {fileID: 114431334070743594}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &114761104450732534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1028,146 +142,16 @@ MonoBehaviour:
   Path: event:/Music/District One
   guid: 65a7796a1f1f5143bf76d0c6da5dec37
   Banks:
-<<<<<<< HEAD
-  - {fileID: 114644689329124304}
-=======
-  - {fileID: 114198806623766158}
->>>>>>> 7fa2fe26c5d5f94f866161c4823e12dfbae375bd
+  - {fileID: 114431334070743594}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-<<<<<<< HEAD
-  - {fileID: 114338510789815094}
-=======
-  - {fileID: 114135362234973466}
->>>>>>> 7fa2fe26c5d5f94f866161c4823e12dfbae375bd
+  - {fileID: 114435306104988130}
   MinDistance: 0
   MaxDistance: 0
   Length: 73600
---- !u!114 &114812162925011694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114846102011129962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636929681642039850
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 876
-  Exists: 1
---- !u!114 &114846418609179760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114870257298533250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114874284250725980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Eric\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636929681642009751
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4259584
-  Exists: 1
---- !u!114 &114896164877925506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
---- !u!114 &114919100772934882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636910255748276278
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 836
-  Exists: 1
---- !u!114 &114940781907375332
+--- !u!114 &114934795009842150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1182,47 +166,11 @@ MonoBehaviour:
   Path: event:/Music/Level One
   guid: 95b0cae477c05945b92308ce4f70d611
   Banks:
-  - {fileID: 114620388218831140}
+  - {fileID: 114431334070743594}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 55767
---- !u!114 &114963487962821174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: C:\Users\Admin\Documents\GitHub\KillerOutfit\Assets\Audio\Jake's work\Music\Killer
-    Outfit\Build\Desktop\Master Bank.bank
-  lastModified: 636950124579309933
-  LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 4260096
-  Exists: 0
---- !u!114 &114970794769266708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: In Battle
-  Min: 0
-  Max: 1
-  Default: 0
+  Length: 54866
