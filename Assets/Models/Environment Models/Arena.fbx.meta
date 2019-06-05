@@ -22,7 +22,72 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaBlack
+    second: {fileID: 2100000, guid: 710a3f7790ffae74ab75eae035293bb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaNeonBlue
+    second: {fileID: 2100000, guid: 7b0c672081c9be6438153c3be63e707a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaNeonLightBlue
+    second: {fileID: 2100000, guid: 718a51668306ff045a1b81183f3c4aa3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaNeonPink
+    second: {fileID: 2100000, guid: 4a09cc35115bca84899810ee146860ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaNeonRed
+    second: {fileID: 2100000, guid: 094ecc1a311ce2546b8553e4844b2f6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaOffWhite
+    second: {fileID: 2100000, guid: bd9e0e46db4dd584da64fdb4b6cc4a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaWalls1
+    second: {fileID: 2100000, guid: 0c2173e3944542f489396e713e445e67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaWallsGrey
+    second: {fileID: 2100000, guid: f7828b6553136ac4db2e91ff71a2aaec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaWallsSteel
+    second: {fileID: 2100000, guid: 4d2ec88a991696f4bb92cbaef1cefccb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaWhite
+    second: {fileID: 2100000, guid: 7bfc927c08893824f93c03c2361a45e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaWindows1
+    second: {fileID: 2100000, guid: 8dd8065b1a8093446ae7a5737ba128f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaWindows2
+    second: {fileID: 2100000, guid: 81e9a4013aa9be9449a1e6cd8100fa5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ArenaWindows3
+    second: {fileID: 2100000, guid: ce72e84bb0d98794397dcea47545c4fb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -62,7 +127,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
