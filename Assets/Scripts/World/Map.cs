@@ -150,9 +150,9 @@ public class Map : MonoBehaviour
         if (arr[0] != null) { Instantiate(arr[0], new Vector3(pT.position.x - 11, 0, 0), arr[0].transform.rotation); }
         if (arr[1] != null) { Instantiate(arr[1], new Vector3(pT.position.x - 11, -2, -4), arr[1].transform.rotation); }
         if (arr[2] != null) { Instantiate(arr[2], new Vector3(pT.position.x - 11, -4, -6), arr[2].transform.rotation); }
-        if (arr[3] != null) { Instantiate(arr[3], new Vector3(pT.position.x + 11, 0, 0), arr[3].transform.rotation); }
-        if (arr[4] != null) { Instantiate(arr[4], new Vector3(pT.position.x + 11, -2, -4), arr[4].transform.rotation); }
-        if (arr[5] != null) { Instantiate(arr[5], new Vector3(pT.position.x + 11, -4, -6), arr[5].transform.rotation); }
+        if (arr[3] != null) { Instantiate(arr[3], new Vector3(pT.position.x + 10, 0, 0), arr[3].transform.rotation); }
+        if (arr[4] != null) { Instantiate(arr[4], new Vector3(pT.position.x + 10, -2, -4), arr[4].transform.rotation); }
+        if (arr[5] != null) { Instantiate(arr[5], new Vector3(pT.position.x + 10, -4, -6), arr[5].transform.rotation); }
     }
 
     public void reset()

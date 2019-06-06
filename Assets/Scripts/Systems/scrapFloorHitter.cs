@@ -16,7 +16,7 @@ public class scrapFloorHitter : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        if ((col.gameObject.name == "Plane" || col.gameObject.name == "Plane (1)"))
+        if ((col.gameObject.name == "Plane" || col.gameObject.name == "Plane (1)" || col.gameObject.name == "Road"))
         {
             transform.parent.gameObject.GetComponent<Scraps>().stopFalling();
         }
