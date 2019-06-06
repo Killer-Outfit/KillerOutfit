@@ -8,6 +8,7 @@ TagManager:
   - Clickable
   - Projectile
   - flash
+  - Destructible
   layers:
   - Default
   - TransparentFX
