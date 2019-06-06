@@ -246,7 +246,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void Stagger()
     {
-        if(state != "dying")
+        StopCoroutine("KnockdownCR");
+        if (state != "dying")
         {
             anim.SetTrigger("Stagger");
             stagTimer = 0.6f;
@@ -271,7 +272,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void Knockdown()
     {
-        if (state != "knockdown" && state != "dying")
+        StopCoroutine("StaggerCR");
+        if (state != "dying")
         {
             anim.SetTrigger("Knockdown");
             state = "knockdown";
@@ -293,19 +295,18 @@ public class EnemyMovement : MonoBehaviour
 
             yield return null;
         }
-        int rand = Random.Range(5, 15);
-        if (rand < 7)
-            rand = 5;
-        else if (rand > 12)
-            rand = 15;
-        else
-            rand = 10;
-        float ranF = (float) rand;
-        ranF /= 10;
-        Debug.Log(ranF);
-        yield return new WaitForSeconds(ranF);
-        if(state != "dying")
-            StartCoroutine("GetUp");
+        //int rand = Random.Range(5, 15);
+        //if (rand < 7)
+        //    rand = 5;
+        //else if (rand > 12)
+        //    rand = 15;
+        //else
+        //    rand = 10;
+        //float ranF = (float) rand;
+        //ranF /= 10;
+        //Debug.Log(ranF);
+        yield return new WaitForSeconds(1);
+        StartCoroutine("GetUp");
     }
 
     private IEnumerator GetUp()
@@ -316,15 +317,6 @@ public class EnemyMovement : MonoBehaviour
         ResumeMovement();
     }
 
-    public void KnockdownDeath()
-    {
-        //anim.SetBool("Walking", false);
-        anim.SetTrigger("Knockdown");
-        //state = "knockdown";
-        knockSpeed = 0.4f;
-        //Debug.Log("starting knockdown death slow");
-        StartCoroutine("KnockdownCRDeath");
-    }
     private IEnumerator KnockdownCRDeath()
     {
         //anim.SetBool("Walking", false);
@@ -338,31 +330,22 @@ public class EnemyMovement : MonoBehaviour
             yield return null;
         }
         //Debug.Log("starting flash");
-        StartCoroutine("DieCR");
+        StartCoroutine("FlashDeath");
     }
 
     public void Die(float time = 2f)
     {
-        //anim.SetTrigger("Death");
-        if(state != "dying")
+        StopCoroutine("StaggerCR");
+        StopCoroutine("KnockdownCR");
+        if (state != "dying")
         {
-            //Debug.Log("enemy is kill");
+            anim.SetTrigger("Death");
             anim.SetBool("Walking", false);
             state = "dying";
             dieTime = time;
-            //Debug.Log("Enemy Movement death");
-            //StartCoroutine("DieCR");
-            KnockdownDeath();
+            knockSpeed = 0.4f;
+            StartCoroutine("KnockdownCRDeath");
         }
-    }
-
-    private IEnumerator DieCR()
-    {
-        //anim.SetBool("Walking", false);
-        yield return FlashDeath();
-        //Debug.Log("Done with flash");
-        //yield return new WaitForSeconds(dieTime);
-        Destroy(this.gameObject);
     }
 
     public IEnumerator FlashDamage()
@@ -384,7 +367,7 @@ public class EnemyMovement : MonoBehaviour
             render.material.color = originalColor;
             yield return new WaitForSeconds(f);
         }
-        yield return null;
+        Destroy(this.gameObject);
     }
 
     // Move away from walls.

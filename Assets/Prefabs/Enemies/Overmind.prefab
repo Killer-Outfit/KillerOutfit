@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemMelee: []
   enemRanged: []
+  enemMiniboss: {fileID: 0}
 --- !u!114 &1341273513294715413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,13 +59,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca471c89ec10564babae7286193b72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  currentCombatNum: 0
   combatPositions:
   - 20
   - 60
   - 60
   - 60
-  tutorialPositions: []
-  tutorialMessages: []
   Encounter1:
   - {fileID: 0}
   - {fileID: 0}
