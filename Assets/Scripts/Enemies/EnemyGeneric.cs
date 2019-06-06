@@ -11,6 +11,7 @@ public class EnemyGeneric : MonoBehaviour
 
     public GameObject Scrap;
     public GameObject chargeParticle;
+    public GameObject HPBar;
     private GameObject curChargeParticle;
 
     [HideInInspector]
@@ -55,6 +56,7 @@ public class EnemyGeneric : MonoBehaviour
         if (dead == false)
         {
             health -= atk;
+            HPBar.GetComponent<EnemyHPBar>().UpdateBars(health / maxHP);
             doShake(0.3f);
             if (health <= 0 && dead == false)
             {

@@ -61,6 +61,7 @@ public class Miniboss : EnemyGeneric
         if(groundTimer <= 0)
         {
             grounded = CheckGrounded();
+            Debug.Log(grounded);
         }
     }
 
@@ -225,10 +226,10 @@ public class Miniboss : EnemyGeneric
 
     private bool CheckGrounded()
     {
-        Collider[] cols = Physics.OverlapSphere(groundDetector.bounds.center, groundDetector.radius, LayerMask.GetMask("Plane"));
+        Collider[] cols = Physics.OverlapSphere(groundDetector.bounds.center, groundDetector.radius, LayerMask.GetMask("Default"));
         foreach (Collider c in cols)
         {
-            if (c.gameObject.name.Contains("Plane"))
+            if (c.gameObject.name.Contains("Plane") || c.gameObject.name.Contains("Road"))
             {
                 return true;
             }
