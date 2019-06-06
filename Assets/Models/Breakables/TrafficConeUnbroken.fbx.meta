@@ -11,7 +11,22 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConeBlack
+    second: {fileID: 2100000, guid: 8f23d56587820ef4d8b53138513e4ca8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConeOrange
+    second: {fileID: 2100000, guid: 5fb1ac4511551ba4f9317f0c9ee2328c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ConeWhite
+    second: {fileID: 2100000, guid: c830b1b65fc80014e802ee4e0a30be62, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
