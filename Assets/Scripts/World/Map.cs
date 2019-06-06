@@ -21,6 +21,16 @@ public class Map : MonoBehaviour
 	public GameObject[] Encounter8 = new GameObject[6];
 	public GameObject[] Encounter9 = new GameObject[6];
 	public GameObject[] Encounter10 = new GameObject[6];
+    public GameObject[] Encounter11 = new GameObject[6];
+    public GameObject[] Encounter12 = new GameObject[6];
+    public GameObject[] Encounter13 = new GameObject[6];
+    public GameObject[] Encounter14 = new GameObject[6];
+    public GameObject[] Encounter15 = new GameObject[6];
+    public GameObject[] Encounter16 = new GameObject[6];
+    public GameObject[] Encounter17 = new GameObject[6];
+    public GameObject[] Encounter18 = new GameObject[6];
+    public GameObject[] Encounter19 = new GameObject[6];
+    public GameObject[] Encounter20 = new GameObject[6];
 
     // Start is called before the first frame update
     void Start()
@@ -93,7 +103,46 @@ public class Map : MonoBehaviour
         {
             SpawnWave(Encounter10);
         }
-		
+        if (num == 10)
+        {
+            SpawnWave(Encounter11);
+        }
+        else if (num == 11)
+        {
+            SpawnWave(Encounter12);
+        }
+        else if (num == 12)
+        {
+            SpawnWave(Encounter13);
+        }
+        else if (num == 13)
+        {
+            SpawnWave(Encounter14);
+        }
+        else if (num == 14)
+        {
+            SpawnWave(Encounter15);
+        }
+        else if (num == 15)
+        {
+            SpawnWave(Encounter16);
+        }
+        else if (num == 16)
+        {
+            SpawnWave(Encounter17);
+        }
+        else if (num == 17)
+        {
+            SpawnWave(Encounter18);
+        }
+        else if (num == 18)
+        {
+            SpawnWave(Encounter19);
+        }
+        else if (num == 19)
+        {
+            SpawnWave(Encounter20);
+        }
     }
 
     private void SpawnWave(GameObject[] arr)
