@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6106693205699966986}
   - component: {fileID: 5819151734554754413}
   - component: {fileID: 1341273513294715413}
+  - component: {fileID: 1088125965111835917}
+  - component: {fileID: 2006372798158454690}
   m_Layer: 0
   m_Name: Overmind
   m_TagString: Untagged
@@ -62,35 +64,215 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   currentCombatNum: 0
   combatPositions:
-  - 20
+  - 30
   - 60
-  - 60
-  - 60
+  - 90
+  - 120
+  - 150
+  - 170
+  - 190
+  - 217
+  - 245
+  - 265
+  - 285
+  - 318
+  - 340
+  - 360
+  - 380
+  - 400
+  - 420
+  - 500
+  - 500
+  - 500
   Encounter1:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
   - {fileID: 0}
   Encounter2:
   - {fileID: 0}
-  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   Encounter3:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
   - {fileID: 0}
-  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
   Encounter4:
-  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
   - {fileID: 0}
-  - {fileID: 6435717966002686095, guid: 323f14088cf935144b76d86cd817d5a3, type: 3}
-  - {fileID: 755217611229885054, guid: c6c595ae2a48a234a8ce93d03c2239a5, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 0}
+  Encounter5:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  Encounter6:
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 0}
+  Encounter7:
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  Encounter8:
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  Encounter9:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 0}
+  Encounter10:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  Encounter11:
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 0}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  Encounter12:
+  - {fileID: 0}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 0}
+  Encounter13:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  Encounter14:
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  Encounter15:
+  - {fileID: 0}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 0}
+  Encounter16:
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  - {fileID: 6420609789287466617, guid: 89c3c50ee41e6054aa158d6a7299ce6d, type: 3}
+  - {fileID: 7047429506906163806, guid: b3f79bed1318c82459b7cc3b2731865b, type: 3}
+  Encounter17:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1888102599126699580, guid: d6a6d7c28d390b64fbc105eea45b202e, type: 3}
+  - {fileID: 0}
+  Encounter18:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Encounter19:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Encounter20:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &1088125965111835917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445361391061125684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f177dea9038af134c940366008ea29db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialPositions:
+  - 25
+  - 55
+  - 85
+  - 115
+  - 145
+  - 165
+  - 185
+  - 210
+  - 10000
+  tutorialMessages:
+  - Press X to punch.
+  - Press B to kick.
+  - Press A to do a special attack.
+  - Every attack has theree versions, each more powerful than the last. Follow up
+    your attacks quickly to use them.
+  - Try stringing together combos of different attack types to build your own combat
+    style.
+  - Scraps can be used to heal yourself. Press LB to heal yourself.
+  - Your fashion style also affects your fighting style. New outfits can be bought
+    with scraps at stores found throughout the level. Keep your eye out for other
+    underground designers.
+  - Now, go show the world your killer fashion sense.
+--- !u!114 &2006372798158454690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445361391061125684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99344c0dd88e9e4ab7481ee9f1b1401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointLocations:
+  - 15
+  - 230
+  - 280
+  - 310
