@@ -30,18 +30,22 @@ public class EnemyGeneric : MonoBehaviour
     // Called when the player hits the enemy.
     public virtual void TakeDamage(float atk, bool isKnockdown)
     {
+        GetComponent<EnemyMovement>().anim.SetFloat("atkspd", 1f);
         Damage(atk);
         if (curChargeParticle != null)
         {
             Destroy(curChargeParticle);
         }
-        if (isKnockdown == true)
+        if(dead == false)
         {
-            GetComponent<EnemyMovement>().Knockdown();
-        }
-        else
-        {
-            GetComponent<EnemyMovement>().Stagger();
+            if (isKnockdown == true)
+            {
+                GetComponent<EnemyMovement>().Knockdown();
+            }
+            else
+            {
+                GetComponent<EnemyMovement>().Stagger();
+            }
         }
     }
 
@@ -64,7 +68,6 @@ public class EnemyGeneric : MonoBehaviour
     // Default death behavior. Overridden.
     public virtual void Die()
     {
-        //Debug.Log("Enemy Generic death");
         Destroy(this.gameObject);
     }
 
