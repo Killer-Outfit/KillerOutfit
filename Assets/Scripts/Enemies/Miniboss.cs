@@ -81,18 +81,16 @@ public class Miniboss : EnemyGeneric
     {
         GetComponent<EnemyMovement>().StopForAttack();
         int thisattack = Random.Range(0, 2);
-        //if(thisattack == 0)
-        //{
-        //    GetComponent<EnemyMovement>().anim.SetTrigger("Attack");
-        //    StartCoroutine("Attack");
-        //}
-        //else if(thisattack == 1)
-        //{
-        //    GetComponent<EnemyMovement>().anim.SetTrigger("StartBounce");
-        //    StartCoroutine("Bounce");
-        //}
-        GetComponent<EnemyMovement>().anim.SetTrigger("Attack");
-        StartCoroutine("Attack");
+        if (thisattack == 0)
+        {
+            GetComponent<EnemyMovement>().anim.SetTrigger("Attack");
+            StartCoroutine("Attack");
+        }
+        else if (thisattack == 1)
+        {
+            GetComponent<EnemyMovement>().anim.SetTrigger("StartBounce");
+            StartCoroutine("Bounce");
+        }
     }
 
     // Punch attack timing
