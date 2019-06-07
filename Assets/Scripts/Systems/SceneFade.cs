@@ -27,8 +27,8 @@ public class SceneFade : MonoBehaviour
     {
         source = GameObject.Find("AudioController").GetComponent<AudioSource>();
         source.volume = 0.0f;
-        music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Level One");
-        music.start();
+        //music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Level One");
+        //music.start();
         player = GameObject.Find("PlayerBody");
         fadeImage = GameObject.Find("BlackStart").GetComponent<RawImage>();
         StartCoroutine(FadeIn());
