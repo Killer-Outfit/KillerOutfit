@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class O1M : MonoBehaviour
+public class O1M1 : MonoBehaviour
 {
     private bool hit;
     private bool deathflag;

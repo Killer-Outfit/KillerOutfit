@@ -64,7 +64,7 @@ public class Miniboss : EnemyGeneric
         if(groundTimer <= 0)
         {
             grounded = CheckGrounded();
-            Debug.Log(grounded);
+            //Debug.Log(grounded);
         }
     }
 

@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 7992448384464813982}
   - component: {fileID: 6581709387634761192}
   - component: {fileID: 2876654733325523637}
-  - component: {fileID: 2986543350206016855}
+  - component: {fileID: 3616567692203602415}
   - component: {fileID: 8969304084694896334}
   - component: {fileID: 2768847848700176215}
   - component: {fileID: 2502340171843056596}
   m_Layer: 0
-  m_Name: O1MProjectile
+  m_Name: O1M1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2986543350206016855
+--- !u!114 &3616567692203602415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3d2c11efac20340bd62cc87d15559a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
   damage: 0
   hitParticle: {fileID: 8397477145943708121, guid: c89cd17fe3c17674a9b1c7d67e111ba0,
     type: 3}
