@@ -23,9 +23,15 @@ public class Scraps : MonoBehaviour
     public Mesh[] possibleMesh;
     private MeshFilter thisMesh;
 
+    private Camera mainCamera;
+
+    [SerializeField]
+    public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main;
         rotate = 0;
         currentTime = 0.0f;
         lifeTime = 15f;
@@ -85,6 +91,7 @@ public class Scraps : MonoBehaviour
         {
             if (col.gameObject.tag == "Player")
             {
+                AudioSource.PlayClipAtPoint(clip, mainCamera.transform.position, 1f);
                 Instantiate(popupText, transform.position, Quaternion.identity);
                 //col.gameObject.GetComponent<playerNew>().scraps += 1;
                 Destroy(this.gameObject);

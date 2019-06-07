@@ -219,6 +219,7 @@ MonoBehaviour:
   - {fileID: 4300000, guid: 669c809f8d097f24ca4f65f573f548e9, type: 3}
   - {fileID: 4300000, guid: 8dbfe6f7682d9b24a916251f6f37c67b, type: 3}
   - {fileID: 4300000, guid: 67ed0e7428c9bbe47b475d5170bd3876, type: 3}
+  clip: {fileID: 8300000, guid: 9faa9a8a0acdbc44a8f9550561a2b2d3, type: 3}
 --- !u!54 &4559306657313779352
 Rigidbody:
   m_ObjectHideFlags: 0
