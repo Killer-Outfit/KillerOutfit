@@ -9,6 +9,7 @@ public class attacks : MonoBehaviour
 
     public AudioClip laser;
     public AudioClip heart;
+    public AudioClip wave;
 
     private AudioSource audioSource;
 
@@ -23,6 +24,11 @@ public class attacks : MonoBehaviour
     {
         AudioClip clip = GetRandomWhoosh();
         audioSource.PlayOneShot(clip, volume);
+    }
+
+    private void Wave()
+    {
+        audioSource.PlayOneShot(wave, volume);
     }
 
     private void Laser()
