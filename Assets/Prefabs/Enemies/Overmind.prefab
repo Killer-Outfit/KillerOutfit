@@ -251,17 +251,17 @@ MonoBehaviour:
   - 'Welcome to Killer Outfit!
 
 
-    Press A / Spacebar to close this message and follow the tutorial.  You can end
-    the tutorial at any of these messages by pressing B / E.'
-  - 'Press X / LMB to do a Punch Attack.
+    Press the A button / Spacebar to close this message and follow the tutorial.  You
+    can end the tutorial at any of these messages by pressing B / E.'
+  - 'Press the X button / LMB to do a Punch Attack.
 
 
-    Press A / Spacebar to close this message and all messages hereafter.  Remember
+    Press the A button / Spacebar to close this message and all messages hereafter.  Remember
     you can end the tutorial at any of these messages by pressing B / E.'
   - 'Those cones are in your way, but you won''t be able to hit them with Punch Attacks.
 
 
-    Press B / RMB to do a Kick Attack and break them.'
+    Press the B button / RMB to do a Kick Attack and break them.'
   - 'Destroying objects and defeating enemies drop Scraps.
 
 
@@ -275,16 +275,17 @@ MonoBehaviour:
 
     Try stringing together combos of different attack types to build your own combat
     style.'
-  - "If you're stuck in a pinch, press A / SpaceBar to perform an Accessory Attack.
-    \ \n\nAccessory Attacks use up bars of your Style Energy Meter, just below your
-    Stamina Bar.  When used in a Combo, the amount of Energy Bars used depends on
-    where the attack is used in the Combo.\nYou regain Energy when taking damage or
-    hitting enemies.\n\nTry out a few Accessory Attacks and you'll get the hang of
-    it."
+  - "If you're stuck in a pinch, press the A button / SpaceBar to perform an Accessory
+    Attack.  \n\nAccessory Attacks use up bars of your Style Energy Meter, just below
+    your Stamina Bar.  When used in a Combo, the amount of Energy Bars used depends
+    on where the attack is used in the Combo.\nYou regain Energy when taking damage
+    or hitting enemies.\n\nTry out a few Accessory Attacks and you'll get the hang
+    of it."
   - Scraps can be used to heal yourself. Press LT / F  to heal yourself.
-  - Your fashion style also affects your fighting style. New outfits can be crafted
-    with Scraps at hidden Safe Zones found throughout the level. Keep your eye out
-    for these Safe Zones by their distinctive Mannequin.
+  - "Your fashion style also affects your fighting style. New outfits can be crafted
+    with Scraps at hidden Safe Zones found throughout the level. \nAccess these Safe
+    Zones by approaching the Mannequin and pressing the Y button / E.\n\nKeep your
+    eye out for these Safe Zones by their distinctive Mannequin."
   - Now use what you've learned and go show the world your Killer fashion sense!
   - 
 --- !u!114 &2006372798158454690
