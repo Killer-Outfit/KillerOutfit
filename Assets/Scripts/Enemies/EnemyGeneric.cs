@@ -77,6 +77,7 @@ public class EnemyGeneric : MonoBehaviour
     public virtual void DoAttack()
     {
         GetComponent<EnemyMovement>().StopForAttack();
+        GetComponent<EnemyMovement>().anim.SetTrigger("Attack");
         Vector3 particlepos = new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z);
         curChargeParticle = Instantiate(chargeParticle, particlepos, Quaternion.identity);
         var main = curChargeParticle.GetComponent<ParticleSystem>().main;

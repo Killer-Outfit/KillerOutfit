@@ -24,6 +24,7 @@ public class Miniboss : EnemyGeneric
     public int numBounces = 3;
 
     private CharacterController controller;
+    public GameObject armature;
     private ParticleSystem ps;
     private ParticleSystem.EmissionModule em;
 
@@ -51,9 +52,11 @@ public class Miniboss : EnemyGeneric
             vulnTimer -= Time.deltaTime;
             if(vulnTimer <= 0)
             {
+                GetComponent<EnemyMovement>().anim.SetTrigger("Recover");
                 vulnerable = false;
                 vulnTimer = 5f;
                 em.rateOverTime = 0;
+                StartCoroutine("Recovery");
             }
         }
 
@@ -70,7 +73,7 @@ public class Miniboss : EnemyGeneric
         if(vulnerable)
         {
             Damage(atk);
-            GetComponent<EnemyMovement>().Stagger();
+            //GetComponent<EnemyMovement>().Stagger();
         }
     }
 
@@ -78,14 +81,18 @@ public class Miniboss : EnemyGeneric
     {
         GetComponent<EnemyMovement>().StopForAttack();
         int thisattack = Random.Range(0, 2);
-        if(thisattack == 0)
-        {
-            StartCoroutine("Attack");
-        }
-        else if(thisattack == 1)
-        {
-            StartCoroutine("Bounce");
-        }
+        //if(thisattack == 0)
+        //{
+        //    GetComponent<EnemyMovement>().anim.SetTrigger("Attack");
+        //    StartCoroutine("Attack");
+        //}
+        //else if(thisattack == 1)
+        //{
+        //    GetComponent<EnemyMovement>().anim.SetTrigger("StartBounce");
+        //    StartCoroutine("Bounce");
+        //}
+        GetComponent<EnemyMovement>().anim.SetTrigger("Attack");
+        StartCoroutine("Attack");
     }
 
     // Punch attack timing
@@ -93,18 +100,18 @@ public class Miniboss : EnemyGeneric
     {
         hitPlayer = false;
         bool speedBurst = false;
-        for(float i=0; i<3f; i += Time.deltaTime)
+        for(float i=0; i<2.7f; i += Time.deltaTime)
         {
             if(GetComponent<EnemyMovement>().state != "doingattack")
             {
                 break;
             }
 
-            if(i >= 0f && i < 1f)
+            if(i >= 0f && i < 0.7f)
             {
                 yield return null;
             }
-            else if (i >= 1f && i < 2f)
+            else if (i >= 0.7f && i < 1.7f)
             {
                 //atkBox.GetComponent<MeshRenderer>().enabled = true;
                 if(!speedBurst)
@@ -112,7 +119,8 @@ public class Miniboss : EnemyGeneric
                     curPunchSpeed = punchSpeed;
                     speedBurst = true;
                 }
-                if (!hitPlayer)
+
+                if (!hitPlayer && i <= 1.4f)
                 {
                     AtkDetect();
                 }
@@ -128,7 +136,7 @@ public class Miniboss : EnemyGeneric
                 }
                 yield return null;
             }
-            else if (i >= 2f && i < 3f)
+            else if (i >= 1.7f && i < 2.7f)
             {
                 //atkBox.GetComponent<MeshRenderer>().enabled = false;
                 yield return null;
@@ -147,7 +155,8 @@ public class Miniboss : EnemyGeneric
     {
         float jumpForce;
         // Windup, add particle later
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.8f);
+        StartCoroutine("armatureDown");
 
         // Do the set number of bounces
         for (int i = 0; i < numBounces; i++)
@@ -183,13 +192,16 @@ public class Miniboss : EnemyGeneric
             }
             // Create shockwave
             Instantiate(shockwave, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
+        StartCoroutine("armatureUp");
+        GetComponent<EnemyMovement>().anim.SetTrigger("Land");
+        GetComponent<EnemyMovement>().state = "stunned";
 
-        if (GetComponent<EnemyMovement>().state == "doingattack")
-        {
-            GetComponent<EnemyMovement>().ResumeMovement();
-        }
+        //if (GetComponent<EnemyMovement>().state == "doingattack")
+        //{
+        //    GetComponent<EnemyMovement>().ResumeMovement();
+        //}
         vulnerable = true;
         em.rateOverTime = 10;
         yield return null;
@@ -235,5 +247,32 @@ public class Miniboss : EnemyGeneric
             }
         }
         return false;
+    }
+
+    private IEnumerator armatureUp()
+    {
+        for(float i = 0; i < 0.2f; i += Time.deltaTime)
+        {
+            armature.transform.localPosition = new Vector3(0, armature.transform.localPosition.y + 1.2f, 0);
+            yield return null;
+        }
+        armature.transform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    private IEnumerator armatureDown()
+    {
+        for (float i = 0; i < 0.2f; i += Time.deltaTime)
+        {
+            armature.transform.localPosition = new Vector3(0, armature.transform.localPosition.y - 1.5f, 0);
+            yield return null;
+        }
+
+    }
+
+    private IEnumerator Recovery()
+    {
+        yield return new WaitForSeconds(1f);
+        GetComponent<EnemyMovement>().ResumeMovement();
+        yield return null;
     }
 }

@@ -234,7 +234,6 @@ public class EnemyMovement : MonoBehaviour
     {
         state = "doingattack";
         wantsToAttack = false;
-        anim.SetTrigger("Attack");
     }
 
     public void ResumeMovement()

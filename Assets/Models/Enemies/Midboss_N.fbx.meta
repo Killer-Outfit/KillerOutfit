@@ -1,0 +1,243 @@
+fileFormatVersion: 2
+guid: 04eb45ed495fe1645bceb5a9b44821d8
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: ArmIK.L
+    100004: ArmIK.R
+    100006: Coat_1.L
+    100008: Coat_1.L_end
+    100010: Coat_1.R
+    100012: Coat_1.R_end
+    100014: Coat_2.L
+    100016: Coat_2.L_end
+    100018: Coat_2.R
+    100020: Coat_2.R_end
+    100022: Coat_3.L
+    100024: Coat_3.L_end
+    100026: Coat_3.R
+    100028: Coat_3.R_end
+    100030: Coat_4.L
+    100032: Coat_4.L_end
+    100034: Coat_4.R
+    100036: Coat_4.R_end
+    100038: Coat_5
+    100040: Coat_5_end
+    100042: Control
+    100044: Elbow Poll.L
+    100046: Elbow Poll.L_end
+    100048: Elbow Poll.R
+    100050: Elbow Poll.R_end
+    100052: Foot-1 Roll.L
+    100054: Foot-1 Roll.R
+    100056: Foot-1.L
+    100058: Foot-1.R
+    100060: Foot-2 Roll.L
+    100062: Foot-2 Roll.R
+    100064: Foot-2.L
+    100066: Foot-2.L_end
+    100068: Foot-2.R
+    100070: Foot-2.R_end
+    100072: Hand.L
+    100074: Hand.L_end
+    100076: Hand.R
+    100078: Hand.R_end
+    100080: Head
+    100082: Head_end
+    100084: Knee Pole IK.L
+    100086: Knee Pole IK.L_end
+    100088: Knee Pole IK.R
+    100090: Knee Pole IK.R_end
+    100092: Leg Control.L
+    100094: Leg Control.R
+    100096: LegIK.L
+    100098: LegIK.L_end
+    100100: LegIK.R
+    100102: LegIK.R_end
+    100104: Lower Arm.L
+    100106: Lower Arm.L_end
+    100108: Lower Arm.R
+    100110: Lower Arm.R_end
+    100112: Lower Leg.L
+    100114: Lower Leg.R
+    100116: Lower Torso
+    100118: Midboss
+    100120: //RootNode
+    100122: Neck
+    100124: Shoulder.L
+    100126: Shoulder.R
+    100128: Upper Arm.L
+    100130: Upper Arm.R
+    100132: Upper Leg.L
+    100134: Upper Leg.R
+    100136: Upper Torso
+    100138: Waist
+    400000: Armature
+    400002: ArmIK.L
+    400004: ArmIK.R
+    400006: Coat_1.L
+    400008: Coat_1.L_end
+    400010: Coat_1.R
+    400012: Coat_1.R_end
+    400014: Coat_2.L
+    400016: Coat_2.L_end
+    400018: Coat_2.R
+    400020: Coat_2.R_end
+    400022: Coat_3.L
+    400024: Coat_3.L_end
+    400026: Coat_3.R
+    400028: Coat_3.R_end
+    400030: Coat_4.L
+    400032: Coat_4.L_end
+    400034: Coat_4.R
+    400036: Coat_4.R_end
+    400038: Coat_5
+    400040: Coat_5_end
+    400042: Control
+    400044: Elbow Poll.L
+    400046: Elbow Poll.L_end
+    400048: Elbow Poll.R
+    400050: Elbow Poll.R_end
+    400052: Foot-1 Roll.L
+    400054: Foot-1 Roll.R
+    400056: Foot-1.L
+    400058: Foot-1.R
+    400060: Foot-2 Roll.L
+    400062: Foot-2 Roll.R
+    400064: Foot-2.L
+    400066: Foot-2.L_end
+    400068: Foot-2.R
+    400070: Foot-2.R_end
+    400072: Hand.L
+    400074: Hand.L_end
+    400076: Hand.R
+    400078: Hand.R_end
+    400080: Head
+    400082: Head_end
+    400084: Knee Pole IK.L
+    400086: Knee Pole IK.L_end
+    400088: Knee Pole IK.R
+    400090: Knee Pole IK.R_end
+    400092: Leg Control.L
+    400094: Leg Control.R
+    400096: LegIK.L
+    400098: LegIK.L_end
+    400100: LegIK.R
+    400102: LegIK.R_end
+    400104: Lower Arm.L
+    400106: Lower Arm.L_end
+    400108: Lower Arm.R
+    400110: Lower Arm.R_end
+    400112: Lower Leg.L
+    400114: Lower Leg.R
+    400116: Lower Torso
+    400118: Midboss
+    400120: //RootNode
+    400122: Neck
+    400124: Shoulder.L
+    400126: Shoulder.R
+    400128: Upper Arm.L
+    400130: Upper Arm.R
+    400132: Upper Leg.L
+    400134: Upper Leg.R
+    400136: Upper Torso
+    400138: Waist
+    2100000: Midboss
+    4300000: Midboss
+    7400000: Armature|CameraAction.001
+    7400002: Armature|MidBoss_Bounce
+    7400004: Armature|MidBoss_Bounce_Full
+    7400006: Armature|MidBoss_Bounce_Land
+    7400008: Armature|MidBoss_Bounce_Midair
+    7400010: Armature|MidBoss_Bounce_Start
+    7400012: Armature|MidBoss_Stunned
+    7400014: Armature|MidBoss_Stunned_Recover
+    9500000: //RootNode
+    13700000: Midboss
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -56,7 +56,7 @@ public class Overmind : MonoBehaviour
         }
 
         // Update miniboss if one exists
-        if(enemMiniboss != null && enemMiniboss.GetComponent<EnemyMovement>().state != "attacking" && enemMiniboss.GetComponent<EnemyMovement>().state != "doingattack")
+        if(enemMiniboss != null && enemMiniboss.GetComponent<EnemyMovement>().state != "attacking" && enemMiniboss.GetComponent<EnemyMovement>().state != "doingattack" && enemMiniboss.GetComponent<EnemyMovement>().state != "stunned")
         {
             aggroTimerMiniboss -= Time.deltaTime;
             if (aggroTimerMiniboss <= 0)
