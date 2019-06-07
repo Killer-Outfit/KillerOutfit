@@ -21,7 +21,7 @@ public class SceneFade : MonoBehaviour
     [SerializeField]
     private Color Alpha1;
 
-    private AudioSource source;
+    public AudioSource source;
 
     void Start()
     {

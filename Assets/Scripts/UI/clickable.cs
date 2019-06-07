@@ -5,6 +5,7 @@ using UnityEngine;
 public class clickable : MonoBehaviour
 {
     public bool selected;
+    private bool ready;
     private Renderer rend;
     private SpriteRenderer innerBox;
     private SpriteRenderer outerBox;
@@ -44,6 +45,7 @@ public class clickable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ready = true;
         innerBox = transform.parent.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         outerBox = transform.parent.GetChild(4).gameObject.GetComponent<SpriteRenderer>();
         purchaseText = transform.parent.GetChild(3).gameObject.GetComponent<MeshRenderer>();
@@ -91,15 +93,18 @@ public class clickable : MonoBehaviour
                 {
                     selected = false;
                 }
-                if (selected)
-				{
-                    purchaseText.GetComponent<TextMesh>().text = "Purchase?\n" + "-" + cost.ToString() + " Scraps";
-                    innerBox.material.color = Color.yellow;
-                }
-				else
+                if (ready)
                 {
-                    purchaseText.GetComponent<TextMesh>().text = cost.ToString() + " Scraps";
-                    innerBox.material.color = Color.red;
+                    if (selected)
+                    {
+                        purchaseText.GetComponent<TextMesh>().text = "Purchase?\n" + "-" + cost.ToString() + " Scraps";
+                        innerBox.material.color = Color.yellow;
+                    }
+                    else
+                    {
+                        purchaseText.GetComponent<TextMesh>().text = cost.ToString() + " Scraps";
+                        innerBox.material.color = Color.red;
+                    }
                 }
                 purchaseText.enabled = true;
             }
@@ -310,11 +315,15 @@ public class clickable : MonoBehaviour
         {
             Debug.Log("NotEnoughScraps");
             selected = false;
+            StartCoroutine("notEnough");
         }
     }
-    IEnumerable shake()
+    IEnumerator notEnough()
     {
-        yield return null;
+        ready = false;
+        purchaseText.GetComponent<TextMesh>().text = "Not Enough Scraps";
+        yield return new WaitForSeconds(.4f);
+        ready = true;
     }
 
     public void Hover()

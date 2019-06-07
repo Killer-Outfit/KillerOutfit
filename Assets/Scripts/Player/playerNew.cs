@@ -85,6 +85,8 @@ public class playerNew : MonoBehaviour
 
     public bool input;
 
+    private AudioSource musicSource;
+
     void Start()
     {
         input = false;
@@ -730,6 +732,8 @@ public class playerNew : MonoBehaviour
         //transform.position = checkpoint.getCheckpoint();
         //canvas.SendMessage("PlayerDead", true);
         masterBus.setMute(true);
+        musicSource = GameObject.Find("Main Canvas").GetComponent<SceneFade>().source;
+        musicSource.enabled = false;
         healthbar.SetActive(false);
         for (int i = 0; i < 3; i++)
             energyBars[i].SetActive(false);
