@@ -33,6 +33,7 @@ public class StartGame : MonoBehaviour
     GameObject start;
     GameObject quit;
     GameObject title;
+    Image background;
     bool fadeDone;
     bool nextScene;
     bool cutsceneDone;
@@ -52,6 +53,7 @@ public class StartGame : MonoBehaviour
         activeMessage = GameObject.Find("sceneText").GetComponent<Text>();
         activeMessage.enabled = false;
         textBox.SetActive(false);
+        background = GameObject.Find("Image").GetComponent<Image>();
         canvas = GameObject.Find("MainMenuCanvas").GetComponent<CanvasGroup>();
         startButton = GameObject.Find("Start Game (Button)").GetComponent<Button>();
         start = GameObject.Find("Start Game (Button)");
@@ -89,6 +91,7 @@ public class StartGame : MonoBehaviour
         quit.SetActive(false);
         title.SetActive(false);
         board.SetActive(false);
+        background.color = Color.black;
 
         //StartCoroutine(LoadAsync());
         StartCoroutine(PlayCutscene());
