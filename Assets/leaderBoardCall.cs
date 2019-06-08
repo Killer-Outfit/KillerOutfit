@@ -10,7 +10,7 @@ public class leaderBoardCall : MonoBehaviour
     private GameObject contBut;
     private GameObject entry;
     
-    private void Start()
+    private void Awake()
     {
         player = GameObject.Find("PlayerBody");
         restartBut = GameObject.Find("Restart (Button)");

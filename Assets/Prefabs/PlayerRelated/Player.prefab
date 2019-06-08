@@ -2427,7 +2427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d953fbcbdbfc143a3c3c94495d08a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugmode: 1
+  debugmode: 0
+  combo: 0
   punchSounds:
   - {fileID: 8300000, guid: 0412621d677f49548aefed09cd8546ca, type: 3}
   - {fileID: 8300000, guid: 1cec93722d7862f46989dc83858f4d58, type: 3}
