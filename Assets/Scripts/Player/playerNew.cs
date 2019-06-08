@@ -38,6 +38,8 @@ public class playerNew : MonoBehaviour
 
     private GameObject pauseMenu;
 
+    private GameObject tutorial;
+
     [SerializeField]
     private AudioClip[] punchSounds;
     [SerializeField]
@@ -156,6 +158,7 @@ public class playerNew : MonoBehaviour
     void Awake()
     {
         pauseMenu = GameObject.Find("PauseMenuElements");
+        tutorial = GameObject.Find("Tutorial");
     }
 
     // Update is called once per frame
@@ -242,7 +245,7 @@ public class playerNew : MonoBehaviour
                     curX = (int)transform.position.x;
                 }
                 // Get inputs and put them into the queue
-                if (state != "stagger" && input && !pauseMenu.activeInHierarchy)
+                if (state != "stagger" && input && !pauseMenu.activeInHierarchy && !tutorial.activeInHierarchy)
                 {
                     if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
                     {
@@ -257,6 +260,7 @@ public class playerNew : MonoBehaviour
                     }
                     else if ((Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space)) && !nearInteractable)
                     {
+                        //Debug.Log("misc added to queue");
                         inputQueue = "misc";
                         qTime = 0.4f;
                     }

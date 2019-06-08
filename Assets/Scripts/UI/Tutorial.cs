@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
     private GameObject energyBar;
     private GameObject scrapCount;
     private GameObject score;
+    private bool inputCheck;
 
     // Start is called before the first frame update
     void Awake()
@@ -54,6 +55,8 @@ public class Tutorial : MonoBehaviour
     private void DisplayTutorial(int num)
     {
         player.GetComponent<playerNew>().input = false;
+        //inputCheck = player.GetComponent<playerNew>().input;
+        //Debug.Log("1 " + inputCheck);
         healthBar.SetActive(false);
         energyBar.SetActive(false);
         score.SetActive(false);
@@ -66,7 +69,6 @@ public class Tutorial : MonoBehaviour
 
         if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
         {
-            player.GetComponent<playerNew>().input = true;
             //Debug.Log("tutorial acknowledged");
             Time.timeScale = 1;
             healthBar.SetActive(true);
@@ -77,6 +79,9 @@ public class Tutorial : MonoBehaviour
             //activeMessage.enabled = false;
             messageBox.SetActive(false);
             currentTutorialNum += 1;
+            player.GetComponent<playerNew>().input = true;
+            //inputCheck = player.GetComponent<playerNew>().input;
+            //Debug.Log("2 " + inputCheck);
         }
         else if (Input.GetButtonDown("BButton") || Input.GetKeyDown(KeyCode.E))
         {
@@ -90,7 +95,10 @@ public class Tutorial : MonoBehaviour
             //dialogueBackground.SetActive(false);
             //activeMessage.enabled = false;
             this.GetComponent<Tutorial>().enabled = false;
-            Destroy(messageBox);
+            messageBox.SetActive(false);
+            //Destroy(messageBox);
+            //inputCheck = player.GetComponent<playerNew>().input;
+            //Debug.Log("3 " + inputCheck);
         }
     }
 }
