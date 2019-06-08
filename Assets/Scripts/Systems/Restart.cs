@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Restart : MonoBehaviour
 {
@@ -31,6 +32,18 @@ public class Restart : MonoBehaviour
 
     public void restartCheckpoint()
     {
-        OverMind.GetComponent<CheckpointManager>().restartAtCheckpoint();
+        if (OverMind.GetComponent<CheckpointManager>().continueGame()) { }
+        else
+        {
+            Debug.Log("not enough score");
+            StartCoroutine("changeText");
+        }
+    }
+
+    IEnumerator changeText()
+    {
+        GameObject.Find("ContText").GetComponent<Text>().text = "Not Enough Score";
+        yield return new WaitForSeconds(.5f);
+        GameObject.Find("ContText").GetComponent<Text>().text = "Continue ? -5,000 Score";
     }
 }
