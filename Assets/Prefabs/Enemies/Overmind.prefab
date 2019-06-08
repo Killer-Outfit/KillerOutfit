@@ -252,12 +252,14 @@ MonoBehaviour:
 
 
     Press the A button / Spacebar to close this message and follow the tutorial.  You
-    can end the tutorial at any of these messages by pressing B / E.'
+    can end the tutorial at any of these messages by pressing any button other than
+    the A button / Spacebar.'
   - 'Press the X button / LMB to do a Punch Attack.
 
 
     Press the A button / Spacebar to close this message and all messages hereafter.  Remember
-    you can end the tutorial at any of these messages by pressing B / E.'
+    you can end the tutorial at any of these messages by pressing any button other
+    than the A button / Spacebar.'
   - 'Those cones are in your way, but you won''t be able to hit them with Punch Attacks.
 
 
@@ -288,6 +290,7 @@ MonoBehaviour:
     eye out for these Safe Zones by their distinctive Mannequin."
   - Now use what you've learned and go show the world your Killer fashion sense!
   - 
+  tutorialOn: 0
 --- !u!114 &2006372798158454690
 MonoBehaviour:
   m_ObjectHideFlags: 0

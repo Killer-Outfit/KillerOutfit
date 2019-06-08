@@ -17,6 +17,8 @@ public class Miniboss : EnemyGeneric
     private bool grounded;
     private float groundTimer;
 
+    private int numReg;
+
     public float punchSpeed = 1f;
     public float punchDecel = 0.5f;
     private float curPunchSpeed;
@@ -42,6 +44,7 @@ public class Miniboss : EnemyGeneric
 
     private void Start()
     {
+        source = GetComponent<AudioSource>();
         bus = FMODUnity.RuntimeManager.GetBus("Bus:/");
         bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Midboss");
@@ -75,13 +78,17 @@ public class Miniboss : EnemyGeneric
                 StartCoroutine("Recovery");
             }
         }
-
-        groundTimer -= Time.deltaTime;
-        if(groundTimer <= 0)
-        {
-            grounded = CheckGrounded();
-            //Debug.Log(grounded);
-        }
+        //if (Mathf.Sign(groundTimer) == 1)
+        //{
+        //    groundTimer -= Time.deltaTime;
+        //    Debug.Log(groundTimer);
+        //}
+        //else
+        //{
+        //    Debug.Log("groundTimer finished");
+        //    grounded = CheckGrounded();
+        //    Debug.Log(grounded);
+        //}
     }
 
     public override void TakeDamage(float atk, bool isKnockdown)
@@ -99,13 +106,15 @@ public class Miniboss : EnemyGeneric
     {
         GetComponent<EnemyMovement>().StopForAttack();
         int thisattack = Random.Range(0, 2);
+        numReg++;
         if (thisattack == 0)
         {
             GetComponent<EnemyMovement>().anim.SetTrigger("Attack");
             StartCoroutine("Attack");
         }
-        else if (thisattack == 1)
+        else if (thisattack == 1 || numReg == 3)
         {
+            numReg = 0;
             GetComponent<EnemyMovement>().anim.SetTrigger("StartBounce");
             StartCoroutine("Bounce");
         }
@@ -179,6 +188,7 @@ public class Miniboss : EnemyGeneric
         {
             // Target a position near the player
             Vector3 nextTarget = playerTransform.position;
+            Debug.Log("Next target " + nextTarget);
             nextTarget.x += Random.Range(-2f, 2f);
             nextTarget.z += Random.Range(-2f, 2f);
 
@@ -191,12 +201,26 @@ public class Miniboss : EnemyGeneric
             controller.Move(moveDirection);
             grounded = false;
             groundTimer = 0.5f;
+            //Debug.Log("grounded check before yield: " + grounded);
             yield return null;
+            //Debug.Log("grounded check after yield: " + grounded);
 
             // Boss is in the air presumably.
-            while(!grounded)
+            while (!grounded)
             {
-                if(jumpForce > -30f)
+                if (Mathf.Sign(groundTimer) == 1)
+                {
+                    groundTimer -= Time.deltaTime;
+                    Debug.Log(groundTimer);
+                }
+                else
+                {
+                    Debug.Log("groundTimer finished");
+                    grounded = CheckGrounded();
+                    Debug.Log(grounded);
+                }
+                //Debug.Log("grounded check while not grounded: " + grounded);
+                if (jumpForce > -30f)
                 {
                     jumpForce -= 30 * Time.deltaTime;
                 }
@@ -207,6 +231,7 @@ public class Miniboss : EnemyGeneric
                 yield return null;
             }
             // Create shockwave
+            Debug.Log("shockwave creation called");
             Instantiate(shockwave, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.1f);
         }
@@ -258,7 +283,7 @@ public class Miniboss : EnemyGeneric
 
     private bool CheckGrounded()
     {
-        Collider[] cols = Physics.OverlapSphere(groundDetector.bounds.center, groundDetector.radius, LayerMask.GetMask("Default"));
+        Collider[] cols = Physics.OverlapSphere(groundDetector.bounds.center, groundDetector.radius, LayerMask.GetMask("Plane"));
         foreach (Collider c in cols)
         {
             if (c.gameObject.name.Contains("Plane") || c.gameObject.name.Contains("Road"))

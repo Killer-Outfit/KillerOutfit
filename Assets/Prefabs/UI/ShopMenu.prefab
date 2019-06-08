@@ -463,6 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstepSounds:
   - {fileID: 8300000, guid: 633c20b256e4f024c887b142d8b2b81a, type: 3}
+  stomp: {fileID: 0}
   volume: 0
 --- !u!114 &234270518791932874
 MonoBehaviour:
@@ -3538,7 +3539,7 @@ SkinnedMeshRenderer:
   - {fileID: 6044122250000639448}
   - {fileID: 6044122250000639454}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 6044122250000639094}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: -0.0000000055879354, y: 0.008677776, z: 0.051311877}
     m_Extent: {x: 0.031294897, y: 0.01843287, z: 0.05653682}
@@ -3695,7 +3696,7 @@ SkinnedMeshRenderer:
   - {fileID: 6044122250000639448}
   - {fileID: 6044122250000639454}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 6044122250000639094}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0.0000000027939677, y: 0.004129702, z: 0.16826324}
     m_Extent: {x: 0.013994902, y: 0.017773993, z: 0.015884608}
@@ -3851,7 +3852,7 @@ SkinnedMeshRenderer:
   - {fileID: 6044122250000639448}
   - {fileID: 6044122250000639454}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 6044122250000639094}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: -0.0000014789402, y: 0.006190774, z: 0.10580267}
     m_Extent: {x: 0.11288418, y: 0.030767929, z: 0.058724318}

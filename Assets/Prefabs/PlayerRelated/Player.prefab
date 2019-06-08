@@ -2154,7 +2154,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8611697885791146546}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e0042a7176170434f8a0e14612480440, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 17ce66a1a09744146ae754e40cd395bd, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -2414,6 +2414,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0b9501a2de093954e9e79a0c2580b8cc, type: 3}
   - {fileID: 8300000, guid: f43518561eff7df4db6454fc341c1470, type: 3}
   - {fileID: 8300000, guid: 4b88a2b834aa5364585cb1ddae480371, type: 3}
+  stomp: {fileID: 0}
   volume: 1
 --- !u!114 &1898987606260511188
 MonoBehaviour:
@@ -2699,7 +2700,7 @@ SkinnedMeshRenderer:
   - {fileID: 8611697885791637042}
   - {fileID: 8611697885791637044}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 8611697885791637404}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0, y: 0, z: 0.05}
     m_Extent: {x: 0.03, y: 0.03, z: 0.07}
@@ -5354,7 +5355,7 @@ SkinnedMeshRenderer:
   - {fileID: 8611697885791637042}
   - {fileID: 8611697885791637044}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 8611697885791637404}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0, y: 0.01, z: 0.12}
     m_Extent: {x: 0.1, y: 0.05, z: 0.05}
@@ -9282,7 +9283,7 @@ SkinnedMeshRenderer:
   - {fileID: 8611697885791637042}
   - {fileID: 8611697885791637044}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 8611697885791637404}
+  m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: 0.00031797588, y: 0.005, z: 0.16215633}
     m_Extent: {x: 0.012344544, y: 0.017235773, z: 0.020154266}
