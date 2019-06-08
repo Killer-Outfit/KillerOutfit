@@ -21,20 +21,17 @@ public class comboShake : MonoBehaviour
         resetColor();
         curTime = 0;
         currentText = this.gameObject.GetComponent<Text>();
-        startPos = this.gameObject.GetComponent<RectTransform>().position;
-        //StartCoroutine("shake");
+        startPos = transform.position;
+        StartCoroutine("shake");
         combo = 0;
-        red = 0f;
-        green = 255f;
-        blue = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        curTime += 1;
-        ///Debug.Log(curTime.ToString() + "   " + combo.ToString());
-        if (curTime >= 500)
+        curTime += Time.deltaTime;
+
+        if (curTime >= 10)
         {
             pop();
         }
@@ -46,39 +43,31 @@ public class comboShake : MonoBehaviour
         {
             pop();
         }
-        this.gameObject.GetComponent<Outline>().effectColor = new Color(red/255f, green/255f, blue/255f);
-        if (red < 255f)
-        {
-            red += 1;
-        }
-        else
-        {
-            green -= 1;
-        }
-        
+
+        this.gameObject.GetComponent<Outline>().effectColor = new Color(red, green, blue);
     }
 
     private void pop()
     {
         currentText.text = "";
-        GameObject.Find("PlayerBody").GetComponent<playerNew>().combo = 0;
         resetColor();
     }
 
     public void changeCombo(int com)
     {
-        if (com != combo)
-        {
-            resetColor();
-            curTime = 0;
-        }
         combo = com;
+        if (red < 255)
+        {
+            red += combo * 5;
+        }
+        else
+        {
+            green -= combo * 3;
+        }
         if (combo % 5 == 0)
         {
             shakePower = combo;
         }
-        
-        
     }
 
     IEnumerable shake()
@@ -87,12 +76,12 @@ public class comboShake : MonoBehaviour
         {
             if (i % 2 == 0)
             {
-                this.gameObject.GetComponent<RectTransform>().Translate(-1 * startPos);
+                transform.Translate(-1 * startPos);
             }
             else
             {
                 startPos = new Vector3(Random.Range(-1, 2) * shakePower, Random.Range(-1, 2) * shakePower, 0);
-                this.gameObject.GetComponent<RectTransform>().Translate(startPos);
+                transform.Translate(startPos);
             }
             yield return new WaitForSeconds(0.001f);
         }
@@ -112,7 +101,6 @@ public class comboShake : MonoBehaviour
 
     private void resetColor()
     {
-        //Debug.Log("resetting color");
         red = 0f;
         green = 255f;
         blue = 0f;

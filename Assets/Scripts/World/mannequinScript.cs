@@ -6,11 +6,9 @@ public class mannequinScript : MonoBehaviour
 {
     private GameObject shop;
     private GameObject player;
-    private MeshRenderer textObject;
 
     private void Start()
     {
-        textObject = transform.parent.GetChild(1).gameObject.GetComponent<MeshRenderer>(); 
         shop = GameObject.Find("ShopMenu");
         player = GameObject.Find("PlayerBody");
     }
@@ -18,10 +16,9 @@ public class mannequinScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //Debug.Log("entered");
+            Debug.Log("entered");
             player.GetComponent<playerNew>().nearInteractable = true;
             shop.GetComponent<ShopControl>().openable = true;
-            textObject.enabled = true;
         }
     }
 
@@ -29,10 +26,9 @@ public class mannequinScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //Debug.Log("exit");
+            Debug.Log("exit");
             player.GetComponent<playerNew>().nearInteractable = false;
             shop.GetComponent<ShopControl>().openable = false;
-            textObject.enabled = false;
         }
     }
 }

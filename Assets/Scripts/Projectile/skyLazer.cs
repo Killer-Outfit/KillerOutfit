@@ -16,7 +16,7 @@ public class skyLazer : MonoBehaviour
         skyLaserCollider = this.gameObject.GetComponent<BoxCollider>();
         vmLines = this.gameObject.GetComponent<VolumetricLineBehavior>();
         speed = 50f;
-        //Instantiate(explosionSphere, transform.position, transform.rotation);
+        Instantiate(explosionSphere, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
@@ -24,7 +24,5 @@ public class skyLazer : MonoBehaviour
     {
         skyLaserCollider.size = new Vector3(skyLaserCollider.size.x, skyLaserCollider.size.y, skyLaserCollider.size.z + speed * 2);
         vmLines.EndPos = new Vector3(vmLines.EndPos.x, vmLines.EndPos.y, vmLines.EndPos.z + speed);
-        Vector3 pos = new Vector3(transform.position.x, 0f, transform.position.z);
-        //Instantiate(explosionSphere, pos, transform.rotation);
     }
 }
