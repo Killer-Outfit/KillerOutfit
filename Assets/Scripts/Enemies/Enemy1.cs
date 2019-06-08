@@ -9,8 +9,14 @@ public class Enemy1 : EnemyGeneric
     public GameObject hitParticle;
     private bool hitPlayer;
 
+    [SerializeField]
+    private AudioClip[] deathSounds;
+
+    private AudioSource source;
+
     private void Start()
     {
+        source = GetComponent<AudioSource>();
         health = maxHP;
         overmind = GameObject.Find("Overmind");
         overmind.GetComponent<Overmind>().AddMelee(this.gameObject);
@@ -86,6 +92,8 @@ public class Enemy1 : EnemyGeneric
 
     public override void Die()
     {
+        AudioClip clip = GetRandomDeath();
+        source.PlayOneShot(clip);
         overmind.GetComponent<Overmind>().RemoveMelee(this.gameObject);
         GetComponent<EnemyMovement>().Die(0.5f);
         int droppedScraps = Random.Range(1, 11);
@@ -93,6 +101,11 @@ public class Enemy1 : EnemyGeneric
         {
             Instantiate(Scrap, transform.position, Quaternion.identity);
         }
+    }
+
+    private AudioClip GetRandomDeath()
+    {
+        return deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
     }
 
 }
