@@ -99,7 +99,7 @@ public class playerNew : MonoBehaviour
         qTime = 0;
         hTime = 0;
         curX = (int)transform.position.x;
-        scraps = 999;
+        scraps = 0;
         score = 0;
         maxScore = 0;
         // Initialize UI bar objects
