@@ -97,7 +97,7 @@ public class playerNew : MonoBehaviour
         qTime = 0;
         hTime = 0;
         curX = (int)transform.position.x;
-        scraps = 0;
+        scraps = 999;
         score = 0;
         maxScore = 0;
         // Initialize UI bar objects
@@ -789,7 +789,6 @@ public class playerNew : MonoBehaviour
         {
             bot = newOutfit;
         }
-        // 
         newOutfit.outfitSkinRenderer.sharedMesh = newOutfit.outfitMesh;
         if(newOutfit.outfitType == "Misc")
         {
@@ -831,6 +830,7 @@ public class playerNew : MonoBehaviour
                 indexB += 1;
             }
         }
+
         // Override all animations in the anims list
         aoc.ApplyOverrides(anims);
         anim.runtimeAnimatorController = aoc;
