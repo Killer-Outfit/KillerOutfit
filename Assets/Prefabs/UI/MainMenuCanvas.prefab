@@ -216,14 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b37d785d8894da646ad139d89cb8ac17, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1717,11 +1717,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8228002214941406136}
     m_Modifications:
-    - target: {fileID: 3745199937836297574, guid: 5fe4420d79b3f3d439ff66da2078d590,
-        type: 3}
-      propertyPath: m_Name
-      value: Start Game (Button)
-      objectReference: {fileID: 0}
     - target: {fileID: 862204916530254545, guid: 5fe4420d79b3f3d439ff66da2078d590,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1827,6 +1822,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3745199937836297574, guid: 5fe4420d79b3f3d439ff66da2078d590,
+        type: 3}
+      propertyPath: m_Name
+      value: Start Game (Button)
+      objectReference: {fileID: 0}
     - target: {fileID: 4523068800544665695, guid: 5fe4420d79b3f3d439ff66da2078d590,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1867,11 +1867,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8228002214941406136}
     m_Modifications:
-    - target: {fileID: 3951131293733465747, guid: 57c5e475c2b07b44e94e13f66f30cc9e,
-        type: 3}
-      propertyPath: m_Name
-      value: LeaderBoard
-      objectReference: {fileID: 0}
     - target: {fileID: 4846751983175917824, guid: 57c5e475c2b07b44e94e13f66f30cc9e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1942,6 +1937,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3951131293733465747, guid: 57c5e475c2b07b44e94e13f66f30cc9e,
+        type: 3}
+      propertyPath: m_Name
+      value: LeaderBoard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57c5e475c2b07b44e94e13f66f30cc9e, type: 3}
 --- !u!1 &833314747715177077 stripped
@@ -1963,11 +1963,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8228002214941406136}
     m_Modifications:
-    - target: {fileID: 6620625391939317466, guid: b493e751f9d04af4c8c96f29bba7b9b5,
-        type: 3}
-      propertyPath: m_Name
-      value: Exit (Button)
-      objectReference: {fileID: 0}
     - target: {fileID: 252371510, guid: b493e751f9d04af4c8c96f29bba7b9b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2051,6 +2046,11 @@ PrefabInstance:
     - target: {fileID: 252371510, guid: b493e751f9d04af4c8c96f29bba7b9b5, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620625391939317466, guid: b493e751f9d04af4c8c96f29bba7b9b5,
+        type: 3}
+      propertyPath: m_Name
+      value: Exit (Button)
       objectReference: {fileID: 0}
     - target: {fileID: 2268570238814503766, guid: b493e751f9d04af4c8c96f29bba7b9b5,
         type: 3}
