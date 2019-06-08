@@ -438,7 +438,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.29470673
+      - time: 0.34418198
         functionName: GroundSlam
         data: 
         objectReferenceParameter: {instanceID: 0}
