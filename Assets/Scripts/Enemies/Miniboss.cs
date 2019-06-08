@@ -34,6 +34,9 @@ public class Miniboss : EnemyGeneric
     [SerializeField]
     private AudioClip[] hurtSound;
 
+    [SerializeField]
+    private AudioClip[] dieSound;
+
     private void Start()
     {
         health = maxHP;
@@ -235,6 +238,8 @@ public class Miniboss : EnemyGeneric
 
     public override void Die()
     {
+        AudioClip clip = GetRandomDieSound();
+        source.PlayOneShot(clip);
         overmind.GetComponent<Overmind>().RemoveMiniboss();
         GetComponent<EnemyMovement>().Die(0.5f);
         int droppedScraps = Random.Range(10, 50);
@@ -292,5 +297,10 @@ public class Miniboss : EnemyGeneric
     private AudioClip GetRandomHurtSound()
     {
         return hurtSound[UnityEngine.Random.Range(0, hurtSound.Length)];
+    }
+
+    private AudioClip GetRandomDieSound()
+    {
+        return dieSound[UnityEngine.Random.Range(0, dieSound.Length)];
     }
 }

@@ -822,6 +822,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 692326b01e99cf147a290bae663268f2, type: 3}
   - {fileID: 8300000, guid: 70b2b96480e8b7848b9b0bdd53919987, type: 3}
   - {fileID: 8300000, guid: 7d4096a20dd17f34396f70ae59cf2011, type: 3}
+  dieSound:
+  - {fileID: 8300000, guid: 35f9937868824194b8373ddd26bafef5, type: 3}
+  - {fileID: 8300000, guid: ca6462fc6bcba474f85fbf4512076177, type: 3}
 --- !u!143 &6935674336609906781
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5711,11 +5714,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 912e7783624119e438fdc78b9cb43fac, type: 3}
   - {fileID: 8300000, guid: e96fed38017a7df45b8f244474663d35, type: 3}
   getupSounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: c9e36a600abd3214fad4bda3e976a16f, type: 3}
+  - {fileID: 8300000, guid: 4155faa8072c7804b82a09fe1e43397f, type: 3}
+  - {fileID: 8300000, guid: d57d2e7d2569d634a88ab8f63ee3e1fe, type: 3}
 --- !u!1 &3235891743541830269
 GameObject:
   m_ObjectHideFlags: 0
