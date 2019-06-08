@@ -9,7 +9,7 @@
 [LOG] DownMix::init                            : done.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000000046B25D98 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 00000000927A0738 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -22,106 +22,7 @@
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] SystemI::createSound                     : filename = Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000000483AD328 : node = 000000001459CC40
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000043F000E8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000483AD328
-[LOG] SystemI::createSound                     : filename = Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSoundInternal             :     Create name='Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4237856
-[LOG] SystemI::createSound                     :     setdata soundi = 00000000483AD9E8 : node = 000000001459BDD0
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22240
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000043F000E8.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000001459CD58
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='mus_neotyo_01_trimmed', format=2, channels=2, frequency=48000, lengthbytes=800128, lengthpcm=2633614, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.966278.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000483AD328
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000483AD9E8
-[LOG] SystemI::createSoundInternal             :     Create name='Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4237856
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22240
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000001459BEE8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='mus_neotyo_01_trimmed', format=2, channels=2, frequency=48000, lengthbytes=800128, lengthpcm=2633614, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.966278.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000483AD9E8
-[LOG] SoundI::getSubSound                      : sound 00000000483AD328.  Subsound index 0 / 1
-[LOG] SoundI::getSubSound                      : sound 00000000483AD9E8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : mus_neotyo_01_trimmed (00000000483AC758)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (0000000043F017F8)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000483AD838)
-[LOG] SoundI::release                          : mus_neotyo_01_trimmed (00000000483AD178)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (0000000043F002D8)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000483ACE18)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] SystemI::createSound                     : filename = Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000000008B8AF808 : node = 000000008C516490
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000043F000E8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000000008B8AF808
-[LOG] SystemI::createSoundInternal             :     Create name='Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     filename = Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4237856
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22240
-[LOG] SystemI::createSound                     :     setdata soundi = 00000000CE17F0A8 : node = 000000008C515E00
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     add node to async list : head = 0000000043F000E8.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000008C5165A8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='mus_neotyo_01_trimmed', format=2, channels=2, frequency=48000, lengthbytes=800128, lengthpcm=2633614, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.966278.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000000008B8AF808
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000CE17F0A8
-[LOG] SystemI::createSoundInternal             :     Create name='Assets\Audio\Jake's work\Music\Killer Outfit\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4237856
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 22240
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000000008C515F18
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='mus_neotyo_01_trimmed', format=2, channels=2, frequency=48000, lengthbytes=800128, lengthpcm=2633614, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.966278.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000CE17F0A8
-[LOG] SoundI::getSubSound                      : sound 000000008B8AF808.  Subsound index 0 / 1
-[LOG] SoundI::getSubSound                      : sound 00000000CE17F0A8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : mus_neotyo_01_trimmed (00000000483AD9E8)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000CD4778D8)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000CD59ED68)
-[LOG] SoundI::release                          : mus_neotyo_01_trimmed (00000000483AD328)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000CD475518)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000CD59E858)
-[LOG] SoundI::release                          : mus_neotyo_01_trimmed (00000000CE17F0A8)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000CD477258)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000CDF3F408)
-[LOG] SoundI::release                          : mus_neotyo_01_trimmed (000000008B8AF808)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000CD474678)
-[LOG] SoundI::release                          :     mus_neotyo_01_trimmed (00000000CDF3EB98)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
@@ -132,19 +33,10 @@
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.
