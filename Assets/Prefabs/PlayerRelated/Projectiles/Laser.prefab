@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
-  damage: 10
+  damage: 15
   hasHit: 0
   currentTime: 0
 --- !u!1001 &7206787258822986254

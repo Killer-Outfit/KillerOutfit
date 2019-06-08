@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 50
-  damage: 50
+  damage: 15
   Scrap: {fileID: 6678152591484481640, guid: 9b18424f429953b499232568ecf6361e, type: 3}
   chargeParticle: {fileID: 8704751111199571759, guid: 1c5322534d44ab64ebfce65c66f62ba8,
     type: 3}
@@ -1607,9 +1607,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2c0609812ec91a044b7a8846c13372cb, type: 3}
   - {fileID: 8300000, guid: 9aabb263d3ffb07499dd0c3438da24aa, type: 3}
   - {fileID: 8300000, guid: 39e8dfdfdf4a0ef40b7dedd42fc9d21f, type: 3}
+  attackGrunts: []
+  attackLolita: []
+  laserTaunt: []
   laser: {fileID: 8300000, guid: e4c0e8b848e8a4440a5fc2e1dcf854e9, type: 3}
   heart: {fileID: 8300000, guid: 2f8bda6b1a8171948831dcd86f7752f5, type: 3}
   wave: {fileID: 0}
+  heartTaunt: {fileID: 0}
   volume: 1
 --- !u!82 &2887718524278051753
 AudioSource:

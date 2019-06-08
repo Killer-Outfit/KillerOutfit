@@ -55,7 +55,7 @@ public class O2MExplosion : MonoBehaviour
         if (c.gameObject.tag == "Enemy" && hit == false)
         {
             hit = true;
-            c.gameObject.GetComponent<EnemyGeneric>().TakeDamage(10f, false);
+            c.gameObject.GetComponent<EnemyGeneric>().TakeDamage(20f, false);
         }
     }
 }

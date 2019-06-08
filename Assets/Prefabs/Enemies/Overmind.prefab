@@ -302,6 +302,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointLocations:
   - 15
-  - 230
-  - 280
-  - 310
+  - 115
+  - 185
+  - 260
+  - 335
+  - 395
+  - 495

@@ -318,7 +318,7 @@ public class playerNew : MonoBehaviour
                     {
                         if (currentHealth != maxHealth && spendScraps(1))
                         {
-                            increaseHealth(.5f);
+                            increaseHealth(2f);
                         }
                     }
                     if (state != "idle" && state != "run") //If this during an attack string

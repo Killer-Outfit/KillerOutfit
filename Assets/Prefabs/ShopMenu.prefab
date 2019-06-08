@@ -18,7 +18,7 @@ MonoBehaviour:
   unlocked: 0
   outfitDisplay: {fileID: 7143304366136211799}
   item: {fileID: 0}
-  cost: 5
+  cost: 30
   menuHover:
   - {fileID: 8300000, guid: cf005ac782de4b3499ee09312ffdbd00, type: 3}
   - {fileID: 8300000, guid: 26e48268d359b4a41bc4f03f0b202ca2, type: 3}
@@ -942,6 +942,11 @@ PrefabInstance:
       propertyPath: misc
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5274593788037500345, guid: 0d02834c54953e944a0181d8cfdd87c7,
+        type: 3}
+      propertyPath: cost
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d02834c54953e944a0181d8cfdd87c7, type: 3}
 --- !u!4 &5361428855534424961 stripped
@@ -1618,6 +1623,11 @@ PrefabInstance:
       propertyPath: misc
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8204501433964601456, guid: 1bd5c116b3911514aaa71074009e9b16,
+        type: 3}
+      propertyPath: cost
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1686883669603964391, guid: 1bd5c116b3911514aaa71074009e9b16,
         type: 3}
       propertyPath: m_Enabled
@@ -2080,6 +2090,11 @@ PrefabInstance:
         type: 3}
       propertyPath: selected
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204501433964601456, guid: 1bd5c116b3911514aaa71074009e9b16,
+        type: 3}
+      propertyPath: cost
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd5c116b3911514aaa71074009e9b16, type: 3}
@@ -2603,6 +2618,11 @@ PrefabInstance:
       propertyPath: selected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8204501433964601456, guid: 1bd5c116b3911514aaa71074009e9b16,
+        type: 3}
+      propertyPath: cost
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd5c116b3911514aaa71074009e9b16, type: 3}
 --- !u!4 &6009240686802769676 stripped
@@ -2836,7 +2856,7 @@ PrefabInstance:
     - target: {fileID: 7434429468167066664, guid: caa6d8cba75588d4e978b53ab7073d58,
         type: 3}
       propertyPath: cost
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caa6d8cba75588d4e978b53ab7073d58, type: 3}
@@ -3024,6 +3044,11 @@ PrefabInstance:
       propertyPath: unlocked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8204501433964601456, guid: 1bd5c116b3911514aaa71074009e9b16,
+        type: 3}
+      propertyPath: cost
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd5c116b3911514aaa71074009e9b16, type: 3}
 --- !u!4 &6740400590884294929 stripped
@@ -3135,6 +3160,11 @@ PrefabInstance:
       propertyPath: unlocked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8204501433964601456, guid: 1bd5c116b3911514aaa71074009e9b16,
+        type: 3}
+      propertyPath: cost
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd5c116b3911514aaa71074009e9b16, type: 3}
 --- !u!4 &6679897175562685370 stripped
@@ -3214,6 +3244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441440103928739457, guid: 0a47097a430d8af40804dc344e391c76,
+        type: 3}
+      propertyPath: cost
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a47097a430d8af40804dc344e391c76, type: 3}
