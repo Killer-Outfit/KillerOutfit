@@ -629,7 +629,7 @@ public class playerNew : MonoBehaviour
 
     public void spawnText(string textForSpawner)
     {
-        Debug.Log(textForSpawner);
+        //Debug.Log(textForSpawner);
         Vector3 pos = new Vector3(transform.position.x, transform.position.y + 4, transform.position.z);
         curTextBoi = Instantiate(textBoi, pos, Quaternion.identity);
         curTextBoi.GetComponent<PopupText>().assignText(textForSpawner);

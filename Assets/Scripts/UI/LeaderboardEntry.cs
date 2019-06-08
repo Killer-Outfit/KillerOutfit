@@ -5,19 +5,22 @@ using UnityEngine.UI;
 
 public class LeaderboardEntry : MonoBehaviour
 {
-    InputField inputField;
-
-    void Awake()
+    private string[] letters;
+    private bool stickInputAccepted;
+    public bool hover;
+    private void Start()
     {
-        inputField = GetComponent<InputField>();
-        inputField.onValueChanged.AddListener(delegate { Manage(); });
+        letters = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        stickInputAccepted = false;   
     }
-    void Manage()
+    private void Update()
     {
-        string text = inputField.text;
-        if (text != inputField.text.ToUpper())
+        if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0)
         {
-            inputField.text = inputField.text.ToUpper();
+            stickInputAccepted = true;
+        }
+        if ((Input.GetButtonDown("AButton") || Input.GetMouseButtonDown(0)))
+        {
         }
     }
 }

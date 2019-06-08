@@ -60,7 +60,7 @@ public class CheckpointManager : MonoBehaviour
             t += Time.deltaTime;
             textColor.a += .1f;
             checkpointText.GetComponent<Text>().color = textColor;
-            Debug.Log(textColor.a);
+            //Debug.Log(textColor.a);
             yield return new WaitForSeconds(.01f);
         }
         while (t < 3f)

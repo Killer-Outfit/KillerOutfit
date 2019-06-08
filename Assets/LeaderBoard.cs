@@ -23,6 +23,7 @@ public class LeaderBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("hello");
         firstText = transform.GetChild(0).gameObject.GetComponent<Text>();
         secondText = transform.GetChild(1).gameObject.GetComponent<Text>();
         thirdText = transform.GetChild(2).gameObject.GetComponent<Text>();
@@ -63,21 +64,6 @@ public class LeaderBoard : MonoBehaviour
         }
     }
 
-    public void isBetter()
-    {
-        int score = GameObject.Find("PlayerBody").GetComponent<playerNew>().score;
-        if(score > PlayerPrefs.GetInt("1stScore", 0))
-        {
-            updateLeaderBoard("1st", score, "");
-        }else if(score > PlayerPrefs.GetInt("2ndScore", 0))
-        {
-            updateLeaderBoard("2nd", score, "");
-        }else if(score > PlayerPrefs.GetInt("3rdScore", 0))
-        {
-            updateLeaderBoard("3rd", score, "");
-        }
-    }
-
     public void updateLeaderBoard(string tag, int score, string playerName)
     {
         int tempScore = PlayerPrefs.GetInt(tag + "Score", 0);
@@ -86,16 +72,16 @@ public class LeaderBoard : MonoBehaviour
         PlayerPrefs.SetString(tag + "Name", playerName);
         if(tag == "1st")
         {
-            firstText.text = "1st: " + PlayerPrefs.GetString("1stName", "") + " " + PlayerPrefs.GetInt(tag + "Score", 0).ToString();
+            firstText.text = "1st: " + PlayerPrefs.GetString("1stName", "") + " " + PlayerPrefs.GetInt("1stScore", 0).ToString();
             updateLeaderBoard("2nd", tempScore, tempName);
         }else if (tag == "2nd")
         {
-            firstText.text = "2nd: " + PlayerPrefs.GetString("2ndName", "") + " " + PlayerPrefs.GetInt(tag + "Score", 0).ToString();
+            secondText.text = "2nd: " + PlayerPrefs.GetString("2ndName", "") + " " + PlayerPrefs.GetInt("2ndScore", 0).ToString();
             updateLeaderBoard("3rd", tempScore, tempName);
         }
         else if (tag == "3rd")
         {
-            firstText.text = "3rd: " + PlayerPrefs.GetString("3rdName", "") + " " + PlayerPrefs.GetInt(tag + "Score", 0).ToString();
+            thirdText.text = "3rd: " + PlayerPrefs.GetString("3rdName", "") + " " + PlayerPrefs.GetInt("3rdScore", 0).ToString();
         }
     }
 }
