@@ -44,6 +44,10 @@ public class playerNew : MonoBehaviour
     private AudioClip[] kickSounds;
     [SerializeField]
     private AudioClip[] miscSounds;
+    [SerializeField]
+    private AudioClip[] damageSounds;
+    [SerializeField]
+    private AudioClip[] deathSounds;
     private AudioSource audioSource;
 
     public Material face;
@@ -655,10 +659,14 @@ public class playerNew : MonoBehaviour
         {   // If the player dies, enable the Game Over menu so players can restart or quit to main menu
             currentHealth = 0;
             healthbar.transform.localScale = new Vector3(0, 0, 0);
+            clip = GetRandomDeath();
+            audioSource.PlayOneShot(clip);
             killPlayer();
         }
         else
         {
+            clip = GetRandomDamage();
+            audioSource.PlayOneShot(clip);
             healthbar.transform.localScale -= new Vector3(damage / 100, 0, 0);
         }
         //Debug.Log(currentHealth);
@@ -853,6 +861,16 @@ public class playerNew : MonoBehaviour
     private AudioClip GetRandomMisc()
     {
         return miscSounds[UnityEngine.Random.Range(0, miscSounds.Length)];
+    }
+
+    private AudioClip GetRandomDamage()
+    {
+        return damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
+    }
+
+    private AudioClip GetRandomDeath()
+    {
+        return deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
     }
 }
 

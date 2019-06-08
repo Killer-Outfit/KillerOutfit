@@ -1970,6 +1970,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a40dd091129d0d543bbfb30234ec9181, type: 3}
   - {fileID: 8300000, guid: b5821838e5d3f024ba1e8dd5aa32b4f5, type: 3}
   - {fileID: 8300000, guid: f1bbca62e6a0fd241b70c6610b65cd42, type: 3}
+  damageSounds:
+  - {fileID: 8300000, guid: c87c2633246d07443988428fa2f9b086, type: 3}
+  - {fileID: 8300000, guid: 7cc6922f4f512ab458e0df0a0d15187a, type: 3}
+  - {fileID: 8300000, guid: ecc60e72f77b9794c85b51b12fc578e5, type: 3}
+  - {fileID: 8300000, guid: 01c6e80dfa3505d479cb857bdd3380b7, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: e7c3bbf380e5c2447b22d0858d186227, type: 3}
+  - {fileID: 8300000, guid: 511cd50d1fb3d304ca21c53e96911327, type: 3}
   face: {fileID: 2100000, guid: 54ecadad8560c9944b8eaf3a659c41e1, type: 2}
   score: 0
   currentHealth: 0
