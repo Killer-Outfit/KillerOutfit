@@ -11,7 +11,7 @@ public class O1M3 : MonoBehaviour
         timer = 5;
         foreach( GameObject e in GameObject.FindGameObjectsWithTag("Enemy"))
         {
-            e.GetComponent<EnemyGeneric>().TakeDamage(10f, true);
+            e.GetComponent<EnemyGeneric>().TakeDamage(15f, true);
         }
     }
 

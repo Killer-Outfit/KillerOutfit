@@ -50,7 +50,7 @@ public class O1M1 : MonoBehaviour
             hit = true;
             GameObject p = Instantiate(hitParticle, transform.position, transform.rotation, null);
             p.transform.Rotate(0, 90, 0);
-            c.gameObject.GetComponent<EnemyGeneric>().TakeDamage(10f, true);
+            c.gameObject.GetComponent<EnemyGeneric>().TakeDamage(20f, true);
             Burst();
         }
     }
