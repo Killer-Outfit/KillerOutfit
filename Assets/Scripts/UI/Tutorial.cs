@@ -64,7 +64,7 @@ public class Tutorial : MonoBehaviour
         activeMessage.text = tutorialMessages[num];
         Time.timeScale = 0;
 
-        if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space) || Input.anyKey && Input.GetAxis("Horizontal") == 0)
         {
             player.GetComponent<playerNew>().input = true;
             //Debug.Log("tutorial acknowledged");

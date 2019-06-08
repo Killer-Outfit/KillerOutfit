@@ -41,11 +41,13 @@ public class StartGame : MonoBehaviour
     SpriteRenderer subLerp;
     SpriteRenderer[] lerps;
     float tim;
+    Image background;
 
     private Text activeMessage;
 
     void Awake()
     {
+        background = GameObject.Find("Image").GetComponent<Image>();
         music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Main Menu");
         music.start();
         Time.timeScale = 1.0f;
@@ -89,6 +91,7 @@ public class StartGame : MonoBehaviour
         quit.SetActive(false);
         title.SetActive(false);
         board.SetActive(false);
+        background.color = Color.black;
 
         //StartCoroutine(LoadAsync());
         StartCoroutine(PlayCutscene());
