@@ -7,6 +7,10 @@ public class lazerSpawner : MonoBehaviour
     public Collider skyLaser;
     public Collider targetTracker;
     public ParticleSystem target;
+    public AudioClip laserSpawn;
+    //public AudioClip explosion;
+    public AudioClip laserDestroy;
+
     private GameObject mainCam; 
     private Vector3 pos;
     private float rotate;
@@ -18,10 +22,12 @@ public class lazerSpawner : MonoBehaviour
     private bool startLasers;
     private Quaternion targetRotation;
     private GameObject player;
+    private AudioSource source;
     
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         player = GameObject.Find("PlayerBody");
         startLasers = false;
         targets = new List<ParticleSystem>();
@@ -53,6 +59,7 @@ public class lazerSpawner : MonoBehaviour
         {
             targetSpawnPos = new Vector3(Random.Range(xRange[0], xRange[1]), 0, Random.Range(zRange[0], zRange[1]));
             //Debug.Log(targetSpawnPos);
+            source.PlayOneShot(laserSpawn);
             ParticleSystem ring = Instantiate(target, targetSpawnPos, transform.rotation);
             targets.Add(ring);
             yield return new WaitForSeconds(.1f);
@@ -76,6 +83,7 @@ public class lazerSpawner : MonoBehaviour
     {
         for(int i = 0; i < targets.Count; i++)
         {
+            AudioSource.PlayClipAtPoint(laserDestroy, targets[i].gameObject.transform.position);
             Destroy(targets[i].gameObject);
         }
     }

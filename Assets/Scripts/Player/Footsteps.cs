@@ -9,6 +9,8 @@ public class Footsteps : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public AudioClip stomp;
+
     public float volume;
 
     void Awake()
@@ -20,6 +22,11 @@ public class Footsteps : MonoBehaviour
     {
         AudioClip clip = GetRandomClip();
         audioSource.PlayOneShot(clip, volume);
+    }
+
+    private void Stomp()
+    {
+        audioSource.PlayOneShot(stomp, volume);
     }
 
     private AudioClip GetRandomClip()
