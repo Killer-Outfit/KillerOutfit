@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CheckpointManager : MonoBehaviour
 {
     private Vector3 PlayerPos;
@@ -15,12 +15,15 @@ public class CheckpointManager : MonoBehaviour
     private Camera mainCam;
     private int nextCombatNumber;
     private Vector3 camCheckpointPos;
-
+    private GameObject checkpointText;
+    private Color textColor;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        checkpointText = GameObject.Find("Checkpoint Text");
+        textColor = checkpointText.GetComponent<Text>().color;
         camCheckpointPos = new Vector3(0f, 0f, 0f);
         nextCombatNumber = 0;
         PlayerPos = new Vector3(-26.71169f, 170f, -304f);
@@ -38,6 +41,7 @@ public class CheckpointManager : MonoBehaviour
         if (mainCam.transform.position.x >= checkpointLocations[currentCheckpoint])
         {
             Debug.Log("Updated Checkpoints");
+            StartCoroutine("textAppear");
             camCheckpointPos = mainCam.transform.position;
             PlayerPos = Player.transform.position;
             currentCheckpoint++;
@@ -48,7 +52,27 @@ public class CheckpointManager : MonoBehaviour
             nextCombatNumber = this.gameObject.GetComponent<Map>().currentCombatNum;
         }
     }
-
+    IEnumerator textAppear()
+    {
+        float t = 0f;
+        while (t < 1.5f)
+        {
+            t += Time.deltaTime;
+            textColor.a += .1f;
+            checkpointText.GetComponent<Text>().color = textColor;
+            Debug.Log(textColor.a);
+            yield return new WaitForSeconds(.01f);
+        }
+        while (t < 3f)
+        {
+            t += Time.deltaTime;
+            textColor.a -= .1f;
+            checkpointText.GetComponent<Text>().color = textColor;
+            yield return new WaitForSeconds(.01f);
+        }
+        textColor.a = 0f;
+        checkpointText.GetComponent<Text>().color = textColor;
+    }
     public void restartAtCheckpoint()
     {
         Player.GetComponent<playerNew>().energy = energy;
@@ -62,6 +86,16 @@ public class CheckpointManager : MonoBehaviour
         mainCam.GetComponent<CameraScript>().revive(camCheckpointPos);
         this.gameObject.GetComponent<Map>().reset();
     }
-   
 
+    public bool continueGame(){
+        if (Player.GetComponent<playerNew>().spendScore(20000))
+        {
+            restartAtCheckpoint();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

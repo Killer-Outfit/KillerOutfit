@@ -18,6 +18,7 @@ public class lazerSpawner : MonoBehaviour
     private bool startLasers;
     private Quaternion targetRotation;
     private GameObject player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class lazerSpawner : MonoBehaviour
         mainCam = GameObject.Find("Main Camera");
         
         xRange = new Vector2(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x - 17.4f, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x + 17.4f);
-        Debug.Log(xRange);
+        //Debug.Log(xRange);
         zRange = new Vector2(-4, 3);
         StartCoroutine("spawn");
     }
@@ -51,7 +52,7 @@ public class lazerSpawner : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             targetSpawnPos = new Vector3(Random.Range(xRange[0], xRange[1]), 0, Random.Range(zRange[0], zRange[1]));
-            Debug.Log(targetSpawnPos);
+            //Debug.Log(targetSpawnPos);
             ParticleSystem ring = Instantiate(target, targetSpawnPos, transform.rotation);
             targets.Add(ring);
             yield return new WaitForSeconds(.1f);
@@ -65,6 +66,8 @@ public class lazerSpawner : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(targets[i].transform.position.x, targets[i].transform.position.y + 20f, targets[i].transform.position.z);
             Collider las = Instantiate(skyLaser, spawnPos, transform.rotation);
+            Vector3 tSpawnPos = new Vector3(targets[i].transform.position.x, targets[i].transform.position.y, targets[i].transform.position.z);
+            targets[i].GetComponent<targetRing>().spawnExplosionsB = true;
             yield return new WaitForSeconds(.1f);
         }
     }
