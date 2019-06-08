@@ -401,6 +401,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.35820043
+        functionName: Lolita
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.6661952
         functionName: Whoosh
         data: 
@@ -436,6 +443,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.10298508
+        functionName: Lolita
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.4019851
         functionName: Whoosh
         data: 
@@ -471,6 +485,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.041791044
+        functionName: Lolita
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.5235732
         functionName: Whoosh
         data: 
@@ -487,6 +508,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.8287841
         functionName: Whoosh
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.83624613
+        functionName: Lolita
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -282,8 +282,22 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: Grunt
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.12588401
         functionName: Whoosh
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.18660969
+        functionName: Grunt
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -296,8 +310,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.2977208
+        functionName: Grunt
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.34087694
         functionName: Whoosh
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3822001
+        functionName: Grunt
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -324,6 +352,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.5284687
+        functionName: Grunt
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.56435645
         functionName: Whoosh
         data: 
@@ -345,8 +380,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.65242165
+        functionName: Grunt
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.68033946
         functionName: Whoosh
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6865374
+        functionName: Grunt
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -387,6 +436,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: Grunt
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.2143161
         functionName: Whoosh
         data: 
@@ -403,6 +459,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.39179632
         functionName: GroundSlam
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6938172
+        functionName: Grunt
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
