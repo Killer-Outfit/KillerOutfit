@@ -9,6 +9,8 @@ public class Tutorial : MonoBehaviour
     [TextArea]
     public string[] tutorialMessages;
 
+    public bool tutorialOn;
+
     private Camera mainCam;
     private GameObject player;
     private Text activeMessage;
@@ -23,6 +25,7 @@ public class Tutorial : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        tutorialOn = false;
         player = GameObject.Find("PlayerBody");
         mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
         currentTutorialNum = 0;
@@ -53,6 +56,7 @@ public class Tutorial : MonoBehaviour
 
     private void DisplayTutorial(int num)
     {
+        tutorialOn = true;
         player.GetComponent<playerNew>().input = false;
         healthBar.SetActive(false);
         energyBar.SetActive(false);
@@ -66,6 +70,7 @@ public class Tutorial : MonoBehaviour
 
         if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space) || Input.anyKey && Input.GetAxis("Horizontal") == 0)
         {
+            tutorialOn = false;
             player.GetComponent<playerNew>().input = true;
             //Debug.Log("tutorial acknowledged");
             Time.timeScale = 1;
@@ -80,6 +85,7 @@ public class Tutorial : MonoBehaviour
         }
         else if (Input.GetButtonDown("BButton") || Input.GetKeyDown(KeyCode.E))
         {
+            tutorialOn = false;
             player.GetComponent<playerNew>().input = true;
             //Debug.Log("tutorial acknowledged");
             Time.timeScale = 1;

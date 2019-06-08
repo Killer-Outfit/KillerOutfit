@@ -76,6 +76,8 @@ public class playerNew : MonoBehaviour
     private GameObject healthBarUI;
     private GameObject energyBarUI;
 
+    private bool tutorial;
+
     private GameObject audioController;
 
     private List<Color> trailColors;
@@ -155,6 +157,7 @@ public class playerNew : MonoBehaviour
 
     void Awake()
     {
+        tutorial = GameObject.Find("Overmind").GetComponent<Tutorial>().tutorialOn;
         pauseMenu = GameObject.Find("PauseMenuElements");
     }
 
@@ -242,7 +245,7 @@ public class playerNew : MonoBehaviour
                     curX = (int)transform.position.x;
                 }
                 // Get inputs and put them into the queue
-                if (state != "stagger" && input && !pauseMenu.activeInHierarchy)
+                if (state != "stagger" && input && !pauseMenu.activeInHierarchy && !tutorial)
                 {
                     if (Input.GetButtonDown("XButton") || Input.GetMouseButtonDown(0))
                     {
