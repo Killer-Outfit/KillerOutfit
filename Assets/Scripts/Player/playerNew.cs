@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class playerNew : MonoBehaviour
 {
+    FMOD.Studio.Bus bus;
+
     public bool debugmode = false; // set true for hitbox debugging
 
     private GameObject enemyManager;
@@ -144,6 +146,7 @@ public class playerNew : MonoBehaviour
         };
 
         masterBus = FMODUnity.RuntimeManager.GetBus(masterBusString);
+        bus = FMODUnity.RuntimeManager.GetBus("Bus:/");
     }
 
     void Awake()
@@ -743,6 +746,7 @@ public class playerNew : MonoBehaviour
         audioController.SetActive(false);
         Time.timeScale = 0.0f;
         gameOver.SetActive(true);
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
         loseSound.Play();
         //Destroy(this.gameObject);
     }

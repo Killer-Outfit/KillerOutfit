@@ -74,7 +74,7 @@ public class ShopControl : MonoBehaviour
         {
             curFrame = 0;
         }
-        if (Input.GetButtonDown("AButton") && openable)
+        if (Input.GetButtonDown("YButton") && openable)
 		{
 			maincam.enabled = !maincam.enabled;
             shopcam.enabled = !shopcam.enabled;

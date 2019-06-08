@@ -237,28 +237,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialPositions:
-  - 25
-  - 55
-  - 85
-  - 115
-  - 145
+  - 5
+  - 10
+  - 17
+  - 23
+  - 30
+  - 90
   - 165
   - 185
   - 210
   - 10000
   tutorialMessages:
-  - Press X to punch.
-  - Press B to kick.
-  - Press A to do a special attack.
-  - Every attack has theree versions, each more powerful than the last. Follow up
-    your attacks quickly to use them.
-  - Try stringing together combos of different attack types to build your own combat
-    style.
-  - Scraps can be used to heal yourself. Press LB to heal yourself.
-  - Your fashion style also affects your fighting style. New outfits can be bought
-    with scraps at stores found throughout the level. Keep your eye out for other
-    underground designers.
-  - Now, go show the world your killer fashion sense.
+  - 'Welcome to Killer Outfit!
+
+
+    Press the A button / Spacebar to close this message and follow the tutorial.  You
+    can end the tutorial at any of these messages by pressing B / E.'
+  - 'Press the X button / LMB to do a Punch Attack.
+
+
+    Press the A button / Spacebar to close this message and all messages hereafter.  Remember
+    you can end the tutorial at any of these messages by pressing B / E.'
+  - 'Those cones are in your way, but you won''t be able to hit them with Punch Attacks.
+
+
+    Press the B button / RMB to do a Kick Attack and break them.'
+  - 'Destroying objects and defeating enemies drop Scraps.
+
+
+    Walk over Scraps to collect them.  You can see how many Scraps you have in the
+    bottom right corner.'
+  - 'Performing quick consecutive attacks create Combos.
+
+    Combos are three attacks long, and can be strung together with the different attack
+    buttons.  The more you string together, the harder they hit.
+
+
+    Try stringing together combos of different attack types to build your own combat
+    style.'
+  - "If you're stuck in a pinch, press the A button / SpaceBar to perform an Accessory
+    Attack.  \n\nAccessory Attacks use up bars of your Style Energy Meter, just below
+    your Stamina Bar.  When used in a Combo, the amount of Energy Bars used depends
+    on where the attack is used in the Combo.\nYou regain Energy when taking damage
+    or hitting enemies.\n\nTry out a few Accessory Attacks and you'll get the hang
+    of it."
+  - Scraps can be used to heal yourself. Press LT / F  to heal yourself.
+  - "Your fashion style also affects your fighting style. New outfits can be crafted
+    with Scraps at hidden Safe Zones found throughout the level. \nAccess these Safe
+    Zones by approaching the Mannequin and pressing the Y button / E.\n\nKeep your
+    eye out for these Safe Zones by their distinctive Mannequin."
+  - Now use what you've learned and go show the world your Killer fashion sense!
+  - 
 --- !u!114 &2006372798158454690
 MonoBehaviour:
   m_ObjectHideFlags: 0
