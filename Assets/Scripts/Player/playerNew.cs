@@ -322,7 +322,7 @@ public class playerNew : MonoBehaviour
                     {
                         if (currentHealth != maxHealth && spendScraps(1))
                         {
-                            increaseHealth(.5f);
+                            increaseHealth(2f);
                         }
                     }
                     if (state != "idle" && state != "run") //If this during an attack string
@@ -633,7 +633,7 @@ public class playerNew : MonoBehaviour
 
     public void spawnText(string textForSpawner)
     {
-        Debug.Log(textForSpawner);
+        //Debug.Log(textForSpawner);
         Vector3 pos = new Vector3(transform.position.x, transform.position.y + 4, transform.position.z);
         curTextBoi = Instantiate(textBoi, pos, Quaternion.identity);
         curTextBoi.GetComponent<PopupText>().assignText(textForSpawner);
