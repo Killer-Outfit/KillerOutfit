@@ -6,10 +6,12 @@ public class menuCharacter : MonoBehaviour
 {
     public Material face;
     private float tiltAroundy;
+    private Cloth outfitMenuCloth;
 
     // Start is called before the first frame update
     void Start()
     {
+        outfitMenuCloth = GameObject.Find("MenuTop").GetComponent<Cloth>();
         tiltAroundy = -35f;
     }
 
@@ -49,6 +51,11 @@ public class menuCharacter : MonoBehaviour
         else
         {
             newOutfit.outfitMenuSkinRenderer.material = newOutfit.outfitMaterial;
+        }
+        //Debug.Log(newOutfit.name);
+        if(newOutfit.name == "TOP_3")
+        {
+            outfitMenuCloth.enabled = true;
         }
     }
 }

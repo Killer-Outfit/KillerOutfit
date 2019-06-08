@@ -26,7 +26,7 @@ public class playerNew : MonoBehaviour
     private GameObject[] energyBars;
 
     private int curX;
-    private int combo;
+    public int combo;
     private float qTime;
     private float hTime;
     private GameObject scoreUI;
@@ -193,6 +193,39 @@ public class playerNew : MonoBehaviour
                     else
                     {
                         score += 1;
+                    }
+
+                }
+
+                if (score > maxScore)
+                {
+                    if (difference < -1000)
+                    {
+                        score += -500;
+                    }
+                    else if (difference < -600)
+                    {
+                        score += -300;
+                    }
+                    else if (difference < -200)
+                    {
+                        score += -100;
+                    }
+                    else if (difference < -100)
+                    {
+                        score += -20;
+                    }
+                    else if (difference < -60)
+                    {
+                        score += -15;
+                    }
+                    else if (difference < -20)
+                    {
+                        score += -10;
+                    }
+                    else
+                    {
+                        score += -1;
                     }
 
                 }
@@ -692,9 +725,9 @@ public class playerNew : MonoBehaviour
 
     public bool spendScore(int scoreSpediture)
     {
-        if (score >= scoreSpediture)
+        if (maxScore >= scoreSpediture)
         {
-            score -= scoreSpediture;
+            maxScore -= scoreSpediture;
             return true;
         }
         return false;

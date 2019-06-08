@@ -305,15 +305,15 @@ public class clickable : MonoBehaviour
 
     public void purchaseItem()
     {
-        Debug.Log("in purchase item");
+        //Debug.Log("in purchase item");
         if(player.GetComponent<playerNew>().spendScraps(cost))
         {
-            Debug.Log("SpentScraps");
+            //Debug.Log("SpentScraps");
             unlocked = true;
             selected = false;
         }else
         {
-            Debug.Log("NotEnoughScraps");
+            //Debug.Log("NotEnoughScraps");
             selected = false;
             StartCoroutine("notEnough");
         }
