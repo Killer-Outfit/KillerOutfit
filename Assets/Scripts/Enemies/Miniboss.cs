@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Subscript for Miniboss.
 public class Miniboss : EnemyGeneric
-{
+{ 
     public SphereCollider atkBox;
     public SphereCollider groundDetector;
     public GameObject hitParticle;
@@ -27,6 +27,12 @@ public class Miniboss : EnemyGeneric
     public GameObject armature;
     private ParticleSystem ps;
     private ParticleSystem.EmissionModule em;
+    private AudioSource source;
+
+    [SerializeField]
+    private AudioClip[] hitTaunt;
+    [SerializeField]
+    private AudioClip[] hurtSound;
 
     private void Start()
     {
@@ -72,6 +78,8 @@ public class Miniboss : EnemyGeneric
     {
         if(vulnerable)
         {
+            AudioClip clip = GetRandomHurtSound();
+            source.PlayOneShot(clip);
             Damage(atk);
             //GetComponent<EnemyMovement>().Stagger();
         }
@@ -215,6 +223,8 @@ public class Miniboss : EnemyGeneric
             {
                 c.gameObject.GetComponent<playerNew>().decreaseHealth(damage);
                 hitPlayer = true;
+                AudioClip clip = GetRandomHitTaunt();
+                source.PlayOneShot(clip);
                 GameObject p = Instantiate(hitParticle, atkBox.bounds.center, transform.rotation, null);
                 p.transform.Rotate(0, 90, 0);
                 var main = p.GetComponent<ParticleSystem>().main;
@@ -272,5 +282,15 @@ public class Miniboss : EnemyGeneric
         yield return new WaitForSeconds(1f);
         GetComponent<EnemyMovement>().ResumeMovement();
         yield return null;
+    }
+
+    private AudioClip GetRandomHitTaunt()
+    {
+        return hitTaunt[UnityEngine.Random.Range(0, hitTaunt.Length)];
+    }
+
+    private AudioClip GetRandomHurtSound()
+    {
+        return hurtSound[UnityEngine.Random.Range(0, hurtSound.Length)];
     }
 }

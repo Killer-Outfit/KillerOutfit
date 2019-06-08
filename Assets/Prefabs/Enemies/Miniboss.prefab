@@ -813,6 +813,15 @@ MonoBehaviour:
   punchDecel: 0.5
   numBounces: 3
   armature: {fileID: 3235891743541830595}
+  hitTaunt:
+  - {fileID: 8300000, guid: bd8563bd7fb31834ab65984885e1ff81, type: 3}
+  - {fileID: 8300000, guid: 6d6766ad50fc3c244b250d46ea9ae48d, type: 3}
+  - {fileID: 8300000, guid: a28e00242f9e5b045a459ef8f8e24e2f, type: 3}
+  hurtSound:
+  - {fileID: 8300000, guid: 2a6fdae8ef6e4114782b9f2847f4ed3f, type: 3}
+  - {fileID: 8300000, guid: 692326b01e99cf147a290bae663268f2, type: 3}
+  - {fileID: 8300000, guid: 70b2b96480e8b7848b9b0bdd53919987, type: 3}
+  - {fileID: 8300000, guid: 7d4096a20dd17f34396f70ae59cf2011, type: 3}
 --- !u!143 &6935674336609906781
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5695,6 +5704,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d08dbcb0608d0ae4481116c917fe7866, type: 3}
   - {fileID: 8300000, guid: 37ef8721da4dfe946aba2be8d87bc2f3, type: 3}
   - {fileID: 8300000, guid: c19686a1003f0f44ab39c2e6a4257d0c, type: 3}
+  chargeSounds:
+  - {fileID: 8300000, guid: 54612350e228cd74fac9adac2f26a6e1, type: 3}
+  - {fileID: 8300000, guid: b08c5ec76787b894b9df6a7c5d6d6edb, type: 3}
+  slipSounds:
+  - {fileID: 8300000, guid: 912e7783624119e438fdc78b9cb43fac, type: 3}
+  - {fileID: 8300000, guid: e96fed38017a7df45b8f244474663d35, type: 3}
+  getupSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &3235891743541830269
 GameObject:
   m_ObjectHideFlags: 0

@@ -522,6 +522,20 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.54077256
+        functionName: Slip
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8955651
+        functionName: Getup
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -552,6 +566,13 @@ ModelImporter:
       events:
       - time: 0.7997139
         functionName: GroundSlam
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.35479257
+        functionName: Slip
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -685,6 +706,13 @@ ModelImporter:
       events:
       - time: 0.8755365
         functionName: Stomp
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.08297568
+        functionName: Getup
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
