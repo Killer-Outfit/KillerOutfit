@@ -21098,11 +21098,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 775774967}
     m_Modifications:
-    - target: {fileID: 8967511213393797746, guid: 231c8ed42fabf47498499710b7b8a26b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 202.2998
-      objectReference: {fileID: 0}
     - target: {fileID: 2382746650821529261, guid: aedda80e6cc2d17408ab5b44ba0e7612,
         type: 3}
       propertyPath: m_Name
@@ -21197,6 +21192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967511213393797746, guid: 231c8ed42fabf47498499710b7b8a26b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 202.2998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aedda80e6cc2d17408ab5b44ba0e7612, type: 3}
@@ -25471,6 +25471,11 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 1562440503}
+    - target: {fileID: 4981140971752062828, guid: ddfea70ebd826c6409e9a11004cca059,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddfea70ebd826c6409e9a11004cca059, type: 3}
 --- !u!4 &1924474717959729471

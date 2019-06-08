@@ -8,6 +8,7 @@ public class StartGame : MonoBehaviour
 {
     public AudioClip clip;
     public AudioClip clip2;
+    public GameObject board;
 
     [SerializeField]
     private GameObject[] cutscenes;
@@ -87,6 +88,7 @@ public class StartGame : MonoBehaviour
         start.SetActive(false);
         quit.SetActive(false);
         title.SetActive(false);
+        board.SetActive(false);
 
         //StartCoroutine(LoadAsync());
         StartCoroutine(PlayCutscene());

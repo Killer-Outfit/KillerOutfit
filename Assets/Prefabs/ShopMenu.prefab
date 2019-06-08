@@ -2206,6 +2206,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 981473922268015743, guid: 96cfbbb8c267d8e4699816593178b052,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.4
+      objectReference: {fileID: 0}
     - target: {fileID: 981473922268508255, guid: 96cfbbb8c267d8e4699816593178b052,
         type: 3}
       propertyPath: m_Name
@@ -2256,7 +2261,8 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.2558772
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5398811781420272039, guid: 96cfbbb8c267d8e4699816593178b052, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 96cfbbb8c267d8e4699816593178b052, type: 3}
 --- !u!224 &4981140971752062828 stripped
 RectTransform:
