@@ -37,8 +37,15 @@ public class Miniboss : EnemyGeneric
     [SerializeField]
     private AudioClip[] dieSound;
 
+    FMOD.Studio.EventInstance music;
+    FMOD.Studio.Bus bus;
+
     private void Start()
     {
+        bus = FMODUnity.RuntimeManager.GetBus("Bus:/");
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Midboss");
+        music.start();
         health = maxHP;
         vulnerable = false;
         grounded = true;
