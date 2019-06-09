@@ -369,7 +369,7 @@ MonoBehaviour:
   - 3
   - 5
   - 3
-  outfitMesh: {fileID: 4300004, guid: e0042a7176170434f8a0e14612480440, type: 3}
+  outfitMesh: {fileID: 4300000, guid: bfada4ce860f21240ac20d90bce0423b, type: 3}
   outfitMaterial: {fileID: 2100000, guid: 864b62f3fb19d2f499ae487f53fa2d4b, type: 2}
   outfitSkinRenderer: {fileID: 8611697885785939644}
   outfitMenuSkinRenderer: {fileID: 0}
@@ -936,7 +936,7 @@ MonoBehaviour:
   - 3
   - 5
   - 10
-  outfitMesh: {fileID: 4300002, guid: e0042a7176170434f8a0e14612480440, type: 3}
+  outfitMesh: {fileID: 4300006, guid: bfada4ce860f21240ac20d90bce0423b, type: 3}
   outfitMaterial: {fileID: 2100000, guid: eb831e9a441dd4943942b058602bfccf, type: 2}
   outfitSkinRenderer: {fileID: 8611697885785939646}
   outfitMenuSkinRenderer: {fileID: 0}
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   - 5
   - 10
   - 10
-  outfitMesh: {fileID: 4300000, guid: e0042a7176170434f8a0e14612480440, type: 3}
+  outfitMesh: {fileID: 4300004, guid: bfada4ce860f21240ac20d90bce0423b, type: 3}
   outfitMaterial: {fileID: 2100000, guid: f0c6ad255bd8c3f4e8a1eeb62fa0926f, type: 2}
   outfitSkinRenderer: {fileID: 8611697885785939640}
   outfitMenuSkinRenderer: {fileID: 0}
