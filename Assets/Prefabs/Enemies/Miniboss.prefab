@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8813b48b78215f941979ef95910e112a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
+  maxHP: 120
   damage: 20
   Scrap: {fileID: 6678152591484481640, guid: 9b18424f429953b499232568ecf6361e, type: 3}
   chargeParticle: {fileID: 8704751111199571759, guid: 1c5322534d44ab64ebfce65c66f62ba8,
