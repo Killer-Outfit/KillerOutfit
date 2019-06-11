@@ -251,24 +251,35 @@ MonoBehaviour:
   - 'Welcome to Killer Outfit!
 
 
-    Press the A button / Spacebar to close this message and follow the tutorial.  You
-    can end the tutorial at any of these messages by pressing any button other than
-    the A button / Spacebar.'
+    Press the A button / Spacebar to close this message and follow the tutorial.
+
+    You can end the tutorial at any of these messages by pressing the B button / E.'
   - 'Press the X button / LMB to do a Punch Attack.
 
+    Punch Attacks are determined by the Shirt you have equipped.
 
-    Press the A button / Spacebar to close this message and all messages hereafter.  Remember
-    you can end the tutorial at any of these messages by pressing any button other
-    than the A button / Spacebar.'
+
+    Press the A button / Spacebar to try it out!
+
+    Remember you can end the tutorial at any of these messages by pressing the B button
+    / E.'
   - 'Those cones are in your way, but you won''t be able to hit them with Punch Attacks.
 
 
-    Press the B button / RMB to do a Kick Attack and break them.'
+    Press the B button / RMB to do a Kick Attack and break them.
+
+    Kick Attacks are determined by the Pants you have equipped.'
   - 'Destroying objects and defeating enemies drop Scraps.
 
 
     Walk over Scraps to collect them.  You can see how many Scraps you have in the
-    bottom right corner.'
+    bottom right corner.
+
+
+    Scraps add to your score at the end of the level, but they have other uses as
+    well.
+
+    We''ll get to those uses in a bit.'
   - 'Performing quick consecutive attacks create Combos.
 
     Combos are three attacks long, and can be strung together with the different attack
@@ -277,17 +288,35 @@ MonoBehaviour:
 
     Try stringing together combos of different attack types to build your own combat
     style.'
-  - "If you're stuck in a pinch, press the A button / SpaceBar to perform an Accessory
-    Attack.  \n\nAccessory Attacks use up bars of your Style Energy Meter, just below
-    your Stamina Bar.  When used in a Combo, the amount of Energy Bars used depends
-    on where the attack is used in the Combo.\nYou regain Energy when taking damage
-    or hitting enemies.\n\nTry out a few Accessory Attacks and you'll get the hang
-    of it."
-  - Scraps can be used to heal yourself. Press LT / F  to heal yourself.
-  - "Your fashion style also affects your fighting style. New outfits can be crafted
-    with Scraps at hidden Safe Zones found throughout the level. \nAccess these Safe
-    Zones by approaching the Mannequin and pressing the Y button / E.\n\nKeep your
-    eye out for these Safe Zones by their distinctive Mannequin."
+  - 'If you''re stuck in a pinch, press the A button / SpaceBar to perform an Accessory
+    Attack.
+
+    Accessory Attacks are determined by the Headpiece you have equipped.
+
+
+    Accessory Attacks use up bars of your Style Energy Meter, just below your Stamina
+    Bar.
+
+    When used in a Combo, the amount of Energy Bars used depends on where the attack
+    is used in the Combo.
+
+    You regain Energy when taking damage or hitting enemies.
+
+
+    Try out a few Accessory Attacks and you''ll get the hang of it.'
+  - 'Scraps can be used to repair any damage you''ve taken to your Stamina Bar.
+
+    Hold the Left Trigger / F  to heal yourself.
+
+
+    Be aware that you cannot heal yourself in the middle of battle.'
+  - "Your fashion style also affects your fighting style. \nNew outfits can be crafted
+    with Scraps at hidden Safe Zones found throughout the level.\nAccess these Safe
+    Zones by approaching the Mannequin and pressing the Y button / E.\n(Outfits normally
+    cost scraps, but the outfits are free for the sake of this demo).\n\nWhen you're
+    finished creating and equipping new outfits, exit the Safe Zone by pressing the
+    Y button / E again;\n\nKeep your eye out for these Safe Zones by their distinctive
+    Mannequin."
   - Now use what you've learned and go show the world your Killer fashion sense!
   - 
   tutorialOn: 0

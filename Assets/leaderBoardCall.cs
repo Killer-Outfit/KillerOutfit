@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class leaderBoardCall : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class leaderBoardCall : MonoBehaviour
     public GameObject mainBut;
     public GameObject contBut;
     public GameObject entry;
+    private bool winner;
     
     private void Awake()
     {
+        winner = false;
         player = GameObject.Find("PlayerBody");
     }
     void OnEnable()
@@ -28,7 +31,12 @@ public class leaderBoardCall : MonoBehaviour
         {
             restartBut.SetActive(true);
             mainBut.SetActive(true);
-            contBut.SetActive(true);
+            if (winner == true)
+            {
+                GameObject.Find("DeathMessage").GetComponent<Text>().text = "You've Won!!";
+            }
+            else
+                contBut.SetActive(true);
             entry.SetActive(false);
         }
     }
@@ -37,7 +45,19 @@ public class leaderBoardCall : MonoBehaviour
     {
         restartBut.SetActive(true);
         mainBut.SetActive(true);
-        contBut.SetActive(true);
+        if (winner == true)
+        {
+            GameObject.Find("DeathMessage").GetComponent<Text>().text = "You've Won!!";
+        }
+        else
+            contBut.SetActive(true);
         entry.SetActive(false);
+    }
+
+    public void Win()
+    {
+        contBut.SetActive(false);
+        GameObject.Find("DeathMessage").GetComponent<Text>().text = "You've Won!!";
+        winner = true;
     }
 }

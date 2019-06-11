@@ -45,11 +45,19 @@ public class StartGame : MonoBehaviour
 
     private Text activeMessage;
 
+    FMOD.Studio.PLAYBACK_STATE playbackState;
+    private bool playback;
+
     void Awake()
     {
         background = GameObject.Find("Image").GetComponent<Image>();
-        music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Main Menu");
-        music.start();
+        music.getPlaybackState(out playbackState);
+        playback = playbackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
+        if (!playback)
+        {
+            music = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Main Menu");
+            music.start();
+        }
         Time.timeScale = 1.0f;
         activeMessage = GameObject.Find("sceneText").GetComponent<Text>();
         activeMessage.enabled = false;

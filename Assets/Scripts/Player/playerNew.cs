@@ -263,7 +263,7 @@ public class playerNew : MonoBehaviour
                         inputQueue = "misc";
                         qTime = 0.4f;
                     }
-                    else if (Input.GetAxis("L2") > 0 || Input.GetKey("f"))
+                    else if (Input.GetAxis("L2") > 0 || Input.GetKeyDown("f"))
                     {
                         qTime = 0.4f;
                         if(hTime <= 0)
@@ -767,7 +767,7 @@ public class playerNew : MonoBehaviour
         
     }
 
-    private void killPlayer()
+    public void killPlayer()
     {
         //FMODUnity.RuntimeManager.MuteAllEvents(true);
         //score -= 1000;
@@ -778,6 +778,7 @@ public class playerNew : MonoBehaviour
         //healthbar.value = currentHealth / maxHealth;
         //transform.position = checkpoint.getCheckpoint();
         //canvas.SendMessage("PlayerDead", true);
+        maxScore += scraps * 100;
         masterBus.setMute(true);
         musicSource = GameObject.Find("Main Canvas").GetComponent<SceneFade>().source;
         musicSource.enabled = false;
@@ -907,6 +908,19 @@ public class playerNew : MonoBehaviour
     private AudioClip GetRandomDeath()
     {
         return deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
+    }
+
+    private IEnumerator winWait()
+    {
+        yield return new WaitForSeconds(4f);
+        GameObject.Find("PlayerBody").GetComponent<playerNew>().killPlayer();
+        gameOver.GetComponent<leaderBoardCall>().Win();
+        yield return null;
+    }
+
+    public void Win()
+    {
+        StartCoroutine(winWait());
     }
 }
 

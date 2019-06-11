@@ -106,18 +106,20 @@ public class Miniboss : EnemyGeneric
     {
         GetComponent<EnemyMovement>().StopForAttack();
         int thisattack = Random.Range(0, 2);
-        numReg++;
+        Debug.Log("numReg: " + numReg);
         if (thisattack == 0)
         {
             GetComponent<EnemyMovement>().anim.SetTrigger("Attack");
             StartCoroutine("Attack");
         }
-        else if (thisattack == 1 || numReg == 3)
+        else if (thisattack == 1 || numReg == 2)
         {
             numReg = 0;
+            Debug.Log("numReg: "+ numReg);
             GetComponent<EnemyMovement>().anim.SetTrigger("StartBounce");
             StartCoroutine("Bounce");
         }
+        numReg++;
     }
 
     // Punch attack timing
@@ -274,6 +276,7 @@ public class Miniboss : EnemyGeneric
         source.PlayOneShot(clip);
         overmind.GetComponent<Overmind>().RemoveMiniboss();
         GetComponent<EnemyMovement>().Die(0.5f);
+        GameObject.Find("PlayerBody").GetComponent<playerNew>().Win();
         int droppedScraps = Random.Range(10, 50);
         for(int i=0; i < droppedScraps; i++)
         {
